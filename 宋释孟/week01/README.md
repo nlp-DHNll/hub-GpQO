@@ -1,6 +1,7 @@
 # 开发环境部署
 
 我目前使用venv作为虚拟环境,安装了以下依赖参见[requirements](requirements.txt)；
+配置好了Codex[image](image.png)
 
 - ***环境搭建***
 ```bash
