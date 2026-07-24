@@ -3,7 +3,7 @@ import json
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-lbzxuztychgdpwdcpccxsvavbmzdhyabryvxturikxpehsbi",
+    api_key="sk-lbzxuztychgdpwdcxxxabusvavbmzdhyabryvxturikxpehsbi",
     base_url="https://api.siliconflow.cn/v1")
 
 system_prompt = """
