@@ -3,7 +3,7 @@ import math
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-52d4618141134919bd4269704e3824a5",
+    api_key="sk-52d461814113xxxabu269704e3824a5",
     base_url="https://api.deepseek.com",
 )
 
