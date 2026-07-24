@@ -88,7 +88,7 @@ class EmotionRelationAgent:
 
 if __name__ == "__main__":
     # 初始化智能体
-    AGENT_API_KEY = "sk-86fec757d81a42b0bf6a8a514d55a9c7"
+    AGENT_API_KEY = "sk-86fec757d8xxxabubf6a8a514d55a9c7"
     agent = EmotionRelationAgent(api_key=AGENT_API_KEY)
 
     user_sentence = "小明喜欢小姚，但是小姚喜欢小王"
