@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # 使用 硅基流动
 client = OpenAI(
-    api_key="sk-gxfmvalpdbvdhkplyrzgapprpcapekmvblrdbryshodzugct",
+    api_key="sk-gxfmvalpdxxxabupekmvblrdbryshodzugct",
     base_url="https://api.siliconflow.cn/v1",
 )
 
