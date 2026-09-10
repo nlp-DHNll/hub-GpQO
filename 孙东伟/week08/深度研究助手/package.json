@@ -1,0 +1,12 @@
+{
+  "name": "deep-research-assistant",
+  "version": "1.0.0",
+  "description": "深度研究助手：输入研究主题，自动规划、检索、迭代并生成带来源引用的研究报告。",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

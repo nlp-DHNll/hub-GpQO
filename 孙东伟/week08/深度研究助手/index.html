@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>深度研究助手</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>深度研究助手</h1>
+          <p class="subtitle">规划、检索、迭代、综合</p>
+        </div>
+        <span id="system-status" class="status-pill">待命</span>
+      </header>
+
+      <section class="control-panel">
+        <label class="topic-label" for="topic-input">研究主题</label>
+        <textarea
+          id="topic-input"
+          rows="3"
+          maxlength="300"
+          placeholder="例如：2026 年中国 AIGC 市场规模与主要厂商"
+        ></textarea>
+        <div class="control-row">
+          <button id="run-button" class="primary-button" type="button">开始研究</button>
+          <span id="progress-text" class="progress-text" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section id="report-area" class="report-area" hidden>
+        <div class="report-meta" id="report-meta"></div>
+        <div class="toolbar">
+          <button id="download-json" class="ghost-button" type="button">下载 JSON</button>
+          <button id="download-markdown" class="ghost-button" type="button">下载 Markdown</button>
+        </div>
+
+        <div id="summary-box" class="summary-box"></div>
+
+        <section id="sections-box" class="sections-box"></section>
+
+        <div class="two-col">
+          <section id="conclusions-box" class="block"></section>
+          <section id="questions-box" class="block"></section>
+        </div>
+
+        <section id="confidence-box" class="block"></section>
+        <section id="sources-box" class="block"></section>
+        <section id="process-box" class="block"></section>
+      </section>
+
+      <section id="empty-state" class="empty-state">
+        <p>输入主题后开始自动研究，结果会在这里生成。</p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
