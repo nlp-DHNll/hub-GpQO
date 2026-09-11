@@ -1,0 +1,10 @@
+# 密钥与本地配置
+.env
+
+# 运行时产物
+backend/data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
