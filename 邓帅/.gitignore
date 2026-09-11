@@ -1,2 +1,11 @@
 .env
 *.DS_Store
+
+.claude
+# week08 深度研究助手
+week08/frontend/node_modules/
+week08/frontend/dist/
+week08/frontend/tsconfig.tsbuildinfo
+week08/reports/checkpoints.db*
+__pycache__/
+.pytest_cache/
