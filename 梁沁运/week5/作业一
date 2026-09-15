@@ -1,0 +1,23 @@
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+model_path = r"C:\Users\Hester\Desktop\AI\第5周：BERT模型进阶与大模型基础\Week05\BAAI\bge-small-zh-v1.5"
+
+model = SentenceTransformer(model_path)
+
+query = "我今天很开心"
+documents = [
+    "我喜欢机器学习",
+    "我喜欢深度学习",
+    "我今天心情很不错"
+]
+
+query_emb = model.encode(query, normalize_embeddings=True)
+doc_embs = model.encode(documents, normalize_embeddings=True)
+
+similarities = np.dot(doc_embs, query_emb)
+
+print(f"查询: {query}\n")
+print("相似度排序:")
+for idx in np.argsort(similarities)[::-1]:
+    print(f"  {documents[idx]} (相似度: {similarities[idx]:.4f})")

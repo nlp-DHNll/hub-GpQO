@@ -1,0 +1,368 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FEF7C3'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 情感分析小助手umlian48
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.20@83977f8cbc6ccd4a47c3f8a72c454bc42102b20d5b575a2b124d3ebfe92bb226
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 2fa95a2d-6c8a-4f44-b5ed-71bc8e33541a
+    name: has_asked
+    selector:
+    - conversation
+    - has_asked
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1789353345018-llm
+      selected: false
+      source: '1789353345018'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: llm-source-1789354353394-target
+      selected: false
+      source: llm
+      sourceHandle: source
+      target: '1789354353394'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1789354353394-true-1789354607835-target
+      selected: false
+      source: '1789354353394'
+      sourceHandle: 'true'
+      target: '1789354607835'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1789354353394-false-1789354611241-target
+      selected: false
+      source: '1789354353394'
+      sourceHandle: 'false'
+      target: '1789354611241'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1789354607835-source-1789355168962-target
+      selected: false
+      source: '1789354607835'
+      sourceHandle: source
+      target: '1789355168962'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1789354611241-source-1789355168962-target
+      source: '1789354611241'
+      sourceHandle: source
+      target: '1789355168962'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 72
+      id: '1789353345018'
+      position:
+        x: 80
+        y: 14
+      positionAbsolute:
+        x: 80
+        y: 14
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: c0ed541c-37d6-4a09-9b3e-c101d4ca9d10
+          role: system
+          text: 你是一个情感分析助手。请分析用户输入的内容，判断其情感倾向。只需要输出两个字：“正向”或“负向”。不要输出任何其他解释。
+        selected: false
+        title: LLM（情感判断）
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: llm
+      position:
+        x: 80
+        y: 160
+      positionAbsolute:
+        x: 80
+        y: 160
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 8b35a18a-8de9-4d36-b624-1af1d2c0e159
+            value: 正向
+            varType: string
+            variable_selector:
+            - llm
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 123
+      id: '1789354353394'
+      position:
+        x: 89
+        y: 303
+      positionAbsolute:
+        x: 89
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_config:
+          jinja2_variables: []
+        prompt_template:
+        - edition_type: basic
+          id: 380492d8-988a-48fb-9c59-ad2618524214
+          role: system
+          text: 你是一个温暖的情感助手。用户现在的情绪是正向的。请直接回复：“希望你明天也很开心。”
+        selected: false
+        structured_output_enabled: false
+        title: LLM （正向回复）
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1789354607835'
+      position:
+        x: 381
+        y: 69
+      positionAbsolute:
+        x: 381
+        y: 69
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: fdc6e166-85f7-46f7-91f3-7b0964d0a97a
+          role: system
+          text: '你是一个专业的情感分析助手。用户现在表达的是负向情绪。
+
+            请你先判断用户是否说明了心情不好的具体原因：
+
+            【情况一：用户没有说明原因】
+
+            请只输出一句温暖的反问：“听起来你心情不太好，能具体和我说说发生什么事了吗？”
+
+            不要给任何建议，不要多说别的。
+
+            【情况二：用户已经说明了原因或困扰】
+
+            请直接针对用户的原因进行解答，并给出 1-2 条简短、实用的建议，不要展开，200个字以内。'
+        selected: false
+        title: LLM （负向回复）
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1789354611241'
+      position:
+        x: 381
+        y: 289
+      positionAbsolute:
+        x: 381
+        y: 289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1789354611241.text#}}
+
+          {{#1789354607835.text#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 121
+      id: '1789355168962'
+      position:
+        x: 802.5295689295347
+        y: 118.38998403442721
+      positionAbsolute:
+        x: 802.5295689295347
+        y: 118.38998403442721
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 141.69771398239914
+      y: 238.97662545426832
+      zoom: 0.659753955386447
+  rag_pipeline_variables: []
