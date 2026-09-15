@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: research
+      POSTGRES_USER: research
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-research-local-only}
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck: {test: ["CMD-SHELL", "pg_isready -U research"], interval: 5s, timeout: 3s, retries: 20}
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes: [redis_data:/data]
+    healthcheck: {test: ["CMD", "redis-cli", "ping"], interval: 5s, timeout: 3s, retries: 20}
+  api:
+    build: {context: ., dockerfile: Dockerfile.backend}
+    env_file: .env
+    environment: &backend-env
+      DATABASE_URL: postgresql+psycopg://research:${POSTGRES_PASSWORD:-research-local-only}@postgres:5432/research
+      REDIS_URL: redis://redis:6379/0
+      USE_CELERY: "1"
+      COOKIE_SECURE: ${COOKIE_SECURE:-0}
+      FRONTEND_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost}
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+  worker:
+    build: {context: ., dockerfile: Dockerfile.backend}
+    command: celery -A backend.tasks.celery_app worker --loglevel=INFO --concurrency=2
+    env_file: .env
+    environment: *backend-env
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+  frontend:
+    build: {context: ./frontend, dockerfile: Dockerfile}
+    environment:
+      NEXT_PUBLIC_API_URL: /api-proxy
+      API_INTERNAL_URL: http://api:8000
+    depends_on: [api]
+  caddy:
+    image: caddy:2-alpine
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-http://localhost}
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on: [frontend, api]
+volumes:
+  postgres_data:
+  redis_data:
+  caddy_data:

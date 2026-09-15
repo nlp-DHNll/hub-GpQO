@@ -1,0 +1,12 @@
+阅读意图识别 01-intent-classify 代码，梳理源文件的作用，绘制从fastapi 接受请求到返回结果的流程，绘制流程图（手绘、自然语言表达）。
+
+1、请求到达 — 客户端发送 HTTP POST 到 /v1/text-cls/{regex|tfidf|bert|gpt}
+2、Pydantic 校验 — FastAPI 自动将 JSON 反序列化为 TextClassifyRequest 对象，request_text 支持 str 或 List[str]
+3、计时与日志 — 记录 request_id 和 request_text 到日志，开始计时
+4、模型推理 — 根据路由调用对应的分类函数：
+    正则：预编译的关键词正则逐个匹配，命中即返回类别（如 "播放"→FilmTele-Play），无命中返回 "Other"
+    TF-IDF：分词→去停用词→TF-IDF 向量化→LinearSVC 预测，返回类别名
+    BERT：tokenize→batch 推理→logits argmax→CATEGORY_NAME 映射为可读类别
+    GPT：TF-IDF 从训练集检索 top-10 相似样本→拼入提示词模板→调用通义千问 API→解析返回的类别名
+5、异常兜底 — 任何环节出错（如模型文件缺失、API 调用失败），异常堆栈写入 error_msg 字段，classify_result 置空
+6、组装响应 — 将分类结果、耗时（秒级，保留3位小数）、错误信息封装为 TextClassifyResponse，FastAPI 自动序列化为 JSON 返回客户端

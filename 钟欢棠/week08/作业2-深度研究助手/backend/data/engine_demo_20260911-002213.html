@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 年主流 Agent 框架对比：从功能堆叠到协议生态的选型重构</title>
+<style>
+  :root{
+    --ink:#15181c;
+    --ink-2:#333941;
+    --ink-3:#5a636e;
+    --muted:#7d8794;
+    --line:#e6e8ec;
+    --line-2:#f0f2f5;
+    --accent:#1d4ed8;
+    --accent-2:#3b6ef0;
+    --accent-soft:#eef3ff;
+    --bg:#f4f5f7;
+    --card:#ffffff;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    padding:40px 20px 64px;
+    background:var(--bg);
+    color:var(--ink-2);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+    font-size:16.5px;
+    line-height:1.85;
+    letter-spacing:.01em;
+  }
+
+  .page{
+    max-width:900px;
+    margin:0 auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 40px -18px rgba(16,24,40,.18);
+    padding:56px 64px 48px;
+  }
+
+  /* ---------- 头部 ---------- */
+  .report-header{
+    padding-bottom:28px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:36px;
+  }
+
+  .kicker{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.18em;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:999px;
+    padding:4px 14px;
+    margin-bottom:18px;
+    text-transform:uppercase;
+  }
+
+  h1{
+    margin:0 0 18px;
+    font-size:31px;
+    line-height:1.4;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+
+  .meta{
+    font-size:13.5px;
+    color:var(--muted);
+    letter-spacing:.02em;
+  }
+
+  .meta span + span::before{
+    content:"·";
+    margin:0 10px;
+    color:#c3c8d0;
+  }
+
+  /* ---------- 通用段落 ---------- */
+  p{
+    margin:0 0 18px;
+    color:var(--ink-2);
+    text-align:justify;
+  }
+
+  p:last-child{margin-bottom:0;}
+
+  /* ---------- 摘要 ---------- */
+  .abstract{
+    background:#f8fafc;
+    border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;
+    padding:24px 28px;
+    margin-bottom:48px;
+  }
+
+  .abstract h2{
+    margin:0 0 12px;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.1em;
+    color:var(--accent);
+    border:0;
+    padding:0;
+  }
+
+  .abstract p{
+    font-size:16px;
+    color:#2c333c;
+    margin-bottom:0;
+  }
+
+  /* ---------- 分节 ---------- */
+  section.chapter{
+    margin-bottom:48px;
+    scroll-margin-top:24px;
+  }
+
+  h2.chapter-title{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin:0 0 22px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+    font-size:21px;
+    line-height:1.45;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:-.005em;
+  }
+
+  h2.chapter-title .num{
+    flex:0 0 auto;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:6px;
+    padding:3px 9px;
+    transform:translateY(-2px);
+  }
+
+  /* ---------- 结论列表 ---------- */
+  .conclusions{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .conclusion{
+    background:#fbfcfe;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+  }
+
+  .conclusion .ctext{
+    margin:0 0 10px;
+    font-size:15.5px;
+    color:#2b3138;
+  }
+
+  .conclusion .ctext:last-child{margin-bottom:0;}
+
+  /* ---------- 重点结论区 ---------- */
+  .key-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    counter-reset:kc;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .key-list > li{
+    counter-increment:kc;
+    display:flex;
+    gap:16px;
+    background:#fbfcfe;
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;
+    padding:20px 22px;
+  }
+
+  .key-list > li::before{
+    content:counter(kc);
+    flex:0 0 auto;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    line-height:26px;
+    text-align:center;
+    margin-top:3px;
+  }
+
+  .kc-body{flex:1 1 auto;min-width:0;}
+
+  .kc-text{
+    margin:0;
+    font-size:16px;
+    color:#22282f;
+  }
+
+  .kc-src{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--line);
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.8;
+  }
+
+  .kc-src .label{
+    font-weight:600;
+    color:var(--ink-3);
+    margin-right:6px;
+  }
+
+  /* ---------- 引用角标 / 链接 ---------- */
+  .cite{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:600;
+    line-height:1.5;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:5px;
+    padding:1px 7px;
+    margin-right:6px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background .15s ease,color .15s ease;
+  }
+
+  .cite:hover{
+    background:var(--accent);
+    color:#fff;
+  }
+
+  .badge-infer{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    color:#8a5a00;
+    background:#fff5e0;
+    border:1px solid #f2d79b;
+    border-radius:999px;
+    padding:1px 10px;
+    margin-left:8px;
+    vertical-align:1px;
+  }
+
+  /* ---------- 遗留问题 ---------- */
+  .questions{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .questions li{
+    position:relative;
+    padding:14px 18px 14px 44px;
+    background:#fbfcfe;
+    border:1px solid var(--line);
+    border-radius:10px;
+    font-size:15.5px;
+    color:#2b3138;
+  }
+
+  .questions li::before{
+    content:"?";
+    position:absolute;
+    left:16px;
+    top:14px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#eef1f5;
+    color:var(--ink-3);
+    font-size:12px;
+    font-weight:700;
+    line-height:18px;
+    text-align:center;
+  }
+
+  /* ---------- 来源列表 ---------- */
+  .source-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    counter-reset:src;
+  }
+
+  .source-list > li{
+    counter-increment:src;
+    position:relative;
+    padding:14px 0 14px 44px;
+    border-bottom:1px solid var(--line-2);
+    font-size:15px;
+  }
+
+  .source-list > li:last-child{border-bottom:0;}
+
+  .source-list > li::before{
+    content:"[" counter(src) "]";
+    position:absolute;
+    left:0;
+    top:16px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:.02em;
+  }
+
+  .source-list a.src-title{
+    color:#1f2733;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid rgba(29,78,216,.25);
+    transition:border-color .15s ease,color .15s ease;
+  }
+
+  .source-list a.src-title:hover{
+    color:var(--accent);
+    border-color:var(--accent);
+  }
+
+  .source-list .src-url{
+    display:block;
+    margin-top:5px;
+    font-size:12.8px;
+    color:var(--muted);
+    word-break:break-all;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+
+  /* ---------- 页脚 ---------- */
+  .report-footer{
+    margin-top:56px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    font-size:13.5px;
+    color:var(--muted);
+  }
+
+  .report-footer strong{
+    color:var(--ink-3);
+    font-weight:600;
+  }
+
+  /* ---------- 分节标题（浅色） ---------- */
+  h2.plain{
+    margin:0 0 22px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+    font-size:21px;
+    font-weight:700;
+    line-height:1.45;
+    color:var(--ink);
+  }
+
+  section.block{margin-bottom:48px;scroll-margin-top:24px;}
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:700px){
+    body{padding:16px 10px 40px;font-size:16px;}
+    .page{padding:32px 22px 32px;border-radius:12px;}
+    h1{font-size:24px;}
+    h2.chapter-title,h2.plain{font-size:18.5px;}
+    .abstract{padding:18px 18px;}
+    .key-list > li{padding:16px 16px;}
+    .source-list > li{padding-left:38px;}
+  }
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .page{box-shadow:none;border:0;padding:0;}
+    .cite{color:#000;background:none;padding:0;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="report-header">
+    <div class="kicker">深度研究报告</div>
+    <h1>2026 年主流 Agent 框架对比：从功能堆叠到协议生态的选型重构</h1>
+    <div class="meta">
+      <span>综合 11 组检索关键词</span>
+      <span>报告生成时间：2026-09-11</span>
+    </div>
+  </header>
+
+  <section class="abstract">
+    <h2>摘要</h2>
+    <p>本报告综合 11 组检索关键词的资料，对 2026 年主流 Agent 框架的格局、选型逻辑与落地约束进行对比。研究发现，2026 年框架竞争的主线已从功能堆叠加法转向以协议为核心的生态竞争，「框架选型」正让位于「协议生态」，MCP 协议兼容性、生态开放度与工程可落地性成为与模型能力同等重要的评估维度。开源阵营中，OpenClaw（30 万以上 Star，聚焦网关路由）与 Hermes Agent（两个月内升至 6 万以上 Star，主打自进化）构成最受关注的双雄格局；LangGraph、CrewAI、AutoGen 则围绕架构设计、协作模式与上手难度形成多元竞争。企业侧，Gartner 预测 2026 年底全球 40% 的企业应用将内置任务型 Agent，市场进入规模化落地与格局定型阶段，选型标准由功能数量转向业务场景契合度以及部署与长期运维成本。评估层面，斯坦福 HAI 报告显示 Agent 处理现实任务的成功率由 20% 升至 77.3%，但跨框架的任务完成率、延迟与成本联合基准仍不完善。与此同时，Token 成本与延迟、安全合规与可观测性已成为决定能否规模化落地的前置约束。</p>
+  </section>
+
+  <section class="chapter" id="sec-1">
+    <h2 class="chapter-title"><span class="num">01</span><span>2026 年 AI Agent 框架对比评测</span></h2>
+    <p>2026年，AI Agent已从“概念热词”转变为实际的生产力工具，围绕其框架的评测与选型也随之进入新阶段。公开的技术评测普遍指出，这一年的框架竞争已不再是单纯的功能堆叠加法，而是演变为以协议为核心的生态竞争，选型逻辑正在经历从“框架选型”到“协议生态”的范式跃迁，“协议为王”成为多家评测共同强调的判断基调。与之相呼应，围绕主流框架的解析普遍将MCP协议纳入考察范围，把协议兼容性、生态开放度与工程可落地性视为与模型能力同等重要的评估维度。在概念层面，相关指南将AI Agent界定为能够自主感知环境、规划决策并执行多步任务的AI系统，并据此展开核心概念、主流框架、开发实践与部署建议的系统梳理。</p>
+    <p>在具体的框架格局上，开源阵营的对比最为集中。以OpenClaw与Hermes Agent为代表的两款框架被视为2026年最受关注的开源选择：前者是积累深厚的老牌框架，拥有30万以上Star；后者则在两个月内迅速攀升至6万以上Star，属于成长迅猛的新秀。两者的定位差异明显，一个聚焦网关路由，一个主打自进化，围绕它们的深度对比通常覆盖架构设计、记忆机制与生态建设等多个维度，形成“架构—记忆—生态”的全面PK式评测框架。</p>
+    <p>从选型资料的覆盖范围看，2026年的主流综述多按“七大”或“八大”主流框架的规模进行生产级深度评测，内容侧重真实生产环境下的能力边界与适配成本，而非实验室条件下的功能罗列。与此同时，更早时期的资料构成了理解当前格局的沿革背景：2025年前后的报告曾系统梳理AI Agent与Agentic AI的原理与应用，出现了对19类Agent框架的横向对比，也有面向国内生态的7款框架与应用解析；更早的2024年则停留在发展现状、技术趋势与产业链厂商的分析层面。这些不同年份的评测口径叠加起来，勾勒出一条从功能比价、类别罗列，走向协议标准、生态位与生产可用性综合衡量的演进路径，也解释了为何2026年的框架对比普遍以“协议”而非“功能清单”作为组织全文的主线。</p>
+  </section>
+
+  <section class="chapter" id="sec-2">
+    <h2 class="chapter-title"><span class="num">02</span><span>LangGraph vs CrewAI vs AutoGen 2026 选型</span></h2>
+    <p>2025 至 2026 年被普遍视为 AI Agent 工程化的爆发期。当应用形态从“单个 LLM 加 Prompt”演进为多 Agent 协作系统时，如何选择编排框架成为开发者无法回避的问题。目前开源社区中被讨论最多的三大主流框架是 LangGraph、CrewAI 与 AutoGen，三者常被放在同一维度下比较。从公开信息看，AutoGen 由 Microsoft 于 2023 年发布，CrewAI 同样于 2023 年面世，LangGraph 则出自 LangChain 生态，于 2024 年推出；此外还有 AgentScope（清华大学，2024）等框架进入视野。需要注意的是，LangChain 与 LangGraph 常被定位为 AI 应用的“底层开发框架”，其特点是提供模块化组件与设计模式，对使用者的编程能力有较高要求，这与更偏向开箱即用的框架形成定位差异。</p>
+    <p>在对比维度上，已有技术分析从架构设计、上手难度、适用场景三个方面对 AutoGen、CrewAI 与 LangGraph 展开全面比较，同时也会纳入开发者背景、首次发布时间、GitHub Stars 与核心理念等指标。协作模式是区分这些框架的关键之一：AutoGen 采用基于多角色对话的自然协作模式，智能体在类似“群聊”的环境中通过对话进行交互；LangGraph 与 LangChain 生态深度关联，常被归入底层开发框架一类；CrewAI 同样于 2023 年发布，与前两者并列进入选型视野。此外，部分横评还会将 LlamaIndex 等框架纳入同一比较序列。这些在定位与协作模式上的差异，构成了后续选型讨论的基础。</p>
+    <p>从生产选型角度看，框架选择不能仅依据社区热度或学习难度。实践者分享的案例显示，在“三天内搭建一个多 Agent 客服系统”这类时间紧、目标明确的场景中，开发者会在 LangGraph 与 CrewAI 之间犹豫；也有人花一周学习某个框架后，团队最终决定弃用，原因正是选型与团队实际需求不匹配。这些现象提示，选型应回归业务场景、团队技术栈与长期维护成本，并综合架构设计、上手难度、适用场景等因素加以判断。围绕“谁才是真·编排之王”的讨论仍在持续，但可以确定的是，以 LangGraph、CrewAI、AutoGen 为代表的多元竞争格局已经形成，三者各有千秋，选型需结合具体场景综合权衡。</p>
+  </section>
+
+  <section class="chapter" id="sec-3">
+    <h2 class="chapter-title"><span class="num">03</span><span>企业级 Agent 开发平台市场份额 2026</span></h2>
+    <p>2026年，企业级Agent开发平台已从技术验证阶段全面进入规模化商业落地周期，被普遍视为企业数字化转型中确定性较高的投入方向。全球市场层面，Gartner预测到2026年底，全球40%的企业应用将内置任务型Agent；企业级智能体市场规模在2025年已达3.3万亿美元，年复合增长率维持在28%的高位。中国市场表现尤为突出，2025年企业级AI Agent应用市场规模突破232亿元，2023—2027年复合增长率高达120%，增速领跑全球。从演进节奏看，2024年被视为大模型爆发年，2025年为Agent产品元年，2026年则被认为是企业级智能体市场格局定型的年份，平台竞争的重心由此前的功能比拼转向规模化交付能力与行业落地深度。</p>
+    <p>在这一格局下，企业级平台的供给形态进一步细分。一类是面向全栈能力的通用型Agent开发平台，强调从模型接入、智能体编排到运营治理的端到端支撑，蚂蚁数科Agentar等被作为全栈标杆列入推荐；另一类是聚焦数据智能的Data Agent开发平台，围绕企业数据资产构建分析与决策类智能体，2026年同样被视为其规模化落地元年。与此同时，围绕可定制化能力与行业适配度的服务商评测和厂商榜单大量涌现，覆盖物业管理、快消零售等具体场景，反映出市场对落地确定性的关注已超过对单一技术指标的关注。</p>
+    <p>就市场份额而言，现有公开梳理多以整体市场规模与增速作为衡量口径，并辅以厂商排行榜、选型指南等形式呈现竞争格局，尚未形成统一口径的份额排名。系统性的行业观察主要来自《中国企业级AI Agent发展洞察报告（2026）》等研究报告，以及中国人工智能产业发展联盟（AIIA）发布的行业报告，这些材料侧重分析中国市场的发展现状与厂商能力分层，为判断头部厂商的相对位置提供了参考，但具体的份额数值仍有待更细颗粒度的统计披露。</p>
+  </section>
+
+  <section class="chapter" id="sec-4">
+    <h2 class="chapter-title"><span class="num">04</span><span>多智能体框架 性能基准测试 benchmark 2026</span></h2>
+    <p>围绕多智能体框架的性能基准测试，2026年前后的资料显示该领域正从零散的能力点验证走向体系化评估建设。在框架层面，已有技术调研系统梳理了2025年以来主流开源多智能体框架的技术生态，涵盖LangGraph、AutoGen、CrewAI、Semantic Kernel、Pydantic AI与AgentScope等代表性实现，形成了可供横向比较的框架谱系；2026年发布的智能体开发指南同样以主流框架盘点、实战与选型策略为核心内容，说明框架对比仍主要围绕功能特性、协作模式与工程可用性展开，框架层面尚未形成统一的性能基准口径。与之相对，评估方法本身已成为独立议题：围绕“如何设计有效指标来评估多智能体系统性能”，业界提出了建立多智能体系统性能评估指标的需求，讨论范畴从单一大模型的能力打分扩展至对协同过程与任务结果的综合度量，涉及任务完成质量、协作开销与执行效率等维度。</p>
+    <p>在具体基准方面，领域化评估平台开始出现。“医学多智能体基准平台”作为一项全新的医疗人工智能评估基准，旨在系统评估多智能体协作、单一大语言模型以及常规方法在多样化医疗任务中的表现，其设计取向是将多智能体协作与单模型基线置于同一任务集下进行对照；面向代码生成等通用能力，LiveCodeBench（Pass@1-COT）等基准被用于智能体性能参数的比较，成为衡量底层模型能力的一类通用工具。与此同时，评估的标准化进程同步推进：可信AI多智能体协同2026年首批评估已正式启动，首个行业标准即将报批，而多智能体协同系统通过动态任务分解、合理任务分配等能力，可有效降低复杂任务的执行难度并提升任务执行效率，为评估指标提供了工程化参照。这一进程的背景是，多智能体系统已从概念验证阶段迈入批量交付阶段，企业对“从0到1”落地的需求出现指数级增长，Gartner 2025年发布的《多Agent企业应用报告》被用于说明企业侧的渗透程度，全球AI智能体相关市场规模预计突破1500亿美元，其中企业级应用构成主要增量。由此，基准测试的功能不再局限于技术能力比较，也逐步成为框架选型与交付验收的参照依据。</p>
+  </section>
+
+  <section class="chapter" id="sec-5">
+    <h2 class="chapter-title"><span class="num">05</span><span>Agent 框架生产环境落地趋势与选型建议 2026</span></h2>
+    <p>2026 年，企业级 AI 智能体市场完成了一次关键转折：从概念验证全面转入规模化落地阶段。Gartner 预测，到 2026 年底将有 40% 的企业应用集成 AI Agent，早期部署也已显现出实际成效。随之而来的是选型逻辑的转变——企业在评估 Agent 框架时最纠结的问题，已不再是“哪个功能最多”，而是“哪个最适合我的业务场景”。与此同时，从选型到部署的完整链路中仍存在大量实践陷阱，如何避免项目停留在试验阶段，让 Agent 真正进入生产环境，成为这一阶段的核心议题，也推动各类选型指南从单纯的功能罗列转向对落地路径、部署成本与运维可行性的系统论证。</p>
+    <p>在框架格局层面，Agent 开发生态经历了显著扩张：2024 年业界讨论较多的还是由 LangChain、LlamaIndex、AutoGen、CrewAI 构成的“四大金刚”，到 2026 年已扩展至 11 大框架，实际选型梳理中常以八大主流框架作为对比基线。面向企业决策者、技术架构师与产品负责人的技术栈指南，普遍强调高信息密度与全栈覆盖，将模型接入、编排框架、工具调用、记忆机制与可观测性等环节纳入统一考量，并针对垂直行业给出差异化建议。在选型方法上，业界倾向于回归 Agent 的本质定义——能够自主感知环境、规划决策并执行多步任务的 AI 系统——并结合 Anthropic《Building effective agents》、OpenAI 实践指南等官方工程经验，从工程选型、架构体系与场景落地三个层面展开完整论证。由此形成的共识是：生产环境选型应以业务场景为锚点，优先考察框架与既有技术栈的契合度、多步任务编排与工具集成能力，以及部署与长期运维成本，而非单纯比拼功能数量或生态热度；同时需在项目早期就建立评估与避坑机制，才能将规模化落地的预期转化为实际收益。</p>
+  </section>
+
+  <section class="chapter" id="sec-6">
+    <h2 class="chapter-title"><span class="num">06</span><span>OpenAI Agents SDK vs Google ADK vs Claude Agent SDK 对比 2026</span></h2>
+    <p>在 2026 年的语境下，围绕 Agent 框架的讨论首先呈现出从“代码补全工具”向“终端 Agent”迁移的整体趋势。过去一年 AI 编程工具的形态变化非常快，早期以 Cursor、Copilot、Tabnine 为代表的代码补全产品，已逐步让位于能够在终端中自主完成多步任务的 Agent 形态；到 2026 年，AI 编程工具已全面进入终端 Agent 成熟阶段，用户的讨论对象也从单一编辑器插件转向 Codex、Claude Code、OpenCode、Qoder、Trae CN、Gemini CLI 等一批终端型 Agent 产品。从实际使用者的反馈看，同时并行使用包括 OpenClaw、Hermes、Codex 以及 Claude Code 在内的多款主流 Agent 已成为相当一部分重度用户的常态，这也说明当前的 Agent 生态尚未收敛到单一产品，多框架并存的格局仍然明显。</p>
+    <p>在选型层面的公开讨论中，对比往往落在具体的工具对上，例如 OpenCode 与 Claude Code 的取舍、Codex CLI 与 Claude Code 的深度对比等。这些比较普遍采用的评估维度包括安装与上手难度、定价与订阅方式、代码质量与生成能力、指令遵循能力、上下文理解与记忆系统，以及生态与扩展能力，反映出业界对 Agent 框架的评价标准已从单纯的模型能力扩展到工具链完整度与可扩展性。与此同时，厂商层面的格局被概括为：Anthropic 凭借“代码+生产力”打造高毛利护城河，Google 凭借“多模态+生态”构建帝国，OpenAI 则在整体竞争中占据另一极。这种厂商定位上的差异，构成了各家 Agent 框架在底层模型能力、工具生态与商业策略上的分野。</p>
+    <p>需要说明的是，本次检索到的资料主要集中在终端编码类 Agent 产品与三家厂商的整体战略对比，并未提供针对 OpenAI Agents SDK、Google ADK 与 Claude Agent SDK 三者在接口设计、编排机制、工具调用规范等维度的直接并列评测数据，因此关于这三套官方 Agent SDK 的具体差异，尚需补充更贴近开发者文档与实测的资料后再作判断。</p>
+  </section>
+
+  <section class="chapter" id="sec-7">
+    <h2 class="chapter-title"><span class="num">07</span><span>Agent 框架 Token 成本与延迟量化对比 2026</span></h2>
+    <p>在 2026 年的 Agent 落地讨论中，Token 成本与延迟已从工程细节上升为决定产品可行性的核心变量。对单次 Agent 调用的成本拆解显示，输入 Token 由性质不同的若干部分构成：系统提示与工具定义（Schema）属于固定开销，每次调用都需支付，注册的工具越多这部分越重；对话历史则随交互轮次近似线性增长，是长会话场景下成本膨胀的主要来源。围绕这一结构，主流优化策略集中在上下文管理与缓存复用上，通过裁剪历史、精简工具描述、复用缓存前缀来抑制增量开销。同样关键的是，成本与延迟必须联合评估：在多模态输入场景下，图像尺寸等因素会同时影响请求耗时与计费口径，因此任何量化数字都应先被理解为拆分方法而非可外推的结论，上线前仍需以模型供应商账单、链路追踪与当前样本集复核为准。这也意味着，跨框架的 Token 成本与延迟对比难以脱离具体任务负载、工具集规模与会话长度而单独成立。</p>
+    <p>从产业侧看，2026 年大模型 Token 单价已降至前两年的百分之一量级，但 Agent 的账单生成速度并未同步下降。制约产品能否跑通的要素，已不只是模型能力，而是 Token 消耗结构、工具调用频次、上下文管理方式、缓存策略以及成本护栏的设置。企业看待 Token 经济的心态因此颇为矛盾：单价已至地板，而 Agent 对积分与 Token 的消耗仍使其账单增长很快，尤其当 AI 从偶发尝试转为常态化运行之后；已有开发者反馈，运行单个 Agent 任务的实际开销远超直觉预期，并由此引发对 SaaS 定价模式的重新讨论。这一张力被普遍概括为行业核心矛盾的转移——从模型能力边界转向推理成本的可控性，其背景是竞争重心由训练时代演进至推理时代，且 2026 年已进入 AI Agent 加速落地期。与此同时，分布式 Agent 系统中的 Token 消耗成本优化已成为独立的专门议题。综合来看，2026 年 Agent 框架的竞争焦点，正在于以可量化的成本与延迟指标约束架构选择，而非单纯比较模型能力上限。</p>
+  </section>
+
+  <section class="chapter" id="sec-8">
+    <h2 class="chapter-title"><span class="num">08</span><span>Agent 框架安全合规与可观测性治理能力评测 2026</span></h2>
+    <p>在2026年的框架评测语境中，安全合规与可观测性已由附加项转变为准入门槛。监管层面，网信办新规将AI Agent纳入专项监管，“可信质量”评估成为智能体上线的硬性前置条件，这使安全治理对IT团队而言不再是“要不要做”的选择题，而是“怎么做”的必答题。需求侧同样在快速升温：中国人工智能产业发展联盟的相关报告显示，国内Agent智能体开发平台用户对合规性的需求同比增长120%，但超过70%的平台仍无法满足企业级数据安全与合规标准，供需之间存在明显落差。随着Agent在金融科技、政务、医疗等行业加速落地，企业对智能体的要求已从“可用”升级为“可信可控”——由于Agent系统在执行自主任务时会涉及客户数据等敏感信息，安全合规能力的厂商横向对比因此成为选型的关键环节。在具体能力清单上，OWASP Agentic Top 10、Human-in-the-Loop（HITL）、权限模型、多租户隔离与审计合规被普遍视为安全防护的必考项，构成安全岗位与平台选型的核心考察维度。</p>
+    <p>可观测性与质量评测构成治理的另一条主线。在AI工程化快速落地的背景下，智能体是否可靠、给出的答案是否正确、提供的案例是否真实可信，已成为普遍痛点，Datadog基于千家企业生产环境的实践数据对此提供了参照。相应地，行业成熟产品的评测维度被归纳为行业落地能力、Agentic成熟度、安全合规性、技术生态与工程可用性等若干项，安全合规性被与落地能力并列纳入一级指标，反映出治理能力与业务价值在评测体系中的权重趋同。在数据治理这一细分场景中，治理Agent本身也被纳入选型比较，其能力取向正从“规则驱动”迈向“智能驱动”，传统的“人工配置规则、逐项梳理标准”模式正在被AI原生方式替代，合规要求随之被内嵌到产品能力评估之中。</p>
+    <p>在框架层面，2026年的竞争已从单纯的功能堆叠演变为协议生态的比拼，“框架选型”正在向“协议生态”发生范式跃迁，生产级评测亦以“协议为王、选型重构”为基调。参评对象覆盖LangChain、CrewAI、MAF、LlamaIndex、Google ADK、OpenAI SDK与Mastra等主流框架，而面向平台的选型指南则多从合规性与定制化双维度展开。这一取向提示，安全合规与治理可观测性已不只是框架之间的功能差异点，更是决定企业能否规模化落地的前置约束。</p>
+  </section>
+
+  <section class="chapter" id="sec-9">
+    <h2 class="chapter-title"><span class="num">09</span><span>OpenAI Agents SDK / Google ADK / Claude Agent SDK 开发者实测与 API 设计差异 2026</span></h2>
+    <p>2026 年被普遍视为 AI Agent 爆发的元年，框架与工具讨论的重心已从模型能力本身转向工程可用性。工具形态的演进在开发者实测材料中被反复提及：早期以 Cursor、Copilot、Tabnine 为代表的单句代码补全工具，已过渡到能够自主理解需求、修改多文件并执行终端命令的终端 Agent，2026 年被认为是终端 Agent 全面成熟的阶段。在这一背景下，围绕 Claude Code 与 Codex 的对比成为社区高频主题，比较维度集中于基准测试结果、Agent 架构设计与用量限制三方面，而非单纯的生成质量；相关讨论同时覆盖 OpenCode、Cursor 等同类工具，反映开发者关注点在于实际工作流中的可替换性与成本边界，而非单一产品的功能清单。</p>
+    <p>在框架层面，横向评测将 Claude Agent SDK 与 LangChain 等既有方案并列，并同时列举 Vercel 的 AI SDK、Google 的 ADK 以及 AWS 的相关框架，表明主要厂商均已推出自有 Agent 开发框架，选型问题由此从“是否使用框架”转变为“采用哪一家的框架”。针对 Claude Agent SDK 的开发者实践材料更偏向落地路径：有开发者将其与开源项目结合以学习 Agent 构建，并通过 Skill 机制由模型自行搭建完整的 Web 应用，说明该 SDK 的设计取向是将能力封装为可组合、可复用的技能单元，而非要求开发者直接编排底层调用。</p>
+    <p>综合来看，2026 年围绕 Agent 框架的材料呈现两类分野：一类是面向工具选型的 CLI 与 IDE 级对比，关注基准测试、用量限制与工作流体验，细节丰富但停留于产品层；另一类是面向开发者的框架横评，覆盖 Claude Agent SDK、Google ADK、AI SDK 等，关注能力封装方式与可扩展性，但大多是框架清单式的概览，对 API 设计差异的刻画仍较笼统。就本轮材料而言，OpenAI Agents SDK 尚未获得独立的开发者实测或逐项 API 对比，Claude Agent SDK 凭借较具体的实践案例在被检索内容中占据相对突出的位置。</p>
+  </section>
+
+  <section class="chapter" id="sec-10">
+    <h2 class="chapter-title"><span class="num">10</span><span>Agent 框架 基准测试 实测数值对比（任务完成率 延迟 成本）2026</span></h2>
+    <p>围绕Agent框架的基准测试与实测数值对比，2026年公开资料呈现出几条相互印证的线索。在任务完成率这一核心指标上，斯坦福HAI发布的2026年AI Index Report给出了覆盖较广的量化结论：AI Agent处理现实世界任务的成功率从20%跃升至77.3%，其中网络安全类Agent的成功率由15%提升至93%，表明在边界清晰、反馈明确的任务域中，Agent的端到端完成能力已达到生产可用水平；但该报告同时提示，在结构化程度较低的场景中表现仍存在明显落差，任务完成率的高度场景依赖性，是解读任何单一数值时必须附加的前提。</p>
+    <p>框架差异而非模型差异，正成为实测对比的焦点。新近提出的DuMateBench以复杂真实工作流为测试对象，结果显示同一底层模型在不同Agent框架下的表现差异显著，这意味着框架的编排、记忆与工具调用策略对最终结果具有独立且可观的贡献，“模型×框架”的乘法关系正在取代以往单看模型能力的评价范式。针对三款终端Agent的长周期编程基准测试同样指出，2026年AI编程工具的竞争焦点已从代码生成质量转向Agent自主执行能力：在生成函数、修复缺陷等短任务上各工具差距有限，真正拉开距离的是需要连续多步、跨文件并长时间维持上下文的复杂任务，长任务因而被视为检验Agent水平的关键标准。</p>
+    <p>在延迟与成本维度，现有资料更多停留在方法论与瓶颈识别层面，尚未形成跨框架的统一数值榜单。针对Agent记忆系统的评测讨论集中在“延迟与准确率”的权衡上，即更激进的记忆检索与压缩策略往往以响应延迟为代价换取准确率提升；针对多Agent系统的分析则将Agent间通信延迟识别为关键性能瓶颈。与此同时，企业级Agent性能压测体系开始从单接口测试扩展到全链路，基于千家企业生产环境数据的评测亦将Agent可靠性与答案可信度列为核心痛点。总体来看，2026年的Agent基准测试已从“能否完成”转向“在何种延迟与成本约束下稳定完成”，但任务完成率、延迟、成本三者的标准化联合报告仍处于建设之中，跨框架、跨任务的实测数值对比尚不充分。</p>
+  </section>
+
+  <section class="chapter" id="sec-11">
+    <h2 class="chapter-title"><span class="num">11</span><span>AI Agent 企业真实落地案例与 ROI 复盘 2026</span></h2>
+    <p>2026年被业界普遍视为AI Agent的落地元年，也被称为企业AI应用的分水岭之年。自第二季度起，Gartner、S&amp;P Global、BCG、Forrester等机构在三个月内集中发布多份调查报告，企业侧AI Agent的部署数据随之密集出炉。综合这些材料可以看出，企业级AI Agent正从技术概念进入规模化落地期，被视为当前确定性最高的数字化投入方向；Gartner预测，到2026年底全球40%的企业应用将内置任务型Agent。对3000余个企业落地案例的梳理归纳出六项主要趋势，其中已有头部企业部署23个Agent，表明领先者正从单点试验转向多智能体并行部署。</p>
+    <p>从已跑通的场景看，客户服务是最先形成规模化复制的领域之一，2026年同样被称为AI Agent客服的落地元年，10个真实场景已被验证可行。营销是另一条活跃战线，覆盖营销方案自动生成、社媒投放智能复盘、官网特效迁移与SEO优化等环节，Agent正深度嵌入业务流程。垂直行业方面，房地产领域已有白皮书收录100个AI Agent重构产业的真实案例，说明落地范围正由通用职能向行业纵深扩展。围绕2026年上半年WAIC、企业公开案例与第三方实验的复盘，则系统拆解了Agent具体落在哪些场景、效率账如何计算，并给出了一个反直觉的结论，提示ROI的兑现路径可能不同于企业的直觉预期。</p>
+    <p>不过，落地进程并非一帆风顺。行业数据显示，超过60%的企业在引入AI智能体后一年内陷入“上线即停滞”的困境，其原因多被归结为只关注技术选型，而忽视了技术之外的其他关键要素。这意味着，Agent能否产生可持续的回报，取决于场景选择、流程改造与组织配套等条件的协同，而非单纯的工具引入。</p>
+  </section>
+
+  <section class="block" id="key-conclusions">
+    <h2 class="plain">关键结论</h2>
+    <ol class="key-list">
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">2026 年 Agent 框架竞争的主线已由功能堆叠转向以协议为核心的生态竞争，公开评测普遍以「协议为王、选型重构」为基调，协议兼容性、生态开放度与工程可落地性被列为与模型能力同等重要的评估维度，「框架选型」正在发生向「协议生态」的范式跃迁。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-1" title="2026年七大AI Agent框架生产级深度评测:协议为王,选型重构-CSDN博客">[1]</a>
+            <a class="cite" href="#src-2" title="AI Agent 开发实战:2026年主流框架与MCP协议深度解析AI Agent 开发实战:2026年主流框架与MCP - 掘金">[2]</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">开源阵营形成 OpenClaw 与 Hermes Agent 的双雄格局：前者是拥有 30 万以上 Star 的老牌框架、聚焦网关路由，后者在两个月内升至 6 万以上 Star、主打自进化；围绕两者的深度对比通常覆盖架构设计、记忆机制与生态建设三个维度。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-3" title="Hermes Agent vs OpenClaw 2026终极对比:架构、记忆、生态全面PK-腾讯云开发者社区-腾讯云">[3]</a>
+            <a class="cite" href="#src-4" title="Hermes Agent vs OpenClaw:2026 年开源 AI Agent 框架深度对比_hermes框架-CSDN博客">[4]</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">企业级市场已进入规模化落地与格局定型阶段：Gartner 预测到 2026 年底全球 40% 的企业应用将内置任务型 Agent；2025 年全球企业级智能体市场规模达 3.3 万亿美元、年复合增长率维持 28%，中国市场 2025 年企业级 AI Agent 应用规模突破 232 亿元，2023—2027 年复合增长率约 120%，平台竞争重心由功能比拼转向规模化交付能力与行业落地深度。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-5" title="一文读懂:企业级 AI Agent 平台(价值、分类、趋势、如何选)--产业资讯--中国经济新闻网">[5]</a>
+            <a class="cite" href="#src-6" title="2026年企业级智能体开发平台推荐:助力企业快搭建智能体--产业资讯--中国经济新闻网">[6]</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">编排框架层面，AutoGen（Microsoft，2023，基于多角色对话的自然协作）、CrewAI（2023）与 LangGraph（LangChain 生态，2024，常被归为底层开发框架）定位各异；选型讨论已从社区热度与学习难度回归业务场景、团队技术栈与长期维护成本，同时框架数量由 2024 年的「四大金刚」扩展至 2026 年的 11 大框架，生产级梳理常以八大主流框架为对比基线。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-7" title="AI Agent 编排框架深度对比:LangGraph vs CrewAI vs AutoGen--从架构哲学到生产选型 - 掘金">[7]</a>
+            <a class="cite" href="#src-8" title="AutoGen vs CrewAI vs LangGraph:2026年 Agent 框架怎么选?_2026agent最新开发框架比较-CSDN博客">[8]</a>
+            <a class="cite" href="#src-9" title="【系统学AI】11 Agent开发框架选型(2026版):最新的11大框架地图&quot;-CSDN博客">[9]</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">Token 成本与延迟已从工程细节上升为决定产品可行性的核心变量：单次 Agent 调用的输入 Token 中，系统提示与工具定义（Schema）属固定开销、对话历史随轮次近似线性增长；尽管 Token 单价已降至前两年的百分之一量级，Agent 账单仍增长迅速，行业核心矛盾由模型能力边界转向推理成本的可控性。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-10" title="Agent 系列(18):成本与性能优化--省钱且更快Agent 的成本大头在哪里?本文用四个对比实验覆盖核心优化策略: - 掘金">[10]</a>
+            <a class="cite" href="#src-11" title="百度想明白了:旧供给到达极限了 - InfoQ">[11]</a>
+            <a class="cite" href="#src-12" title="AI每次干活比你想象贵10倍,SaaS要重新定价了|agent|saas|token|大模型|消耗量_手机网易网">[12]</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="kc-body">
+          <p class="kc-text">安全合规与可观测性已由附加项转变为准入门槛：网信办新规将 AI Agent 纳入专项监管，「可信质量」评估成为智能体上线的硬性前置条件；AIIA 相关报告显示国内 Agent 平台用户对合规性的需求同比增长 120%，而超过 70% 的平台仍无法满足企业级数据安全与合规标准，OWASP Agentic Top 10、Human-in-the-Loop、权限模型、多租户隔离与审计合规被普遍视为安全选型的必考项。</p>
+          <div class="kc-src">
+            <span class="label">来源</span>
+            <a class="cite" href="#src-13" title="Testin XAgent,让AI Agent从&quot;能用&quot;到&quot;可信&quot;--CIO与CTO频道-至顶网">[13]</a>
+            <a class="cite" href="#src-14" title="2026年Agent智能体开发平台怎么选?合规性与定制化双维度选型指南-硬件新闻-PHP中文网">[14]</a>
+            <a class="cite" href="#src-15" title="2026年AI Agent安全合规能力厂商对比--产经动态--中国经济新闻网">[15]</a>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="block" id="open-questions">
+    <h2 class="plain">遗留问题</h2>
+    <ul class="questions">
+      <li>OpenAI Agents SDK、Google ADK 与 Claude Agent SDK 三者在接口设计、编排机制与工具调用规范上的直接并列评测数据仍然缺失，本次检索到的材料多为框架清单式概览，三套官方 SDK 的具体差异有待更贴近开发者文档与实测的资料补充。</li>
+      <li>企业级 Agent 开发平台尚未形成统一口径的市场份额排名，现有梳理多以整体市场规模、增速与厂商榜单呈现，头部厂商的相对份额仍需更细颗粒度的统计披露。</li>
+      <li>跨框架、跨任务的统一性能基准尚在建设之中：任务完成率、延迟与成本三者的标准化联合报告并不充分，框架层面的性能对比缺乏统一口径，现有实测数值高度依赖具体任务负载、工具集规模与会话长度。</li>
+      <li>多智能体系统性能评估指标的设计（任务完成质量、协作开销与执行效率的权重与度量方式）仍存争议，可信 AI 多智能体协同的首个行业标准尚待报批，其落地效果有待观察。</li>
+      <li>企业级落地的 ROI 兑现路径仍不明确：行业数据显示超过 60% 的企业在引入智能体后一年内陷入「上线即停滞」，其成因与破解方式尚缺系统性的实证复盘，已有材料也提示 ROI 路径可能与企业直觉预期不同。</li>
+    </ul>
+  </section>
+
+  <section class="block" id="sources">
+    <h2 class="plain">来源列表</h2>
+    <ol class="source-list">
+      <li id="src-1">
+        <a class="src-title" href="https://blog.csdn.net/m0_69581581/article/details/162999809" target="_blank" rel="noopener noreferrer">2026年七大AI Agent框架生产级深度评测:协议为王,选型重构-CSDN博客</a>
+        <span class="src-url">https://blog.csdn.net/m0_69581581/article/details/162999809</span>
+      </li>
+      <li id="src-2">
+        <a class="src-title" href="https://juejin.cn/post/7651426279837171764" target="_blank" rel="noopener noreferrer">AI Agent 开发实战:2026年主流框架与MCP协议深度解析AI Agent 开发实战:2026年主流框架与MCP - 掘金</a>
+        <span class="src-url">https://juejin.cn/post/7651426279837171764</span>
+      </li>
+      <li id="src-3">
+        <a class="src-title" href="https://cloud.tencent.com/developer/article/2655392" target="_blank" rel="noopener noreferrer">Hermes Agent vs OpenClaw 2026终极对比:架构、记忆、生态全面PK-腾讯云开发者社区-腾讯云</a>
+        <span class="src-url">https://cloud.tencent.com/developer/article/2655392</span>
+      </li>
+      <li id="src-4">
+        <a class="src-title" href="https://blog.csdn.net/u012885276/article/details/160053190" target="_blank" rel="noopener noreferrer">Hermes Agent vs OpenClaw:2026 年开源 AI Agent 框架深度对比_hermes框架-CSDN博客</a>
+        <span class="src-url">https://blog.csdn.net/u012885276/article/details/160053190</span>
+      </li>
+      <li id="src-5">
+        <a class="src-title" href="https://www.cet.com.cn/wzsy/kjzx/cygdzx/10448101.shtml" target="_blank" rel="noopener noreferrer">一文读懂:企业级 AI Agent 平台(价值、分类、趋势、如何选)--产业资讯--中国经济新闻网</a>
+        <span class="src-url">https://www.cet.com.cn/wzsy/kjzx/cygdzx/10448101.shtml</span>
+      </li>
+      <li id="src-6">
+        <a class="src-title" href="https://www.cet.com.cn/wzsy/kjzx/cygdzx/10336927.shtml" target="_blank" rel="noopener noreferrer">2026年企业级智能体开发平台推荐:助力企业快搭建智能体--产业资讯--中国经济新闻网</a>
+        <span class="src-url">https://www.cet.com.cn/wzsy/kjzx/cygdzx/10336927.shtml</span>
+      </li>
+      <li id="src-7">
+        <a class="src-title" href="https://juejin.cn/post/7643751135157780532" target="_blank" rel="noopener noreferrer">AI Agent 编排框架深度对比:LangGraph vs CrewAI vs AutoGen--从架构哲学到生产选型 - 掘金</a>
+        <span class="src-url">https://juejin.cn/post/7643751135157780532</span>
+      </li>
+      <li id="src-8">
+        <a class="src-title" href="https://blog.csdn.net/2401_86326742/article/details/159888195" target="_blank" rel="noopener noreferrer">AutoGen vs CrewAI vs LangGraph:2026年 Agent 框架怎么选?_2026agent最新开发框架比较-CSDN博客</a>
+        <span class="src-url">https://blog.csdn.net/2401_86326742/article/details/159888195</span>
+      </li>
+      <li id="src-9">
+        <a class="src-title" href="https://blog.csdn.net/qcx23/article/details/161533823" target="_blank" rel="noopener noreferrer">【系统学AI】11 Agent开发框架选型(2026版):最新的11大框架地图"-CSDN博客</a>
+        <span class="src-url">https://blog.csdn.net/qcx23/article/details/161533823</span>
+      </li>
+      <li id="src-10">
+        <a class="src-title" href="https://juejin.cn/post/7649633479534002212" target="_blank" rel="noopener noreferrer">Agent 系列(18):成本与性能优化--省钱且更快Agent 的成本大头在哪里?本文用四个对比实验覆盖核心优化策略: - 掘金</a>
+        <span class="src-url">https://juejin.cn/post/7649633479534002212</span>
+      </li>
+      <li id="src-11">
+        <a class="src-title" href="https://www.infoq.cn/article/rDTKqBrlGD5R93NFDOI8" target="_blank" rel="noopener noreferrer">百度想明白了:旧供给到达极限了 - InfoQ</a>
+        <span class="src-url">https://www.infoq.cn/article/rDTKqBrlGD5R93NFDOI8</span>
+      </li>
+      <li id="src-12">
+        <a class="src-title" href="https://m.163.com/dy/article/KRHHNRNK0539AECO.html" target="_blank" rel="noopener noreferrer">AI每次干活比你想象贵10倍,SaaS要重新定价了|agent|saas|token|大模型|消耗量_手机网易网</a>
+        <span class="src-url">https://m.163.com/dy/article/KRHHNRNK0539AECO.html</span>
+      </li>
+      <li id="src-13">
+        <a class="src-title" href="https://cio.zhiding.cn/cio/2026/0515/3187116.shtml" target="_blank" rel="noopener noreferrer">Testin XAgent,让AI Agent从"能用"到"可信"--CIO与CTO频道-至顶网</a>
+        <span class="src-url">https://cio.zhiding.cn/cio/2026/0515/3187116.shtml</span>
+      </li>
+      <li id="src-14">
+        <a class="src-title" href="https://www.php.cn/faq/2626715.html" target="_blank" rel="noopener noreferrer">2026年Agent智能体开发平台怎么选?合规性与定制化双维度选型指南-硬件新闻-PHP中文网</a>
+        <span class="src-url">https://www.php.cn/faq/2626715.html</span>
+      </li>
+      <li id="src-15">
+        <a class="src-title" href="https://www.cet.com.cn/wzsy/cyzx/10428796.shtml" target="_blank" rel="noopener noreferrer">2026年AI Agent安全合规能力厂商对比--产经动态--中国经济新闻网</a>
+        <span class="src-url">https://www.cet.com.cn/wzsy/cyzx/10428796.shtml</span>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="report-footer">
+    <span><strong>报告生成时间：2026-09-11</strong></span>
+    <span>共 11 个章节 · 6 条关键结论 · 5 项遗留问题 · 15 条来源</span>
+  </footer>
+
+</div>
+</body>
+</html>

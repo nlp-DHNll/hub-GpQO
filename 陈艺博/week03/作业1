@@ -1,0 +1,18 @@
+1、 langchain 工具调用 和 llm function call 有什么区别？
+     LLM Function Call 是模型的底层能力，而 LangChain 工具调用是封装的底层方法
+     如果需要让单个模型提取结构化数据，直接用 LLM Function Call 更轻量。
+     如果在构建一个需要多步推理、多工具协作、或需要兼容多个模型的 Agent 系统，LangChain Tool Calling 提供了必要的工程化基础设施。
+2、 langchain 工具调用 的 速度是受到什么影响？
+    LangChain 本身是一个编排层，其工具调用的端到端延迟 = 模型推理耗时 + 框架开销 + 工具执行耗时
+    模型推理耗时：
+        Token 生成量：Function Call 要求模型输出完整的 JSON Schema 参数，比纯文本回答消耗更多 Token。参数越复杂，生成越慢。
+        上下文长度：LangChain 在每轮工具调用时，会将历史消息 + 所有 Tool Schema + 工具返回结果全部拼入 Prompt。随着对话轮次增加，Context Window 膨胀，TTFT（首字延迟）显著上升。
+        模型本身的 Function Call 性能：不同模型对工具调用的优化程度不同。例如 GPT-4o 的工具调用速度通常快于 Claude 3 Opus，但可能弱于专门微调过的工具调用模型。
+    框架开销：
+        序列化/反序列化：LangChain 需要在 Pydantic 对象、字典、JSON 字符串之间反复转换。复杂的嵌套 Schema 会带来毫秒级甚至秒级的 CPU 开销。
+        Output Parsing 与验证：框架会对模型输出进行严格校验。如果模型输出不符合预期触发重试（Retry），延迟会成倍增加。
+        同步 vs 异步：如果在异步 Agent 中混用了同步工具（如在 async chain 中调用阻塞的 requests.get），会导致事件循环阻塞，整体吞吐急剧下降。务必使用 @tool 的 async 版本或 arun。
+        中间件与回调：过多的 Callbacks（如日志、Trace、Token 计数）会在每次调用时产生额外 I/O。
+    工具执行耗时：
+        外部依赖延迟：工具内部调用的 API、数据库查询、文件 I/O 是硬性延迟。LangChain 默认是串行执行工具的，若未配置并行执行（Parallel Tool Calling），总耗时 = Σ(各工具耗时)。
+        工具返回内容大小：工具返回的结果会被塞回 Prompt。如果返回了一个巨大的 JSON 或长文本，下一轮模型推理时间会大幅增加。需要做摘要或截断处理。

@@ -1,0 +1,11 @@
+01-intent-classify 代码为文本分类接口
+1. config.py 配置文件
+2. data_schema.py 数据校验结构文件
+3. logger.py 日志工具文件
+4. main.py 项目主服务入口
+
+fastapi流程
+客户端发送 HTTP 请求（浏览器 / 程序）
+服务监听端口接收 TCP 连接，解析原始 HTTP
+请求进来：按注册顺序由外到内执行前置逻辑
+响应返回：由内向外执行后置逻辑

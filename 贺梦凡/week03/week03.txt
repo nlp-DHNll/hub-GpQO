@@ -1,0 +1,23 @@
+1. langchain 工具调用 和 llm function call 有什么区别？
+（1）LLM Function Call是模型本身提供的能力。OpenAI等厂商在 API 里定义了一种特殊字段，让模型能"决定调用某个函数并生成参数"，但只负责输出结构化的调用请求，不负责执行。LangChain可以跨厂商统一化、自动生成 schema、标准化解析
+（2）用 @tool 装饰器自动从函数签名+docstring 提取 schema，不用手写 JSON schema，在请求时自动带上tools字段
+2.  langchain 工具调用 的 速度是受到什么影响？
+（1）调用模型推理时长，模型需要理解用户意图，判断是否调用工具、调用哪个工具、参数是什么。提示词中工具描述越多，推理时间越长
+（2）工具自身执行时长，调用API、查询数据库等操作很耗时
+
+阅读意图识别 01-intent-classify 代码，梳理源文件的作用，绘制从fastapi 接受请求到到返回结果的流程，绘制流程图（手绘、自然语言表达）。
+main.py        FastAPI 入口，4 条路由
+config.py        全局配置常量        
+data_schema.py        Pydantic 请求/响应模型        
+logger.py        日志配置（文件+控制台）        
+model/regex_rule.py        正则分类器        
+model/tfidf_ml.py        TF-IDF + SVM 分类器        
+model/bert.py        BERT 分类器        
+model/prompt.py        LLM分类器        
+training_code/train_tfidf.py        离线训练 → 生成 tfidf_ml.pkl
+training_code/train_bert.py        离线微调 → 生成 bert.pt
+
+（1）用户发起 HTTP POST 请求，根据后缀匹配对应的处理函数
+（2）regex_classify输入的是Pydantic 校验请求体，TextClassifyRequest 对象，构造初始TextClassifyResponse 对象
+（3）分支1：调用model_for_regex得到分类结果，model_for_regex中会判断输入的是字符串还是列表，利用正则表达式进行匹配分配
+（4）分支2：调用model_for_tfidf得到分类结果，分支3：调用model_for_bert得到分类结果，分支4：调用model_for_gpt得到分类结果，并计算耗时

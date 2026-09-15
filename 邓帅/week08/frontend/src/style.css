@@ -1,0 +1,37 @@
+:root {
+  --page-max: 960px;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fa;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+/* markdown 报告渲染 */
+.report-md {
+  line-height: 1.75;
+  font-size: 15px;
+  word-break: break-word;
+}
+.report-md h1 { font-size: 1.5em; margin: 0.8em 0 0.5em; }
+.report-md h2 { font-size: 1.25em; margin: 1.2em 0 0.5em; border-bottom: 1px solid #ebeef5; padding-bottom: 0.3em; }
+.report-md h3 { font-size: 1.1em; margin: 1em 0 0.4em; }
+.report-md blockquote {
+  margin: 0.6em 0;
+  padding: 0.4em 1em;
+  border-left: 4px solid #d3dce6;
+  background: #f7f9fb;
+  color: #606266;
+}
+.report-md ul, .report-md ol { padding-left: 1.6em; }
+.report-md code { background: #f0f2f5; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+.report-md table { border-collapse: collapse; }
+.report-md td, .report-md th { border: 1px solid #ebeef5; padding: 6px 10px; }
+.report-md a { color: #409eff; }

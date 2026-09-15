@@ -1,0 +1,7 @@
+1、客户端发送请求，FAST API收到请求后，根据路径，在main文件中查找到对应函数进行调用，函数入参为定义的base model ，FAST API从请求体中提取JSON数据，
+交由pydantic进行转化，合法性校验，如果校验失败，则抛出错误；
+2、函数调用时，先记录启动时间，然后创建一个response（初始时只携带请求的ID和内容，其余字段为空），同时开启LOG记录请求的信息，方便后期进行问题定位；
+3、使用try--except的方式调用（regex/tfidf/bert/gpt）对req.request_text进行分类，若正常运行则将结果存入response中，同时将error_msg写为OK；若执行异常，
+则将response.classify_result记为空，并将异常写入error_msg。
+4、计算全部用时，结果保留小数点后3位（毫秒），将全部用时写进response中，
+5、函数返回response，FAST API将response通过pydantic转化为JSON格式发送给客户端。

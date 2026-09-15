@@ -1,0 +1,12 @@
+llm function call 是LLM的一种能力，开发者在环境中定义好可以使用的function，之后通过LLM接口调用时，给LLM输入可以调用的function信息，LLM返回tool_call参数，用以环境解析从而实现工具调用能力
+langchain工具调用是基于llm function call能力，实现接口封装，能够让开发者更加轻便的使用llm function call
+llm function call 工具调用需要：1. 定义function 2.TOOLS多维度描述function 3.Function Map 进行本地函数映射
+langchain工具调用需要： 1. 定义function 2.用langchain实现工具调用
+
+langchain工具调用的速度是受什么影响的？ 1.API调用速度 2. 工具执行速度
+
+
+
+intent-classifly
+利用fastapi，分别用4种方式实现意图识别
+

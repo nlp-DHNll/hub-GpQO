@@ -1,0 +1,20 @@
+# 深度研究助手 · 依赖清单
+# Python 3.10+
+
+# Web 框架
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# 数据校验（FastAPI 内置依赖，固定版本避免破坏性变更）
+pydantic==2.10.3
+
+# 配置
+python-dotenv==1.0.1
+
+# LLM 编排（仅使用 ChatModel 抽象）
+langchain==0.3.17
+# DeepSeek 使用 OpenAI 兼容接口
+langchain-openai==0.2.14
+
+# 异步 HTTP（调用 Bocha 搜索 API）
+httpx==0.28.1

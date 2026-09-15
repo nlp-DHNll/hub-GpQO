@@ -1,0 +1,22 @@
+# 密钥与本地配置
+.env
+.env.*
+!.env.example
+
+# 运行时产物
+backend/data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node / Next.js
+node_modules/
+.next/
+frontend/playwright-report/
+frontend/test-results/
+
+# Test / local DB
+.pytest_cache/
+*.db

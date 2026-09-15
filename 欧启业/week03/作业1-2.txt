@@ -1,0 +1,5 @@
+ langchain 工具调用 和 llm function call 有什么区别？
+llm function call 是底层的“协议”或“能力”，而 LangChain Tool Calling 是基于该能力构建的框架，最终还是要回到底层的调用。
+
+ langchain 工具调用 的 速度是受到什么影响？
+ 工具选择，执行工具，调用大模型响应的速度

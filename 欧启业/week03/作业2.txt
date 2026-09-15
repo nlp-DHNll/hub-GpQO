@@ -1,0 +1,12 @@
+1. 根据调用的url路径，进入对应的接口：如"/v1/text-cls/regex" -> regex_classify
+2.获取当前时间戳，构建一个新的TextClassifyResponse响应实体。 日志记录请求id，请求文本。
+3.调用模型model.regex_rule的model_for_regex，入参传入req的请求文本
+    前置：正则表达式预编译。根据REGEX_RULE的内容，构建成字典，以便后续匹配。
+    1.model_for_regex中，构建classify_result，用于返回。
+          分支1：如果传入的是文本：遍历REGEX_RULE_COMPILED的key，如果传入的文本含有对应的value，classify_result中添加对应分类名称key，否则添加Other
+          elif：传入的是list，classify_result定义为空列表。定义is_classified = false。遍历list，再执行分支1中的遍历逻辑。
+          else：抛异常->格式不支持
+    返回classify_result；
+4.步骤3返回的classify_result结果写入response.classify_result，response.error_msg = "ok"
+5.如果抛异常，response.classify_result = "" 清空返回数据。response.error_msg =traceback.format_exc()。记录异常信息。
+6.记录耗时。  返回response。
