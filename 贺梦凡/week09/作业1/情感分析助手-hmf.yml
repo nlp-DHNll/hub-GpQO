@@ -1,0 +1,305 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 情感分析助手-hmf
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.24@9e12eef09973667f0eaf4f082af883167e1de88740b22e71e71488d020c3778a
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1789395720724-true-1789396171101-target
+      selected: false
+      source: '1789395720724'
+      sourceHandle: 'true'
+      target: '1789396171101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1789395720724-false-1789396197558-target
+      selected: false
+      source: '1789395720724'
+      sourceHandle: 'false'
+      target: '1789396197558'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1789396197558-source-1789396392976-target
+      selected: false
+      source: '1789396197558'
+      sourceHandle: source
+      target: '1789396392976'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1789395695789-source-1789396700056-target
+      selected: false
+      source: '1789395695789'
+      sourceHandle: source
+      target: '1789396700056'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1789396700056-source-1789395720724-target
+      source: '1789396700056'
+      sourceHandle: source
+      target: '1789395720724'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 73
+      id: '1789395695789'
+      position:
+        x: 112.2103708419566
+        y: 405.6181799880496
+      positionAbsolute:
+        x: 112.2103708419566
+        y: 405.6181799880496
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 0c65eae2-1a75-473b-86ec-4494fc071af8
+            value: 正面情绪
+            varType: string
+            variable_selector:
+            - '1789396700056'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: true
+        title: 条件分支
+        type: if-else
+      height: 124
+      id: '1789395720724'
+      position:
+        x: 756.0778433439258
+        y: 434.34634857682164
+      positionAbsolute:
+        x: 756.0778433439258
+        y: 434.34634857682164
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: 希望你明天也很开心
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 100
+      id: '1789396171101'
+      position:
+        x: 1093.7704164390668
+        y: 486.5793823745893
+      positionAbsolute:
+        x: 1093.7704164390668
+        y: 486.5793823745893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 567f4853-8b10-41d5-b3d7-9ad72fe86efa
+          role: system
+          text: '用户心情不好，请安慰他：
+
+            基于用户原话{{#sys.query#}}分析原因并给出合适的建议；/'
+        - id: a8591384-aebb-4d16-9f38-9ea2bf845844
+          role: user
+          text: '{{#sys.query#}}'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        structured_output_enabled: true
+        title: LLM 2
+        type: llm
+        vision:
+          enabled: false
+      height: 118
+      id: '1789396197558'
+      position:
+        x: 1053.725090527445
+        y: 735.2687533499009
+      positionAbsolute:
+        x: 1053.725090527445
+        y: 735.2687533499009
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1789396197558.text#}}/'
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 103
+      id: '1789396392976'
+      position:
+        x: 1385.3238096795133
+        y: 617.7444273049241
+      positionAbsolute:
+        x: 1385.3238096795133
+        y: 617.7444273049241
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 4e0d3361-ebac-4392-8c31-bea3297f477f
+          role: system
+          text: '你是一个情感分析助手。分析用户输入文本的情感倾向。只输出以下两个词之一：正面情绪、负面情绪。不得包含任何其他文字、标点或解释。 '
+        - id: 7af59efa-c564-4310-a6af-dc34b4de899e
+          role: user
+          text: '{{#sys.query#}}'
+        reasoning_format: separated
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        structured_output_enabled: true
+        title: LLM 1
+        type: llm
+        vision:
+          enabled: false
+      height: 118
+      id: '1789396700056'
+      position:
+        x: 422.65697760151045
+        y: 663.508191387327
+      positionAbsolute:
+        x: 422.65697760151045
+        y: 663.508191387327
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -58.471700447657895
+      y: -36.52772952915211
+      zoom: 1.148698354997035
+  rag_pipeline_variables: []
