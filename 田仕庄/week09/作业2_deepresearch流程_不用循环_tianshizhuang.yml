@@ -1,0 +1,507 @@
+app:
+  description: week09的作业2
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 作业2_deepresearch流程_不用循环_tianshizhuang
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.21@d467c6df6876dc5e70ad0b10c14631656ebbc904347eadf48e95b4fca7eda001
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1789441121997-source-1789441173232-target
+      selected: false
+      source: '1789441121997'
+      sourceHandle: source
+      target: '1789441173232'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1789524955004-source-17895258625750-target
+      selected: false
+      source: '1789524955004'
+      sourceHandle: source
+      target: '17895258625750'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1789526142789-source-1789526272762-target
+      selected: false
+      source: '1789526142789'
+      sourceHandle: source
+      target: '1789526272762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1789441173232-source-1789524759640-target
+      selected: false
+      source: '1789441173232'
+      sourceHandle: source
+      target: '1789524759640'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1789524759640-source-1789524955004-target
+      selected: false
+      source: '1789524759640'
+      sourceHandle: source
+      target: '1789524955004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 17895258625750-source-1789526142789-target
+      selected: false
+      source: '17895258625750'
+      sourceHandle: source
+      target: '1789526142789'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1789526272762-source-1789530490713-target
+      source: '1789526272762'
+      sourceHandle: source
+      target: '1789530490713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 用户需要调研的核心主题（如：阿里巴巴2024年ESG报告分析、2026年电商行业趋势）
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - default: 2026年厄尔尼诺现象在全球的分布
+          hint: ''
+          label: research_topic
+          max_length: 200
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: research_topic
+      height: 168
+      id: '1789441121997'
+      position:
+        x: 77
+        y: 261
+      positionAbsolute:
+        x: 77
+        y: 261
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 功能：将用户笼统的调研主题，拆解为多个细分检索子问题，为精准检索做铺垫，替代人工梳理调研维度。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: ef2023ec-775e-4cea-8657-96bb515cb15e
+          role: system
+          text: "你是专业的行业调研分析师，请针对用户给出的调研主题，拆解出3个核心细分调研子问题，覆盖行业现状、核心信息、关键数据、行业趋势、现存问题五大维度。\n\
+            \        \n输入主题：{{#1789441121997.research_topic#}}\n        \n输出格式：仅输出子问题列表，无多余话术，用于后续全网检索。"
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              sub_questions:
+                items:
+                  type: string
+                type: array
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 主题规划拆解节点
+        type: llm
+        vision:
+          enabled: false
+      height: 177
+      id: '1789441173232'
+      position:
+        x: 380.89809488412345
+        y: 282
+      positionAbsolute:
+        x: 380.89809488412345
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-2060
+            key: ''
+            type: text
+            value: "{\n    \"query\": \"{{#1789441173232.structured_output.sub_questions#}}\"\
+              ,\n    \"summary\": true,\n    \"freshness\": \"oneYear\",\n    \"count\"\
+              : 50\n}"
+          type: json
+        desc: 对接博查API
+        headers: 'Authorization:Bearer sk-3d2293ad83aa4823a7c7ce8dd5ff8c72
+
+          Content-Type:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 首轮全网检索节点
+        type: http-request
+        url: https://api.bocha.cn/v1/web-search
+        variables: []
+      height: 165
+      id: '1789524759640'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 功能：从首轮检索结果中提取有效核心信息，同时判断信息是否存在缺失、数据不全、维度空白等问题，为单次补检提供依据。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 03738101-94b0-4b37-90a4-901235af4bb0
+          role: system
+          text: "请分析以下{{#1789441173232.structured_output.sub_questions#}}对应的首轮检索数据，提取有效调研信息，同时排查信息缺失点、数据空白维度、未覆盖的核心调研角度。\n\
+            \        \n检索数据：{{#1789524759640.body#}}\n        \n输出内容：1.首轮有效信息汇总；2.明确的信息缺失清单（仅列出缺失维度，不做多余分析）"
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              first_valid_data:
+                description: 首轮有效抽取信息
+                items:
+                  type: string
+                type: array
+              lack_info_list:
+                description: 信息缺失维度
+                items:
+                  type: string
+                type: array
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 首轮信息抽取与校验节点
+        type: llm
+        vision:
+          enabled: false
+      height: 193
+      id: '1789524955004'
+      position:
+        x: 1081.7024776829685
+        y: 282
+      positionAbsolute:
+        x: 1081.7024776829685
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-1413
+            key: ''
+            type: text
+            value: "{\n    \"query\": \"{{#1789524955004.structured_output.lack_info_list#}}\"\
+              ,\n    \"summary\": true,\n    \"freshness\": \"oneYear\",\n    \"count\"\
+              : 50\n}"
+          type: json
+        desc: （核心约束：仅1次，无循环迭代）
+        headers: 'Authorization:Bearer sk-3d2293ad83aa4823a7c7ce8dd5ff8c72
+
+          Content-Type:application/json'
+        isInIteration: false
+        isInLoop: false
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 单次补检节点
+        type: http-request
+        url: https://api.bocha.cn/v1/web-search
+        variables: []
+      height: 165
+      id: '17895258625750'
+      position:
+        x: 1420.8048034085252
+        y: 282
+      positionAbsolute:
+        x: 1420.8048034085252
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 功能：合并首轮检索有效信息+单次补检信息，清洗冗余内容、统一信息维度，为报告生成提供完整素材。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 36465ef8-fbf4-42f5-8eb9-e56c0ffc9794
+          role: system
+          text: "整合以下两轮检索信息（首轮有效信息+单次补检信息），清洗重复内容，梳理完整的调研信息体系，分类整理行业现状、核心数据、关键事件、趋势特点、现存问题。\n\
+            \       \n首轮信息：{{#1789524955004.structured_output.first_valid_data#}}\n\
+            \        \n补检信息：{{#17895258625750.body#}}"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              full_research_data:
+                description: 完整整合调研数据
+                items:
+                  type: string
+                type: array
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 全量信息整合节点
+        type: llm
+        vision:
+          enabled: false
+      height: 147
+      id: '1789526142789'
+      position:
+        x: 1773.4164708776739
+        y: 282
+      positionAbsolute:
+        x: 1773.4164708776739
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 功能：基于完整调研数据，一次性生成包含报告正文、来源列表、研究过程、置信度说明的全套成果，完全匹配业务需求。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_config:
+          jinja2_variables: []
+        prompt_template:
+        - edition_type: basic
+          id: 7eb8d4c5-92c9-4204-a523-341c0e3c6627
+          role: system
+          text: "请基于整合的调研数据{{#1789526142789.structured_output.full_research_data#}}、检索关键词{{#1789441173232.structured_output.sub_questions#}}、检索结果{{#1789524759640.body#}}、{{#17895258625750.body#}}，生成完整、独立、可直接浏览器打开的HTML网页代码，用于展示标准化深度研究报告：\n\
+            \        \n一、研究摘要：精简总结本次调研核心结论与核心价值\n        \n二、分节正文：按行业现状、核心信息、数据解读、趋势分析、现存问题分维度详细阐述\n\
+            \        \n三、关键结论：提炼3-8条核心确定性结论\n        \n四、遗留问题：标注本次调研仍未获取到的信息、无法验证的内容\n\
+            \        \n五、溯源来源列表：逐条列出所有引用信息对应的【网页标题、URL、来源站点、发布时间】，保证可追溯\n\n六、研究过程记录：记录本次拆解的子问题、首轮检索、单次补检的全部关键词、检索页面数量、迭代轮次（固定：1次补检，无多次迭代）\n\
+            \        \n七、置信度说明：1.标注信息截止时间；2.区分溯源信息与模型推断内容，无公开来源的结论统一标注「模型推断」；3.说明整体结论可靠程度"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              final_research_report:
+                description: 完整成品报告
+                type: string
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 结构化报告生成节点
+        type: llm
+        vision:
+          enabled: false
+      height: 163
+      id: '1789526272762'
+      position:
+        x: 2114.0754445343605
+        y: 282
+      positionAbsolute:
+        x: 2114.0754445343605
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1789526272762'
+          - structured_output
+          - final_research_report
+          value_type: object
+          variable: final_research_report
+        selected: true
+        title: 输出
+        type: end
+      height: 88
+      id: '1789530490713'
+      position:
+        x: 2416.0754445343605
+        y: 282
+      positionAbsolute:
+        x: 2416.0754445343605
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 157.447079969686
+      y: -129.2907321131048
+      zoom: 0.9075191553171601
+  rag_pipeline_variables: []
