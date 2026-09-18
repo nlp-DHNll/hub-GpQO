@@ -1,0 +1,1572 @@
+app:
+  description: 深度研究助手:主题拆解 → 检索 → 阅读 → 反思迭代 → 综合报告(LangGraph 版的 Dify 移植)
+  icon: 🔍
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 深度研究助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.21@d467c6df6876dc5e70ad0b10c14631656ebbc904347eadf48e95b4fca7eda001
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: Bocha AI 搜索 API Key(导入后填写,格式 sk-xxx)
+    id: 6d2f31a8-4b5e-4c1a-9f0d-2a7c8e1b3d54
+    name: BOCHA_API_KEY
+    selector:
+    - env
+    - BOCHA_API_KEY
+    value: ''
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: edge-start-plan
+      source: start
+      sourceHandle: source
+      target: plan
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: edge-plan-planparse
+      source: plan
+      sourceHandle: source
+      target: plan_parse
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: edge-planparse-loop
+      source: plan_parse
+      sourceHandle: source
+      target: research_loop
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: code
+      id: edge-loop-prepreport
+      source: research_loop
+      sourceHandle: source
+      target: prep_report
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: edge-prepreport-synthesize
+      source: prep_report
+      sourceHandle: source
+      target: synthesize
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: edge-synthesize-render
+      source: synthesize
+      sourceHandle: source
+      target: render
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: edge-render-end
+      source: render
+      sourceHandle: source
+      target: end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: loop-start
+        targetType: code
+      id: edge-loopstart-dispatch
+      source: loop_start
+      sourceHandle: source
+      target: dispatch
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: http-request
+      id: edge-dispatch-bochasearch
+      source: dispatch
+      sourceHandle: source
+      target: bocha_search
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        error_handle: fail-branch
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: http-request
+        targetType: code
+      id: edge-bochasearch-fail-searchfallback
+      source: bocha_search
+      sourceHandle: fail-branch
+      target: search_fallback
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: edge-bochasearch-searchaggr
+      source: bocha_search
+      sourceHandle: source
+      target: search_aggr
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: variable-aggregator
+      id: edge-searchfallback-searchaggr
+      source: search_fallback
+      sourceHandle: source
+      target: search_aggr
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: variable-aggregator
+        targetType: code
+      id: edge-searchaggr-pickurl
+      source: search_aggr
+      sourceHandle: source
+      target: pick_url
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: http-request
+      id: edge-pickurl-fetchpage
+      source: pick_url
+      sourceHandle: source
+      target: fetch_page
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        error_handle: fail-branch
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: http-request
+        targetType: code
+      id: edge-fetchpage-fail-fetchfallback
+      source: fetch_page
+      sourceHandle: fail-branch
+      target: fetch_fallback
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: http-request
+        targetType: variable-aggregator
+      id: edge-fetchpage-bodyaggr
+      source: fetch_page
+      sourceHandle: source
+      target: body_aggr
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: variable-aggregator
+      id: edge-fetchfallback-bodyaggr
+      source: fetch_fallback
+      sourceHandle: source
+      target: body_aggr
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: variable-aggregator
+        targetType: llm
+      id: edge-bodyaggr-extract
+      source: body_aggr
+      sourceHandle: source
+      target: extract
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: llm
+        targetType: code
+      id: edge-extract-extractparse
+      source: extract
+      sourceHandle: source
+      target: extract_parse
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: if-else
+      id: edge-extractparse-branch
+      source: extract_parse
+      sourceHandle: source
+      target: branch
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: if-else
+        targetType: code
+      id: edge-branch-true-updatestate
+      source: branch
+      sourceHandle: 'true'
+      target: update_state
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: assigner
+      id: edge-updatestate-assignera
+      source: update_state
+      sourceHandle: source
+      target: assigner_a
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: if-else
+        targetType: code
+      id: edge-branch-false-buildcontext
+      source: branch
+      sourceHandle: 'false'
+      target: build_context
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: llm
+      id: edge-buildcontext-reflect
+      source: build_context
+      sourceHandle: source
+      target: reflect
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: llm
+        targetType: code
+      id: edge-reflect-converge
+      source: reflect
+      sourceHandle: source
+      target: converge
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: research_loop
+        sourceType: code
+        targetType: assigner
+      id: edge-converge-assignerb
+      source: converge
+      sourceHandle: source
+      target: assigner_b
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        desc: 输入研究主题
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 研究主题
+          max_length: 480
+          options: []
+          required: true
+          type: text-input
+          variable: topic
+      height: 137
+      id: start
+      position:
+        x: 30
+        y: 400
+      positionAbsolute:
+        x: 30
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 主题拆解为 3~6 个子问题(对应 LangGraph plan 节点)
+        memory:
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 1f0a2b3c-4d5e-4f6a-8b7c-9d0e1f2a3b4c
+          role: system
+          text: 你是研究规划专家。请把研究主题拆解为 3~6 个相互独立、合并起来能完整覆盖主题的子问题,作为后续检索的查询词。子问题语言与主题一致,适合直接作为搜索引擎查询。
+        - id: 2b1c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+          role: user
+          text: 研究主题:{{#start.topic#}}
+        selected: false
+        title: 主题规划
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 132
+      id: plan
+      position:
+        x: 330
+        y: 400
+      positionAbsolute:
+        x: 330
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\n\ndef main(topic: str, plan_text: str) ->\
+          \ dict:\n    \"\"\"解析规划 LLM 输出的子问题数组,构建研究循环的初始 state。\n\n    对应原项目 plan_node:解析失败时降级为以主题本身为查询。\n\
+          \    \"\"\"\n    queries = []\n    try:\n        m = re.search(r'\\[.*\\\
+          ]', plan_text or '', re.S)\n        queries = [str(q).strip() for q in json.loads(m.group(0))\
+          \ if str(q).strip()][:6]\n    except Exception:\n        queries = []\n\
+          \    degraded = False\n    if not queries:\n        queries = [topic]\n\
+          \        degraded = True\n    state = {\n        \"plan\": queries,\n  \
+          \      \"pending\": list(queries),\n        \"searched\": [],\n        \"\
+          findings\": [],\n        \"sources\": {},\n        \"seen_urls\": [],\n\
+          \        \"search_count\": 0,\n        \"round\": 0,\n        \"gaps\":\
+          \ \"\",\n        \"degraded\": degraded,\n    }\n    return {\"queries\"\
+          : queries, \"init_state\": state}\n"
+        code_language: python3
+        desc: 容错解析子问题,构建初始 state(对应 _structured 的解析与 plan 降级)
+        outputs:
+          init_state:
+            type: object
+          queries:
+            type: array[string]
+        selected: false
+        title: 规划解析
+        type: code
+        variables:
+        - value_selector:
+          - start
+          - topic
+          variable: topic
+        - value_selector:
+          - plan
+          - text
+          variable: plan_text
+      height: 96
+      id: plan_parse
+      position:
+        x: 630
+        y: 400
+      positionAbsolute:
+        x: 630
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        break_conditions:
+        - comparison_operator: is
+          id: 7c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f
+          value: 'true'
+          varType: string
+          variable_selector:
+          - research_loop
+          - should_stop
+        desc: 研究主循环:每轮处理一条查询(搜索→阅读→抽要点);批次清空时反思并判定收敛(对应 route_after_reflect)
+        error_handle_mode: terminated
+        height: 478
+        logical_operator: and
+        loop_count: 35
+        loop_variables:
+        - id: 8d4e5f6a-7b8c-4d9e-0f1a-2b3c4d5e6f7a
+          label: state
+          value: '{}'
+          value_type: constant
+          var_type: object
+        - id: 9e5f6a7b-8c9d-4e0f-1a2b-3c4d5e6f7a8b
+          label: should_stop
+          value: 'false'
+          value_type: constant
+          var_type: string
+        selected: false
+        start_node_id: loop_start
+        title: 研究循环
+        type: loop
+        width: 3758
+      height: 478
+      id: research_loop
+      position:
+        x: -309.2738511664393
+        y: 791.2877291599208
+      positionAbsolute:
+        x: -309.2738511664393
+        y: 791.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 3758
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        loop_id: research_loop
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: loop_start
+      parentId: research_loop
+      position:
+        x: 60
+        y: 160
+      positionAbsolute:
+        x: -249.27385116643927
+        y: 951.2877291599208
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "import json\n\n\ndef main(state, init_state) -> dict:\n    \"\"\"每轮调度:惰性初始化\
+          \ state,取出本条待搜查询。\n\n    state 循环变量初始值只能是常量(空 object),首轮由此节点从规划解析输出构建;\n\
+          \    batch_clear 表示本条处理完后当前批次是否清空,驱动后续分流(未清空→继续搜,清空→反思)。\n    \"\"\"\n \
+          \   st = state\n    if isinstance(st, str):\n        try:\n            st\
+          \ = json.loads(st)\n        except Exception:\n            st = {}\n   \
+          \ if not isinstance(st, dict):\n        st = {}\n    # 惰性初始化:首轮(或异常空状态)用规划解析产物构建\n\
+          \    if not st.get(\"pending\") and not st.get(\"plan\"):\n        st =\
+          \ init_state if isinstance(init_state, dict) else {}\n    pending = [q for\
+          \ q in (st.get(\"pending\") or []) if str(q).strip()]\n    query = str(pending[0]).strip()\
+          \ if pending else \"\"\n    batch_clear = \"true\" if len(pending) <= 1\
+          \ else \"false\"\n    return {\"query\": query, \"batch_clear\": batch_clear}\n"
+        code_language: python3
+        desc: 取下一条查询;state 惰性初始化;计算批次是否即将清空
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          batch_clear:
+            type: string
+          query:
+            type: string
+        selected: false
+        title: 调度
+        type: code
+        variables:
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+        - value_selector:
+          - plan_parse
+          - init_state
+          variable: init_state
+      height: 96
+      id: dispatch
+      parentId: research_loop
+      position:
+        x: 140
+        y: 160
+      positionAbsolute:
+        x: -169.27385116643927
+        y: 951.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: '{"query": "{{#dispatch.query#}}", "summary": true, "count": 10}'
+          type: json
+        desc: POST Bocha web-search(对应 web_search 工具,失败走旁路不中断)
+        error_strategy: fail-branch
+        headers: Authorization:Bearer {{#env.BOCHA_API_KEY#}}
+        isInLoop: true
+        loop_id: research_loop
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 1
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 15
+          write: 15
+        title: Bocha 搜索
+        type: http-request
+        url: https://api.bocha.cn/v1/web-search
+        variables: []
+      height: 218
+      id: bocha_search
+      parentId: research_loop
+      position:
+        x: 420
+        y: 120
+      positionAbsolute:
+        x: 110.72614883356073
+        y: 911.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "def main() -> dict:\n    return {\"body\": '{\"data\": {\"webPages\"\
+          : {\"value\": []}}}'}\n"
+        code_language: python3
+        desc: 搜索失败兜底:返回空结果集,流程继续(对应 failed_queries 继续)
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          body:
+            type: string
+        selected: false
+        title: 搜索失败兜底
+        type: code
+        variables: []
+      height: 96
+      id: search_fallback
+      parentId: research_loop
+      position:
+        x: 429.1895868399763
+        y: 362
+      positionAbsolute:
+        x: 119.91573567353703
+        y: 1153.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        advanced_settings:
+          group_enabled: false
+          groups: []
+        desc: 汇合搜索成功响应与失败兜底
+        isInLoop: true
+        loop_id: research_loop
+        output_type: string
+        selected: false
+        title: 搜索响应汇合
+        type: variable-aggregator
+        variables:
+        - - bocha_search
+          - body
+        - - search_fallback
+          - body
+      height: 162
+      id: search_aggr
+      parentId: research_loop
+      position:
+        x: 700
+        y: 150
+      positionAbsolute:
+        x: 390.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef main(body: str, state) -> dict:\n    \"\"\"解析搜索响应,按\
+          \ seen_urls 跨轮去重,选首条新结果作为本条查询的阅读页。\n\n    对应原项目 search_node 的去重 + read_node\
+          \ 的 URL 挑选(核心循环从简:取首条新结果,不做 LLM 挑选)。\n    new_results 是本轮全部新结果,供 sources/seen_urls\
+          \ 累积。\n    \"\"\"\n    st = state if isinstance(state, dict) else {}\n \
+          \   seen = set(st.get(\"seen_urls\") or [])\n    results = []\n    try:\n\
+          \        data = json.loads(body or \"{}\")\n        for item in (data.get(\"\
+          data\", {}).get(\"webPages\", {}).get(\"value\") or []):\n            url\
+          \ = item.get(\"url\", \"\")\n            if url and url not in seen and\
+          \ all(r[\"url\"] != url for r in results):\n                results.append({\n\
+          \                    \"url\": url,\n                    \"title\": item.get(\"\
+          name\", \"\"),\n                    \"summary\": (item.get(\"summary\")\
+          \ or \"\")[:300],\n                })\n    except Exception:\n        results\
+          \ = []\n    chosen = results[0] if results else {\"url\": \"\", \"title\"\
+          : \"\", \"summary\": \"\"}\n    return {\n        \"url\": chosen[\"url\"\
+          ],\n        \"title\": chosen[\"title\"],\n        \"summary\": chosen[\"\
+          summary\"],\n        \"new_results\": results,\n    }\n"
+        code_language: python3
+        desc: 解析响应、按 seen_urls 去重、选 1 条新 URL(空/异常继续)
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          new_results:
+            type: array[object]
+          summary:
+            type: string
+          title:
+            type: string
+          url:
+            type: string
+        selected: false
+        title: 去重选页
+        type: code
+        variables:
+        - value_selector:
+          - search_aggr
+          - output
+          variable: body
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+      height: 96
+      id: pick_url
+      parentId: research_loop
+      position:
+        x: 980
+        y: 150
+      positionAbsolute:
+        x: 670.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: ''
+          type: none
+        desc: GET 抓取所选页面正文(对应 fetch_page;URL 为空或抓取失败走旁路,摘要兜底)
+        error_strategy: fail-branch
+        headers: User-Agent:Mozilla/5.0 (compatible; DifyResearchBot/1.0)
+        isInLoop: true
+        loop_id: research_loop
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 15
+          write: 15
+        title: 抓取正文
+        type: http-request
+        url: '{{#pick_url.url#}}'
+        variables: []
+      height: 221
+      id: fetch_page
+      parentId: research_loop
+      position:
+        x: 1264.594793419988
+        y: 87.2620968825845
+      positionAbsolute:
+        x: 955.3209422535488
+        y: 878.5498260425053
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "def main() -> dict:\n    return {\"text\": \"\"}\n"
+        code_language: python3
+        desc: 抓取失败兜底:正文置空,后续以搜索摘要提炼(from_summary 语义)
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          text:
+            type: string
+        selected: false
+        title: 抓取失败兜底
+        type: code
+        variables: []
+      height: 96
+      id: fetch_fallback
+      parentId: research_loop
+      position:
+        x: 1250.2360639825251
+        y: 362
+      positionAbsolute:
+        x: 940.9622128160859
+        y: 1153.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        advanced_settings:
+          group_enabled: false
+          groups: []
+        desc: 汇合抓取成功正文与失败空文本
+        isInLoop: true
+        loop_id: research_loop
+        output_type: string
+        selected: false
+        title: 正文汇合
+        type: variable-aggregator
+        variables:
+        - - fetch_page
+          - body
+        - - fetch_fallback
+          - text
+      height: 162
+      id: body_aggr
+      parentId: research_loop
+      position:
+        x: 1540
+        y: 150
+      positionAbsolute:
+        x: 1230.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 逐页抽取要点 {point, quote≤50字原文, url}(防编造:quote 必须逐字摘录)
+        isInLoop: true
+        loop_id: research_loop
+        memory:
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 3c2d1e0f-1a2b-4c3d-8e9f-0a1b2c3d4e5f
+          role: system
+          text: 你是严谨的信息抽取器。从网页正文或搜索摘要中抽取与研究主题相关的事实性要点(3~8 条)。 每条要点必须给出:point(要点陈述,与主题相同语言)、quote(支撑该要点的原文摘录,≤50字,逐字摘录,不得改写;若正文为空则逐字摘录搜索摘要原文)。
+            只抽取材料中真实出现的信息,不要推断。
+        - id: 4d3e2f1a-2b3c-4d4e-8f0a-1b2c3d4e5f6a
+          role: user
+          text: '研究主题:{{#start.topic#}}
+
+            来源 URL:{{#pick_url.url#}}
+
+            来源标题:{{#pick_url.title#}}
+
+            搜索摘要:{{#pick_url.summary#}}
+
+            正文:
+
+            {{#body_aggr.output#}}'
+        selected: false
+        title: 要点抽取
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 132
+      id: extract
+      parentId: research_loop
+      position:
+        x: 1820
+        y: 150
+      positionAbsolute:
+        x: 1510.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\nimport re\n\n\ndef main(extract_text: str, url: str) ->\
+          \ dict:\n    \"\"\"容错解析要点抽取的 JSON 数组,失败降级为空结果继续(对应要点抽取的摘要兜底/降级)。\"\"\"\n\
+          \    findings = []\n    degraded = \"false\"\n    try:\n        m = re.search(r'\\\
+          [.*\\]', extract_text or '', re.S)\n        arr = json.loads(m.group(0))\n\
+          \        for f in arr:\n            point = str(f.get(\"point\", \"\")).strip()\n\
+          \            quote = str(f.get(\"quote\", \"\")).strip()[:50]\n        \
+          \    if point and quote:\n                findings.append({\"point\": point,\
+          \ \"quote\": quote, \"url\": url})\n    except Exception:\n        degraded\
+          \ = \"true\"\n    return {\"findings\": findings, \"extract_degraded\":\
+          \ degraded}\n"
+        code_language: python3
+        desc: 解析要点 JSON(容错),url 强制回填来源
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          extract_degraded:
+            type: string
+          findings:
+            type: array[object]
+        selected: false
+        title: 要点解析
+        type: code
+        variables:
+        - value_selector:
+          - extract
+          - text
+          variable: extract_text
+        - value_selector:
+          - pick_url
+          - url
+          variable: url
+      height: 80
+      id: extract_parse
+      parentId: research_loop
+      position:
+        x: 2100
+        y: 150
+      positionAbsolute:
+        x: 1790.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 5e4f3a2b-3c4d-4e5f-8a0b-2c3d4e5f6a7b
+            value: 'false'
+            varType: string
+            variable_selector:
+            - dispatch
+            - batch_clear
+          logical_operator: and
+        desc: 本条查询处理后批次是否清空?未清空→继续检索;清空→反思
+        isInLoop: true
+        loop_id: research_loop
+        selected: false
+        title: 批次是否清空
+        type: if-else
+      height: 168
+      id: branch
+      parentId: research_loop
+      position:
+        x: 2380
+        y: 150
+      positionAbsolute:
+        x: 2070.7261488335607
+        y: 941.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\n\ndef main(state, new_results, findings, extract_degraded:\
+          \ str) -> dict:\n    \"\"\"批次未清空:弹出已处理查询,累积 findings/sources/seen_urls/search_count\
+          \ 后整体写回。\n\n    对应 ResearchState reducer:findings 追加、sources/seen_urls 合并、search_count\
+          \ 累加、degraded 布尔或。\n    \"\"\"\n    st = state if isinstance(state, dict)\
+          \ else {}\n    pending = [q for q in (st.get(\"pending\") or []) if str(q).strip()]\n\
+          \    searched = list(st.get(\"searched\") or [])\n    if pending:\n    \
+          \    searched.append(str(pending[0]).strip())\n        pending = pending[1:]\n\
+          \    st = dict(st)\n    st[\"pending\"] = pending\n    st[\"searched\"]\
+          \ = searched\n    st[\"findings\"] = list(st.get(\"findings\") or []) +\
+          \ list(findings or [])\n    sources = dict(st.get(\"sources\") or {})\n\
+          \    seen = set(st.get(\"seen_urls\") or [])\n    for r in (new_results\
+          \ or []):\n        u = r.get(\"url\", \"\")\n        if u:\n           \
+          \ sources[u] = {\"title\": r.get(\"title\", \"\"), \"summary\": r.get(\"\
+          summary\", \"\")}\n            seen.add(u)\n    st[\"sources\"] = sources\n\
+          \    st[\"seen_urls\"] = list(seen)\n    st[\"search_count\"] = int(st.get(\"\
+          search_count\") or 0) + 1\n    st[\"degraded\"] = bool(st.get(\"degraded\"\
+          )) or (extract_degraded == \"true\")\n    return {\"new_state\": st}\n"
+        code_language: python3
+        desc: 弹出已处理查询,累积本轮收获,输出待写回 state
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          new_state:
+            type: object
+        selected: false
+        title: 累积状态
+        type: code
+        variables:
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+        - value_selector:
+          - pick_url
+          - new_results
+          variable: new_results
+        - value_selector:
+          - extract_parse
+          - findings
+          variable: findings
+        - value_selector:
+          - extract_parse
+          - extract_degraded
+          variable: extract_degraded
+      height: 96
+      id: update_state
+      parentId: research_loop
+      position:
+        x: 2660
+        y: 60
+      positionAbsolute:
+        x: 2350.7261488335607
+        y: 851.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        desc: 写回循环变量 state(over-write)
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - update_state
+          - new_state
+          variable_selector:
+          - research_loop
+          - state
+          write_mode: over-write
+        loop_id: research_loop
+        selected: false
+        title: 写回状态
+        type: assigner
+        version: '2'
+      height: 112
+      id: assigner_a
+      parentId: research_loop
+      position:
+        x: 2940
+        y: 60
+      positionAbsolute:
+        x: 2630.7261488335607
+        y: 851.2877291599208
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\n\ndef main(state) -> dict:\n    \"\"\"拼装反思上下文(子问题清单\
+          \ + 已有研究发现),供反思 LLM 使用。\"\"\"\n    st = state if isinstance(state, dict)\
+          \ else {}\n    plan_lines = \"\\n\".join(\"{}. {}\".format(i + 1, q) for\
+          \ i, q in enumerate(st.get(\"plan\") or []))\n    findings = st.get(\"findings\"\
+          ) or []\n    findings_lines = \"\\n\".join(\"- {}\".format(f.get(\"point\"\
+          , \"\")) for f in findings) or \"(暂无)\"\n    searched_lines = \"; \".join(st.get(\"\
+          searched\") or []) or \"(无)\"\n    return {\"reflect_context\": \"子问题:\\\
+          n{}\\n\\n已有研究发现:\\n{}\\n\\n已检索过的查询(不要重复):{}\".format(plan_lines, findings_lines,\
+          \ searched_lines)}\n"
+        code_language: python3
+        desc: 拼装反思上下文(子问题+研究发现)
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          reflect_context:
+            type: string
+        selected: false
+        title: 反思上下文
+        type: code
+        variables:
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+      height: 80
+      id: build_context
+      parentId: research_loop
+      position:
+        x: 2660
+        y: 320
+      positionAbsolute:
+        x: 2350.7261488335607
+        y: 1111.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 对照子问题审视信息缺口(对应 reflect_node)
+        isInLoop: true
+        loop_id: research_loop
+        memory:
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 6f5e4d3c-4b5e-4f6a-8b9c-0d1e2f3a4b5c
+          role: system
+          text: 你是研究审阅者。对照子问题检查已有研究发现,判断信息是否充分。请只输出 JSON,不要输出任何其他文字。
+        - id: 7a6b5c4d-5c6d-4d7e-8e0f-1e2f3a4b5c6d
+          role: user
+          text: '研究主题:{{#start.topic#}}
+
+            {{#build_context.reflect_context#}}
+
+
+            请输出 JSON:{"sufficient": true/false, "gaps": "仍缺失的关键信息,简要", "new_queries":
+            ["信息不足时不超过4条新的检索查询,已检索过的查询不要重复"]}'
+        selected: false
+        title: 反思
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 132
+      id: reflect
+      parentId: research_loop
+      position:
+        x: 2940
+        y: 320
+      positionAbsolute:
+        x: 2630.7261488335607
+        y: 1111.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\nimport re\n\nMAX_ROUNDS = 5      # 对应原项目 settings.max_rounds\n\
+          SEARCH_BUDGET = 30  # 对应原项目 settings.search_budget\nMAX_NEW_QUERIES = 4\
+          \ # 对应原项目 settings.max_new_queries\n\n\ndef main(state, reflect_text: str,\
+          \ new_results, findings, extract_degraded: str) -> dict:\n    \"\"\"批次清空:累积本轮收获并落轮次档,解析反思输出,判定收敛(对应\
+          \ route_after_reflect)。\n\n    收敛条件(任一满足):sufficient / 轮数达上限 / 搜索预算耗尽 /\
+          \ 无新查询;\n    反思输出解析失败时降级为直接收敛(对应原项目 reflect 降级)。\n    \"\"\"\n    st = state\
+          \ if isinstance(state, dict) else {}\n    st = dict(st)\n    # --- 累积(与累积状态节点同构)\
+          \ ---\n    pending = [q for q in (st.get(\"pending\") or []) if str(q).strip()]\n\
+          \    searched = list(st.get(\"searched\") or [])\n    if pending:\n    \
+          \    searched.append(str(pending[0]).strip())\n    st[\"pending\"] = []\n\
+          \    st[\"searched\"] = searched\n    st[\"findings\"] = list(st.get(\"\
+          findings\") or []) + list(findings or [])\n    sources = dict(st.get(\"\
+          sources\") or {})\n    seen = set(st.get(\"seen_urls\") or [])\n    for\
+          \ r in (new_results or []):\n        u = r.get(\"url\", \"\")\n        if\
+          \ u:\n            sources[u] = {\"title\": r.get(\"title\", \"\"), \"summary\"\
+          : r.get(\"summary\", \"\")}\n            seen.add(u)\n    st[\"sources\"\
+          ] = sources\n    st[\"seen_urls\"] = list(seen)\n    st[\"search_count\"\
+          ] = int(st.get(\"search_count\") or 0) + 1\n    st[\"degraded\"] = bool(st.get(\"\
+          degraded\")) or (extract_degraded == \"true\")\n    st[\"round\"] = int(st.get(\"\
+          round\") or 0) + 1\n    # --- 解析反思输出 ---\n    sufficient = True\n    gaps\
+          \ = \"反思输出解析失败,提前收敛\"\n    new_queries = []\n    try:\n        m = re.search(r'\\\
+          {.*\\}', reflect_text or '', re.S)\n        obj = json.loads(m.group(0))\n\
+          \        sufficient = bool(obj.get(\"sufficient\"))\n        gaps = str(obj.get(\"\
+          gaps\") or \"\")\n        raw_queries = [str(q).strip() for q in (obj.get(\"\
+          new_queries\") or []) if str(q).strip()]\n        new_queries = []\n   \
+          \     for q in raw_queries:\n            if q not in new_queries and q not\
+          \ in searched:\n                new_queries.append(q)\n        new_queries\
+          \ = new_queries[:MAX_NEW_QUERIES]\n    except Exception:\n        st[\"\
+          degraded\"] = True\n    st[\"gaps\"] = gaps\n    # --- 收敛判定(对应 route_after_reflect)\
+          \ ---\n    stop = (\n        sufficient\n        or st[\"round\"] >= MAX_ROUNDS\n\
+          \        or st[\"search_count\"] >= SEARCH_BUDGET\n        or not new_queries\n\
+          \    )\n    if not stop:\n        st[\"pending\"] = new_queries  # 下一批次\n\
+          \    return {\"new_state\": st, \"should_stop\": \"true\" if stop else \"\
+          false\"}\n"
+        code_language: python3
+        desc: 收敛判定(sufficient/轮数/预算/无新查询),更新 state 与 should_stop
+        isInLoop: true
+        loop_id: research_loop
+        outputs:
+          new_state:
+            type: object
+          should_stop:
+            type: string
+        selected: false
+        title: 收敛判定
+        type: code
+        variables:
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+        - value_selector:
+          - reflect
+          - text
+          variable: reflect_text
+        - value_selector:
+          - pick_url
+          - new_results
+          variable: new_results
+        - value_selector:
+          - extract_parse
+          - findings
+          variable: findings
+        - value_selector:
+          - extract_parse
+          - extract_degraded
+          variable: extract_degraded
+      height: 96
+      id: converge
+      parentId: research_loop
+      position:
+        x: 3220
+        y: 320
+      positionAbsolute:
+        x: 2910.7261488335607
+        y: 1111.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        desc: 写回 state 与 should_stop(over-write)
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - converge
+          - new_state
+          variable_selector:
+          - research_loop
+          - state
+          write_mode: over-write
+        - input_type: variable
+          operation: over-write
+          value:
+          - converge
+          - should_stop
+          variable_selector:
+          - research_loop
+          - should_stop
+          write_mode: over-write
+        loop_id: research_loop
+        selected: false
+        title: 写回状态与收敛标记
+        type: assigner
+        version: '2'
+      height: 138
+      id: assigner_b
+      parentId: research_loop
+      position:
+        x: 3500
+        y: 320
+      positionAbsolute:
+        x: 3190.7261488335607
+        y: 1111.2877291599207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\n\n\ndef main(state) -> dict:\n    \"\"\"循环结束后从 state 拼装报告素材:编号要点列表、来源列表、子问题、统计与降级标记。\"\
+          \"\"\n    st = state if isinstance(state, dict) else {}\n    findings =\
+          \ st.get(\"findings\") or []\n    url_index = {}\n    for f in findings:\n\
+          \        u = f.get(\"url\", \"\")\n        if u and u not in url_index:\n\
+          \            url_index[u] = len(url_index) + 1\n    findings_lines = \"\\\
+          n\".join(\n        \"[{}] {}(佐证:{})\".format(url_index[f.get(\"url\", \"\
+          \")], f.get(\"point\", \"\"), f.get(\"quote\", \"\"))\n        for f in\
+          \ findings\n    ) or \"(暂无)\"\n    sources = st.get(\"sources\") or {}\n\
+          \    sources_md = \"\\n\".join(\n        \"{}. [{}] {}\".format(n, sources.get(u,\
+          \ {}).get(\"title\", \"\"), u)\n        for u, n in sorted(url_index.items(),\
+          \ key=lambda x: x[1])\n    ) or \"(无)\"\n    plan_lines = \"\\n\".join(\"\
+          - {}\".format(q) for q in (st.get(\"plan\") or []))\n    return {\n    \
+          \    \"findings_lines\": findings_lines,\n        \"sources_md\": sources_md,\n\
+          \        \"plan_lines\": plan_lines,\n        \"gaps\": st.get(\"gaps\"\
+          ) or \"\",\n        \"degraded\": \"true\" if st.get(\"degraded\") else\
+          \ \"false\",\n        \"round\": st.get(\"round\") or 0,\n        \"search_count\"\
+          : st.get(\"search_count\") or 0,\n        \"sources_count\": len(url_index),\n\
+          \    }\n"
+        code_language: python3
+        desc: 编号要点/来源列表/统计(对应 synthesize_node 的 findings_lines 与 url_index)
+        outputs:
+          degraded:
+            type: string
+          findings_lines:
+            type: string
+          gaps:
+            type: string
+          plan_lines:
+            type: string
+          round:
+            type: number
+          search_count:
+            type: number
+          sources_count:
+            type: number
+          sources_md:
+            type: string
+        selected: false
+        title: 报告素材
+        type: code
+        variables:
+        - value_selector:
+          - research_loop
+          - state
+          variable: state
+      height: 112
+      id: prep_report
+      position:
+        x: 1620
+        y: 400
+      positionAbsolute:
+        x: 1620
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 基于研究发现撰写带 [n] 角标的正文(对应 synthesize_node 的 prompt)
+        memory:
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 8b7c6d5e-6d7e-4e8f-8f0a-2f3a4b5c6d7e
+          role: system
+          text: 你是研究报告撰写者。基于研究发现撰写研究报告的正文部分(markdown)。
+        - id: 9c8d7e6f-7e8f-4d9a-8a1b-3a4b5c6d7e8f
+          role: user
+          text: '研究主题:{{#start.topic#}}
+
+
+            参考子问题(目录可按内容自由重组,不必逐一对应):
+
+            {{#prep_report.plan_lines#}}
+
+
+            研究发现(格式:[来源编号] 要点(佐证:原文摘录)):
+
+            {{#prep_report.findings_lines#}}
+
+
+            撰写要求:
+
+            1. 依次输出以下章节(用 ## 二级标题):## 摘要、## 分节正文(若干节,标题自拟)、## 关键结论、## 遗留问题
+
+            2. 结论只有能对应上述研究发现(有佐证摘录)才标注 [n] 角标,n 为来源编号;
+
+            3. 无法对应任何来源的论断,句末标注「(模型推断)」,不得使用角标;
+
+            4. 报告语言跟随主题语言;引用的原文保持原语言;
+
+            5. 不要输出报告标题、来源列表与置信度说明(系统自动生成)。
+
+            研究遗留缺口(供「遗留问题」参考):{{#prep_report.gaps#}}'
+        selected: false
+        title: 综合报告
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 132
+      id: synthesize
+      position:
+        x: 1920
+        y: 400
+      positionAbsolute:
+        x: 1920
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(body_text: str, sources_md: str, topic: str, round_n, search_count,\
+          \ degraded: str) -> dict:\n    \"\"\"程序拼接报告头 + LLM 正文 + 来源列表(对应 report.py:LLM\
+          \ 只写正文,周边程序渲染)。\"\"\"\n    head = \"# 研究报告:{topic}\\n\\n(研究轮数:{r} / 搜索次数:{s}\"\
+          .format(\n        topic=topic, r=round_n, s=search_count\n    )\n    if\
+          \ degraded == \"true\":\n        head += \" / 不完整报告\"\n    head += \")\\\
+          n\\n\"\n    report = head + (body_text or \"\").strip() + \"\\n\\n## 参考来源\\\
+          n\\n\" + sources_md\n    return {\"report_md\": report}\n"
+        code_language: python3
+        desc: 程序渲染报告头/来源列表/降级标注(对应 report.py)
+        outputs:
+          report_md:
+            type: string
+        selected: false
+        title: 报告渲染
+        type: code
+        variables:
+        - value_selector:
+          - synthesize
+          - text
+          variable: body_text
+        - value_selector:
+          - prep_report
+          - sources_md
+          variable: sources_md
+        - value_selector:
+          - start
+          - topic
+          variable: topic
+        - value_selector:
+          - prep_report
+          - round
+          variable: round_n
+        - value_selector:
+          - prep_report
+          - search_count
+          variable: search_count
+        - value_selector:
+          - prep_report
+          - degraded
+          variable: degraded
+      height: 96
+      id: render
+      position:
+        x: 2220
+        y: 400
+      positionAbsolute:
+        x: 2220
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - render
+          - report_md
+          value_type: string
+          variable: report_md
+        - value_selector:
+          - prep_report
+          - round
+          value_type: number
+          variable: round
+        - value_selector:
+          - prep_report
+          - search_count
+          value_type: number
+          variable: search_count
+        - value_selector:
+          - prep_report
+          - sources_count
+          value_type: number
+          variable: sources_count
+        selected: false
+        title: 结束
+        type: end
+      height: 166
+      id: end
+      position:
+        x: 2520
+        y: 400
+      positionAbsolute:
+        x: 2520
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 1045.2481369615093
+      y: 440.4772245938694
+      zoom: 0.37892914162759966
+  rag_pipeline_variables: []

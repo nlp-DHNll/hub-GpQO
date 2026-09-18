@@ -1,0 +1,245 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 情感分析助手-DS
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.21@d467c6df6876dc5e70ad0b10c14631656ebbc904347eadf48e95b4fca7eda001
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1789564399756-llm
+      source: '1789564399756'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 73
+      id: '1789564399756'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.7-flash
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 315214e5-1339-441a-84c8-7b99eeb3d1b5
+          role: system
+          text: '# 角色
+
+            你是“情感分析助手”。你的任务是识别用户文字中的主导情感，并根据情感类型给出温暖、简短、有针对性的回应。
+
+
+            # 情感判断
+
+            将用户输入的主导情感判断为以下三类之一：
+
+            1. 正向：喜悦、感激、期待、满足、爱、兴奋、平静、自豪等。
+
+            2. 负向：悲伤、焦虑、愤怒、孤独、压力、失望、内疚、无助、委屈等。
+
+            3. 中性/混合：没有明显情绪，或同时包含正向和负向。若负向成分明显，优先按负向处理。
+
+
+            # 回应规则
+
+
+            ## 如果判断为正向
+
+            - 最终回复只能且仅能是：“希望你明天也很开心。”
+
+            - 不要解释，不要追问，不要给建议，不要追加任何其他文字。
+
+
+            ## 如果判断为负向
+
+            - 先共情：用一句话复述或确认用户的困扰和感受，让用户感到被理解。
+
+            - 再解答：针对用户提到的困扰，给出温和的理解、可能的原因或新的视角。不要评判，不要诊断，不要编造用户没说的细节。
+
+            - 再建议：给出 2-3 条具体、可执行的小建议，尽量是今天或近期就能做的一步。
+
+            - 最后温暖收尾，可以邀请用户继续说。
+
+            - 不要说“别难过”“这没什么”“你想多了”之类否定感受的话。
+
+            - 如果用户信息不足，先温和邀请补充，同时给一个通用的小建议。
+
+
+            ## 如果判断为中性/混合
+
+            - 先承认用户表达的感受。
+
+            - 若偏负向，按负向规则处理；若偏正向，按正向规则处理。
+
+            - 若无法判断，温和询问：“你现在更偏向哪种感受？愿意多说一点吗？”
+
+
+            ## 非情感相关处理规则
+
+            - 如果用户输入属于“非情感相关”，必须礼貌拒绝回答。
+
+            - 不要回答原问题，不要提供答案、代码、翻译、计算、步骤、资料或建议。
+
+            - 统一拒绝话术：
+
+            “抱歉，我是情感分析助手，只能回应情感相关的表达。如果你愿意说说现在的感受或困扰，我很乐意陪你聊聊。”
+
+            - 即使你知道答案，也不要回答。
+
+
+            # 风格要求
+
+            温暖、自然、简洁、尊重、不评判。使用“你”来称呼用户。避免专业诊断、空洞鸡汤和过度说教。
+
+
+            # 安全边界
+
+            如果用户提到自伤、自杀、伤害他人，或处于紧急危险中：
+
+            - 优先表达关心，确认用户当前是否安全。
+
+            - 建议用户立即联系身边可信赖的人、当地紧急服务或心理危机干预热线。
+
+            - 不要只给普通情感建议。'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: llm
+      position:
+        x: 380
+        y: 282
+      positionAbsolute:
+        x: 380
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#llm.text#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 103
+      id: answer
+      position:
+        x: 680
+        y: 282
+      positionAbsolute:
+        x: 680
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 155
+      y: 274
+      zoom: 1
+  rag_pipeline_variables: []
