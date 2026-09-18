@@ -1,0 +1,831 @@
+app:
+  description: week09的作业2
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 作业2_deepresearch流程_loop_tianshizhuang
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.21@d467c6df6876dc5e70ad0b10c14631656ebbc904347eadf48e95b4fca7eda001
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1789441121997-source-1789441173232-target
+      selected: false
+      source: '1789441121997'
+      sourceHandle: source
+      target: '1789441173232'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: loop
+      id: 1789441173232-source-1789441565759-target
+      selected: false
+      source: '1789441173232'
+      sourceHandle: source
+      target: '1789441565759'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: http-request
+        targetType: llm
+      id: 1789443655024-source-1789443182292-target
+      selected: false
+      source: '1789443655024'
+      sourceHandle: source
+      target: '1789443182292'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: assigner
+        targetType: if-else
+      id: 1789451207888-source-1789453846005-target
+      selected: false
+      source: '1789451207888'
+      sourceHandle: source
+      target: '1789453846005'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: if-else
+        targetType: loop-end
+      id: 1789453846005-true-1789454388169-target
+      selected: false
+      source: '1789453846005'
+      sourceHandle: 'true'
+      target: '1789454388169'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: llm
+      id: 1789441565759-source-1789454548124-target
+      selected: false
+      source: '1789441565759'
+      sourceHandle: source
+      target: '1789454548124'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1789454548124-source-1789520884658-target
+      selected: false
+      source: '1789454548124'
+      sourceHandle: source
+      target: '1789520884658'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: loop-start
+        targetType: llm
+      id: 1789441565759start-source-1789442201625-target
+      selected: false
+      source: 1789441565759start
+      sourceHandle: source
+      target: '1789442201625'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: llm
+        targetType: http-request
+      id: 1789442201625-source-1789443655024-target
+      selected: false
+      source: '1789442201625'
+      sourceHandle: source
+      target: '1789443655024'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        sourceType: llm
+        targetType: assigner
+      id: 1789443182292-source-1789451207888-target
+      source: '1789443182292'
+      sourceHandle: source
+      target: '1789451207888'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - default: 周杰伦不同专辑销量研究
+          hint: ''
+          label: topic
+          max_length: 200
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: topic
+        - default: '3'
+          hint: ''
+          label: depth
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: depth
+      height: 134
+      id: '1789441121997'
+      position:
+        x: 0
+        y: 935.6666666666666
+      positionAbsolute:
+        x: 0
+        y: 935.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1789441121997'
+          - topic
+        desc: 对研究主题进行意图分析，拆解子问题，生成初始搜索查询。
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: ef2023ec-775e-4cea-8657-96bb515cb15e
+          role: system
+          text: "你是一位资深研究员。用户提出的研究主题是：{{#1789441121997.topic#}}\n\n请完成以下任务：\n1. 分析该主题的研究目标，识别需要覆盖的关键维度（如：技术现状、竞品对比、行业趋势、政策法规等）\n\
+            2. 将主题拆解为 3~5 个子问题\n3. 为每个子问题生成 1~2 个初始搜索关键词\n\n强制以 JSON 格式输出：\n{\n  \"\
+            research_goal\": \"研究目标描述\",\n  \"sub_questions\": [\"子问题1\", \"子问题2\"\
+            , ...],\n  \"initial_queries\": [\"搜索词1\", \"搜索词2\", ...],\n  \"key_dimensions\"\
+            : [\"维度1\", \"维度2\", ...]\n}"
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              initial_queries:
+                items:
+                  type: string
+                type: array
+              key_dimensions:
+                items:
+                  type: string
+                type: array
+              research_goal:
+                type: string
+              sub_questions:
+                items:
+                  type: string
+                type: array
+            required:
+            - research_goal
+            - sub_questions
+            - initial_queries
+            - key_dimensions
+            type: object
+        structured_output_enabled: true
+        title: 规划
+        type: llm
+        vision:
+          enabled: false
+      height: 161
+      id: '1789441173232'
+      position:
+        x: 342
+        y: 956.6666666666666
+      positionAbsolute:
+        x: 342
+        y: 956.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        break_conditions:
+        - comparison_operator: ≥
+          id: cbe7a4a1-d793-4e0f-8ee3-af4d0c3f83ef
+          numberVarType: variable
+          value: '{{#1789441121997.depth#}}'
+          varType: number
+          variable_selector:
+          - '1789441565759'
+          - current_loop
+        desc: Loop 节点执行重复性工作流，每个循环基于前一个循环的结果进行构建，直到满足退出条件或达到最大循环次数。
+        error_handle_mode: terminated
+        height: 579
+        logical_operator: and
+        loop_count: 3
+        loop_variables:
+        - id: c4fecd69-2f76-4a51-95f1-32163ce57a68
+          label: findings
+          value: '"空"'
+          value_type: constant
+          var_type: string
+        - id: 54f05866-6aba-4c78-934d-c1cec5de02ce
+          label: executed_queries
+          value: '[]'
+          value_type: constant
+          var_type: array[string]
+        - id: c7faa10e-9704-4f5c-a687-fe1340d8200c
+          label: visited_urls
+          value: '[]'
+          value_type: constant
+          var_type: array[string]
+        - id: a435a515-4871-448c-9d20-30b15e1d66fe
+          label: knowledge_gaps
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 35e5cada-11c5-43d3-bd2b-fd3c0941ca4a
+          label: current_loop
+          value: '0'
+          value_type: constant
+          var_type: number
+        - id: 97f49dc9-22d8-46b2-a80a-0fdc36d79e1b
+          label: source_records
+          value: '"待初步探索"'
+          value_type: constant
+          var_type: string
+        - id: f5636f40-4457-4460-bdb3-a8eff9074a0c
+          label: initial_queries
+          value:
+          - '1789441173232'
+          - structured_output
+          - initial_queries
+          value_type: variable
+          var_type: array[string]
+        selected: false
+        start_node_id: 1789441565759start
+        title: Loop
+        type: loop
+        width: 2069
+      height: 579
+      id: '1789441565759'
+      position:
+        x: 675.4285714285716
+        y: 956.6666666666666
+      positionAbsolute:
+        x: 675.4285714285716
+        y: 956.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 2069
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1789441565759start
+      parentId: '1789441565759'
+      position:
+        x: 60
+        y: 104.66666666666666
+      positionAbsolute:
+        x: 735.4285714285716
+        y: 1061.3333333333333
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 基于当前知识空缺和已执行的搜索词，生成下一轮搜索查询。
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 42174f61-5359-42bc-b1a2-a9e1f732d23b
+          role: system
+          text: '你正在对{{#1789441121997.topic#}}进行深度研究。
+
+
+            当前已积累的发现：
+
+            {{#1789441565759.findings#}}
+
+
+            当前识别的知识空缺：
+
+            {{#1789441565759.knowledge_gaps#}}
+
+
+            已经搜索过的关键词（请勿重复）：
+
+            {{#1789441565759.executed_queries#}}/
+
+
+            生成要求：
+
+            如果{{#1789441565759.knowledge_gaps#}}包含待初步探索，则基于{{#1789441565759.initial_queries#}}生成3
+            个新的结果；否则，直接基于{{#1789441565759.knowledge_gaps#}}进行生成。
+
+
+            强制必须以 JSON 数组格式输出：
+
+            ["查询1", "查询2", "查询3"]'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              queries_output:
+                items:
+                  type: string
+                type: array
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 查询生成
+        type: llm
+        vision:
+          enabled: false
+      height: 131
+      id: '1789442201625'
+      parentId: '1789441565759'
+      position:
+        x: 184
+        y: 71.16666666666666
+      positionAbsolute:
+        x: 859.4285714285716
+        y: 1027.8333333333333
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 提取发现和来源
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: c2c847bf-9d00-457e-893f-2359396ef328
+          role: system
+          text: "以下是博查搜索返回的结果（包含标题、URL、摘要）：\n\n{{#1789443655024.body#}}\n\n研究主题：{{#1789441121997.topic#}}\n\
+            已有发现：{{#1789441565759.findings#}}\n\n请完成以下任务：\n1. 从搜索结果中提取与主题相关的关键信息（数据、观点、事实）\n\
+            2. 对每条关键信息标注来源（标题 + URL）\n3. 评估信息质量（高/中/低）\n4. 识别仍未覆盖的知识空缺\n\n强制以 JSON\
+            \ 格式输出：\n{\n  \"new_findings\": \"本轮新增的关键发现（Markdown格式，每条附带来源）\",\n  \"\
+            new_sources\": [{\"title\": \"标题\", \"url\": \"URL\", \"relevance\": \"\
+            高/中/低\"}],\n  \"remaining_gaps\": \"尚未覆盖的知识空缺\",\n  \"has_sufficient_info\"\
+            : false\n}"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              has_sufficient_info:
+                type: boolean
+              new_findings:
+                type: string
+              new_sources:
+                items:
+                  type: string
+                type: array
+              relevance:
+                type: string
+              remaining_gaps:
+                type: string
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: 内容抽取
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1789443182292'
+      parentId: '1789441565759'
+      position:
+        x: 819.4285714285716
+        y: 70.71428571428567
+      positionAbsolute:
+        x: 1494.8571428571431
+        y: 1027.3809523809523
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-1253
+            key: ''
+            type: text
+            value: "{\n  \"query\": {{#1789442201625.structured_output.queries_output#}},\n\
+              \  \"summary\": true,\n  \"count\": 8\n}"
+          type: json
+        desc: 调用博查 Web Search API 执行搜索。建议在 Dify 中创建自定义工具来封装该 API
+        headers: 'Authorization:Bearer sk-3d2293ad83aa4823a7c7ce8dd5ff8c72
+
+          Content-Type:application/json'
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 博查搜索
+        type: http-request
+        url: https://api.bocha.cn/v1/web-search
+        variables: []
+      height: 197
+      id: '1789443655024'
+      parentId: '1789441565759'
+      position:
+        x: 503.1428571428571
+        y: 72.857142857143
+      positionAbsolute:
+        x: 1178.5714285714287
+        y: 1029.5238095238096
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        desc: 更新循环变量
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1789443182292'
+          - structured_output
+          - new_findings
+          variable_selector:
+          - '1789441565759'
+          - findings
+        - input_type: variable
+          operation: append
+          value:
+          - '1789442201625'
+          - text
+          variable_selector:
+          - '1789441565759'
+          - executed_queries
+        - input_type: variable
+          operation: append
+          value:
+          - '1789443182292'
+          - text
+          variable_selector:
+          - '1789441565759'
+          - visited_urls
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1789443182292'
+          - structured_output
+          - remaining_gaps
+          variable_selector:
+          - '1789441565759'
+          - knowledge_gaps
+        - input_type: constant
+          operation: +=
+          value: 1
+          variable_selector:
+          - '1789441565759'
+          - current_loop
+        - input_type: constant
+          operation: set
+          value: '{{#Loop.source_records#}}+{{#structured_output.new_sources#}}'
+          variable_selector:
+          - '1789441565759'
+          - source_records
+        loop_id: '1789441565759'
+        selected: false
+        title: 更新循环变量
+        type: assigner
+        version: '2'
+      height: 241
+      id: '1789451207888'
+      parentId: '1789441565759'
+      position:
+        x: 1144.2857142857147
+        y: 65
+      positionAbsolute:
+        x: 1819.7142857142862
+        y: 1021.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 4d21ed79-b8da-4615-b77c-563853e85f6f
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1789443182292'
+            - structured_output
+            - has_sufficient_info
+          - comparison_operator: ≥
+            id: dc80ec6d-4c30-49bf-9861-7fc676180069
+            numberVarType: variable
+            value: '{{#1789441121997.depth#}}'
+            varType: number
+            variable_selector:
+            - '1789441565759'
+            - current_loop
+          id: 'true'
+          logical_operator: and
+        desc: 判断信息是否已充分，或是否达到最大轮次，决定是否退出Loop
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        selected: false
+        title: 是否退出
+        type: if-else
+      height: 241
+      id: '1789453846005'
+      parentId: '1789441565759'
+      position:
+        x: 1472
+        y: 130.16666666666663
+      positionAbsolute:
+        x: 2147.4285714285716
+        y: 1086.8333333333333
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1789441565759'
+        selected: false
+        title: 退出循环
+        type: loop-end
+      height: 53
+      id: '1789454388169'
+      parentId: '1789441565759'
+      position:
+        x: 1794
+        y: 264.33333333333326
+      positionAbsolute:
+        x: 2469.4285714285716
+        y: 1221
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-simple
+      width: 243
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v3.2
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: ebe63b0f-f74e-4624-aab9-73d6f6345776
+          role: system
+          text: '研究主题：{{#1789441121997.topic#}}
+
+            研究发现：{{#1789441565759.findings#}}
+
+            来源记录：{{#1789441565759.source_records#}}
+
+            研究轮次：{{#1789441565759.current_loop#}}
+
+            已搜索关键词：{{#1789441565759.executed_queries#}}'
+        selected: false
+        title: 综合报告生成
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1789454548124'
+      position:
+        x: 2861
+        y: 956.6666666666666
+      positionAbsolute:
+        x: 2861
+        y: 956.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        author: admin@qq.com
+        desc: ''
+        height: 422
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"开始节点（接收
+          topic + 研究深度）","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"    ↓","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"规划节点（LLM：拆解子问题/意图分析）","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"    ↓","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"┌───────────────
+          Loop 节点（研究引擎）───────────────┐","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  循环变量：findings
+          / executed_queries /             │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│           visited_urls
+          / knowledge_gaps / loop_count │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│                                                       │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ①
+          查询生成（LLM：基于知识空缺生成搜索关键词）       │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ②
+          博查搜索（HTTP 工具：web-search API）             │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ③
+          内容抽取（LLM：从搜索结果中提取关键信息）        │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ④
+          知识缺口判断（LLM：是否还需补充检索）            │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ⑤
+          变量赋值器（更新循环变量）                        │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"│  ⑥
+          条件分支 + 退出循环节点（判断是否退出）          │","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"└───────────────────────────────────────────────────────┘","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"    ↓","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"综合报告生成（LLM：整合所有发现，生成结构化报告）","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"    ↓","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"输出节点（报告
+          + 来源列表 + 过程记录 + 置信度说明）","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 551
+      height: 422
+      id: '1789457800613'
+      position:
+        x: -507.34253222787976
+        y: 396.29288605704744
+      positionAbsolute:
+        x: -507.34253222787976
+        y: 396.29288605704744
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 551
+    - data:
+        outputs:
+        - value_selector:
+          - '1789454548124'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: 输出
+        type: end
+      height: 88
+      id: '1789520884658'
+      position:
+        x: 3174.428571428571
+        y: 956.6666666666666
+      positionAbsolute:
+        x: 3174.428571428571
+        y: 956.6666666666666
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -687
+      y: -481
+      zoom: 0.7
+  rag_pipeline_variables: []
