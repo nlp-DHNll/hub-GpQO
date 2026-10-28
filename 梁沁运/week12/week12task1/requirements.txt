@@ -1,0 +1,9 @@
+torch
+torchvision
+transformers>=4.49.0
+accelerate
+qwen-vl-utils
+fastapi
+uvicorn[standard]
+python-multipart
+pillow

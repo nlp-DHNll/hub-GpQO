@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>楼道消防安全隐患识别</title>
+<style>
+/* ── 基础样式（移动优先，max-width 720px 居中） ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+               "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: #f0f2f5; color: #1a1a2e; line-height: 1.6;
+  min-height: 100dvh;
+}
+#app {
+  max-width: 720px; margin: 0 auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+/* ── 标题区 ── */
+.header { text-align: center; }
+.header h1 { font-size: 1.5rem; font-weight: 700; color: #1a1a2e; }
+.header p  { font-size: 0.875rem; color: #666; margin-top: 4px; }
+
+/* ── 图片预览区（4:3 深色容器） ── */
+.preview-box {
+  position: relative; width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #1e1e2a; border-radius: 12px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.preview-box .placeholder {
+  color: #888; font-size: 0.9rem; text-align: center; padding: 24px;
+}
+.preview-box video,
+.preview-box img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.preview-box .hidden { display: none !important; }
+
+/* ── 操作按钮行 ── */
+.actions {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.actions button,
+.actions .btn-file {
+  flex: 1 0 auto; min-width: 92px;
+  padding: 10px 12px; font-size: 0.875rem; font-weight: 600;
+  border: 1px solid #d0d5dd; border-radius: 8px;
+  background: #fff; color: #333; cursor: pointer;
+  text-align: center; display: inline-flex; align-items: center;
+  justify-content: center; gap: 4px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.actions button:hover:not(:disabled),
+.actions .btn-file:hover { background: #f5f5f5; border-color: #aaa; }
+.actions button:disabled { opacity: 0.45; cursor: not-allowed; }
+.actions .btn-file input { display: none; }
+
+/* ── 主按钮「开始识别」 ── */
+.btn-primary {
+  width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 700;
+  border: none; border-radius: 10px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; gap: 8px; transition: opacity 0.15s;
+}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary .pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #fff; animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── 状态行 ── */
+.status-line { font-size: 0.85rem; color: #666; text-align: center; min-height: 22px; }
+.status-line.error { color: #e74c3c; font-weight: 600; }
+
+/* ── 结果卡片 ── */
+.result-card {
+  background: #fff; border-radius: 12px; padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.result-card.hidden { display: none; }
+
+/* 风险徽章 */
+.badge-row { display: flex; align-items: center; gap: 10px; }
+.badge {
+  display: inline-block; padding: 6px 16px; border-radius: 20px;
+  font-size: 0.95rem; font-weight: 700; color: #fff;
+}
+.badge-none     { background: #27ae60; } /* 无隐患-绿 */
+.badge-low      { background: #2980b9; } /* 低风险-蓝 */
+.badge-medium   { background: #f39c12; } /* 中等风险-橙 */
+.badge-high     { background: #e74c3c; } /* 高风险-红 */
+.badge-unknown  { background: #95a5a6; }
+
+/* 分数条 */
+.score-bar-wrap { display: flex; align-items: center; gap: 10px; }
+.score-bar {
+  flex: 1; height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%; border-radius: 5px;
+  width: 0%; transition: width 0.6s ease;
+}
+.score-bar-fill.none   { background: #27ae60; }
+.score-bar-fill.low    { background: #2980b9; }
+.score-bar-fill.medium { background: #f39c12; }
+.score-bar-fill.high   { background: #e74c3c; }
+.score-value { font-weight: 700; font-size: 0.95rem; min-width: 36px; }
+
+/* dt/dd */
+.dl-row { display: flex; gap: 8px; font-size: 0.9rem; }
+.dl-row dt { font-weight: 700; white-space: nowrap; color: #555; min-width: 72px; }
+.dl-row dd { color: #333; }
+
+/* 隐患列表 */
+.hazard-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.hazard-list li {
+  background: #fff3e0; border-left: 3px solid #f39c12;
+  padding: 8px 12px; border-radius: 6px; font-size: 0.875rem;
+}
+
+/* 人工复核提示 */
+.manual-review-banner {
+  background: #fff9c4; border: 1px solid #f9a825; border-radius: 8px;
+  padding: 10px 14px; font-size: 0.875rem; font-weight: 600;
+  color: #795548; text-align: center;
+}
+
+/* details 折叠 */
+details { font-size: 0.85rem; }
+details summary {
+  cursor: pointer; color: #888; font-weight: 500; padding: 4px 0;
+}
+details pre {
+  background: #f5f5f5; padding: 10px; border-radius: 6px;
+  overflow-x: auto; white-space: pre-wrap; word-break: break-all;
+  font-size: 0.8rem; color: #555; margin-top: 6px; max-height: 200px;
+  overflow-y: auto;
+}
+
+/* 隐藏 canvas */
+#captureCanvas { display: none; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- 标题 -->
+  <div class="header">
+    <h1>🧯 楼道消防安全隐患识别</h1>
+    <p>拍照或上传楼道照片，AI 自动分析火灾风险等级</p>
+  </div>
+
+  <!-- 图片预览区 -->
+  <div class="preview-box" id="previewBox">
+    <div class="placeholder" id="placeholder">📷<br>请拍照或选择图片</div>
+    <video id="cameraVideo" class="hidden" autoplay playsinline muted></video>
+    <img id="previewImg" class="hidden" alt="预览图片">
+  </div>
+  <canvas id="captureCanvas"></canvas>
+
+  <!-- 操作按钮 -->
+  <div class="actions">
+    <button id="btnCamera" title="需要 HTTPS 或 localhost 环境">
+      📹 开启摄像头
+    </button>
+    <button id="btnCapture" disabled>📸 拍照</button>
+    <label class="btn-file" id="btnFileCam" title="手机拍照主入口">
+      📷 拍照 / 选择
+      <input id="fileCam" type="file" accept="image/*" capture="environment">
+    </label>
+    <label class="btn-file" id="btnFileGallery">
+      🖼 从相册
+      <input id="fileGallery" type="file" accept="image/*">
+    </label>
+    <button id="btnReset" disabled>🔄 重来</button>
+  </div>
+
+  <!-- 开始识别按钮 -->
+  <button class="btn-primary" id="btnAnalyze" disabled>
+    <span id="btnAnalyzeText">开始识别</span>
+  </button>
+
+  <!-- 状态行 -->
+  <div class="status-line" id="statusLine"></div>
+
+  <!-- 结果卡片 -->
+  <div class="result-card hidden" id="resultCard">
+    <div class="badge-row">
+      <span class="badge badge-unknown" id="badge">--</span>
+      <span style="font-size:0.85rem;color:#888;" id="reviewTag"></span>
+    </div>
+    <div class="score-bar-wrap">
+      <span style="font-size:0.85rem;color:#555;">风险分数</span>
+      <div class="score-bar">
+        <div class="score-bar-fill" id="scoreBarFill"></div>
+      </div>
+      <span class="score-value" id="scoreValue">0</span>
+    </div>
+    <div class="dl-row">
+      <dt>判断原因</dt>
+      <dd id="reasonText">--</dd>
+    </div>
+    <div class="dl-row">
+      <dt>处置建议</dt>
+      <dd id="suggestionText">--</dd>
+    </div>
+    <div id="hazardsWrap" class="hidden">
+      <div style="font-weight:700;font-size:0.9rem;color:#555;">识别到的隐患</div>
+      <ul class="hazard-list" id="hazardList"></ul>
+    </div>
+    <div class="manual-review-banner hidden" id="manualReview">
+      ⚠️ 需要人工复核 —— 模型对该结果置信度不足，建议到现场确认。
+    </div>
+    <details>
+      <summary>查看模型原始输出</summary>
+      <pre id="rawOutput">--</pre>
+    </details>
+  </div>
+
+</div>
+
+<script>
+/* ================================================================
+   楼道消防安全隐患识别 —— 前端交互逻辑
+   ================================================================ */
+
+// ── DOM 引用 ─────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+
+const previewBox   = $('previewBox');
+const placeholder  = $('placeholder');
+const cameraVideo  = $('cameraVideo');
+const previewImg   = $('previewImg');
+const captureCanvas = $('captureCanvas');
+
+const btnCamera   = $('btnCamera');
+const btnCapture  = $('btnCapture');
+const btnFileCam  = $('btnFileCam');
+const btnFileGallery = $('btnFileGallery');
+const btnReset    = $('btnReset');
+const btnAnalyze  = $('btnAnalyze');
+const btnAnalyzeText = $('btnAnalyzeText');
+const statusLine  = $('statusLine');
+
+const resultCard   = $('resultCard');
+const badge        = $('badge');
+const reviewTag    = $('reviewTag');
+const scoreBarFill = $('scoreBarFill');
+const scoreValue   = $('scoreValue');
+const reasonText   = $('reasonText');
+const suggestionText = $('suggestionText');
+const hazardsWrap  = $('hazardsWrap');
+const hazardList   = $('hazardList');
+const manualReview = $('manualReview');
+const rawOutput    = $('rawOutput');
+
+// ── 状态 ─────────────────────────────────────────────────
+let mediaStream = null;       // 摄像头 MediaStream
+let currentBlob = null;       // 当前待上传的 JPEG Blob
+let selectedFile = null;      // 用户选择的原始 File（用于保留 filename）
+let analyzeAbort = null;      // AbortController
+let previewUrl  = null;       // 当前预览 ObjectURL
+
+// ── 工具函数 ─────────────────────────────────────────────
+function setStatus(msg, isError = false) {
+  statusLine.textContent = msg;
+  statusLine.className = 'status-line' + (isError ? ' error' : '');
+}
+
+function showElem(el) { el.classList.remove('hidden'); }
+function hideElem(el) { el.classList.add('hidden'); }
+
+function enableBtn(btn, enabled) {
+  btn.disabled = !enabled;
+  if (enabled) btn.removeAttribute('disabled');
+  else btn.setAttribute('disabled', '');
+}
+
+function resetAll() {
+  // 关闭摄像头
+  stopCamera();
+  // 清空预览
+  if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+  previewImg.src = '';
+  hideElem(previewImg);
+  hideElem(cameraVideo);
+  showElem(placeholder);
+  // 清空 blob / file
+  currentBlob = null;
+  selectedFile = null;
+  // 重置按钮
+  enableBtn(btnCapture, false);
+  enableBtn(btnReset, false);
+  enableBtn(btnAnalyze, false);
+  btnAnalyzeText.textContent = '开始识别';
+  const dot = btnAnalyze.querySelector('.pulse-dot');
+  if (dot) dot.remove();
+  // 隐藏结果
+  hideElem(resultCard);
+  // 清空状态
+  setStatus('');
+  // 清空 file input（允许重新选择同一文件）
+  $('fileCam').value = '';
+  $('fileGallery').value = '';
+}
+
+function stopCamera() {
+  if (mediaStream) {
+    mediaStream.getTracks().forEach(t => t.stop());
+    mediaStream = null;
+  }
+  hideElem(cameraVideo);
+  if (!previewImg.src) showElem(placeholder);
+}
+
+// ── 图片压缩（EXIF 方向修正 + 长边 ≤ 1600px + JPEG Q=0.85） ──
+async function compressImage(file) {
+  try {
+    let bitmap;
+    if (typeof createImageBitmap !== 'undefined') {
+      bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+    } else {
+      // 老浏览器兜底：用 Image 标签
+      bitmap = await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    let w = bitmap.width;
+    let h = bitmap.height;
+    const MAX = 1600;
+    if (Math.max(w, h) > MAX) {
+      const scale = MAX / Math.max(w, h);
+      w = Math.round(w * scale);
+      h = Math.round(h * scale);
+    }
+
+    captureCanvas.width = w;
+    captureCanvas.height = h;
+    const ctx = captureCanvas.getContext('2d');
+    ctx.drawImage(bitmap, 0, 0, w, h);
+
+    return new Promise(resolve => {
+      captureCanvas.toBlob(blob => resolve(blob), 'image/jpeg', 0.85);
+    });
+  } catch (_) {
+    // createImageBitmap 失败时，用 Image 兜底
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        let w = img.naturalWidth;
+        let h = img.naturalHeight;
+        const MAX = 1600;
+        if (Math.max(w, h) > MAX) {
+          const scale = MAX / Math.max(w, h);
+          w = Math.round(w * scale);
+          h = Math.round(h * scale);
+        }
+        captureCanvas.width = w;
+        captureCanvas.height = h;
+        const ctx = captureCanvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        captureCanvas.toBlob(blob => resolve(blob), 'image/jpeg', 0.85);
+      };
+      img.src = URL.createObjectURL(file);
+    });
+  }
+}
+
+// ── 显示预览 ─────────────────────────────────────────────
+function showImagePreview(blob) {
+  if (previewUrl) URL.revokeObjectURL(previewUrl);
+  previewUrl = URL.createObjectURL(blob);
+  previewImg.src = previewUrl;
+  hideElem(placeholder);
+  hideElem(cameraVideo);
+  showElem(previewImg);
+}
+
+// ── 处理文件选择 ─────────────────────────────────────────
+async function handleFile(file) {
+  if (!file) return;
+  setStatus('正在压缩图片...');
+  try {
+    currentBlob = await compressImage(file);
+    selectedFile = file;
+    showImagePreview(currentBlob);
+    enableBtn(btnReset, true);
+    enableBtn(btnAnalyze, true);
+    setStatus('图片就绪，点击「开始识别」进行分析');
+  } catch (_) {
+    setStatus('图片处理失败，请重试', true);
+    currentBlob = null;
+    selectedFile = null;
+  }
+}
+
+// ── 摄像头 ───────────────────────────────────────────────
+btnCamera.addEventListener('click', async () => {
+  if (!window.isSecureContext) {
+    setStatus('摄像头仅支持 HTTPS 或 localhost 环境，请使用「拍照 / 选择」按钮', true);
+    return;
+  }
+  setStatus('正在开启摄像头...');
+  try {
+    stopCamera();
+    mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
+      audio: false,
+    });
+    cameraVideo.srcObject = mediaStream;
+    hideElem(placeholder);
+    hideElem(previewImg);
+    showElem(cameraVideo);
+    enableBtn(btnCapture, true);
+    setStatus('摄像头已开启，对准楼道后点击「拍照」');
+  } catch (e) {
+    const msg = e.name === 'NotAllowedError'
+      ? '摄像头权限被拒绝，请使用「拍照 / 选择」按钮'
+      : `摄像头启动失败：${e.message}，请使用「拍照 / 选择」按钮`;
+    setStatus(msg, true);
+  }
+});
+
+// 页面切后台自动关闭摄像头
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && mediaStream) stopCamera();
+});
+
+// 拍照
+btnCapture.addEventListener('click', () => {
+  if (!mediaStream || !cameraVideo.videoWidth) return;
+  const vw = cameraVideo.videoWidth;
+  const vh = cameraVideo.videoHeight;
+  captureCanvas.width = vw;
+  captureCanvas.height = vh;
+  const ctx = captureCanvas.getContext('2d');
+  ctx.drawImage(cameraVideo, 0, 0, vw, vh);
+  captureCanvas.toBlob(blob => {
+    if (!blob) { setStatus('拍照失败，请重试', true); return; }
+    currentBlob = blob;
+    selectedFile = new File([blob], 'capture.jpg', { type: 'image/jpeg' });
+    showImagePreview(blob);
+    enableBtn(btnReset, true);
+    enableBtn(btnAnalyze, true);
+    setStatus('拍照成功，点击「开始识别」进行分析');
+  }, 'image/jpeg', 0.9);
+});
+
+// 文件选择（拍照 / 选择，手机主路径）
+$('fileCam').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) handleFile(file);
+});
+
+// 文件选择（从相册）
+$('fileGallery').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) handleFile(file);
+});
+
+// 重来
+btnReset.addEventListener('click', resetAll);
+
+// ── 初始化：根据环境禁用/启用摄像头按钮 ────────────────
+if (!window.isSecureContext) {
+  enableBtn(btnCamera, false);
+  btnCamera.title = '摄像头仅支持 HTTPS 或 localhost 环境，手机请使用「拍照 / 选择」按钮';
+}
+
+// ── 开始识别 ─────────────────────────────────────────────
+btnAnalyze.addEventListener('click', async () => {
+  if (!currentBlob) return;
+
+  // 进入识别中状态
+  enableBtn(btnAnalyze, false);
+  btnAnalyzeText.textContent = '识别中…';
+  const dot = document.createElement('span');
+  dot.className = 'pulse-dot';
+  btnAnalyze.appendChild(dot);
+  hideElem(resultCard);
+  setStatus('正在分析，请稍候…');
+
+  // 取消上一次请求
+  if (analyzeAbort) analyzeAbort.abort();
+  analyzeAbort = new AbortController();
+
+  const formData = new FormData();
+  formData.append('file', currentBlob, selectedFile?.name || 'image.jpg');
+
+  let response;
+  try {
+    // AbortSignal.timeout 兼容性处理：优先用 AbortSignal.any 组合超时，
+    // 不支持时退化为 AbortSignal.timeout 直接使用（较新但仍有 fallback）。
+    let signal;
+    if (typeof AbortSignal.any === 'function') {
+      signal = AbortSignal.any([analyzeAbort.signal, AbortSignal.timeout(600000)]);
+    } else if (typeof AbortSignal.timeout === 'function') {
+      signal = AbortSignal.timeout(600000);
+    } else {
+      // 老旧浏览器无内置超时，仅用 AbortController signal
+      signal = analyzeAbort.signal;
+    }
+
+    response = await fetch('/api/risk/analyze', {
+      method: 'POST',
+      body: formData,
+      signal: signal,
+    });
+  } catch (e) {
+    if (e.name === 'AbortError' || e.name === 'TimeoutError') {
+      setStatus('请求超时（模型推理耗时较长，CPU 模式下可能需要数分钟），请重试或缩小图片尺寸', true);
+    } else {
+      setStatus(`网络错误：${e.message}`, true);
+    }
+    restoreAnalyzeBtn();
+    return;
+  }
+
+  if (!response.ok) {
+    let detail = `服务器错误（${response.status}）`;
+    try {
+      const err = await response.json();
+      detail = err.detail || detail;
+    } catch (_) { /* 忽略 */ }
+    setStatus(detail, true);
+    restoreAnalyzeBtn();
+    return;
+  }
+
+  let data;
+  try {
+    data = await response.json();
+  } catch (_) {
+    setStatus('服务器返回数据格式异常', true);
+    restoreAnalyzeBtn();
+    return;
+  }
+
+  // 渲染结果
+  renderResult(data);
+  setStatus('分析完成');
+  restoreAnalyzeBtn();
+});
+
+function restoreAnalyzeBtn() {
+  enableBtn(btnAnalyze, true);
+  btnAnalyzeText.textContent = '开始识别';
+  const dot = btnAnalyze.querySelector('.pulse-dot');
+  if (dot) dot.remove();
+  analyzeAbort = null;
+}
+
+// ── 渲染结果卡片 ─────────────────────────────────────────
+function renderResult(data) {
+  const level = data.risk_level || '未知';
+
+  // 风险徽章
+  const badgeClass = {
+    '无隐患': 'badge-none',
+    '低风险': 'badge-low',
+    '中等风险': 'badge-medium',
+    '高风险': 'badge-high',
+  }[level] || 'badge-unknown';
+  badge.textContent = level;
+  badge.className = `badge ${badgeClass}`;
+
+  // 复核标签
+  if (data.need_manual_review) {
+    reviewTag.textContent = '（需人工复核）';
+  } else {
+    reviewTag.textContent = '';
+  }
+
+  // 分数条
+  const score = parseInt(data.risk_score) || 0;
+  scoreValue.textContent = score;
+  const barClass = {
+    '无隐患': 'none',
+    '低风险': 'low',
+    '中等风险': 'medium',
+    '高风险': 'high',
+  }[level] || 'medium';
+  scoreBarFill.className = `score-bar-fill ${barClass}`;
+  // 触发动画：先重置再设置
+  scoreBarFill.style.width = '0%';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      scoreBarFill.style.width = score + '%';
+    });
+  });
+
+  // 原因 / 建议
+  reasonText.textContent = data.reason || '--';
+  suggestionText.textContent = data.suggestion || '--';
+
+  // 隐患列表
+  hazardList.innerHTML = '';
+  if (data.hazards && data.hazards.length > 0) {
+    showElem(hazardsWrap);
+    data.hazards.forEach(h => {
+      const li = document.createElement('li');
+      li.textContent = `${h.type}：${h.description}`;
+      hazardList.appendChild(li);
+    });
+  } else {
+    hideElem(hazardsWrap);
+  }
+
+  // 人工复核
+  if (data.need_manual_review) {
+    showElem(manualReview);
+  } else {
+    hideElem(manualReview);
+  }
+
+  // 原始输出
+  rawOutput.textContent = data.raw || '(空)';
+
+  // 显示卡片
+  showElem(resultCard);
+}
+</script>
+</body>
+</html>
