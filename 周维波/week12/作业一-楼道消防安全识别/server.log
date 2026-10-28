@@ -1,0 +1,17 @@
+========================================================
+  楼道消防安全风险识别服务已启动
+  本机访问:   http://127.0.0.1:8000
+  手机访问:   http://192.168.101.4:8000  （需在同一局域网）
+--------------------------------------------------------
+  ds flash 4.1 (DeepSeek) model=deepseek-flash           未配置密钥（前端将无法调用，可先用演示模式）
+  qwen-vl-max (阿里云百炼)  model=qwen-vl-max              未配置密钥（前端将无法调用，可先用演示模式）
+========================================================
+[19:54:00] 识别完成 provider=mock category=中风险 latency=0ms image=0KB
+[20:05:57] "GET /favicon.ico HTTP/1.1" 404 -
+[20:05:57] "GET /favicon.ico HTTP/1.1" 404 -
+[20:05:57] "GET /favicon.ico HTTP/1.1" 404 -
+[20:05:57] "GET /favicon.ico HTTP/1.1" 404 -
+[20:05:58] "GET /favicon.ico HTTP/1.1" 404 -
+[20:06:00] "GET /favicon.ico HTTP/1.1" 404 -
+[20:06:04] "GET /favicon.ico HTTP/1.1" 404 -
+[20:06:06] "GET /favicon.ico HTTP/1.1" 404 -
