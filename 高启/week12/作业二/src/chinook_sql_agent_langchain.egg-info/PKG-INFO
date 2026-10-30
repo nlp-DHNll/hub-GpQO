@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: chinook-sql-agent-langchain
+Version: 0.1.0
+Summary: LangChain SQL agent workflow over the Chinook SQLite database
+Requires-Python: >=3.10
+Requires-Dist: langchain-core<2.0,>=1.0
+Requires-Dist: langchain-openai<2.0,>=1.0
+Requires-Dist: sqlalchemy>=2.0

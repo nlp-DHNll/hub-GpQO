@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chinook-sql-agent-langchain"
+version = "0.1.0"
+description = "LangChain SQL agent workflow over the Chinook SQLite database"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-core>=1.0,<2.0",
+    "langchain-openai>=1.0,<2.0",
+    "python-dotenv>=1.0,<2.0",
+    "sqlalchemy>=2.0",
+]
+
+[project.scripts]
+sql-agent = "sql_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

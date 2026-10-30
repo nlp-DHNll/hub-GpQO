@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>楼道安全巡查</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #192521;
+      --muted: #69736d;
+      --paper: #f5f3ee;
+      --card: #fffefa;
+      --line: #e4e4dc;
+      --green: #176c51;
+      --green-soft: #e8f3ed;
+      --red: #bf3e2e;
+      --shadow: 0 18px 50px rgba(33, 46, 39, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 88% 3%, rgba(222, 231, 216, .8), transparent 34rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    button { font: inherit; }
+
+    .page-shell {
+      width: min(100% - 32px, 1040px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar, .brand, .eyebrow, .actions, .button, .result-heading, .review-note {
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar { justify-content: space-between; gap: 16px; }
+    .brand { gap: 10px; font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--green);
+      color: white;
+      font-size: 18px;
+    }
+
+    .privacy-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(23, 108, 81, .16);
+      border-radius: 999px;
+      background: rgba(255, 254, 250, .65);
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    main { padding-top: 50px; }
+    .intro { max-width: 650px; margin-bottom: 26px; }
+    .eyebrow { gap: 8px; color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+    h1 { margin: 12px 0 10px; font-size: clamp(32px, 6vw, 52px); line-height: 1.13; letter-spacing: -.055em; }
+    .subtitle { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+
+    .workspace { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(310px, .95fr); gap: 18px; align-items: start; }
+    .panel { border: 1px solid rgba(31, 49, 39, .08); border-radius: 22px; background: var(--card); box-shadow: var(--shadow); }
+    .upload-panel { padding: 22px; }
+
+    .photo-frame {
+      position: relative;
+      display: grid;
+      min-height: 310px;
+      overflow: hidden;
+      place-items: center;
+      border: 1px dashed #c7cfc5;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #f4f4ed, #e9eee6);
+    }
+
+    .photo-frame.has-image { border-style: solid; background: #f0f1ec; }
+    .photo-frame img { display: none; width: 100%; max-height: 460px; object-fit: contain; }
+    .photo-frame.has-image img { display: block; }
+    .empty-state { max-width: 260px; padding: 24px; text-align: center; }
+    .camera-icon { display: grid; width: 56px; height: 56px; margin: 0 auto 14px; place-items: center; border-radius: 18px; background: white; color: var(--green); font-size: 24px; box-shadow: 0 6px 18px rgba(25, 37, 33, .07); }
+    .empty-title { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+    .empty-hint { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .photo-frame.has-image .empty-state { display: none; }
+
+    .actions { gap: 10px; margin-top: 16px; }
+    .button { justify-content: center; gap: 8px; min-height: 48px; padding: 0 16px; border: 1px solid transparent; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 700; transition: transform .15s ease, background .15s ease; }
+    .button:hover { transform: translateY(-1px); }
+    .button:focus-visible { outline: 3px solid rgba(23, 108, 81, .3); outline-offset: 2px; }
+    .button-primary { flex: 1; background: var(--green); color: white; }
+    .button-primary:hover { background: #105c44; }
+    .button-secondary { background: white; border-color: var(--line); color: var(--ink); }
+    .button:disabled { transform: none; cursor: wait; opacity: .65; }
+    .file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+    .privacy-note { margin: 13px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .result-panel { min-height: 394px; padding: 23px; }
+    .result-heading { justify-content: space-between; gap: 14px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .result-heading h2 { margin: 0; font-size: 16px; }
+    .result-index { color: #9aa29b; font-size: 11px; letter-spacing: .06em; }
+    .result-empty { display: grid; min-height: 300px; align-content: center; justify-items: center; padding: 30px 16px; text-align: center; }
+    .result-symbol { display: grid; width: 52px; height: 52px; margin-bottom: 14px; place-items: center; border: 1px solid var(--line); border-radius: 17px; color: #87918a; font-size: 20px; }
+    .result-empty h3 { margin: 0 0 7px; font-size: 14px; }
+    .result-empty p { max-width: 230px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .result-content { display: none; padding-top: 22px; }
+    .result-content.visible { display: block; }
+    .risk-badge { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 14px; font-weight: 800; }
+    .risk-badge::before { width: 7px; height: 7px; border-radius: 50%; background: currentColor; content: ""; }
+    .risk-badge[data-level="低风险"] { background: #f3f1dc; color: #8a7115; }
+    .risk-badge[data-level="中风险"] { background: #fff0d8; color: #a75c10; }
+    .risk-badge[data-level="高风险"] { background: #fde9e5; color: #bd3828; }
+    .risk-badge[data-level="非楼道"] { background: #edf0f2; color: #59656d; }
+    .result-block { margin-top: 21px; }
+    .result-block h3 { margin: 0 0 8px; color: #859089; font-size: 11px; letter-spacing: .08em; }
+    .result-block p { margin: 0; color: #34413a; font-size: 14px; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .review-note { gap: 8px; margin-top: 18px; padding: 11px 12px; border-radius: 10px; background: #fff5df; color: #865c13; font-size: 12px; line-height: 1.6; }
+    .message { min-height: 20px; margin: 10px 0 0; color: var(--red); font-size: 12px; line-height: 1.6; }
+    .message:empty { display: none; }
+    .spinner { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.45); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    footer { margin-top: 22px; color: #87918a; font-size: 11px; line-height: 1.7; text-align: center; }
+
+    @media (max-width: 760px) {
+      .page-shell { width: min(100% - 24px, 560px); padding-top: 18px; }
+      main { padding-top: 36px; }
+      .workspace { grid-template-columns: 1fr; }
+      .upload-panel { padding: 14px; }
+      .photo-frame { min-height: 260px; }
+      .result-panel { min-height: 280px; padding: 18px; }
+      .result-empty { min-height: 185px; }
+      .privacy-pill { font-size: 11px; }
+    }
+
+    @media (max-width: 390px) {
+      .actions { flex-wrap: wrap; }
+      .button-primary { flex-basis: 100%; order: 2; }
+      .button-secondary { flex: 1; }
+      .photo-frame { min-height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">⌂</span><span>社区安全工具</span></div>
+      <span class="privacy-pill">图片仅用于本次识别</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow">CORRIDOR SAFETY</div>
+        <h1 id="page-title">楼道安全巡查</h1>
+        <p class="subtitle">拍下楼道现场，快速识别堆物、堵塞与电动车等消防隐患。</p>
+      </section>
+
+      <section class="workspace" aria-label="照片上传与识别结果">
+        <div class="panel upload-panel">
+          <div id="photo-frame" class="photo-frame">
+            <img id="preview" alt="待识别的楼道现场照片">
+            <div class="empty-state">
+              <div class="camera-icon" aria-hidden="true">⌕</div>
+              <p class="empty-title">先拍摄或选择一张照片</p>
+              <p class="empty-hint">尽量拍清整段通道和地面堆放物，避免逆光与遮挡。</p>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="camera-button" class="button button-secondary" type="button">◎ 拍照</button>
+            <button id="gallery-button" class="button button-secondary" type="button">▧ 相册</button>
+            <button id="analyze-button" class="button button-primary" type="button" disabled>开始识别 <span aria-hidden="true">→</span></button>
+          </div>
+          <input id="camera-input" class="file-input" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" aria-label="拍摄楼道照片">
+          <input id="gallery-input" class="file-input" type="file" accept="image/jpeg,image/png,image/webp" aria-label="从相册选择楼道照片">
+          <p id="message" class="message" role="alert" aria-live="polite"></p>
+          <p class="privacy-note">支持 JPEG、PNG 和 WebP，单张不超过 10 MB。照片仅在识别请求期间处理，不保存在本应用中。</p>
+        </div>
+
+        <section class="panel result-panel" aria-labelledby="result-title" aria-live="polite">
+          <div class="result-heading">
+            <h2 id="result-title">识别结果</h2>
+            <span class="result-index">01 / REVIEW</span>
+          </div>
+          <div id="result-empty" class="result-empty">
+            <div class="result-symbol" aria-hidden="true">✳</div>
+            <h3>等待现场照片</h3>
+            <p>提交照片后，这里会显示隐患等级、判断依据和处理建议。</p>
+          </div>
+          <div id="result-content" class="result-content">
+            <span id="risk-badge" class="risk-badge"></span>
+            <div class="result-block">
+              <h3>判断依据</h3>
+              <p id="reason"></p>
+            </div>
+            <div class="result-block">
+              <h3>处理建议</h3>
+              <p id="suggestion"></p>
+            </div>
+            <div id="review-note" class="review-note" hidden>画面证据不足或不是楼道场景，请现场人工复核。</div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>识别结果仅供巡查参考；发现起火或其他紧急情况，请立即联系物业或拨打 119。</footer>
+  </div>
+
+  <script>
+    const 拍照按钮 = document.querySelector("#camera-button");
+    const 相册按钮 = document.querySelector("#gallery-button");
+    const 拍照输入 = document.querySelector("#camera-input");
+    const 相册输入 = document.querySelector("#gallery-input");
+    const 识别按钮 = document.querySelector("#analyze-button");
+    const 预览图 = document.querySelector("#preview");
+    const 图片框 = document.querySelector("#photo-frame");
+    const 提示区 = document.querySelector("#message");
+    const 结果空态 = document.querySelector("#result-empty");
+    const 结果内容 = document.querySelector("#result-content");
+    const 风险标签 = document.querySelector("#risk-badge");
+    const 复核提示 = document.querySelector("#review-note");
+    let 当前图片 = null;
+    let 预览地址 = null;
+
+    // 图片选择后立即预览，并允许用户重新拍摄或换图。
+    function 处理图片选择(事件) {
+      const 图片 = 事件.target.files?.[0];
+      if (!图片) return;
+      if (!["image/jpeg", "image/png", "image/webp"].includes(图片.type)) {
+        提示区.textContent = "请选择 JPEG、PNG 或 WebP 格式的图片。";
+        事件.target.value = "";
+        return;
+      }
+      if (预览地址) URL.revokeObjectURL(预览地址);
+      当前图片 = 图片;
+      预览地址 = URL.createObjectURL(图片);
+      预览图.src = 预览地址;
+      图片框.classList.add("has-image");
+      识别按钮.disabled = false;
+      提示区.textContent = "";
+      结果内容.classList.remove("visible");
+      结果空态.hidden = false;
+      事件.target.value = "";
+    }
+
+    // 将图片发送到同源后端，并在页面中展示结构化识别结果。
+    async function 开始识别() {
+      if (!当前图片) {
+        提示区.textContent = "请先拍照或选择一张图片。";
+        return;
+      }
+
+      const 表单 = new FormData();
+      表单.append("图片文件", 当前图片);
+      识别按钮.disabled = true;
+      拍照按钮.disabled = true;
+      相册按钮.disabled = true;
+      识别按钮.innerHTML = '<span class="spinner" aria-hidden="true"></span> 正在识别';
+      提示区.textContent = "";
+
+      try {
+        const 响应 = await fetch("/api/analyze", { method: "POST", body: 表单 });
+        let 数据;
+        try {
+          数据 = await 响应.json();
+        } catch {
+          throw new Error("服务返回内容异常，请稍后重试。");
+        }
+        if (!响应.ok) throw new Error(数据.detail || "识别失败，请稍后重试。");
+        if (!["非楼道", "无风险", "低风险", "中风险", "高风险"].includes(数据.level)) {
+          throw new Error("识别结果格式异常，请重新尝试。");
+        }
+
+        风险标签.textContent = 数据.level;
+        风险标签.dataset.level = 数据.level;
+        document.querySelector("#reason").textContent = 数据.reason;
+        document.querySelector("#suggestion").textContent = 数据.suggestion;
+        复核提示.hidden = !数据.needs_manual_review;
+        结果空态.hidden = true;
+        结果内容.classList.add("visible");
+      } catch (错误) {
+        提示区.textContent = 错误 instanceof TypeError
+          ? "网络连接失败，请确认手机与服务端处于同一网络后重试。"
+          : 错误.message || "识别失败，请稍后重试。";
+      } finally {
+        识别按钮.disabled = !当前图片;
+        拍照按钮.disabled = false;
+        相册按钮.disabled = false;
+        识别按钮.innerHTML = '开始识别 <span aria-hidden="true">→</span>';
+      }
+    }
+
+    拍照按钮.addEventListener("click", () => 拍照输入.click());
+    相册按钮.addEventListener("click", () => 相册输入.click());
+    拍照输入.addEventListener("change", 处理图片选择);
+    相册输入.addEventListener("change", 处理图片选择);
+    识别按钮.addEventListener("click", 开始识别);
+    window.addEventListener("pagehide", () => {
+      if (预览地址) URL.revokeObjectURL(预览地址);
+    });
+  </script>
+</body>
+</html>
