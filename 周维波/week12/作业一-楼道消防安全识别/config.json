@@ -1,0 +1,23 @@
+{
+  "host": "0.0.0.0",
+  "port": 8000,
+  "provider": "deepseek",
+  "max_body_bytes": 15728640,
+  "max_image_bytes": 15728640,
+  "max_edge": 1568,
+  "image_quality": 88,
+  "providers": {
+    "deepseek": {
+      "name": "ds flash 4.1 (DeepSeek)",
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY"
+    },
+    "qwen": {
+      "name": "qwen-vl-max (阿里云百炼)",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model": "qwen-vl-max",
+      "api_key_env": "DASHSCOPE_API_KEY"
+    }
+  }
+}
