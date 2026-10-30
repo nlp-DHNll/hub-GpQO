@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>楼道消防安全风险识别</title>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 16px;
+    }
+    .wrap { max-width: 520px; margin: 0 auto; }
+    h1 { font-size: 20px; text-align: center; margin: 8px 0 16px; }
+    .card {
+      background: #1e293b; border-radius: 16px; padding: 16px; margin-bottom: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    }
+    video, canvas, img#preview {
+      width: 100%; border-radius: 12px; background: #000; display: block;
+      aspect-ratio: 4 / 3; object-fit: cover;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 14px; margin-top: 12px; border: none; border-radius: 12px;
+      font-size: 16px; font-weight: 600; color: #fff; cursor: pointer; transition: .2s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn.primary { background: #2563eb; }
+    .btn.primary:disabled { background: #334155; opacity: .6; }
+    .btn.ghost { background: #334155; }
+    .row { display: flex; gap: 12px; }
+    .row .btn { margin-top: 12px; }
+    .hidden { display: none !important; }
+    #status { text-align: center; color: #94a3b8; font-size: 14px; margin-top: 10px; min-height: 20px; }
+    .spinner {
+      width: 16px; height: 16px; border: 2px solid #94a3b8; border-top-color: #fff;
+      border-radius: 50%; animation: spin .8s linear infinite; display: inline-block;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .result { margin-top: 8px; }
+    .badge {
+      display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 16px;
+    }
+    .lv-high   { background: #dc2626; color: #fff; }
+    .lv-medium { background: #ea580c; color: #fff; }
+    .lv-low    { background: #ca8a04; color: #fff; }
+    .lv-none   { background: #16a34a; color: #fff; }
+    .lv-non    { background: #475569; color: #fff; }
+    .meta { margin-top: 10px; font-size: 14px; line-height: 1.6; }
+    .meta b { color: #cbd5e1; }
+    .tags { margin-top: 8px; }
+    .tag { display: inline-block; background: #334155; border-radius: 8px; padding: 4px 10px; margin: 4px 4px 0 0; font-size: 13px; }
+    .muted { color: #94a3b8; font-size: 12px; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>📷 楼道消防安全风险识别</h1>
+
+    <div class="card">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas" class="hidden"></canvas>
+      <img id="preview" class="hidden" alt="预览" />
+
+      <div class="row">
+        <button id="captureBtn" class="btn primary">📸 拍照识别</button>
+        <button id="switchBtn" class="btn ghost">🔄 开摄像头</button>
+      </div>
+      <div class="row">
+        <label class="btn ghost" style="position:relative; overflow:hidden;">
+          🖼️ 从相册选择
+          <input id="fileInput" type="file" accept="image/*" capture="environment"
+                 style="position:absolute; inset:0; opacity:0;" />
+        </label>
+      </div>
+      <div id="status">点击下方按钮开启摄像头，或直接上传图片</div>
+    </div>
+
+    <div class="card result hidden" id="resultCard">
+      <div><span id="riskBadge" class="badge"></span></div>
+      <div class="meta">
+        <div><b>置信度：</b><span id="confidence"></span></div>
+        <div><b>分析：</b><span id="analysis"></span></div>
+        <div><b>处置建议：</b><span id="suggestions"></span></div>
+        <div class="tags" id="tags"></div>
+      </div>
+    </div>
+
+    <div class="muted">后端调用视觉大模型实时识别 · 数据仅用于本次分析</div>
+  </div>
+
+  <script>
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const preview = document.getElementById("preview");
+    const captureBtn = document.getElementById("captureBtn");
+    const switchBtn = document.getElementById("switchBtn");
+    const fileInput = document.getElementById("fileInput");
+    const statusEl = document.getElementById("status");
+    const resultCard = document.getElementById("resultCard");
+
+    let stream = null;
+    let usingCamera = false;
+
+    function setStatus(text, loading = false) {
+      statusEl.innerHTML = loading ? `<span class="spinner"></span> ${text}` : text;
+    }
+
+    async function startCamera() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } }, audio: false
+        });
+        video.srcObject = stream;
+        usingCamera = true;
+        video.classList.remove("hidden");
+        preview.classList.add("hidden");
+        setStatus("摄像头已开启，点击「拍照识别」");
+      } catch (err) {
+        setStatus("无法访问摄像头（需 https 或 localhost）：" + err.message);
+      }
+    }
+
+    switchBtn.addEventListener("click", startCamera);
+
+    async function sendBlob(blob) {
+      resultCard.classList.add("hidden");
+      setStatus("正在识别，请稍候…", true);
+      const form = new FormData();
+      form.append("file", blob, "capture.jpg");
+      try {
+        const resp = await fetch("/api/analyze", { method: "POST", body: form });
+        if (!resp.ok) {
+          const err = await resp.json().catch(() => ({}));
+          throw new Error(err.detail || ("HTTP " + resp.status));
+        }
+        const data = await resp.json();
+        renderResult(data);
+        setStatus("识别完成");
+      } catch (err) {
+        setStatus("识别失败：" + err.message);
+      }
+    }
+
+    captureBtn.addEventListener("click", async () => {
+      if (!usingCamera) { await startCamera(); return; }
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext("2d").drawImage(video, 0, 0);
+      canvas.toBlob(async (blob) => {
+        if (blob) await sendBlob(blob);
+      }, "image/jpeg", 0.9);
+    });
+
+    fileInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      // 预览
+      preview.src = URL.createObjectURL(file);
+      preview.classList.remove("hidden");
+      video.classList.add("hidden");
+      await sendBlob(file);
+      fileInput.value = "";
+    });
+
+    function renderResult(d) {
+      const map = {
+        "高风险": "lv-high", "中风险": "lv-medium", "低风险": "lv-low",
+        "无风险": "lv-none", "非楼道": "lv-non"
+      };
+      const badge = document.getElementById("riskBadge");
+      badge.textContent = d.risk_level;
+      badge.className = "badge " + (map[d.risk_level] || "lv-non");
+      document.getElementById("confidence").textContent =
+        (typeof d.confidence === "number" ? d.confidence.toFixed(2) : d.confidence);
+      document.getElementById("analysis").textContent = d.analysis || "—";
+      document.getElementById("suggestions").textContent = d.suggestions || "—";
+      const tags = document.getElementById("tags");
+      tags.innerHTML = "";
+      (d.elements || []).forEach(el => {
+        const s = document.createElement("span");
+        s.className = "tag"; s.textContent = el; tags.appendChild(s);
+      });
+      resultCard.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# LangChain 复刻版 SQL Agent 依赖
+# 注：本实现复用原 week11 作业中的 sql_agent 包（models/config/db），
+#     但仅依赖其纯 Python 部分（pydantic / sqlalchemy），无需原 agents SDK。
+langchain>=0.2
+langchain-openai>=0.1
+pydantic>=2.5
+sqlalchemy>=2.0
+python-dotenv>=1.0
