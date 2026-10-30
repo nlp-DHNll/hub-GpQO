@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1c1917" />
+  <title>楼道消防隐患识别</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">多模态内容理解 · 楼道巡检</p>
+      <h1>楼道消防隐患识别</h1>
+      <p class="lead">用手机拍楼道，或从相册上传。模型会判断有没有堆物、可燃物和充电起火风险。</p>
+    </header>
+
+    <section class="card">
+      <p class="label">识别模型</p>
+      <div class="model-row" id="model-row" role="radiogroup" aria-label="识别模型"></div>
+      <p id="model-hint" class="status"></p>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="btn-camera">拍照</button>
+        <button type="button" class="btn" id="btn-upload">上传图片</button>
+      </div>
+      <input id="file-upload" type="file" accept="image/*" hidden />
+      <input id="file-capture" type="file" accept="image/*" capture="environment" hidden />
+
+      <div id="camera-panel" class="camera-panel" hidden>
+        <video id="video" autoplay playsinline muted></video>
+        <div class="camera-actions">
+          <button type="button" class="btn primary" id="btn-shot">拍摄</button>
+          <button type="button" class="btn" id="btn-switch">切换镜头</button>
+          <button type="button" class="btn ghost" id="btn-close-cam">关闭</button>
+        </div>
+      </div>
+
+      <figure id="preview-wrap" hidden>
+        <img id="preview" alt="待识别的楼道照片" />
+        <figcaption id="preview-name"></figcaption>
+      </figure>
+
+      <button type="button" class="btn analyze" id="btn-analyze" disabled>开始识别</button>
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section id="result" class="card result" hidden>
+      <p class="label">识别结果</p>
+      <div class="result-head">
+        <span id="risk-badge" class="badge">—</span>
+        <p id="model-used" class="model-used"></p>
+      </div>
+      <p id="summary" class="summary"></p>
+      <ul id="evidence" class="evidence"></ul>
+      <p id="suggestion" class="suggestion"></p>
+    </section>
+
+    <section class="card">
+      <p class="label">分级标准</p>
+      <ul class="legend">
+        <li><span class="dot high"></span><b>高风险</b><span>电动车、电瓶、飞线充电等可能起火</span></li>
+        <li><span class="dot mid"></span><b>中风险</b><span>大量堆物堵通道，或纸箱、木质家具等易蔓延物</span></li>
+        <li><span class="dot low"></span><b>低风险</b><span>有堆物，但还不严重</span></li>
+        <li><span class="dot none"></span><b>无风险</b><span>楼道干净，没有堆放物品</span></li>
+        <li><span class="dot other"></span><b>非楼道</b><span>和楼道无关的照片</span></li>
+      </ul>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
