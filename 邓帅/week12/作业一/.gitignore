@@ -1,0 +1,13 @@
+# 前端依赖与构建产物
+frontend/node_modules/
+frontend/dist/
+
+# Python 缓存
+__pycache__/
+.pytest_cache/
+
+# 测试图原始提取件(实际使用的转换版在 test_images/ 根)
+test_images/from_nb/
+
+# 课件内容不入库
+案例*.ipynb
