@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chinook-sql-agent-langgraph-web"
+version = "0.1.0"
+description = "Web interface for a LangGraph SQL agent over Chinook SQLite"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "langchain-core>=1.0,<2.0",
+    "langchain-openai>=1.0,<2.0",
+    "langgraph>=1.0,<2.0",
+    "python-dotenv>=1.0,<2.0",
+    "sqlalchemy>=2.0",
+    "uvicorn[standard]>=0.30,<1.0",
+]
+
+[project.scripts]
+sql-agent-web = "sql_agent_web.web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sql_agent_web = ["web/*.html", "web/static/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
