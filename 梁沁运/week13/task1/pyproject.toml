@@ -1,0 +1,25 @@
+[project]
+name = "sql-agent"
+version = "0.1.0"
+description = "基于 LangGraph StateGraph 的自然语言查询 SQL Agent"
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "langchain-deepseek>=0.1.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "-m 'not integration'"
+markers = [
+    "integration: 需要真实 DEEPSEEK_API_KEY 环境的测试",
+]
