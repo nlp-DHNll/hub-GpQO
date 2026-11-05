@@ -1,0 +1,5 @@
+fastapi>=0.115
+uvicorn>=0.30
+sse-starlette>=2.0
+# 复用作业一的 sql_agent 包（langchain/langgraph/aiosqlite 等，见其 pyproject.toml），
+# 由 main.py 启动时把 ../作业一/sql-agent-langgraph/src 注入 sys.path
