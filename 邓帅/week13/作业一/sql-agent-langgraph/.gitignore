@@ -1,0 +1,12 @@
+# 数据库文件不入库（README 说明来源，可从 week12 复制或重新生成）
+ref/*.db
+
+# LangGraph checkpoint 落盘（多轮会话/回放调试产物）
+ref/checkpoints.sqlite*
+.checkpoints/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.DS_Store
