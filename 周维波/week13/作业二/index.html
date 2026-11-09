@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chinook SQL Agent · LangGraph</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --border: #e5e7eb;
+    --border-strong: #d1d5db;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #0f766e;
+    --accent-soft: #ccfbf1;
+    --accent-line: #5eead4;
+    --danger: #b91c1c;
+    --danger-soft: #fee2e2;
+    --warn: #b45309;
+    --warn-soft: #fef3c7;
+    --ok: #15803d;
+    --code-bg: #0b1220;
+    --code-text: #e2e8f0;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .04);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    height: 100vh;
+  }
+
+  /* ---------- 侧边栏 ---------- */
+  .sidebar {
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 18px 24px;
+    overflow-y: auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 650;
+    letter-spacing: .2px;
+  }
+
+  .brand-mark {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    display: grid; place-items: center;
+    color: #fff; font-size: 13px; font-weight: 700;
+  }
+
+  .brand small {
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: .3px;
+  }
+
+  .side-section { margin-top: 22px; }
+
+  .side-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .db-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    background: #fcfcfd;
+  }
+
+  .db-name { font-weight: 600; font-size: 13px; }
+  .db-meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  .table-list { margin-top: 10px; display: grid; gap: 2px; }
+
+  .table-list details {
+    border-radius: 8px;
+    padding: 4px 6px;
+  }
+
+  .table-list details[open] { background: #f8fafc; }
+
+  .table-list summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12.5px;
+    padding: 3px 2px;
+    color: #334155;
+  }
+
+  .table-list summary::-webkit-details-marker { display: none; }
+  .table-list summary:hover { color: var(--accent); }
+
+  .table-rows {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 11.5px;
+  }
+
+  .cols {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 4px 4px 6px;
+    word-break: break-word;
+  }
+
+  .examples { display: grid; gap: 6px; }
+
+  .example {
+    text-align: left;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: #334155;
+    border-radius: 9px;
+    padding: 8px 10px;
+    font: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s, transform .15s;
+  }
+
+  .example:hover { border-color: var(--accent-line); background: #f0fdfa; }
+  .example:active { transform: translateY(1px); }
+
+  .side-note {
+    margin-top: 22px;
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    border-top: 1px dashed var(--border);
+    padding-top: 14px;
+  }
+
+  .side-note code {
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-size: 11px;
+  }
+
+  /* ---------- 主区 ---------- */
+  .main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100vh;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 24px;
+    background: rgba(255, 255, 255, .82);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  .topbar .sub { color: var(--muted); font-size: 12px; margin-top: 1px; }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #94a3b8; }
+  .dot.ok { background: #16a34a; box-shadow: 0 0 0 3px rgba(22, 163, 74, .15); }
+  .dot.bad { background: #dc2626; box-shadow: 0 0 0 3px rgba(220, 38, 38, .15); }
+
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 26px 24px 12px;
+    scroll-behavior: smooth;
+  }
+
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  .msg { display: flex; gap: 12px; margin-bottom: 22px; }
+  .msg.user { justify-content: flex-end; }
+
+  .avatar {
+    flex: 0 0 30px; height: 30px;
+    border-radius: 9px;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 700;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent-line);
+  }
+
+  .bubble {
+    max-width: min(720px, 100%);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+  }
+
+  .msg.user .bubble {
+    background: #0f172a;
+    color: #f8fafc;
+    border-color: #0f172a;
+    box-shadow: none;
+  }
+
+  .answer { white-space: pre-wrap; word-break: break-word; }
+  .answer.placeholder { color: var(--muted); display: flex; align-items: center; gap: 8px; }
+
+  .spinner {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    border: 2px solid #d1fae5;
+    border-top-color: var(--accent);
+    animation: spin .8s linear infinite;
+    flex: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+  .chip {
+    font-size: 11.5px;
+    color: #334155;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .chip.ok { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+  .chip.warn { background: var(--warn-soft); border-color: #fde68a; color: var(--warn); }
+  .chip.bad { background: var(--danger-soft); border-color: #fecaca; color: var(--danger); }
+
+  .actions { margin-top: 10px; display: flex; gap: 8px; }
+
+  .btn {
+    border: 1px solid var(--border-strong);
+    background: #fff;
+    color: #334155;
+    border-radius: 9px;
+    padding: 5px 10px;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--accent-line); color: var(--accent); background: #f0fdfa; }
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn.primary:hover { background: #115e59; color: #fff; }
+  .btn.primary:disabled { opacity: .5; cursor: not-allowed; }
+
+  .details { margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 12px; }
+  .details[hidden] { display: none; }
+
+  .timeline { display: grid; gap: 2px; margin-bottom: 4px; }
+
+  .step {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 12.5px;
+    padding: 4px 0;
+    color: #475569;
+  }
+
+  .step-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #cbd5e1;
+    flex: none;
+    position: relative;
+    top: -1px;
+  }
+  .step.running .step-dot { background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
+  .step.done .step-dot { background: #16a34a; }
+  .step.warn .step-dot { background: #d97706; }
+  .step.failed .step-dot { background: #dc2626; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(15,118,110,.35); } 50% { box-shadow: 0 0 0 5px rgba(15,118,110,0); } }
+
+  .step-label { flex: 1; }
+  .step-meta { color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 14px 0 6px;
+  }
+
+  .sql-wrap { position: relative; }
+
+  pre.sql {
+    margin: 0;
+    background: var(--code-bg);
+    color: var(--code-text);
+    border-radius: 10px;
+    padding: 12px 44px 12px 14px;
+    overflow-x: auto;
+    font: 12.5px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .copy {
+    position: absolute;
+    top: 8px; right: 8px;
+    border: 1px solid rgba(226, 232, 240, .22);
+    background: rgba(226, 232, 240, .08);
+    color: #e2e8f0;
+    border-radius: 7px;
+    padding: 3px 7px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .copy:hover { background: rgba(226, 232, 240, .18); }
+
+  .table-scroll {
+    overflow: auto;
+    max-height: 320px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  table.result {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  table.result th, table.result td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  table.result th {
+    position: sticky; top: 0;
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    z-index: 1;
+  }
+
+  table.result tbody tr:nth-child(even) { background: #fcfcfd; }
+  table.result td { font-variant-numeric: tabular-nums; }
+
+  .notes { margin: 10px 0 0; padding-left: 18px; color: #475569; font-size: 12.5px; }
+  .notes li { margin: 3px 0; }
+
+  .error-box {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .empty-hint { color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- 输入区 ---------- */
+  .composer {
+    border-top: 1px solid var(--border);
+    background: rgba(255, 255, 255, .9);
+    backdrop-filter: blur(8px);
+    padding: 14px 24px 18px;
+  }
+
+  .composer-inner { max-width: 860px; margin: 0 auto; }
+
+  .input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    border: 1px solid var(--border-strong);
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 10px 10px 14px;
+    box-shadow: var(--shadow);
+    transition: border-color .15s, box-shadow .15s;
+  }
+
+  .input-row:focus-within { border-color: var(--accent-line); box-shadow: 0 0 0 3px rgba(20, 184, 166, .12); }
+
+  textarea {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    resize: none;
+    font: inherit;
+    line-height: 1.6;
+    max-height: 140px;
+    min-height: 24px;
+    background: transparent;
+    color: inherit;
+  }
+
+  .send {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    flex: none;
+  }
+  .send:hover { background: #115e59; }
+  .send:disabled { opacity: .45; cursor: not-allowed; }
+
+  .hint {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .messages { padding: 18px 14px 8px; }
+    .composer { padding: 12px 14px 14px; }
+    .topbar { padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">SQL</div>
+      <div>
+        Chinook SQL Agent
+        <small>LangGraph · 自然语言查询</small>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">数据库</div>
+      <div class="db-card">
+        <div class="db-name" id="db-name">chinook.db</div>
+        <div class="db-meta" id="db-meta">读取结构中…</div>
+        <div class="table-list" id="table-list"></div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">示例问题</div>
+      <div class="examples" id="examples">
+        <button class="example" data-q="总共有多少张专辑？">总共有多少张专辑？</button>
+        <button class="example" data-q="哪个国家的客户消费总额最高？列出前 5 名">哪个国家的客户消费最高？前 5 名</button>
+        <button class="example" data-q="销量最高的 10 首曲子是哪些？按销量降序列出曲名和销量">销量最高的 10 首曲子</button>
+        <button class="example" data-q="每位客服代表分别负责多少位客户？">每位客服代表负责多少客户？</button>
+      </div>
+    </div>
+
+    <div class="side-note">
+      全流程只读：<code>SELECT/WITH</code> 白名单 + <code>EXPLAIN</code> 校验 + 只读连接执行，
+      模型只负责选表、写 SQL、修 SQL 和汇总，校验与执行由确定性代码控制。
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>SQL Agent 对话</h1>
+        <div class="sub">用自然语言提问，Agent 会选表、生成 SQL、校验、执行并给出结论</div>
+      </div>
+      <div class="status">
+        <span class="dot" id="status-dot"></span>
+        <span id="status-text">连接中…</span>
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="wrap" id="wrap"></div>
+    </div>
+
+    <div class="composer">
+      <div class="composer-inner">
+        <div class="input-row">
+          <textarea id="input" rows="1" placeholder="例如：总共有多少张专辑？"></textarea>
+          <button class="send" id="send">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9z"></path>
+            </svg>
+            发送
+          </button>
+        </div>
+        <div class="hint">
+          <span>Enter 发送，Shift + Enter 换行</span>
+          <span id="elapsed-hint"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const messagesEl = document.getElementById("messages");
+  const wrapEl = document.getElementById("wrap");
+  const inputEl = document.getElementById("input");
+  const sendEl = document.getElementById("send");
+  const statusDot = document.getElementById("status-dot");
+  const statusText = document.getElementById("status-text");
+  const tableListEl = document.getElementById("table-list");
+  const dbMetaEl = document.getElementById("db-meta");
+  const elapsedHint = document.getElementById("elapsed-hint");
+
+  let busy = false;
+
+  /* ---------- 工具 ---------- */
+
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  };
+
+  const scrollToBottom = () => { messagesEl.scrollTop = messagesEl.scrollHeight; };
+
+  const fmtMs = (ms) => (ms >= 1000 ? (ms / 1000).toFixed(1) + " s" : Math.round(ms) + " ms");
+
+  const autoGrow = () => {
+    inputEl.style.height = "auto";
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + "px";
+  };
+
+  /* ---------- 界面消息 ---------- */
+
+  function addUserMessage(text) {
+    const msg = el("div", "msg user");
+    const bubble = el("div", "bubble", text);
+    bubble.style.whiteSpace = "pre-wrap";
+    msg.appendChild(bubble);
+    wrapEl.appendChild(msg);
+    scrollToBottom();
+  }
+
+  function createAssistantMessage() {
+    const msg = el("div", "msg");
+    const avatar = el("div", "avatar", "AI");
+
+    const bubble = el("div", "bubble");
+    const answer = el("div", "answer placeholder");
+    const spinner = el("div", "spinner");
+    answer.append(spinner, el("span", undefined, "正在执行查询…"));
+
+    const chips = el("div", "chips");
+    chips.hidden = true;
+
+    const actions = el("div", "actions");
+    actions.hidden = true;
+    const detailsBtn = el("button", "btn", "执行过程与 SQL");
+    actions.appendChild(detailsBtn);
+
+    const details = el("div", "details");
+    details.hidden = true;
+
+    bubble.append(answer, chips, actions, details);
+    msg.append(avatar, bubble);
+    wrapEl.appendChild(msg);
+    scrollToBottom();
+
+    const state = {
+      msg, answer, chips, actions, detailsBtn, details,
+      stepMap: new Map(),
+      steps: el("div", "timeline"),
+      opened: false,
+    };
+
+    detailsBtn.addEventListener("click", () => {
+      state.details.hidden = !state.details.hidden;
+      state.detailsBtn.textContent = state.details.hidden ? "执行过程与 SQL" : "收起执行过程";
+    });
+
+    return state;
+  }
+
+  function upsertStep(state, node, label, status) {
+    let step = state.stepMap.get(node);
+    if (!step) {
+      step = el("div", "step");
+      step.append(el("span", "step-dot"), el("span", "step-label", label), el("span", "step-meta"));
+      state.steps.appendChild(step);
+      state.stepMap.set(node, step);
+    }
+    step.className = "step " + (status || "");
+    return step;
+  }
+
+  function stepMetaText(node, detail) {
+    const d = detail || {};
+    switch (node) {
+      case "select_tables":
+        return d.tables && d.tables.length ? d.tables.join(", ") : "";
+      case "build_schema":
+        return d.schema_chars ? d.schema_chars + " 字符" : "";
+      case "validate_sql":
+        if (d.ok) return "通过";
+        return d.code ? "未通过 · " + d.code : "未通过";
+      case "execute_sql":
+        return d.ok ? d.rows + " 行" : (d.code || "执行失败");
+      case "rewrite_sql":
+        return d.cannot_fix ? "无法修复" : "第 " + d.attempt + " 次修复";
+      case "summarize":
+        return d.fallback ? "已降级为表格" : "完成";
+      default:
+        return "";
+    }
+  }
+
+  /* ---------- 结果渲染 ---------- */
+
+  function renderResult(state, payload) {
+    const output = payload.output || {};
+    const stages = payload.stages || [];
+    const columns = payload.columns || [];
+    const rows = payload.rows || [];
+
+    state.answer.classList.remove("placeholder");
+    state.answer.textContent = output.answer || "（无答案）";
+    if (output.error) {
+      state.answer.textContent = "";
+      const err = el("div", "error-box", output.answer || String(output.error));
+      state.answer.appendChild(err);
+    }
+
+    // 摘要 chip
+    state.chips.hidden = false;
+    state.chips.textContent = "";
+    const addChip = (text, cls) => state.chips.appendChild(el("span", "chip " + (cls || ""), text));
+    if (output.tables && output.tables.length) addChip("表 " + output.tables.join(" + "));
+    if (typeof output.row_count === "number") addChip("返回 " + output.row_count + " 行", output.row_count > 0 ? "ok" : "");
+    if (output.truncated) addChip("结果已截断", "warn");
+    if (output.repair_attempts > 0) addChip("修复 " + output.repair_attempts + " 次", "warn");
+    if (payload.elapsed_ms) addChip("耗时 " + fmtMs(payload.elapsed_ms));
+
+    // 执行过程时间线：用最终 stages 覆盖，保证完整
+    state.steps.textContent = "";
+    state.stepMap.clear();
+    stages.forEach((stage) => {
+      const step = el("div", "step done");
+      step.append(el("span", "step-dot"), el("span", "step-label", stage.label || stage.node), el("span", "step-meta", stage.elapsed_ms + " ms"));
+      state.steps.appendChild(step);
+      state.stepMap.set(stage.node, step);
+    });
+
+    state.details.textContent = "";
+    if (stages.length) {
+      state.details.appendChild(el("div", "section-label", "执行过程"));
+      state.details.appendChild(state.steps);
+    }
+
+    if (output.sql) {
+      state.details.appendChild(el("div", "section-label", "最终 SQL"));
+      const wrap = el("div", "sql-wrap");
+      const pre = el("pre", "sql", output.sql);
+      const copy = el("button", "copy", "复制");
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(output.sql);
+          copy.textContent = "已复制";
+          setTimeout(() => { copy.textContent = "复制"; }, 1500);
+        } catch (_) { copy.textContent = "复制失败"; }
+      });
+      wrap.append(pre, copy);
+      state.details.appendChild(wrap);
+    }
+
+    if (columns.length && rows.length) {
+      state.details.appendChild(el("div", "section-label", "查询结果"));
+      const scroll = el("div", "table-scroll");
+      const table = el("table", "result");
+      const thead = el("thead");
+      const tr = el("tr");
+      columns.forEach((c) => tr.appendChild(el("th", undefined, c)));
+      thead.appendChild(tr);
+      const tbody = el("tbody");
+      rows.forEach((row) => {
+        const r = el("tr");
+        columns.forEach((_, i) => {
+          const td = el("td", undefined, row[i] === undefined ? "" : String(row[i]));
+          td.title = td.textContent;
+          r.appendChild(td);
+        });
+        tbody.appendChild(r);
+      });
+      table.append(thead, tbody);
+      scroll.appendChild(table);
+      state.details.appendChild(scroll);
+      if (output.truncated) {
+        state.details.appendChild(el("div", "empty-hint", "结果被截断，仅展示前 " + rows.length + " 行。"));
+      }
+    } else if (output.row_count === 0) {
+      state.details.appendChild(el("div", "section-label", "查询结果"));
+      state.details.appendChild(el("div", "empty-hint", "结果集为空。"));
+    }
+
+    const notes = [];
+    (output.evidence || []).forEach((x) => notes.push("依据：" + x));
+    (output.caveats || []).forEach((x) => notes.push("说明：" + x));
+    if (notes.length) {
+      const ul = el("ul", "notes");
+      notes.forEach((n) => ul.appendChild(el("li", undefined, n)));
+      state.details.appendChild(ul);
+    }
+
+    // 完成后默认收起，用户可展开
+    state.details.hidden = true;
+    state.detailsBtn.textContent = "执行过程与 SQL";
+    state.actions.hidden = false;
+    if (stages.length) {
+      const total = stages.reduce((acc, s) => acc + (s.elapsed_ms || 0), 0);
+      state.detailsBtn.textContent = "执行过程与 SQL · " + stages.length + " 步 " + fmtMs(total);
+    }
+
+    if (payload.elapsed_ms) elapsedHint.textContent = "本次查询 " + fmtMs(payload.elapsed_ms);
+    scrollToBottom();
+  }
+
+  function renderError(state, message) {
+    state.answer.classList.remove("placeholder");
+    state.answer.textContent = "";
+    state.answer.appendChild(el("div", "error-box", message || "请求失败"));
+    state.actions.hidden = false;
+    state.detailsBtn.textContent = "执行过程";
+    scrollToBottom();
+  }
+
+  /* ---------- 请求 ---------- */
+
+  async function askStreaming(question) {
+    const state = createAssistantMessage();
+    state.details.hidden = false;
+    state.details.appendChild(el("div", "section-label", "执行过程"));
+    state.details.appendChild(state.steps);
+
+    let response;
+    try {
+      response = await fetch("/api/query/stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+    } catch (err) {
+      renderError(state, "无法连接后端服务：" + err.message);
+      return;
+    }
+
+    if (!response.ok) {
+      renderError(state, "接口返回 " + response.status + "：" + (await response.text()).slice(0, 300));
+      return;
+    }
+
+    if (!response.body) {
+      // 极旧浏览器兜底：退回一次性接口
+      await askOnce(question, state);
+      return;
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    let buffer = "";
+    let finished = false;
+
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+
+      let idx;
+      while ((idx = buffer.indexOf("\n\n")) !== -1) {
+        const chunk = buffer.slice(0, idx);
+        buffer = buffer.slice(idx + 2);
+        const line = chunk.split("\n").find((l) => l.startsWith("data:"));
+        if (!line) continue;
+        let payload;
+        try { payload = JSON.parse(line.slice(5).trim()); } catch (_) { continue; }
+
+        if (payload.type === "stage_start") {
+          const step = upsertStep(state, payload.node, payload.label, "running");
+          step.querySelector(".step-meta").textContent = "执行中";
+          state.details.hidden = false;
+        } else if (payload.type === "stage_end") {
+          const detail = payload.detail || {};
+          const failed = detail.ok === false || detail.cannot_fix === true;
+          const step = upsertStep(state, payload.node, payload.label, failed ? "warn" : "done");
+          step.querySelector(".step-meta").textContent = stepMetaText(payload.node, detail);
+        } else if (payload.type === "final") {
+          renderResult(state, payload);
+          finished = true;
+        } else if (payload.type === "error") {
+          renderError(state, payload.message);
+          finished = true;
+        }
+      }
+    }
+
+    if (!finished) {
+      // 流意外中断：用一次性接口补一次结果
+      await askOnce(question, state, true);
+    }
+  }
+
+  async function askOnce(question, state, silentPlaceholder) {
+    const target = state || createAssistantMessage();
+    try {
+      const res = await fetch("/api/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        renderError(target, "接口返回 " + res.status + "：" + text.slice(0, 300));
+        return;
+      }
+      renderResult(target, await res.json());
+    } catch (err) {
+      renderError(target, "请求失败：" + err.message);
+    }
+  }
+
+  async function send() {
+    const question = inputEl.value.trim();
+    if (!question || busy) return;
+
+    busy = true;
+    sendEl.disabled = true;
+    inputEl.value = "";
+    autoGrow();
+    addUserMessage(question);
+
+    try {
+      await askStreaming(question);
+    } finally {
+      busy = false;
+      sendEl.disabled = false;
+      inputEl.focus();
+    }
+  }
+
+  /* ---------- 初始化 ---------- */
+
+  async function loadSchema() {
+    try {
+      const res = await fetch("/api/schema");
+      if (!res.ok) throw new Error("schema 接口不可用");
+      const data = await res.json();
+      document.getElementById("db-name").textContent = data.database || "chinook.db";
+      const tables = data.tables || [];
+      const totalRows = tables.reduce((acc, t) => acc + (t.rows || 0), 0);
+      dbMetaEl.textContent = tables.length + " 张表 · " + totalRows.toLocaleString() + " 行数据";
+
+      tableListEl.textContent = "";
+      tables.forEach((t) => {
+        const details = el("details");
+        const summary = el("summary");
+        summary.append(el("span", undefined, t.name), el("span", "table-rows", String(t.rows)));
+        const cols = el("div", "cols", (t.columns || []).join(" · "));
+        details.append(summary, cols);
+        tableListEl.appendChild(details);
+      });
+    } catch (err) {
+      dbMetaEl.textContent = "结构读取失败：" + err.message;
+    }
+  }
+
+  async function loadHealth() {
+    try {
+      const res = await fetch("/api/health");
+      const data = await res.json();
+      statusDot.className = "dot ok";
+      statusText.textContent = (data.primary_model || "模型") + " · 服务正常";
+    } catch (_) {
+      statusDot.className = "dot bad";
+      statusText.textContent = "后端未连接";
+    }
+  }
+
+  sendEl.addEventListener("click", send);
+
+  inputEl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      send();
+    }
+  });
+
+  inputEl.addEventListener("input", autoGrow);
+
+  document.getElementById("examples").addEventListener("click", (event) => {
+    const btn = event.target.closest(".example");
+    if (!btn || busy) return;
+    inputEl.value = btn.dataset.q || btn.textContent;
+    autoGrow();
+    send();
+  });
+
+  loadHealth();
+  loadSchema();
+  inputEl.focus();
+})();
+</script>
+</body>
+</html>
