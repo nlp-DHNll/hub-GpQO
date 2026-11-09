@@ -1,0 +1,8 @@
+# 本后端 + week13/job1 工作流的全部依赖
+fastapi
+uvicorn
+pydantic
+langchain
+langchain-openai
+langgraph
+python-dotenv
