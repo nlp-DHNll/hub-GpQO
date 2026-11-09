@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chinook SQL Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">SQL</div>
+        <div>
+          <h1>Chinook SQL Agent</h1>
+          <p>自然语言查询唱片数据库 · LangGraph 编排</p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="status" id="status" title="服务状态">
+          <span class="dot"></span>
+          <span id="status-text">连接中…</span>
+        </div>
+        <button class="ghost" id="new-chat" type="button">新对话</button>
+      </div>
+    </header>
+
+    <main class="chat" id="chat" aria-live="polite">
+      <section class="welcome" id="welcome">
+        <h2>问点什么？</h2>
+        <p>直接输入问题，Agent 会选表、生成 SQL、校验并执行，再把结果解释给你。</p>
+        <div class="chips" id="chips">
+          <button class="chip" type="button">总共有多少张专辑？</button>
+          <button class="chip" type="button">销售额最高的 5 位客户是谁？</button>
+          <button class="chip" type="button">各音乐类型的歌曲数量是多少？</button>
+          <button class="chip" type="button">列出播放列表里歌曲最多的前 3 个列表</button>
+          <button class="chip" type="button">编号为 -1 的专辑是什么？</button>
+        </div>
+      </section>
+    </main>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <div class="composer-inner">
+        <textarea
+          id="input"
+          rows="1"
+          maxlength="2000"
+          placeholder="输入问题，Enter 发送，Shift+Enter 换行"
+          aria-label="输入问题"
+        ></textarea>
+        <button id="send" type="submit" aria-label="发送">
+          <span>发送</span>
+        </button>
+      </div>
+      <p class="hint">单轮查询 · SQL 只读执行 · 答案中的数字来自实际结果</p>
+    </form>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
