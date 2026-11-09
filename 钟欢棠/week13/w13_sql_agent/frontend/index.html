@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Agent 对话查询</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="title">
+        <span class="logo">🗄️</span>
+        <div>
+          <h1>SQL Agent 对话查询</h1>
+          <p>用自然语言查询 Chinook 数据库 · 由 LangGraph 编排的多 Agent 工作流</p>
+        </div>
+      </div>
+      <span id="status" class="status status-ok">就绪</span>
+    </header>
+
+    <main id="messages" class="messages">
+      <div class="msg assistant">
+        <div class="bubble">
+          你好，我是 SQL Agent。试试问我：
+          <ul class="suggestions">
+            <li>总共有多少位不同的艺术家？</li>
+            <li>人气最高的 5 张专辑分别是哪些？</li>
+            <li>美国客户的订单总额排名前 10 的是谁？</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="composer">
+      <textarea
+        id="input"
+        rows="1"
+        placeholder="输入你想查询的问题，回车发送（Shift+Enter 换行）…"
+      ></textarea>
+      <button id="send" type="button">发送</button>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
