@@ -1,0 +1,15 @@
+{# 徽标/标记宏：HTML 与 Markdown 各一份，**判断条件只写在这里**。
+
+   以前「新增 / 阶段 / 已中标」的 if 在 html.j2 与 md.j2 里各写一遍，
+   加一个徽标要改两处，漏一处也不会有人发现（两种报告不会同时被打开）。
+   现在判断收在宏里，格式差异只体现在标签上。 #}
+
+{% macro badges(record) -%}
+{%- if record.flags.get('is_new') %}<span class="badge-new">新增</span>{% endif -%}
+{%- if record.get('stage') %}<span class="tag {{ record.stage.code }}">{{ record.stage.label }}</span>{% endif -%}
+{%- if record.flags.get('award') %}<a class="sub-tag" href="{{ record.flags.award.url | safe_url }}" target="_blank" rel="noopener noreferrer">→ 已中标{{ ('（' ~ (record.flags.award.amount_cny | amount) ~ '）') if record.flags.award.amount_cny else '' }}</a>{% endif -%}
+{%- endmacro %}
+
+{% macro new_mark(record) -%}
+{%- if record.flags.get('is_new') %}**[新]** {% endif -%}
+{%- endmacro %}

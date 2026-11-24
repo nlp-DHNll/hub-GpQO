@@ -1,0 +1,65 @@
+# 检索源白名单与抓取模式
+#
+# 为什么需要它
+# ------------
+# 博查这类通用搜索对「招标公告」这类长尾页面的收录不稳定：省级公共资源交易
+# 中心的公告常常只有索引页、正文在 JS 里，通用搜索很难稳定召回。两种补救手段：
+#
+#   1. ``search_site``：在检索词后追加 ``site:域名``，把召回**圈定**到白名单
+#      站点。零额外成本（复用同一个 provider），实测能捞到通用检索漏掉的省市级
+#      项目，代价是每次多花一条 query。
+#   2. ``crawl``：直接抓列表页 HTML，用 ``html.parser`` 取公告链接。只适用于
+#      **静态列表页**；JS 渲染站点（多数省级平台）抓回来是空壳，别配。
+#
+# ``api`` 档位表示该源有独立接口，当前实现统一走 ``search.search_bocha``，
+# 源本身只用于报告里的来源标注与优先级。接自有接口时在这里加 ``endpoint``，
+# 由 ``sources.py`` 分派。
+#
+# 默认 ``enabled: false``：多源检索会让请求数按源数量线性增长。要看更多项目时
+# 显式加 ``--sources``，成本可控。
+version: 1
+
+defaults:
+  enabled: false          # 全局开关；--sources 显式打开时才生效
+  max_site_queries: 4     # 一次运行最多追加几条 site: 定向 query
+  max_pages: 1            # crawl 每个源最多抓几页列表
+  crawl_delay_seconds: 1  # crawl 两次请求之间的间隔（礼貌抓取）
+
+sources:
+  - id: ccgp
+    name: 中国政府采购网
+    domains: [ccgp.gov.cn]
+    mode: search_site
+    weight: 3
+    keywords: [碳核查, 碳盘查, ESG报告, 碳达峰]
+
+  - id: jianyu
+    name: 剑鱼标讯
+    domains: [jianyu360.cn]
+    mode: search_site
+    weight: 2
+    keywords: [碳核查, 碳盘查, 碳足迹, 双碳]
+
+  - id: qianlima
+    name: 千里马招标网
+    domains: [qianlima.com]
+    mode: search_site
+    weight: 1
+    keywords: [碳排放核查, 碳管理]
+
+  - id: shandong-ggzy
+    name: 山东省公共资源交易中心
+    domains: [ggzy.shandong.gov.cn]
+    mode: crawl
+    enabled: false        # 静态列表页才开；未实测前保持关闭
+    list_url: https://ggzy.shandong.gov.cn/jyxx/index.html
+    keywords: [碳, ESG, 绿色]
+    max_pages: 1
+
+  - id: zhejiang-ggzy
+    name: 浙江政府采购网
+    domains: [zfcg.czt.zj.gov.cn]
+    mode: crawl
+    enabled: false
+    list_url: https://zfcg.czt.zj.gov.cn/
+    keywords: [碳, ESG, 绿色]

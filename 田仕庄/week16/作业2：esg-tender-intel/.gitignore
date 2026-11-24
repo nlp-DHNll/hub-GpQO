@@ -1,0 +1,14 @@
+# 密钥（含真实 Key，绝不提交）
+config/.env
+
+# 产物与缓存
+output/
+cache/
+data/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

@@ -1,0 +1,38 @@
+# 行业预设：金融与上市公司服务机构
+#
+# 合并语义：字典递归合并，**列表整段替换**。下面写到的 keywords 都是完整集合，
+# 不是追加。没写到的字段沿用 config/scope.yaml。
+#
+# 与通用口径的差别：这一群体买的是「报告 + 评级 + 披露合规」，碳核查只是配套。
+# T1/T2/T3 权重最高，扩展赛道只留绿色金融相关。
+name: finance
+title: 金融与上市公司
+description: 银行 / 券商 / 上市公司：ESG 报告鉴证、评级提升、披露辅导与绿色金融
+
+scope:
+  tracks:
+    core:
+      T1:
+        name: ESG 报告编制与鉴证
+        keywords:
+          - ESG报告
+          - 可持续发展报告
+          - 社会责任报告
+          - ESG信息披露
+          - 环境信息披露
+          - 第三方鉴证
+          - 报告编制
+      T2:
+        name: ESG 咨询与管理提升
+        keywords: [ESG咨询, ESG体系, 信息披露辅导, ESG培训, 供应链ESG, ESG战略, ESG尽调]
+      T3:
+        name: ESG 评级提升
+        keywords: [ESG评级, MSCI评级, 华证评级, 中证ESG, 评级诊断, ESG指数, 恒生可持续发展]
+    extended:
+      绿色金融: [绿色债券, 绿色信贷, 可持续挂钩债券, 绿色金融, 转型金融, ESG数据服务]
+      碳交易碳普惠: [碳交易, 碳普惠, 碳配额, 履约服务]
+      绿色工厂园区: [绿色工厂, 绿色园区, 绿色供应链]
+  query_plan:
+    core_per_track: 2
+    extended_total: 2
+    edge_total: 1

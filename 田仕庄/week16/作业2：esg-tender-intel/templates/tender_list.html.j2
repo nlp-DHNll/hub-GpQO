@@ -1,0 +1,651 @@
+{% import "_macros.j2" as macros %}<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="esg-tender-intel">
+<title>ESG 招标情报清单 · {{ meta.generated_date }}</title>
+<style>
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --surface-2:#f8f9fb;
+  --ink:#14171c; --ink-2:#3c4350; --muted:#6c7482;
+  --line:#e2e6eb; --line-2:#cfd6de;
+  --accent:#1b4f78; --accent-soft:#eaf1f7;
+  --core:#1b4f78; --extended:#8a5a12; --edge:#5f6672;
+  --warm-soft:#fbf2e4; --cool-soft:#eef4f9;
+  --bar:#c6d9e9; --bar-strong:#27618f;
+  --radius:12px; --shadow:0 1px 2px rgba(16,24,40,.05),0 2px 6px rgba(16,24,40,.04);
+}
+/* 深色只给屏幕：系统处于深色模式时打印，会得到「白底浅字 + 纯黑条形」 */
+@media screen and (prefers-color-scheme: dark){
+  :root{
+    --bg:#131519; --surface:#1b1e23; --surface-2:#22262c;
+    --ink:#eceef1; --ink-2:#c2c8d1; --muted:#8d95a1;
+    --line:#2c3138; --line-2:#3a4049;
+    --accent:#8fb8d8; --accent-soft:#1e2a33;
+    --core:#8fb8d8; --extended:#d8ab6a; --edge:#9aa3b0;
+    --warm-soft:#2a2317; --cool-soft:#1d262e;
+    --bar:#2f3b46; --bar-strong:#5b93bd;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  font-size:14px; line-height:1.6;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 72px}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+b,strong{font-weight:600}
+.num,.kpi-v,td.n,.count{font-variant-numeric:tabular-nums}
+
+/* ---------- 顶栏 ---------- */
+.toc{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  display:flex; gap:20px; overflow-x:auto; padding:12px 28px; font-size:12.5px;
+}
+.toc a{color:var(--muted); white-space:nowrap; letter-spacing:.02em}
+.toc a:hover{color:var(--ink)}
+.toc .brand{margin-left:auto;color:var(--muted);white-space:nowrap}
+
+/* ---------- 头部 ---------- */
+.hero{padding:38px 0 26px}
+.kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:30px;line-height:1.28;margin:10px 0 6px;font-weight:650;letter-spacing:-.015em}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  display:inline-flex;gap:6px;align-items:baseline;padding:5px 11px;border-radius:99px;
+  background:var(--surface);border:1px solid var(--line);font-size:12.5px;color:var(--ink-2);
+}
+.chip k{color:var(--muted);font-weight:400;font-size:11.5px;letter-spacing:.04em}
+.chip.wide{max-width:100%}
+.chip.wide span{overflow-wrap:anywhere}
+
+.funnel{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:20px;
+  padding:14px 18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);font-size:13px;color:var(--ink-2);box-shadow:var(--shadow);
+}
+.funnel .step{white-space:nowrap}
+.funnel .step b{color:var(--ink);font-weight:650}
+.funnel .sep{color:var(--line-2)}
+.funnel .final b{color:var(--accent);font-size:15px}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.kpi-l{font-size:12px;color:var(--muted);letter-spacing:.03em}
+.kpi-v{font-size:25px;font-weight:650;margin:6px 0 2px;letter-spacing:-.01em}
+.kpi-s{font-size:11.5px;color:var(--muted)}
+.quality{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:12.5px;color:var(--muted)}
+.quality b{color:var(--ink-2);font-weight:600}
+
+/* ---------- 章节 ---------- */
+.section{margin-top:46px;scroll-margin-top:56px}
+h2{font-size:18px;font-weight:650;letter-spacing:-.005em;margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
+h2 .no{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.lede{color:var(--muted);font-size:13px;margin:0 0 18px;max-width:74ch}
+
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.panel h3{margin:0 0 14px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.bar-row{display:grid;grid-template-columns:minmax(120px,1.15fr) 1fr 52px;align-items:center;gap:12px;padding:4px 0;font-size:13px}
+.bar-row .lb{overflow-wrap:anywhere;color:var(--ink-2)}
+.bar{height:8px;border-radius:99px;background:var(--cool-soft);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--bar-strong);min-width:2px}
+.g-extended i{background:#b07a2a}
+.g-edge i{background:var(--edge)}
+.bar-row .n{text-align:right;color:var(--ink-2);font-size:12.5px}
+.bar-row.zero .lb,.bar-row.zero .n{color:var(--muted)}
+.bar-row.zero .bar{background:transparent}
+.bar-row.zero .bar i{display:none}
+.foot{margin:12px 0 0;font-size:12px;color:var(--muted)}
+
+/* ---------- 趋势 ---------- */
+.trend{margin-top:16px}
+.trend-head{font-size:11px!important;color:var(--muted);letter-spacing:.05em;padding-bottom:3px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.trend-row{display:grid;grid-template-columns:64px 1fr 56px 112px;align-items:center;gap:12px;padding:5px 0;font-size:13px}
+.trend-row .q{color:var(--ink-2);font-variant-numeric:tabular-nums}
+.trend-row .n{text-align:right;font-size:12.5px;color:var(--ink-2)}
+.trend-row .amt{text-align:right;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.trend-row.partial .q::after{content:" *";color:var(--extended);font-weight:600}
+.trend-row.partial .bar i{opacity:.45}
+
+/* ---------- 表格 ---------- */
+.table-wrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:auto;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{
+  position:sticky;top:0;z-index:2;background:var(--surface-2);
+  text-align:left;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.05em;
+  padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+thead th.s{color:var(--ink);cursor:pointer;user-select:none}
+thead th.s::after{content:"↕";font-size:10px;margin-left:4px;color:var(--line-2)}
+thead th.s[data-dir="asc"]::after{content:"↑";color:var(--accent)}
+thead th.s[data-dir="desc"]::after{content:"↓";color:var(--accent)}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+td.n{text-align:right;white-space:nowrap}
+td.t a{display:block;line-height:1.5;overflow-wrap:anywhere}
+td.t a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+/* 固定布局：auto 布局会忽略 td 的 max-width，长标题把表格撑出容器、表头被裁 */
+#tender-table{table-layout:fixed}
+.idx{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;min-width:50px;text-align:center;padding:1px 8px;border-radius:99px;font-size:12px;font-variant-numeric:tabular-nums;background:var(--cool-soft);color:var(--core)}
+.pill.g-extended{background:var(--warm-soft);color:var(--extended)}
+.pill.g-edge{background:transparent;border:1px solid var(--line-2);color:var(--edge)}
+.muted{color:var(--muted)}
+.sub-tag{color:var(--muted);font-size:12px}
+/* 阶段标签：中标成交 = 机会已结束，必须一眼看得出来 */
+.tag{display:inline-block;margin-left:8px;padding:0 6px;border-radius:4px;font-size:11px;line-height:18px;white-space:nowrap;background:var(--cool-soft);color:var(--ink-2);border:1px solid var(--line)}
+.tag.award{background:var(--warm-soft);color:#8a5a1a;border-color:#e6d3b3}
+.tag.change{background:transparent;color:var(--muted);border-style:dashed}
+.tag.other{display:none}
+.badge-new{display:inline-block;margin-left:6px;padding:0 5px;border-radius:4px;font-size:10.5px;line-height:16px;color:#8a5a1a;background:#fdf0d9;border:1px solid #ecd3a8}
+/* 五条以上 KPI 时自动折行，避免 4 列网格里挤成两条半 */
+.kpis{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
+
+/* ---------- 工具条 ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.toolbar input[type="search"],.toolbar select{
+  font:inherit;font-size:13px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:8px;padding:7px 11px;min-height:34px;
+}
+.toolbar input[type="search"]{flex:0 1 280px}
+.toolbar input[type="search"]:focus,.toolbar select:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.toolbar label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer}
+.count{margin-left:auto;font-size:12.5px;color:var(--muted)}
+
+/* ---------- 折叠块 ---------- */
+details.audit{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+details.audit > summary{
+  cursor:pointer;list-style:none;padding:14px 18px;font-size:13.5px;font-weight:600;
+  display:flex;align-items:center;gap:10px;
+}
+details.audit > summary::-webkit-details-marker{display:none}
+details.audit > summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s}
+details.audit[open] > summary::before{transform:rotate(90deg)}
+details.audit > summary .hint{margin-left:auto;font-weight:400;color:var(--muted);font-size:12px}
+.audit-body{max-height:600px;overflow:auto;border-top:1px solid var(--line)}
+
+/* ---------- 事实表 ---------- */
+.facts{margin:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.facts > div{display:grid;grid-template-columns:220px 1fr;gap:16px;background:var(--surface);padding:12px 18px}
+.facts dt{color:var(--muted);font-size:12.5px}
+.facts dd{margin:0;font-size:13px;overflow-wrap:anywhere}
+.callout{margin:16px 0 0;padding:14px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink-2)}
+.callout ul{margin:6px 0 0;padding-left:20px}
+.callout li{margin:3px 0}
+
+pre.code{
+  margin:14px 0 0;padding:14px 18px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.75;overflow-x:auto;color:var(--ink-2);
+}
+.notes{font-size:13px;color:var(--ink-2);margin:14px 0 0;padding-left:20px}
+.notes li{margin:5px 0}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .panels{grid-template-columns:1fr}
+  .facts > div{grid-template-columns:1fr;gap:4px}
+  h1{font-size:24px}
+  .wrap{padding:0 18px 56px}
+}
+@media print{
+  :root{
+    --bg:#fff; --surface:#fff; --surface-2:#fff; --shadow:none;
+    --ink:#111418; --ink-2:#33383f; --muted:#5d646e;
+    --line:#d5d9de; --line-2:#b9bfc6;
+    --accent:#1b4f78; --accent-soft:#f1f5f9; --cool-soft:#eef2f6;
+    --warm-soft:#fbf4e9; --bar:#c6d9e9; --bar-strong:#27618f;
+  }
+  body{font-size:11px;background:#fff;color:#111418}
+  .toc,.toolbar,.no-print{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .hero{padding:0 0 12px}
+  h1{font-size:22px}
+  .kpis{grid-template-columns:repeat(4,1fr);gap:8px}
+  .kpi{padding:10px 12px}
+  .kpi-v{font-size:18px}
+  .section{margin-top:24px;break-inside:auto}
+  .table-wrap,.panel,.funnel,details.audit{break-inside:auto;box-shadow:none}
+  .panel{padding:12px 14px}
+  thead th{position:static}
+  thead th.s::after{display:none}
+  tbody td{padding:6px 8px}
+  tbody tr{break-inside:avoid}
+  details.audit{display:block}
+  details.audit > summary{display:none}
+  details.audit .audit-body{max-height:none;overflow:visible;border-top:none}
+  table{font-size:10.5px}
+  .audit-body table{font-size:10px}
+  a{color:#111418;text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="toc no-print">
+  <a href="#overview">概览</a>
+  <a href="#tenders">招标清单</a>
+  <a href="#audit">字段核对</a>
+  <a href="#coverage">覆盖与缺口</a>
+  {% if suspects %}<a href="#suspects">疑似重复</a>{% endif %}
+  <a href="#method">算法说明</a>
+  <span class="brand">esg-tender-intel</span>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">ESG 招标情报 · {{ meta.generated_date }}</div>
+  <h1>ESG / 双碳 / 碳资产 招标情报清单</h1>
+  <p class="sub">共 {{ stats.total }} 条有效记录{% if meta.shown and meta.shown < stats.total %}，清单展示前 {{ meta.shown }} 条（统计口径为全量）{% endif %}　·　窗口近 {{ meta.days }} 天</p>
+
+  <div class="chips">
+    <span class="chip"><k>时间窗口</k>近 {{ meta.days }} 天</span>
+    <span class="chip"><k>数据源</k>{{ meta.provider }}</span>
+    <span class="chip"><k>生成时间</k>{{ meta.generated_at }}</span>
+    {% if meta.preset and meta.preset.title %}
+    <span class="chip"><k>行业预设</k>{{ meta.preset.title }}</span>
+    {% endif %}
+    {% if meta.incremental %}
+    <span class="chip"><k>增量</k>新增 {{ meta.incremental.new }} / 库内 {{ meta.incremental.stats.total }}</span>
+    {% endif %}
+    {% if meta.freshness_windows and meta.freshness_windows | length > 1 %}
+    <span class="chip"><k>切片</k>{{ meta.freshness_windows | length }} 段（{{ meta.freshness_windows[-1].split('..')[0] }} 起）</span>
+    {% endif %}
+    <span class="chip wide"><k>检索条件</k><span>{{ meta.query_label }}</span></span>
+  </div>
+
+  <div class="funnel">
+    <span class="step">原始命中 <b>{{ meta.raw_hits_total | thousands }}</b> 次</span>
+    <span class="sep">→</span>
+    <span class="step">去重后页面 <b>{{ meta.raw_hits | thousands }}</b></span>
+    <span class="sep">→</span>
+    <span class="step">非采购剔除 <b>{{ meta.not_tender | thousands }}</b></span>
+    <span class="sep">→</span>
+    <span class="step">低于阈值 <b>{{ meta.below_threshold | thousands }}</b></span>
+    <span class="sep">→</span>
+    <span class="step">业务重复 <b>{{ meta.duplicates }}</b></span>
+    <span class="sep">→</span>
+    <span class="step final">保留 <b>{{ meta.kept_total | default(stats.total) }}</b> 条</span>
+  </div>
+</header>
+
+<!-- ============ 概览 ============ -->
+<section class="section" id="overview">
+  <h2><span class="no">01</span>本期概览</h2>
+  <p class="lede">金额与截止日期均为从摘要中抽取的结果，多数标书的预算写在正文表格里、摘要中不含，因此「已知金额」占比偏低属正常现象，不代表项目没有预算。</p>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-l">有效条数</div>
+      <div class="kpi-v">{{ stats.total }}</div>
+      <div class="kpi-s">{% if meta.shown and meta.shown < stats.total %}清单展示 {{ meta.shown }} 条{% else %}已全部展示{% endif %}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">已知金额条数</div>
+      <div class="kpi-v">{{ stats.amount_known }}</div>
+      <div class="kpi-s">占 {{ '%.0f' | format(stats.amount_known / stats.total * 100 if stats.total else 0) }}%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">金额中位数</div>
+      <div class="kpi-v">{{ stats.amount_median }}</div>
+      <div class="kpi-s">看单价水平用这个</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">金额合计</div>
+      <div class="kpi-v">{{ stats.amount_sum }}</div>
+      <div class="kpi-s">仅含已知金额，易被大包拉高</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">招标中（可投）</div>
+      <div class="kpi-v">{{ stats.tender_count }}</div>
+      <div class="kpi-s">另有 {{ stats.award_count }} 条已中标成交</div>
+    </div>
+    {% if meta.incremental %}
+    <div class="kpi">
+      <div class="kpi-l">本期新增</div>
+      <div class="kpi-v">{{ meta.incremental.new }}</div>
+      <div class="kpi-s">往期已见 {{ meta.incremental.seen }} 条</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="quality">
+    <span>灰区待复核 <b>{{ stats.needs_review }}</b></span>
+    <span>疑似重复待核实 <b>{{ stats.suspects }}</b></span>
+    <span>非采购内容剔除 <b>{{ meta.not_tender | thousands }}</b></span>
+    <span>窗口外剔除 <b>{{ meta.out_of_window | thousands }}</b></span>
+    {% if meta.award_links %}<span>招标—中标关联 <b>{{ meta.award_links }}</b> 组</span>{% endif %}
+    {% if meta.stage_filtered %}<span>阶段筛除 <b>{{ meta.stage_filtered }}</b></span>{% endif %}
+    {% if meta.unknown_date %}<span>无发布日期但保留 <b>{{ meta.unknown_date }}</b></span>{% endif %}
+  </div>
+
+  <div class="panels" style="margin-top:22px">
+    <div class="panel">
+      <h3>赛道分布</h3>
+      {% for item in stats.by_track %}
+      <div class="bar-row g-{{ item.group }}{% if not item.count %} zero{% endif %}">
+        <span class="lb">{{ item.label }}</span>
+        <span class="bar"><i style="width:{{ item.pct }}%"></i></span>
+        <span class="n">{{ item.count }}</span>
+      </div>
+      {% endfor %}
+      {% if stats.by_stage %}
+      <h3 style="margin-top:20px">公告阶段</h3>
+      {% for item in stats.by_stage %}
+      <div class="bar-row{% if not item.count %} zero{% endif %}">
+        <span class="lb">{{ item.label }}</span>
+        <span class="bar"><i style="width:{{ item.pct }}%"></i></span>
+        <span class="n">{{ item.count }}</span>
+      </div>
+      {% endfor %}
+      <p class="foot">「中标成交」表示这条项目已经定标，是历史价格证据，不是可投商机。成交金额合计 {{ stats.award_sum }}（{{ stats.award_amount_known }} 条有金额）。</p>
+      {% endif %}
+    </div>
+    <div class="panel">
+      <h3>金额分档（仅已知金额的 {{ stats.amount_known }} 条）</h3>
+      {% for bucket in stats.by_bucket %}{% if bucket.label != 'N/A' %}
+      <div class="bar-row{% if not bucket.count %} zero{% endif %}">
+        <span class="lb">{{ bucket.label }}</span>
+        <span class="bar"><i style="width:{{ bucket.pct }}%"></i></span>
+        <span class="n">{{ bucket.count }}</span>
+      </div>
+      {% endif %}{% endfor %}
+      <p class="foot">另有 {{ stats.amount_unknown }} 条摘要中未含预算信息（多数标书把预算写在正文表格里），未计入分档。</p>
+    </div>
+  </div>
+
+  {% if trend and trend | length > 1 %}
+  <div class="panel trend">
+    <h3>时间趋势（按季度）</h3>
+    <div class="trend-row trend-head"><span>季度</span><span></span><span class="n">条数</span><span class="amt">已知金额</span></div>
+    {% for item in trend %}
+    <div class="trend-row{% if item.partial %} partial{% endif %}">
+      <span class="q">{{ item.label }}</span>
+      <span class="bar"><i style="width:{{ item.pct }}%"></i></span>
+      <span class="n">{{ item.count }}</span>
+      <span class="amt">{{ item.amount_wan }}</span>
+    </div>
+    {% endfor %}
+    <p class="sub" style="margin:14px 0 0;font-size:12px">
+      带 <b>*</b> 的季度不是完整季度（被窗口首尾截断），条数天然偏低，不要读成下滑。
+      季度分布反映的是<b>公开检索能捞到的信息密度</b>，受各平台收录习惯、关键词命中与检索时间窗共同影响，<b>不等于市场规模或采购趋势</b>。
+      金额列只统计抽到预算锚点的记录（{% for item in trend %}{{ item.label }} {{ item.amount_known }} 条{% if not loop.last %}、{% endif %}{% endfor %}），缺失不补零。
+    </p>
+  </div>
+  {% endif %}
+</section>
+
+<!-- ============ 清单 ============ -->
+<section class="section" id="tenders">
+  <h2><span class="no">02</span>招标清单</h2>
+  <p class="lede">按相关度降序、同分按截止日期升序。点表头「相关度 / 金额 / 截止」可重排；上方可按标题、采购方做即时筛选。</p>
+
+  <div class="toolbar no-print">
+    <input type="search" id="q" placeholder="搜索项目名称 / 采购方…" aria-label="搜索清单">
+    <select id="track" aria-label="按赛道筛选">
+      <option value="">全部赛道（{{ stats.by_track | length }}）</option>
+      {% for item in stats.by_track %}
+      <option value="{{ item.key }}">{{ item.label }}（{{ item.count }}）</option>
+      {% endfor %}
+    </select>
+    <label><input type="checkbox" id="only-amount"> 仅看有金额</label>
+    <label><input type="checkbox" id="only-tender"> 仅看招标中</label>
+    <span class="count">显示 <b id="shown-count">{{ records | length }}</b> / {{ meta.shown | default(stats.total) }} 条{% if meta.shown and meta.shown < stats.total %}（全量 {{ meta.kept_total }} 条）{% endif %}</span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="tender-table">
+      <colgroup>
+        <col style="width:4.5%"><col><col style="width:13%"><col style="width:10%">
+        <col style="width:9%"><col style="width:15%"><col style="width:8%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>项目名称</th>
+          <th>采购方</th>
+          <th class="s" data-sort="amt">金额</th>
+          <th class="s" data-sort="deadline">截止</th>
+          <th>赛道</th>
+          <th class="s" data-sort="rel">相关度</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in records %}
+        <tr data-search="{{ ((record.raw.title_clean or record.raw.title) ~ ' ' ~ (record.fields.buyer.value or '') ~ ' ' ~ record.track.name) | lower }}"
+            data-track="{{ record.track.name }}"
+            data-amount="{% if record.fields.amount_cny %}1{% else %}0{% endif %}"
+            data-rel="{{ '%.4f' | format(record.track.relevance) }}"
+            data-amt="{{ record.fields.amount_cny or 0 }}"
+            data-deadline="{{ record.fields.deadline.value or '9999-99-99' }}"
+            data-stage="{{ (record.get('stage') or {}).get('code', 'other') }}"
+            data-group="{{ record.track.group }}">
+          <td class="idx">{{ loop.index }}</td>
+          <td class="t"><a href="{{ record.source.url | safe_url }}" target="_blank" rel="noopener noreferrer">{{ record.raw.title_clean or record.raw.title }}</a>{{ macros.badges(record) }}</td>
+          <td>{{ record.fields.buyer.value or '—' }}</td>
+          <td class="n">{% if record.fields.amount_cny %}{{ record.fields.amount_cny | amount }}{% else %}<span class="muted">N/A</span>{% endif %}</td>
+          <td class="n">{{ record.fields.deadline.value or '—' }}</td>
+          <td>{{ record.track.name }}{% if record.track.sub %}<span class="sub-tag">／{{ record.track.sub }}</span>{% endif %}</td>
+          <td><span class="pill g-{{ record.track.group }}">{{ '%.2f' | format(record.track.relevance) }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p id="empty-hint" class="callout" hidden>当前筛选条件下没有匹配记录。清空搜索框或把赛道切回「全部」再试。</p>
+  {% if not records %}
+  <div class="callout">本窗口内没有命中任何记录。可能是关键词过窄、窗口过短，或检索源不可用——请查看「覆盖与缺口」一节的说明。</div>
+  {% endif %}
+</section>
+
+<!-- ============ 字段核对 ============ -->
+<section class="section" id="audit">
+  <h2><span class="no">03</span>字段原文核对</h2>
+  <p class="lede">金额、截止日期、项目编号均为抽取值，右侧给出摘要中的原文片段，可逐条回查。置信度不足的字段不参与金额统计。</p>
+
+  <details class="audit">
+    <summary>展开 {{ records | length }} 条记录的抽取明细<span class="hint">逐条对照原文</span></summary>
+    <div class="audit-body">
+      <table>
+        <thead>
+          <tr><th style="width:44px">#</th><th style="width:60px">字段</th><th style="width:170px">抽取值</th><th style="width:76px">置信度</th><th>原文片段</th></tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+          {% if record.fields.amount_cny %}
+          <tr>
+            <td class="idx">{{ loop.index }}</td><td>金额</td>
+            <td>{{ record.fields.amount_cny | amount }}</td>
+            <td class="muted">{{ record.fields.amount.confidence }}</td>
+            <td class="muted">{{ record.fields.amount.quote }}</td>
+          </tr>
+          {% endif %}
+          {% if record.fields.deadline.value %}
+          <tr>
+            <td class="idx">{{ loop.index }}</td><td>截止</td>
+            <td>{{ record.fields.deadline.value }}</td>
+            <td class="muted">{{ record.fields.deadline.confidence }}</td>
+            <td class="muted">{{ record.fields.deadline.quote }}</td>
+          </tr>
+          {% endif %}
+          {% if record.fields.project_no.value %}
+          <tr>
+            <td class="idx">{{ loop.index }}</td><td>编号</td>
+            <td>{{ record.fields.project_no.value }}</td>
+            <td class="muted">{{ record.fields.project_no.confidence }}</td>
+            <td class="muted">{{ record.fields.project_no.quote }}</td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 覆盖 ============ -->
+<section class="section" id="coverage">
+  <h2><span class="no">04</span>数据覆盖与缺口</h2>
+  <p class="lede">这一节是给「能不能用」下判断用的：检索了哪些词、哪个源出了问题、哪些内容一定捞不到。</p>
+
+  <dl class="facts">
+    <div><dt>检索 query（{{ meta.queries | length }} 条）</dt><dd>{{ coverage.queries }}</dd></div>
+    <div><dt>检索源</dt><dd>{{ coverage.provider }}</dd></div>
+    <div><dt>失败情况</dt><dd>{{ coverage.failures }}</dd></div>
+    {% if meta.incremental %}
+    <div><dt>增量口径</dt><dd>已推送库 {{ meta.incremental.db }}：本期新增 {{ meta.incremental.new }} 条，往期已见 {{ meta.incremental.seen }} 条；库内累计 {{ meta.incremental.stats.total }} 条，其中待推送 {{ meta.incremental.stats.pending }} 条。</dd></div>
+    {% endif %}
+    {% if meta.preset and meta.preset.description %}
+    <div><dt>行业预设</dt><dd>{{ meta.preset.title }}：{{ meta.preset.description }}</dd></div>
+    {% endif %}
+  </dl>
+
+  <div class="callout">
+    <b>边界声明</b>
+    <ul>
+      <li>本清单基于公开检索结果，<b>不代表该窗口内的全部招标项目</b>。未覆盖的小众交易平台、需登录或付费的信息源不在范围内。</li>
+      <li>收录密度随平台而异，条数变化不等于市场冷热；横向比较请用「同一批 query、同一时间窗」的结果。</li>
+      <li>未采集个人信息：联系人、电话、邮箱一律不入库。</li>
+    </ul>
+  </div>
+</section>
+
+{% if suspects %}
+<!-- ============ 疑似重复 ============ -->
+<section class="section" id="suspects">
+  <h2><span class="no">05</span>疑似重复待核实</h2>
+  <p class="lede">以下记录标题高度相似但项目编号/指纹不同，系统<b>未自动合并</b>，请人工判断。多数是同一项目的「招标公告 + 成交结果」两阶段。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>记录 A</th><th>记录 B</th><th style="width:96px">标题相似度</th></tr></thead>
+      <tbody>
+        {% for s in suspects %}
+        <tr>
+          <td>{{ s.a_title | default(s.a) }}</td>
+          <td>{{ s.b_title | default(s.b) }}</td>
+          <td class="n">{{ '%.3f' | format(s.similarity) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<!-- ============ 算法 ============ -->
+<section class="section" id="method">
+  <h2><span class="no">{% if suspects %}06{% else %}05{% endif %}</span>相关度算法</h2>
+  <p class="lede">相关度只衡量「这条公告有多贴近 ESG / 双碳 / 碳资产采购主题」，不代表项目质量或金额大小。</p>
+
+  <pre class="code">title_score = {{ meta.weights.title_base }} + {{ meta.weights.title_extra }} × min(1, 标题命中数 - 1)
+body_score  = {{ meta.weights.body_bonus }} × min(1, 正文命中数 / {{ meta.weights.body_saturate }})
+relevance   = min(1.0, title_score + body_score)</pre>
+
+  <ul class="notes">
+    <li>典型取值：标题命中 1 个 0.65 ／ 再加 1 个正文命中 0.75 ／ 正文满格 0.95 ／ 全命中 1.00。</li>
+    <li>核心 / 扩展：<b>必须标题命中关键词</b>才能过线；只命中正文的落在灰区，标记待复核。</li>
+    <li>边缘：A 组与 B 组关键词同时命中即 0.75 起（标题再命中则 1.0）。</li>
+    <li>阈值：核心 {{ meta.thresholds.core }} ／ 扩展 {{ meta.thresholds.extended }} ／ 边缘 {{ meta.thresholds.edge }}；低于灰区下界 {{ meta.gray_low }} 直接丢弃。</li>
+  </ul>
+</section>
+
+<footer>
+  <span>esg-tender-intel</span>
+  <span>生成于 {{ meta.generated_at }}</span>
+  <span>数据源 {{ meta.provider }}</span>
+  <span>窗口近 {{ meta.days }} 天</span>
+  <span>结构化数据见同目录 records.json</span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  // 打印时 <details> 里的核对表也要出来，否则「打印版」会缺一整节
+  window.addEventListener('beforeprint', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+      d.setAttribute('open', '');
+    });
+  });
+
+  var table = document.getElementById('tender-table');
+  if (!table) return;
+  var tbody = table.tBodies[0];
+  var rows = Array.prototype.slice.call(tbody.rows);
+  var q = document.getElementById('q');
+  var track = document.getElementById('track');
+  var onlyAmount = document.getElementById('only-amount');
+  var onlyTender = document.getElementById('only-tender');
+  var counter = document.getElementById('shown-count');
+  var empty = document.getElementById('empty-hint');
+
+  function applyFilter() {
+    var term = (q.value || '').trim().toLowerCase();
+    var wantTrack = track.value;
+    var needAmount = onlyAmount.checked;
+    var needTender = onlyTender ? onlyTender.checked : false;
+    var shown = 0;
+    rows.forEach(function (row) {
+      var ok = true;
+      if (term && (row.getAttribute('data-search') || '').indexOf(term) === -1) ok = false;
+      if (ok && wantTrack && row.getAttribute('data-track') !== wantTrack) ok = false;
+      if (ok && needAmount && row.getAttribute('data-amount') !== '1') ok = false;
+      if (ok && needTender && row.getAttribute('data-stage') !== 'tender') ok = false;
+      row.hidden = !ok;
+      if (ok) shown += 1;
+    });
+    counter.textContent = shown;
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  q.addEventListener('input', applyFilter);
+  track.addEventListener('change', applyFilter);
+  onlyAmount.addEventListener('change', applyFilter);
+  if (onlyTender) onlyTender.addEventListener('change', applyFilter);
+
+  var headers = table.tHead.querySelectorAll('th[data-sort]');
+  Array.prototype.forEach.call(headers, function (th) {
+    th.addEventListener('click', function () {
+      var key = th.getAttribute('data-sort');
+      var dir = th.getAttribute('data-dir') === 'asc' ? 'desc' : 'asc';
+      Array.prototype.forEach.call(headers, function (other) {
+        other.removeAttribute('data-dir');
+      });
+      th.setAttribute('data-dir', dir);
+      rows.sort(function (a, b) {
+        var x, y;
+        if (key === 'deadline') {
+          x = a.getAttribute('data-deadline') || '9999-99-99';
+          y = b.getAttribute('data-deadline') || '9999-99-99';
+        } else {
+          x = parseFloat(a.getAttribute('data-rel')) || 0;
+          y = parseFloat(b.getAttribute('data-rel')) || 0;
+          if (key === 'amt') {
+            x = parseFloat(a.getAttribute('data-amt')) || 0;
+            y = parseFloat(b.getAttribute('data-amt')) || 0;
+          }
+        }
+        if (x === y) return 0;
+        return dir === 'asc' ? (x > y ? 1 : -1) : (x < y ? 1 : -1);
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
