@@ -1,0 +1,7 @@
+# 运行时依赖（Python >= 3.12）
+jinja2>=3.1,<4
+pyyaml>=6.0,<7
+httpx>=0.27,<1
+
+# 标准库直接用，无需安装：
+#   argparse / json / hashlib / decimal / re / unicodedata / pathlib / datetime

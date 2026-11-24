@@ -1,0 +1,17 @@
+# 每日增量：crontab 示例
+#
+# 安装：
+#   crontab -e
+#   把下面两行改成自己的绝对路径后粘贴进去
+#
+# 关键点：
+# - 必须用装了依赖的解释器（本机是 conda py312），不要写裸 python；
+# - 必须 cd 到 skill 根目录，脚本用相对路径找 config/ 与 templates/；
+# - 日志一定要重定向，否则 cron 报错只在邮件里，等于没有；
+# - daily.py 默认「近 2 天 + 只报新增 + 库去重」，没有新增时退出码仍是 0。
+#
+# 每天 08:30（服务器本地时区）跑一次
+30 8 * * * cd /opt/esg-tender-intel && /opt/miniconda3/envs/py312/bin/python scripts/daily.py >> logs/daily.log 2>&1
+
+# 每周一 09:00 跑一次周报（近 7 天，全量口径，同时出 docx 便于转发）
+0 9 * * 1 cd /opt/esg-tender-intel && /opt/miniconda3/envs/py312/bin/python scripts/tender.py --days 7 --limit 100 --format all --incremental >> logs/weekly.log 2>&1

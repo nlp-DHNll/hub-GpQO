@@ -1,0 +1,56 @@
+# 每日增量：GitHub Actions 模板
+#
+# 用法：把本文件复制到仓库的 .github/workflows/esg-daily.yml，然后在
+# Settings → Secrets and variables → Actions 里配置：
+#   BOCHA_API_KEY       必填，博查检索 Key
+#   NOTIFY_WEBHOOK_URL  选填，企业微信 / 飞书 / 钉钉群机器人地址
+#
+# 注意：
+# - 报告作为 artifact 保留 14 天，不提交回仓库（避免仓库被 747 条 JSON 撑大）；
+# - 已推送库默认落在 data/tenders.db，如果希望跨天增量持续生效，需要缓存该文件
+#   或改为提交到私有仓库。这里用 actions/cache，key 带日期滚动，只能保 7 天，
+#   长期使用建议换成对象存储或自建 runner + SQLite 文件持久化；
+# - 中国政府采购网等站点对境外 IP 可能限流，境外 runner 的召回率会低于本机。
+name: esg-tender-daily
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # UTC 00:30 = 北京时间 08:30
+  workflow_dispatch:
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        working-directory: skills/esg-tender-intel
+        run: pip install -r requirements.txt
+
+      - name: Restore pushed-store cache
+        uses: actions/cache@v4
+        with:
+          path: skills/esg-tender-intel/data
+          key: tender-db-${{ github.run_id }}
+          restore-keys: tender-db-
+
+      - name: Run daily incremental
+        working-directory: skills/esg-tender-intel
+        env:
+          BOCHA_API_KEY: ${{ secrets.BOCHA_API_KEY }}
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+        run: python scripts/daily.py --format html
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: tender-report-${{ github.run_id }}
+          path: skills/esg-tender-intel/output/**/tender_list.*
+          retention-days: 14
+          if-no-files-found: warn

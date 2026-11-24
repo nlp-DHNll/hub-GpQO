@@ -1,0 +1,138 @@
+{% import "_macros.j2" as macros %}# ESG 招标情报清单 · {{ meta.generated_date }}
+
+> **检索条件**：{{ meta.query_label }}
+> **时间窗口**：近 {{ meta.days }} 天 ｜ **数据源**：{{ meta.provider }} ｜ **生成时间**：{{ meta.generated_at }}
+{% if meta.preset and meta.preset.title %}> **行业预设**：{{ meta.preset.title }}{% if meta.preset.description %}——{{ meta.preset.description }}{% endif %}
+
+{% endif %}
+{% if meta.incremental %}> **增量**：本期新增 {{ meta.incremental.new }} 条，往期已见 {{ meta.incremental.seen }} 条（库内累计 {{ meta.incremental.stats.total }} 条）
+
+{% endif %}> **原始命中** {{ meta.raw_hits_total }} 次（{{ meta.raw_hits }} 个不同页面）→ 去重后 **{{ stats.total }}** 条（业务重复丢弃 {{ meta.duplicates }} 条，低于阈值 {{ meta.below_threshold }} 条，非采购内容剔除 {{ meta.not_tender }} 条）
+
+---
+
+## 一、本期概览
+
+| 指标 | 数值 |
+|---|---|
+| 有效条数 | {{ stats.total }} |
+| 赛道分布 | {% for item in stats.by_group %}{{ item.label }} {{ item.count }}{% if not loop.last %} / {% endif %}{% endfor %} |
+| 公告阶段 | {% for item in stats.by_stage %}{{ item.label }} {{ item.count }}{% if not loop.last %} / {% endif %}{% endfor %} |
+| 招标中（可投） | {{ stats.tender_count }} |
+| 已中标成交 | {{ stats.award_count }}（已知成交金额合计 {{ stats.award_sum }}） |
+{% if meta.incremental %}| 本期新增 | {{ meta.incremental.new }} |
+{% endif %}| 已知金额条数 | {{ stats.amount_known }} |
+| 金额合计（已知部分） | {{ stats.amount_sum }} |
+| 金额中位数 | {{ stats.amount_median }} |
+| 灰区待复核 | {{ stats.needs_review }} |
+| 疑似重复待核实 | {{ stats.suspects }} |
+{% set shown = meta.shown | default(stats.total) -%}
+{% set total = meta.kept_total | default(stats.total) -%}
+| 清单展示条数 | {{ shown }}{% if shown < total %}（共 {{ total }} 条，统计基于全量）{% endif %} |
+| 非采购内容剔除 | {{ meta.not_tender }}（研报 / 债券上市 / 新闻快讯等） |
+| 窗口外剔除 | {{ meta.out_of_window }}{% if meta.unknown_date %}（另有 {{ meta.unknown_date }} 条无发布日期，已保留）{% endif %} |
+
+### 金额分档
+
+| 区间 | 条数 |
+|---|---|
+{% for bucket in stats.by_bucket -%}
+| {{ bucket.label }} | {{ bucket.count }} |
+{% endfor %}
+
+### 赛道分布
+
+| 赛道 | 条数 |
+|---|---|
+{% for item in stats.by_track -%}
+| {{ item.label }} | {{ item.count }} |
+{% endfor %}
+{% if trend and trend | length > 1 %}
+### 时间趋势
+
+| 季度 | 条数 | 其中核心 | 其中扩展 | 已知金额合计 |
+|---|---|---|---|---|
+{% for item in trend -%}
+| {{ item.label }}{% if item.partial %} *{% endif %} | {{ item.count }} | {{ item.core }} | {{ item.extended }} | {{ item.amount_sum }} |
+{% endfor %}
+
+> 带 `*` 的季度**不是完整季度**（窗口首尾被截断），条数天然偏低，不要读成下滑。
+> 季度分布反映的是**公开检索能捞到的信息密度**，受各平台收录习惯、关键词命中与
+> 检索时间窗共同影响，**不等于市场规模或采购趋势**。金额列只统计抽到预算锚点的
+> 记录（{% for item in trend %}{{ item.label }} {{ item.amount_known }} 条{% if not loop.last %}、{% endif %}{% endfor %}），
+> 缺失不补零。
+{% endif %}
+
+---
+
+## 二、招标清单
+
+| # | 项目名称 | 采购方 | 金额 | 截止 | 阶段 | 赛道 | 相关度 |
+|---|---|---|---|---|---|---|---|
+{% for record in records -%}
+| {{ loop.index }} | {{ macros.new_mark(record) }}[{{ (record.raw.title_clean or record.raw.title) | cell }}]({{ record.source.url | safe_url }}) | {{ (record.fields.buyer.value or 'N/A') | cell }} | {{ record.fields.amount_cny | amount }} | {{ record.fields.deadline.value or 'N/A' }} | {{ (record.get('stage') or {}).get('label', '—') }} | {{ record.track.name }}{% if record.track.sub %}（{{ record.track.sub }}）{% endif %} | {{ '%.2f' | format(record.track.relevance) }} |
+{% endfor %}
+
+{% if not records %}
+> 本窗口内没有命中任何记录。可能是关键词过窄、窗口过短，或检索源不可用——请查看第四节覆盖度说明。
+{% endif %}
+
+---
+
+## 三、字段原文核对
+
+> 金额与截止日期均为**抽取值**，右侧给出原文片段，可逐条回查。置信度不足的字段未参与金额统计。
+
+| # | 字段 | 抽取值 | 置信度 | 原文片段 |
+|---|---|---|---|---|
+{% for record in records -%}
+{% if record.fields.amount_cny -%}
+| {{ loop.index }} | 金额 | {{ record.fields.amount_cny | amount }} | {{ record.fields.amount.confidence }} | {{ record.fields.amount.quote | cell }} |
+{% endif -%}
+{% if record.fields.deadline.value -%}
+| {{ loop.index }} | 截止 | {{ record.fields.deadline.value }} | {{ record.fields.deadline.confidence }} | {{ record.fields.deadline.quote | cell }} |
+{% endif -%}
+{% if record.fields.project_no.value -%}
+| {{ loop.index }} | 编号 | {{ record.fields.project_no.value }} | {{ record.fields.project_no.confidence }} | {{ record.fields.project_no.quote | cell }} |
+{% endif -%}
+{% endfor %}
+
+---
+
+## 四、数据覆盖与缺口
+
+- **检索 query（{{ meta.queries | length }} 条）**：{{ coverage.queries }}
+- **检索源**：{{ coverage.provider }}
+- **失败情况**：{{ coverage.failures }}
+- **边界声明**：本清单基于公开检索结果，**不代表该窗口内的全部招标项目**。未覆盖的小众交易平台、需登录或付费的信息源不在范围内。
+- **未采集个人信息**：联系人、电话、邮箱一律不入库。
+
+{% if suspects %}
+---
+
+## 五、疑似重复待核实
+
+以下记录标题高度相似但编号/指纹不同，系统**未自动合并**，请人工判断：
+
+| 记录 A | 记录 B | 标题相似度 |
+|---|---|---|
+{% for s in suspects -%}
+| {{ s.a }} | {{ s.b }} | {{ '%.3f' | format(s.similarity) }} |
+{% endfor %}
+{% endif %}
+
+---
+
+## 附：相关度算法
+
+```
+title_score = {{ meta.weights.title_base }} + {{ meta.weights.title_extra }} × min(1, 标题命中数 - 1)
+body_score  = {{ meta.weights.body_bonus }} × min(1, 正文命中数 / {{ meta.weights.body_saturate }})
+relevance   = min(1.0, title_score + body_score)
+```
+
+- 典型取值：标题 1 命中 0.65 ／ 再加 1 个正文命中 0.75 ／ 正文满格 0.95 ／ 全命中 1.00。
+- 核心／扩展：**必须标题命中关键词**才能过线，只命中正文落在灰区、标记待复核。
+- 边缘：A 组与 B 组关键词同时命中即 0.75 起（标题再命中则 1.0）。
+- 阈值：核心 {{ meta.thresholds.core }} ／ 扩展 {{ meta.thresholds.extended }} ／ 边缘 {{ meta.thresholds.edge }}。
+  低于灰区下界 {{ meta.gray_low }} 直接丢弃。
