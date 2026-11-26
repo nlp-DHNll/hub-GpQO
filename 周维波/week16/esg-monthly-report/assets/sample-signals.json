@@ -1,0 +1,134 @@
+[
+  {
+    "title": "证监会发布 JR/T 0356—2026《上市公司可持续发展报告电子化规范》",
+    "date": "2026-10-26",
+    "source": "中国证监会",
+    "url": "https://www.csrc.gov.cn/csrc/c101954/c7667691/7667691/files/%E9%99%84%E4%BB%B61%EF%BC%9A%E3%80%8A%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E6%8A%A5%E5%91%8A%E7%94%B5%E5%AD%90%E5%8C%96%E8%A7%84%E8%8C%83%E3%80%8B.pdf",
+    "category": "policy",
+    "summary": "规范对 ESG 报告分类编码、实例文档与 298 项报告元素（核心/鼓励两类）作出统一规定，推动披露信息可机读、可校验、可横向比较。",
+    "tags": ["披露规范", "电子化", "数据治理"],
+    "relevance": 0.9,
+    "entity": "监管规则"
+  },
+  {
+    "title": "21世纪经济报道：ESG 信披从文本合规走向数据治理，298 项元素清单落地",
+    "date": "2026-11-02",
+    "source": "21世纪经济报道",
+    "url": "http://m.toutiao.com/group/7703520366844576299/",
+    "category": "policy",
+    "summary": "范围 1/2 温室气体排放属核心元素，范围 3 属鼓励元素；未来投资者与数据服务商将关注信息能否低成本抓取、交叉验证与持续追踪。",
+    "tags": ["披露规范", "温室气体"],
+    "relevance": 0.85,
+    "entity": "监管规则"
+  },
+  {
+    "title": "资本市场 ESG 建设“从有到优”：中证指数发布新版 ESG 评价方法 V4.0",
+    "date": "2026-10-26",
+    "source": "中国经济网",
+    "url": "http://adimg.ce.cn/xwzx/gnsz/gdxw/202610/t20261026_3270728.shtml",
+    "category": "policy",
+    "summary": "新版中证 ESG 评价方法对标披露规则，优化指标框架、得分计算与评级规则，更突出企业 ESG 实质绩效；年内至少 46 家上市公司更新 ESG 工作细则。",
+    "tags": ["ESG评级", "方法论"],
+    "relevance": 0.8,
+    "entity": "监管规则"
+  },
+  {
+    "title": "以高质量可持续信息披露助推绿色发展：披露由“有没有”迈向“是否可信”",
+    "date": "2026-10-19",
+    "source": "光明网",
+    "url": "http://www.gmw.cn/xueshu/2026-10/19/content_39053853.htm",
+    "category": "policy",
+    "summary": "“十五五”碳达峰行动方案推进国家统一企业可持续披露准则体系；IAASB ISAE 5000 将于 2026 年 12 月 15 日生效，可持续信息鉴证规则同步跟进。",
+    "tags": ["鉴证", "双碳", "披露"],
+    "relevance": 0.75,
+    "entity": "监管规则"
+  },
+  {
+    "title": "国投电力 2026-2028 年 ESG 报告编制服务项目中标，金额 53.4 万元",
+    "date": "2026-11-18",
+    "source": "启信宝招投标",
+    "url": "https://m.qixin.com/bidding/b54a03c2-849a-4c2b-b4fb-d7a7cb72b861",
+    "category": "industry",
+    "summary": "能源央企连续多年采购 ESG 报告编制服务，显示披露合规与评级管理已成为常态化外包需求；供应商以专业咨询机构与会计师事务所为主。",
+    "tags": ["ESG报告", "市场需求", "能源行业"],
+    "relevance": 0.7,
+    "entity": "行业需求侧"
+  },
+  {
+    "title": "华安证券 2027 年度 ESG 评级管理等相关服务项目成交，金额 19.2 万元",
+    "date": "2026-11-20",
+    "source": "启信宝招投标",
+    "url": "https://m.qixin.com/bidding/e0a0a84e-7703-4a0d-a06a-00b42a37e57a",
+    "category": "industry",
+    "summary": "金融机构采购 ESG 评级管理服务，反映评级提升与投资者关系维护正从自发动作转为专项采购。",
+    "tags": ["ESG评级", "金融行业"],
+    "relevance": 0.6,
+    "entity": "行业需求侧"
+  },
+  {
+    "title": "中国神华获香港会计师公会 2026 年度最佳企业管治及 ESG 奖“ESG 特别提名”",
+    "date": "2026-11-16",
+    "source": "中国神华官网",
+    "url": "http://www.shenhuachina.cn/zgshww/xwtt/202611/240901371a544ad189cf70e59e2d22ea.shtml",
+    "category": "company",
+    "summary": "主板上市类别获 ESG 特别提名；评审首次引入 AI 辅助初审，重点考察自愿披露水平、治理文化与实质 ESG 成效，对数据治理与披露内控提出更高要求。",
+    "tags": ["公司动态", "获奖", "治理", "数据治理"],
+    "relevance": 0.95,
+    "entity": "中国神华"
+  },
+  {
+    "title": "中国神华所属物资公司绿色供应链案例入选《2026 企业 ESG 实践报告》",
+    "date": "2026-09-27",
+    "source": "中国神华官网",
+    "url": "http://www.shenhuachina.cn/zgshww/xwtt/202609/5e41c836fed94766a6b66a74127651c7.shtml",
+    "category": "company",
+    "summary": "“国能绿链”平台建成能源行业绿色供应链碳管理平台；截至 2026 年 9 月绿链产品销售额约 3.47 亿元，直接减碳 806.15 吨，带动 12 家头部供应商通过三方联合认证。",
+    "tags": ["供应链", "碳管理", "绿色采购"],
+    "relevance": 0.85,
+    "entity": "中国神华"
+  },
+  {
+    "title": "国能印尼爪哇公司荣获印尼环境与社会创新奖三项大奖",
+    "date": "2026-09-20",
+    "source": "中国神华官网",
+    "url": "http://www.shenhuachina.com/zgshww/xwtt/newslist_2.shtml",
+    "category": "company",
+    "summary": "获减排项目奖、生物多样性奖与社会创新奖，为该奖项首家包揽三项大奖的百万千瓦级燃煤电厂，体现海外项目社会与环境管理表现。",
+    "tags": ["海外项目", "生物多样性", "社会贡献"],
+    "relevance": 0.7,
+    "entity": "中国神华"
+  },
+  {
+    "title": "清远电厂实现国内首例百万千瓦机组高比例生物质掺烧发电",
+    "date": "2026-08-31",
+    "source": "中国神华官网",
+    "url": "http://www.shenhuachina.com/zgshww/xwtt/newslist_2.shtml",
+    "category": "company",
+    "summary": "2 号机组成功实现 10% 热量比生物质掺烧，填补国内百万千瓦机组高比例生物质掺烧技术空白，为煤电低碳燃料替代提供示范。",
+    "tags": ["煤电转型", "生物质", "低碳燃料"],
+    "relevance": 0.8,
+    "entity": "中国神华"
+  },
+  {
+    "title": "中国中煤 2025 社会责任报告：煤电机组全部完成超低排放改造，推进煤炭与新能源联营",
+    "date": "2026-10-15",
+    "source": "中国中煤集团",
+    "url": "https://www.chinacoal.com/cms_files/filemanager/1668/attach/202610/BBB987EFDAA23C536B848401BC9F27A0.pdf",
+    "category": "peer",
+    "summary": "60 万千瓦及以上清洁高效煤电机组占比 87.5%；平朔矿区 100MW 光伏并网，鄂能化“液态阳光”示范项目推进，布局零碳产业园与绿氨等新产业。",
+    "tags": ["对标", "超低排放", "新能源", "液态阳光"],
+    "relevance": 0.8,
+    "entity": "中煤能源"
+  },
+  {
+    "title": "陕西煤业 2025 可持续发展报告：绿色矿山 16 处，购买绿电 5.47 亿千瓦时",
+    "date": "2026-04-25",
+    "source": "上海证券交易所",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-04-25/601225_20260425_1SHP.pdf",
+    "category": "peer",
+    "summary": "绿色矿山整体占比 76.2%；范围一+二温室气体排放 3042.29 万吨 CO2e，环保资金投入 11.54 亿元，制定“双碳”工作行动方案与气候专项治理架构。",
+    "tags": ["对标", "绿色矿山", "绿电", "气候治理"],
+    "relevance": 0.8,
+    "entity": "陕西煤业"
+  }
+]
