@@ -1,0 +1,26 @@
+{
+  "report": "d:/AI学习/第16周：Agent应用部署、Skills和OpenClaw/作业成果/案例二_ESG招投标信息汇总报告_20241125-20261125.md",
+  "type": "tender",
+  "validated_at": "2026-11-25T21:47:23",
+  "score": 100,
+  "passed": true,
+  "checks": {
+    "non_empty": true,
+    "section_中标": true,
+    "section_金额": true,
+    "section_热点": true,
+    "section_监控": true,
+    "section_来源": true,
+    "source_count": true,
+    "dates_in_window": true,
+    "no_placeholders": true,
+    "numeric_evidence": true
+  },
+  "issues": [],
+  "stats": {
+    "characters": 9750,
+    "urls": 39,
+    "dates": 51,
+    "numeric_claims": 52
+  }
+}

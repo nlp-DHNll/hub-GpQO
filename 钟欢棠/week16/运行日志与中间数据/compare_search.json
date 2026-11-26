@@ -1,0 +1,412 @@
+{
+  "generated_at": "2026-11-25T21:48:50",
+  "reference_date": "2026-11-25",
+  "engine_policy": "auto",
+  "queries": [
+    "2026年11月 ESG 政策 标准 评级 最新动态",
+    "中国神华 ESG 2026年11月 可持续发展 最新动态",
+    "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+    "ESG 中标公告 2025 中标金额 万元 成交结果"
+  ],
+  "keyword_weights": [],
+  "query_log": [
+    {
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "raw_results": 10,
+      "kept": 10
+    },
+    {
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "raw_results": 10,
+      "kept": 10
+    },
+    {
+      "query": "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+      "raw_results": 4,
+      "kept": 4
+    },
+    {
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "raw_results": 10,
+      "kept": 10
+    }
+  ],
+  "item_count": 34,
+  "deduped": 0,
+  "items": [
+    {
+      "title": "中国 政府网_中央人民政府门户网站",
+      "url": "https://www.gov.cn/",
+      "snippet": "2022年4月26日 · 国务院客户端 国务院客户端小程序 中国政府网微博、微信 主办单位：国务院办公厅 运行维护单位：中国政府网运行 … 阅读更多",
+      "cite": "",
+      "date": "2022-04-26",
+      "source": "www.gov.cn",
+      "score": 10.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "33707a8bd46c"
+    },
+    {
+      "title": "国情_ 中国 政府网",
+      "url": "https://www.gov.cn/guoqing/",
+      "snippet": "2026年7月7日 · 海域分布着大小岛屿7600个，面积最大的是台湾岛，面积35759平方千米。 目前中国有34个省级行政区，包括23个省 … 阅读更多",
+      "cite": "",
+      "date": "2026-07-07",
+      "source": "www.gov.cn",
+      "score": 10.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "51b6b40396b6"
+    },
+    {
+      "title": "ESG 是什麼？定義、三支柱、2026 完整指南｜芮恆 CoReverie",
+      "url": "https://coreverie.com/guide/what-is-esg",
+      "snippet": "2026年11月5日 · ESG 跟企業財務表現的關係：實證數據 老闆永遠問「做 ESG 對賺錢有幫助嗎」。 全球 20 年實證已累積大量證 … 阅读更多",
+      "cite": "",
+      "date": "2026-11-05",
+      "source": "coreverie.com",
+      "score": 5.33,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "bf9dbe55424e"
+    },
+    {
+      "title": "2026 - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2026",
+      "snippet": "Notably, autonomous cyberattacks conducted by OpenAI 's AI agents during cybersecurity tests in mid-2026 led to major AI … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "en.wikipedia.org",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "4a032dbcb810"
+    },
+    {
+      "title": "2026 年_百度百科",
+      "url": "https://baike.baidu.com/item/2026%E5%B9%B4",
+      "snippet": "2026年，公历平年，共365天，农历丙午年（马年），无闰月，共354天。联合国决议本年为“可持续发展志愿者国际年”。2026年1月1 … 阅读更多",
+      "cite": "",
+      "date": "2026-01-01",
+      "source": "baike.baidu.com",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "8a1d35841a64"
+    },
+    {
+      "title": "2026 年及2027年FII 可持续发展 报告及 ESG 评级提升咨询项目 中标 公示-千里马 招标网",
+      "url": "https://www.qianlima.com/bid-635108447.html",
+      "snippet": "**﹒** **** 2026 年及2027年FII 可持续 发展报告及ESG评级提升咨询项目 服务 招标 2026-09-28 18:10 标书代写 招标 进度跟踪.持续 发展 评级咨询 中标 公示招标...",
+      "cite": "www.qianlima.com",
+      "date": "2026-09-28",
+      "source": "www.qianlima.com",
+      "score": 0.0,
+      "query": "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+      "id": "ef14df3cc64c"
+    },
+    {
+      "title": "2026 年的法定假日 - 勞工處",
+      "url": "https://www.labour.gov.hk/tc/news/latest_holidays2026.htm",
+      "snippet": "*根據《2021年僱傭（修訂）條例》，2026年起新增復活節星期一為法定假日。 請注意： 任何僱員，都可享有上述法定假日，如法定 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.labour.gov.hk",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "6ccc6356f909"
+    },
+    {
+      "title": "2026 年香港公眾假期表 · 請假攻略 | 通勝 · 香港",
+      "url": "https://tungshing.hk/holidays/2026",
+      "snippet": "2026 年共 17 日公眾假期（俗稱銀行假，唔計每個星期日）。 其中 14 日落喺星期一至五，另外 3 日落喺星期六；唔使請假就有嘅長週 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "tungshing.hk",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "91fdcc8d2cb5"
+    },
+    {
+      "title": "China - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/China",
+      "snippet": "The shorter form of this name is 中国; Zhōngguó, from zhōng ('central') and guó ('state'), a term first used for the demesne of the … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "en.wikipedia.org",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "c9a2613d8b9c"
+    },
+    {
+      "title": "China Daily Website - Connecting China Connecting the World",
+      "url": "https://www.chinadaily.com.cn/",
+      "snippet": "Chinadaily.com.cn is the largest English portal in China, providing news, business information, BBS, learning materials. The Website … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.chinadaily.com.cn",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "bf2b260ea506"
+    },
+    {
+      "title": "ESG | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "url": "https://wealth.hket.com/sraw020/ESG",
+      "snippet": "緊貼最新ESG (環境、社會和企業管治) 趨勢及政策、ESG準則及框架；提供認可ESG基金、綠色基金、ESG債券、綠色債券、ESG投 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "wealth.hket.com",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "964098b75bc4"
+    },
+    {
+      "title": "ESG 懶人包》什麼是 ESG ？全面解析 ESG 核心定義、案例、檢測工具，一次讀懂 ESG …",
+      "url": "https://csr.cw.com.tw/article/43025",
+      "snippet": "2025年2月1日 · ESG策略成為2023年企業基礎的必修課，近年愈來愈受到關注，究竟什麼是ESG？ 本文將會全面解析ESG的定義原則 … 阅读更多",
+      "cite": "",
+      "date": "2025-02-01",
+      "source": "csr.cw.com.tw",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "42bf5cdab573"
+    },
+    {
+      "title": "ESG 投資 | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "url": "https://wealth.hket.com/sraw020-2/ESG%E6%8A%95%E8%B3%87",
+      "snippet": "甚麼是環境、社會和企業管治（ESG）投資？如何實現可持續投資的理念，ESG投資對世界可持續發展及投資者的潛在投資回報有何 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "wealth.hket.com",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "38d9ef086d5a"
+    },
+    {
+      "title": "ESG 是什麼？一次了解 ESG 意思，香港企業的實行與展望",
+      "url": "https://www.greenpeace.org/hongkong/issues/climate/update/36671/esg-%e6%98%af%e4%bb%80%e9%ba%bc%ef%bc%9f%e5%b0%8d%e7%92%b0%e5%a2%83%e5%be%88%e9%87%8d%e8%a6%81%ef%bc%9f%e9%a6%99%e6%b8%af%e3%80%81%e4%bc%81%e6%a5%ad%e5%a6%82%e4%bd%95%e5%af%a6%e8%a1%8c%ef%bc%9f/",
+      "snippet": "ESG 是什麼？ ESG CSR 的差異為何？ 想透過 ESG 投資支持企業，參與改變社會的力量，需要先了解 ESG 意思及重要性。 本文介 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.greenpeace.org",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "d0a6e233e97e"
+    },
+    {
+      "title": "ESG 是什麼？何謂 ESG ？企業永續關鍵字 CSR、 ESG 、SDGs 一次 …",
+      "url": "https://www.managertoday.com.tw/articles/view/62727",
+      "snippet": "2025年7月3日 · ESG 是 3 個英文單字的縮寫，分別是環境保護（E，environment）、社會責任（S，social）和公司治 … 阅读更多",
+      "cite": "",
+      "date": "2025-07-03",
+      "source": "www.managertoday.com.tw",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "2e946b37d27c"
+    },
+    {
+      "title": "GovHK 香港政府一站通： 2026 年公眾假期",
+      "url": "https://www.gov.hk/tc/about/abouthk/holiday/2026.htm",
+      "snippet": "2025年5月16日 · 2026年公眾假期 政府發言人說：「由於二 二六年的清明節為星期日，該天的翌日將訂為補假。就此，由於清明節翌 … 阅读更多",
+      "cite": "",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "98be6adbf3a5"
+    },
+    {
+      "title": "GovHK: General holidays for 2026",
+      "url": "https://www.gov.hk/en/about/abouthk/holiday/2026.htm",
+      "snippet": "2025年5月16日 · Besides, as the Birthday of the Buddha and the Chung Yeung Festival in 2026 both fall on a Sunday, the day … 阅读更多",
+      "cite": "",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "92f25e5efcbc"
+    },
+    {
+      "title": "Year 2026 Calendar – Hong Kong - timeanddate.com",
+      "url": "https://www.timeanddate.com/calendar/?year=2026&country=42",
+      "snippet": "Hong Kong 2026 – Calendar with holidays. Yearly calendar showing months for the year 2026. Calendars – online and print friendly – … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.timeanddate.com",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "2bfdd96dd2e2"
+    },
+    {
+      "title": "【 2026 行事曆】人事行政局115年行事曆出爐！｜休假攻略、補班行事 …",
+      "url": "https://wisdom-life.in/calendar/holiday/2026",
+      "snippet": "2026行事曆、115年行事曆（資料取自人事行政局）2026年共有9個連假：2026元旦1天、過年春節9天、228紀念日3天、清明節4天、 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "wisdom-life.in",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "22911aac10e7"
+    },
+    {
+      "title": "【 ESG 入門】 ESG 是什麼？四大 ESG 永續發展策略｜ ESG 中文解釋",
+      "url": "https://projectmanager.com.tw/%e5%b0%88%e6%a1%88%e7%ae%a1%e7%90%86/esg/",
+      "snippet": "2024年5月13日 · 【ESG入門】ESG是什麼？ 四大ESG永續發展策略｜ESG中文解釋 你知道什麼是ESG嗎？ 為什麼許多企業都在談 … 阅读更多",
+      "cite": "",
+      "date": "2024-05-13",
+      "source": "projectmanager.com.tw",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "05553d507859"
+    },
+    {
+      "title": "【 中标 】 ESG 服务 I 南方电网互联网服务有限公司2025- 2026 年 可持续发展 ( ESG )报告综合服务项目 中标公告 - 天眼查",
+      "url": "https://news.tianyancha.com/ll_tvxlh34vzl.html",
+      "snippet": "",
+      "cite": "news.tianyancha.com",
+      "date": null,
+      "source": "news.tianyancha.com",
+      "score": 0.0,
+      "query": "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+      "id": "13b43286efca"
+    },
+    {
+      "title": "【2026最新】 ESG是什麼 ? 企業 ESG 怎麼做？3大指標帶你了解！",
+      "url": "https://www.dnb.com.tw/Thoughts/What-is-esg/",
+      "snippet": "2026年ESG法規不停演進，促使企業思考ESG是什麼?又該如何導入ESG？ D&B身為國際ESG數據權威，將帶領企業一起了解ESG指 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.dnb.com.tw",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "662cabb3b1ac"
+    },
+    {
+      "title": "中华人民共和国_百度百科",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD/106554",
+      "snippet": "中华人民共和国（the People's Republic of China），简称“中国”，成立于1949年10月1日，位于亚洲东部，太平洋西岸，是工人阶级领 … 阅读更多",
+      "cite": "",
+      "date": "2026-10-01",
+      "source": "baike.baidu.com",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "2ce5d03b669e"
+    },
+    {
+      "title": "中国 - BBC News 中文",
+      "url": "https://www.bbc.com/zhongwen/topics/ckr7mn6r003t/simp",
+      "snippet": "3 天之前 · BBC中文网提供关于中国的最新新闻、深入分析和评论，涵盖政治、经济、社会等多方面内容。",
+      "cite": "",
+      "date": null,
+      "source": "www.bbc.com",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "50d60142ce19"
+    },
+    {
+      "title": "中国 网--网上 中国",
+      "url": "https://www.china.com.cn/",
+      "snippet": "2025年6月16日 · 国家重点新闻网站，拥有十个语种独立新闻采编、报道和发布权；第一时间报道国家重大新闻事件；国情信息库服务 … 阅读更多",
+      "cite": "",
+      "date": "2025-06-16",
+      "source": "www.china.com.cn",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "6ece46ae6f8f"
+    },
+    {
+      "title": "中国 （世界四大文明古国之一）_百度百科",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD/1122445",
+      "snippet": "中国各族人民共同创造了光辉灿烂的文化，具有光荣的革命传统。 中国是以汉族为主体民族的多民族国家，通用汉语、汉字，汉族与 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "baike.baidu.com",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "8475fc76da0b"
+    },
+    {
+      "title": "中國 - 維基百科，自由嘅百科全書",
+      "url": "https://zh-yue.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B",
+      "snippet": "中國 （粵拼：zung1 gwok3； 簡化字：中国），一詞出自 本位主義 思想家，將自己住嘅地方比作「天下中心」（世界 中心），又稱 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "zh-yue.wikipedia.org",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "270f758ae6e1"
+    },
+    {
+      "title": "主页 - BBC News 中文",
+      "url": "https://www.bbc.com/zhongwen/simp",
+      "snippet": "2025年9月26日 · APEC上与习近平、特朗普历史性会晤，对普京是一场重大胜利 周四美国、中国和俄罗斯领导人的会晤将为普京（普 … 阅读更多",
+      "cite": "",
+      "date": "2025-09-26",
+      "source": "www.bbc.com",
+      "score": 0.0,
+      "query": "中国神华 ESG 2026年11月 可持续发展 最新动态",
+      "id": "68d8b598dc06"
+    },
+    {
+      "title": "从零认识 ESG ：终于有人把 ESG 彻底讲明白了！ - 知乎",
+      "url": "https://zhuanlan.zhihu.com/p/1936484257448042793",
+      "snippet": "2025年8月6日 · 在全球可持续发展浪潮中， “ESG”已从一个专业术语逐渐走进公众视野，成为企业发展、投资决策乃至政策制定的重 … 阅读更多",
+      "cite": "",
+      "date": "2025-08-06",
+      "source": "zhuanlan.zhihu.com",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "2fe13fc5f9b7"
+    },
+    {
+      "title": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示",
+      "url": "https://www.jianyu360.cn/nologin/content/SEEY1cFYDI_OyM4I2BoZGIoDSQ4DjRgAWtkKTgrKyEeVlNzVhlUCK8.html",
+      "snippet": "发布 2026 及 2027 年两年符合上市公司标准的 可持续 发展(ESG)报告中标公示. 2026 年广州卓盈房地产开发有限公司对亿华债权评估项目采购结果 公告 ...",
+      "cite": "www.jianyu360.cn",
+      "date": null,
+      "source": "www.jianyu360.cn",
+      "score": 0.0,
+      "query": "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+      "id": "d4d40173523a"
+    },
+    {
+      "title": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示-千里马 招标网",
+      "url": "https://www.qianlima.com/bid-646902786.html",
+      "snippet": "发布 2026 及 2027 ****公司标准的 可持续 发展(ESG)报告 中标 公示标书代写招标进度跟踪.上市公司持续 发展 中标公示 招标 详情...",
+      "cite": "www.qianlima.com",
+      "date": null,
+      "source": "www.qianlima.com",
+      "score": 0.0,
+      "query": "ESG 可持续发展 双碳 中标公告 2026 招标 中标金额",
+      "id": "1098ccd137b3"
+    },
+    {
+      "title": "环境、社会和公司治理 - 百度百科",
+      "url": "https://baike.baidu.com/item/%E7%8E%AF%E5%A2%83%E3%80%81%E7%A4%BE%E4%BC%9A%E5%92%8C%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86/50983355",
+      "snippet": "中国ESG评价体系建设需要立足中国经济社会发展大局，充分考虑碳中和碳达峰的战略要求、乡村振兴的宏伟布局等中国议题，同时接 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "baike.baidu.com",
+      "score": 0.0,
+      "query": "ESG 中标公告 2025 中标金额 万元 成交结果",
+      "id": "ecedcc9a85d7"
+    },
+    {
+      "title": "香港 2026 年年曆 - 月曆网",
+      "url": "https://www.calendar411.com/hk/calendar/2026/0",
+      "snippet": "香港月曆 - 公元2026年1月，農曆乙巳年，蛇年。 香港2026年1月的公眾假期及紀念日有1月1日元旦/新年，1月26日臘八節。 香港2026 … 阅读更多",
+      "cite": "",
+      "date": "2026-01-01",
+      "source": "www.calendar411.com",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "9c0c019a0122"
+    },
+    {
+      "title": "香港特別行政區經濟和社會發展第一個五年規劃（ 2026 —2030年）",
+      "url": "https://www.hk5yplan.gov.hk/2026-2030/tc/index.html",
+      "snippet": "經濟和社會發展第一個五年規劃 開創新局 打開新篇章 在國家「十五五」規劃開局之年，香港特別行政區首次制定五年規劃，主動對接 … 阅读更多",
+      "cite": "",
+      "date": null,
+      "source": "www.hk5yplan.gov.hk",
+      "score": 0.0,
+      "query": "2026年11月 ESG 政策 标准 评级 最新动态",
+      "id": "4d16bf9561c6"
+    }
+  ]
+}

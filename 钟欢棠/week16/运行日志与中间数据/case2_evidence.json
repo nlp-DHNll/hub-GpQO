@@ -1,0 +1,1756 @@
+{
+  "generated_at": "2026-11-25T21:43:58",
+  "input_file": "d:/AI学习/第16周：Agent应用部署、Skills和OpenClaw/作业成果/运行日志与中间数据/case2_search.json",
+  "items_processed": 57,
+  "pages_fetched_ok": 14,
+  "method": "jieba TF-IDF sentence scoring + position prior (extractive, no LLM)",
+  "items": [
+    {
+      "rank": 1,
+      "id": "8e756858f68a",
+      "title": "详细页面 - 中国河北政府采购网",
+      "url": "http://www.ccgp-hebei.gov.cn/qhd/qhd/cggg/zhbggAAAS/202611/t20261113_2454942.html",
+      "date": "2026-11-13",
+      "source": "www.ccgp-hebei.gov.cn",
+      "search_score": 19.5,
+      "fetch_status": "ok",
+      "characters": 90,
+      "keywords": [
+        "秦皇岛市",
+        "医院",
+        "公告",
+        "中标",
+        "采购网",
+        "中医医院",
+        "北京中医药大学",
+        "页面",
+        "秦皇岛",
+        "托管",
+        "采购",
+        "详细"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "详细页面 - 中国河北政府采购网",
+        "当前位置 : 秦皇岛市 > 秦皇岛市 > 采购公告 > 中标公告",
+        "北京中医药大学东方医院秦皇岛医院（秦皇岛市中医医院）医院能源费用托管服务中标公告"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "bb8d204e178a",
+      "title": "五华县人民 医院能源托管 项目结果 公告",
+      "url": "http://www.ccgp.gov.cn/cggg/dfgg/zbgg/202607/t20260730_27038862.htm",
+      "date": null,
+      "source": "www.ccgp.gov.cn",
+      "search_score": 14.5,
+      "fetch_status": "ok",
+      "characters": 1124,
+      "keywords": [
+        "五华县",
+        "托管",
+        "服务",
+        "采购",
+        "能源",
+        "合同",
+        "有限公司",
+        "广东",
+        "梅州市",
+        "联通",
+        "得分",
+        "公告"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "五华县人民医院能源托管项目结果公告",
+        "采购项目名称五华县人民医院能源托管项目",
+        "服务类（联通（广东）产业互联网有限公司，联合体成员：梅州五华能碳科技服务有限公司）"
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "82bee6b7dfa6",
+      "title": "2025双碳 资金拟支持项目公示",
+      "url": "https://www.yantai.gov.cn/art/2025/9/28/art_11795_3291564.html",
+      "date": null,
+      "source": "www.yantai.gov.cn",
+      "search_score": 13.0,
+      "fetch_status": "ok",
+      "characters": 19,
+      "keywords": [
+        "2025",
+        "双碳",
+        "pdf",
+        "公示",
+        "支持",
+        "项目",
+        "资金"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "2025双碳资金拟支持项目公示.pdf"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "26a22300d6e7",
+      "title": "关于舟山市 2025 年重点排放单位碳排放审核技术 服务 项目的 中标 结果公告",
+      "url": "http://zshbj.zhoushan.gov.cn/art/2025/4/29/art_1229334337_3907066.html",
+      "date": null,
+      "source": "zshbj.zhoushan.gov.cn",
+      "search_score": 13.0,
+      "fetch_status": "ok",
+      "characters": 565,
+      "keywords": [
+        "采购",
+        "舟山市",
+        "排放",
+        "2025",
+        "生态环境",
+        "服务项目",
+        "中标",
+        "公告",
+        "单位",
+        "审核",
+        "浙江省",
+        "招标"
+      ],
+      "key_numbers": [
+        "2025年",
+        "2025年",
+        "2025年",
+        "27万元",
+        "2025年",
+        "2025年",
+        "27万元"
+      ],
+      "summary": [
+        "关于舟山市2025年重点排放单位碳排放审核技术服务项目的中标结果公告",
+        "二、采购项目名称：舟山市2025年重点排放单位碳排放审核技术服务项目",
+        "二、采购项目名称：舟山市2025年重点排放单位碳排放审核技术服务项目"
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "2f44216723e1",
+      "title": "2026 年中央财政森林 可持续 经营项目 成交 结果 公告 - 中国招标投标网",
+      "url": "https://www.cecbid.org.cn/results/details/2EFCBBCA034BF53B56CF84747C291B1C",
+      "date": "2026-11-18",
+      "source": "www.cecbid.org.cn",
+      "search_score": 12.67,
+      "fetch_status": "ok",
+      "characters": 253,
+      "keywords": [
+        "招标",
+        "2026",
+        "投标",
+        "经营项目",
+        "中央财政",
+        "信息",
+        "美好",
+        "森林",
+        "生命",
+        "成交",
+        "中国",
+        "Copyright"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "2026年中央财政森林可持续经营项目成交结果公告 - 中国招标投标网",
+        "中国招标投标网国内发布招标信息权威招标网站",
+        "Copyright © 2002-2026 中国招标投标网 All rights reserved."
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "9b6b82fb3cac",
+      "title": "2026 年攀钢节能 双碳 数字化平台产品碳服务分包 中标结果公告 -采购与招标网(www.chinabidding.cn)",
+      "url": "https://www.chinabidding.cn/zbgs/U-vzzZ2aH.html",
+      "date": null,
+      "source": "www.chinabidding.cn",
+      "search_score": 11.5,
+      "fetch_status": "error:HTTPError",
+      "characters": 83,
+      "keywords": [
+        "招标",
+        "注册",
+        "查看",
+        "采购",
+        "双碳",
+        "招标网",
+        "...",
+        "立即",
+        "分包",
+        "攀钢",
+        "数字化",
+        "中标"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "年攀钢节能 双碳 数字化平台产品碳服务分包 中标结果公告 ,招标信息,招标,采购,采购与招标网 招标代理公司( 立即注册查看) 受业主单位( 立即注册查看) 委..."
+      ]
+    },
+    {
+      "rank": 7,
+      "id": "d71f6d89ea85",
+      "title": "中国飞机强度研究所 2026 年节能 双碳 工作咨询服务项目 中标结果公告 -采购与招标网(www.chinabidding.cn)",
+      "url": "https://www.chinabidding.cn/zbgs/U-vzzfYxu.html",
+      "date": null,
+      "source": "www.chinabidding.cn",
+      "search_score": 11.5,
+      "fetch_status": "error:HTTPError",
+      "characters": 86,
+      "keywords": [
+        "招标",
+        "采购",
+        "2026",
+        "双碳",
+        "招标网",
+        "...",
+        "立即",
+        "咨询服务",
+        "中标",
+        "业主",
+        "注册",
+        "查看"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "中国飞机强度研究所 2026 年节能 双碳 工作咨询服务项目 中标结果公告 ,招标信息,招标,采购,采购与招标网 招标代理公司( 立即注册查看) 受业主单位( 立即注..."
+      ]
+    },
+    {
+      "rank": 8,
+      "id": "8d74905c007f",
+      "title": "关于《四川省 绿色低碳 发展形势与展望( 2026 )》出版项目 采购 结果的公示_四川省生态环境厅",
+      "url": "https://sthjt.sc.gov.cn/sthjt/c103013/2026/6/29/4d60c7fcb77d448c932ab3fef833186b.shtml",
+      "date": null,
+      "source": "sthjt.sc.gov.cn",
+      "search_score": 11.5,
+      "fetch_status": "ok",
+      "characters": 342,
+      "keywords": [
+        "四川省",
+        "低碳",
+        "2026",
+        "公示",
+        "采购",
+        "展望",
+        "绿色",
+        "生态环境",
+        "项目",
+        "出版",
+        "形势",
+        "规划院"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "关于《四川省绿色低碳发展形势与展望（2026）》出版项目采购结果的公示_四川省生态环境厅",
+        "关于《四川省绿色低碳发展形势与展望（2026）》出版项目采购结果的公示",
+        "《四川省绿色低碳发展形势与展望（2026）》出版项目"
+      ]
+    },
+    {
+      "rank": 9,
+      "id": "797d34959ff7",
+      "title": "湖北省生态环境厅 2026 年中国 碳 市场大会项目 中标 结果公告-采购与招标网(www.chinabidding.cn)",
+      "url": "https://www.chinabidding.cn/zbgs/U-vzhUhJB.html",
+      "date": null,
+      "source": "www.chinabidding.cn",
+      "search_score": 10.0,
+      "fetch_status": "error:HTTPError",
+      "characters": 92,
+      "keywords": [
+        "2026",
+        "招标",
+        "采购",
+        "大会",
+        "招标网",
+        "...",
+        "生态环境",
+        "中标",
+        "湖北省",
+        "注册",
+        "查看",
+        "代理"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2026 年"
+      ],
+      "summary": [
+        "名称: 2026 年中国 碳 市场大会.湖北省生态环境厅 2026 年中国 碳 市场大会项目 中标 结果公告,招标信息,招标,采购,采购与招标网 招标代理公司( 立即注册查看) ..."
+      ]
+    },
+    {
+      "rank": 10,
+      "id": "e4ead8b2d290",
+      "title": "关于公布 2026 年电力工程项目 ESG 评价结果的通知 - 通知 公告 - 中国电力建设企业协会",
+      "url": "http://www.cepca.org.cn/news/show-37348.html",
+      "date": "2026-11-13",
+      "source": "www.cepca.org.cn",
+      "search_score": 9.5,
+      "fetch_status": "ok",
+      "characters": 222,
+      "keywords": [
+        "电力",
+        "通知",
+        "2026",
+        "ESG",
+        "协会",
+        "工程项目",
+        "北京市",
+        "评价",
+        "电建",
+        "zip",
+        "西四环",
+        "35"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "关于公布2026年电力工程项目ESG评价结果的通知 - 通知公告 - 中国电力建设企业协会",
+        "关于公布2026年电力工程项目ESG评价结果的通知",
+        "通讯地址：北京市丰台区西四环南路35号中都科技大厦3层 、 北京市西城区白广路二条1号"
+      ]
+    },
+    {
+      "rank": 11,
+      "id": "6031ec84874a",
+      "title": "2025 年全集团 碳 排放 盘查 项目-候选人公示-采购与招标网(www.chinabidding.cn)",
+      "url": "https://www.chinabidding.cn/zbgs/U-vzkV2Mb.html",
+      "date": null,
+      "source": "www.chinabidding.cn",
+      "search_score": 8.5,
+      "fetch_status": "error:HTTPError",
+      "characters": 82,
+      "keywords": [
+        "招标",
+        "注册",
+        "查看",
+        "采购",
+        "年全",
+        "招标网",
+        "...",
+        "立即",
+        "项目",
+        "盘查",
+        "公示",
+        "评审"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "年全集团碳排放 盘查 项目-候选人公示,招标信息,招标,采购,采购与招标网 招标代理公司( 立即注册查看) 受业主单位( 立即注册查看) 委托的项目评审工作已..."
+      ]
+    },
+    {
+      "rank": 12,
+      "id": "32afa2c4a6c5",
+      "title": "2026 年静安区能源和 双碳 智慧监管平台综合管理项目的 中标 (成交) 结果公告 -千里马招标网",
+      "url": "https://www.qianlima.com/bid-606463623.html",
+      "date": null,
+      "source": "www.qianlima.com",
+      "search_score": 7.5,
+      "fetch_status": "ok",
+      "characters": 1062,
+      "keywords": [
+        "2026",
+        "双碳",
+        "项目",
+        "静安区",
+        "智慧",
+        "平台",
+        "能源",
+        "监管",
+        "综合",
+        "中标",
+        "公告",
+        "管理"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "2026年静安区能源和双碳智慧监管平台综合管理项目的中标（成交）结果公告-千里马招标网",
+        "/2026年静安区能源和双碳智慧监管平台综合管理项目的中标（成交）结果公告",
+        "1 2026年**区能源和双碳智慧监管平台综合管理项目 2026年**区能源和双碳智慧监管平台综合管理项目 详见项目需求 详见项目需求 详见项目需求 详见项目需求"
+      ]
+    },
+    {
+      "rank": 13,
+      "id": "04ce824eb4b2",
+      "title": "YNZC 2026 -G3-00744-GDZB-0024:云南省 双碳 和应对气候变化试点示范项目(1标段)(二次) 中标结果公告 -中项网",
+      "url": "https://www.ccpc360.com/zbgs75156105155.html",
+      "date": null,
+      "source": "www.ccpc360.com",
+      "search_score": 6.0,
+      "fetch_status": "ok",
+      "characters": 1835,
+      "keywords": [
+        "中标",
+        "2026",
+        "11",
+        "09",
+        "项目",
+        "2025",
+        "22",
+        "公告",
+        "标段",
+        "示范",
+        "采购",
+        "YNZC2026"
+      ],
+      "key_numbers": [
+        "53亿元"
+      ],
+      "summary": [
+        "YNZC2026-G3-00744-GDZB-0024：云南省双碳和应对气候变化试点示范项目（1标段）（二次）中标结果公告-中项网",
+        "YNZC2026-G3-00744-GDZB-0024：云南省双碳和应对气候变化试点示范项目（1标段）（二次）中标结果公告",
+        "公告概要 公告信息： 采购项目名称 ***省双碳和应对气候变化试点示范项目（1标段）（二次） 采购单位 ***省生态环境厅 ***区域 省级 公告时间 2026-04-09 本项目中标公告日期 2026-03-18 中标日期 2026-04-09 中标供应商 云南环境工程设计研究中心"
+      ]
+    },
+    {
+      "rank": 14,
+      "id": "03e6660ac326",
+      "title": "无锡市锡东新城先导区 低碳园区 、超低能耗 建筑 、高品质 建筑 ,工程建设项目 ESG评价 技术服务 中标 公告-江苏招标网",
+      "url": "https://js.bidcenter.com.cn/zbcontent-451861167-4.html",
+      "date": null,
+      "source": "js.bidcenter.com.cn",
+      "search_score": 6.0,
+      "fetch_status": "ok",
+      "characters": 34,
+      "keywords": [
+        "跳转",
+        "https",
+        "www",
+        "bidcenter",
+        "com",
+        "cn",
+        "手动"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "手动跳转：https://www.bidcenter.com.cn/"
+      ]
+    },
+    {
+      "rank": 15,
+      "id": "02b09aa0dfe3",
+      "title": "浙江省环保集团 绿色低碳 新材料有限公司 2026 年度宁波厂区生产用原材料粉煤灰 采购 项目( 中标 公告)-浙江招标网",
+      "url": "https://zj.bidizhaobiao.com/info-791368872.html",
+      "date": null,
+      "source": "zj.bidizhaobiao.com",
+      "search_score": 6.0,
+      "fetch_status": "ok",
+      "characters": 96,
+      "keywords": [
+        "招标",
+        "低碳",
+        "项目编号",
+        "ZC",
+        "HBJT",
+        "2026",
+        "0049",
+        "24.50",
+        "...",
+        "资质",
+        "浙江省",
+        "监控"
+      ],
+      "key_numbers": [
+        "24.50万元"
+      ],
+      "summary": [
+        "浙江省环保集团 绿色 低碳新材料有限公司 数据获取中.项目编号 ZC-HBJT- 2026 -0049 资质要求 - 招标/ 采购 内容 成交金额 24.50万元 招标单位 .监控查看企..."
+      ]
+    },
+    {
+      "rank": 16,
+      "id": "3b39acf281d1",
+      "title": "环水集团 2026 年度 绿色低碳 交易相关咨询服务 采购 项目( 中标 公告)-广东招标网",
+      "url": "https://gd.bidizhaobiao.com/info-732365319.html",
+      "date": null,
+      "source": "gd.bidizhaobiao.com",
+      "search_score": 6.0,
+      "fetch_status": "ok",
+      "characters": 83,
+      "keywords": [
+        "中标",
+        "招标",
+        "490000",
+        "项目编号",
+        "49.00",
+        "...",
+        "单位",
+        "资质",
+        "绿色",
+        "采购",
+        "金额",
+        "成交"
+      ],
+      "key_numbers": [
+        "49.00万元"
+      ],
+      "summary": [
+        "中标 (选)单位:深圳 绿色 交易所有限公司 中标 价:490000元",
+        ".项目编号 - 资质要求 - 招标/ 采购 内容 成交 金额 49.00万元 招标单位 ..."
+      ]
+    },
+    {
+      "rank": 17,
+      "id": "1049bedbf4e0",
+      "title": "龙岗区龙岗区 2026 年 绿色低碳 管理技术服务项目 中标 成交结果公示-广东招标网",
+      "url": "https://gd.bidcenter.com.cn/zbcontent-413374949-4.html",
+      "date": null,
+      "source": "gd.bidcenter.com.cn",
+      "search_score": 6.0,
+      "fetch_status": "ok",
+      "characters": 34,
+      "keywords": [
+        "跳转",
+        "https",
+        "www",
+        "bidcenter",
+        "com",
+        "cn",
+        "手动"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "手动跳转：https://www.bidcenter.com.cn/"
+      ]
+    },
+    {
+      "rank": 18,
+      "id": "9caee084c67e",
+      "title": "2025 年 双碳 试点楼宇碳抵消及 碳中和评价服务 ( 中标 公告)-广西招标网",
+      "url": "https://gx.bidizhaobiao.com/info-708677813.html",
+      "date": null,
+      "source": "gx.bidizhaobiao.com",
+      "search_score": 4.5,
+      "fetch_status": "ok",
+      "characters": 81,
+      "keywords": [
+        "监控",
+        "采购",
+        "企业",
+        "2025",
+        "双碳",
+        "碳中",
+        "...",
+        "项目名称",
+        "一键",
+        "楼宇",
+        "详情",
+        "实时"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "一、采购项目名称(采购内容):采购 2025 年 双碳 试点楼宇碳抵消及 碳中和 评价服务.监控查看企业详情已监控一键监控企业,实时掌握企业的招 中标 动态..."
+      ]
+    },
+    {
+      "rank": 19,
+      "id": "04d4c975df8b",
+      "title": "2025 年公司 碳盘查 服务( 中标 公告)-云南招标网",
+      "url": "https://yn.bidizhaobiao.com/info-751685500.html",
+      "date": "2026-03-23",
+      "source": "yn.bidizhaobiao.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 91,
+      "keywords": [
+        "采购",
+        "阳宗海",
+        "2025",
+        "2026",
+        "03",
+        "23",
+        "...",
+        "盘查",
+        "大渡河",
+        "供应商",
+        "标的",
+        "发电"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "采购人: 国能阳宗海发电有限公司 采购标的: 2025 年公司 碳盘查 服务 采购时间: 2026 -03-23 采购方式: 直接采购 成交供应商: 国能大渡河新能源投资有限公..."
+      ]
+    },
+    {
+      "rank": 20,
+      "id": "57011eefdd57",
+      "title": "2025 麒麟软件 ESG咨询服务 采购项目 中标 候选人公示 - 铁耙云",
+      "url": "https://www.tiepayun.com/object-3d7e1d4addd0709dec20108f49a65698.html",
+      "date": "2025-12-25",
+      "source": "www.tiepayun.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 87,
+      "keywords": [
+        "铁耙",
+        "招标",
+        "项目",
+        "ESG",
+        "2025",
+        "12",
+        "25",
+        "云查",
+        "...",
+        "信息",
+        "咨询服务",
+        "麒麟"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "麒麟软件 ESG咨询服务 采购项目 中标 候选人公示是铁耙云 2025 年12月25日发布的项目信息,该项目相关工程招标、货物招标、 服务 招标等成交公告信息在铁耙云查..."
+      ]
+    },
+    {
+      "rank": 21,
+      "id": "18f0e49a14ad",
+      "title": "2026 -2028年 碳资产 管理咨询服务( 中标 公告)-贵州招标网",
+      "url": "https://gz.bidizhaobiao.com/info-792041285.html",
+      "date": null,
+      "source": "gz.bidizhaobiao.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 61,
+      "keywords": [
+        "监控",
+        "企业",
+        "龙源",
+        "...",
+        "一键",
+        "详情",
+        "实时",
+        "中标",
+        "供应商",
+        "查看",
+        "动态",
+        "掌握"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "成交供应商:龙源(北京) 碳 资产管理技术有限公司.监控查看企业详情已监控一键监控企业,实时掌握企业的招 中标 动态..."
+      ]
+    },
+    {
+      "rank": 22,
+      "id": "81b36fa4c27c",
+      "title": "YNZC 2026 -G3-00207-GDZB-0012:云南省 双碳 和应对气候变化试点示范项目(2标段) 中标结果公告 丨光速招标海量免费标讯",
+      "url": "https://www.guangsuzb.com/succeed_v_2033472044332404744.html",
+      "date": "2026-03-16",
+      "source": "www.guangsuzb.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 129,
+      "keywords": [
+        "2026",
+        "YNZC",
+        "G3",
+        "00207",
+        "GDZB",
+        "公告",
+        "摘要",
+        "中标",
+        "云南省",
+        "03",
+        "16",
+        "微信"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中标 公告云南省 2026 -03-16微信查看.YNZC 2026 -G3-00207-GDZB-0012:云南省 双碳 和应对气候变化试点示范项目(2标段) 中标结果公告 . 公告摘要: 公告摘要: YNZC 2026 -G3-00207-GDZB..."
+      ]
+    },
+    {
+      "rank": 23,
+      "id": "0300fd57ca78",
+      "title": "【 中标 】 ESG 服务I招商港口 2026 年 ESG 咨询服务采购项目成交候选人公示",
+      "url": "https://www.jianyu360.cn/nologin/content/SEEY1cFYykeODY6AnRoZGIoDSQ4DjRgAWtkPCgWPSEed35zcTNUCQ4.html",
+      "date": "2026-10-14",
+      "source": "www.jianyu360.cn",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 94,
+      "keywords": [
+        "2026",
+        "ESG",
+        "项目",
+        "剑鱼",
+        "10",
+        "14",
+        "标讯",
+        "官网",
+        "...",
+        "详情请",
+        "咨询服务",
+        "公示"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2026 年"
+      ],
+      "summary": [
+        "项目发布时间是 2026 年10月14日,查看该项目信息详情请访问剑鱼标讯官网",
+        "【 中标 】 ESG 服务I招商港口 2026 年 ESG 咨询服务采购项目成交候选人公示 广东-深..."
+      ]
+    },
+    {
+      "rank": 24,
+      "id": "440ca8a87726",
+      "title": "【建行自采】 2025 年 双碳 试点楼宇碳抵消及 碳中和评价服务 采购项目采购结果信息公开_广西 中标 -知了标讯",
+      "url": "https://www.zhiliaobiaoxun.com/detail/493807107b202cc5219d.html",
+      "date": "2025-12-03",
+      "source": "www.zhiliaobiaoxun.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 69,
+      "keywords": [
+        "2025",
+        "采购",
+        "双碳",
+        "碳中",
+        "12",
+        "03",
+        "...",
+        "项目名称",
+        "楼宇",
+        "抵消",
+        "中标",
+        "试点"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "一、采购项目名称(采购内容): 2025 年 双碳 试点楼宇碳抵消及 碳中和 评价服务采购项目. 2025 -12-03 中标 公告..."
+      ]
+    },
+    {
+      "rank": 25,
+      "id": "2767df07b749",
+      "title": "【建行自采】采购 2025 年 双碳 试点楼宇碳抵消及 碳中和评价服务 采购结果信息公开_ 中标 公告_招标网",
+      "url": "https://rl.zhaobiao.cn/succeed_v_aed494cc09101362e5dad633483ada84.html",
+      "date": "2025-11-25",
+      "source": "rl.zhaobiao.cn",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 89,
+      "keywords": [
+        "2025",
+        "采购",
+        "招标网",
+        "11",
+        "25",
+        "自采",
+        "双碳",
+        "碳中",
+        "...",
+        "楼宇",
+        "日历",
+        "详情"
+      ],
+      "key_numbers": [
+        "2025 年",
+        "2025 年"
+      ],
+      "summary": [
+        "受业主委托,招标网 中标 公告日历频道于 2025 年11月25日发布了【建行自采】采购 2025 年 双碳 试点楼宇碳抵消及 碳中和评价服务 采购结果信息公开,项目详情:..."
+      ]
+    },
+    {
+      "rank": 26,
+      "id": "e7093c6daedd",
+      "title": "中标 成交价1399000元!关于 2025 年浙江省全国碳市场技术 服务 项目 中标 (成交)结果公告_碳排放交易网——全球领先的碳市场门户中文网站",
+      "url": "http://www.tanpaifang.com/tanguwen/2025/0728/113643.html",
+      "date": null,
+      "source": "www.tanpaifang.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "中标",
+        "交易网",
+        "中文网站",
+        "1399000",
+        "2025",
+        "成交价",
+        "浙江省",
+        "门户",
+        "领先",
+        "排放",
+        "市场",
+        "成交"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "中标 成交价1399000元",
+        "关于 2025 年浙江省全国碳市场技术 服务 项目 中标 (成交)结果公告_碳排放交易网——全球领先的碳市场门户中文网站"
+      ]
+    },
+    {
+      "rank": 27,
+      "id": "5772c90f8e20",
+      "title": "本溪战略 规划 招标采购-招标 公告 - 中标 结果",
+      "url": "https://www.czhaobiao.com/clsbzb_123668_2012_1.html",
+      "date": "2025-12-22",
+      "source": "www.czhaobiao.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 93,
+      "keywords": [
+        "本钢",
+        "本溪",
+        "规划",
+        "中标",
+        "双碳",
+        "2025",
+        "12",
+        "22",
+        "...",
+        "战略",
+        "践行",
+        "结果"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "以下是关于本溪战略 规划 招标采购信息 本钢集团践行 双碳 行动暨低碳发展 规划中标 结果 公告 (战略 规划 在正文中) 中标 结果辽宁-本溪 2025 -12-22 本钢集团践..."
+      ]
+    },
+    {
+      "rank": 28,
+      "id": "518eeb953770",
+      "title": "能 碳管理平台 建设及运营服务 中标 (成交)结果公告丨光速招标海量免费标讯",
+      "url": "https://www.guangsuzb.com/succeed_v_2078428438848262149.html",
+      "date": null,
+      "source": "www.guangsuzb.com",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 92,
+      "keywords": [
+        "招标",
+        "公告",
+        "免费",
+        "...",
+        "服务",
+        "信息",
+        "管理",
+        "光速",
+        "摘要",
+        "查询",
+        "中标",
+        "查看"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "能 碳管理平台 建设及运营服务 中标 (成交)结果公告招标采购信息免费查看,该招标项目相关工程招标、货物招标、服务招标等招标公告信息在光速招标免费查询 公告摘要: 能 碳管理平 ..."
+      ]
+    },
+    {
+      "rank": 29,
+      "id": "71770c35c182",
+      "title": "长春市 双碳 产业引导区(三区)园区基础设施建设项目- 2024规划 电力路径审批-管线探测 中标 结果 公告",
+      "url": "https://jilin.zhaobiao.cn/succeed_v_b9d9b780a515d160b35527c7cabf99ad.html",
+      "date": "2025-01-15",
+      "source": "jilin.zhaobiao.cn",
+      "search_score": 4.5,
+      "fetch_status": "snippet-only",
+      "characters": 95,
+      "keywords": [
+        "长春市",
+        "双碳",
+        "2024",
+        "招标网",
+        "2025",
+        "01",
+        "15",
+        "...",
+        "三区",
+        "管线",
+        "园区",
+        "建设项目"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "长春市 双碳 产业引导区(三区)园区基础设施建设项目- 2024 规划 电力路径审批-管线探测 中标 结果 公告 是吉林招标网于 2025 年01月15日发布,长春市,关于长春市 双 ..."
+      ]
+    },
+    {
+      "rank": 30,
+      "id": "cb6e847fa347",
+      "title": "2025 年公司 碳盘查 服务成交公告",
+      "url": "https://guangdong.zhaobiao.cn/succeed_v_24f8277095a17168e240b96acc451251.html",
+      "date": "2026-03-23",
+      "source": "guangdong.zhaobiao.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 88,
+      "keywords": [
+        "盘查",
+        "公告",
+        "成交",
+        "招标网",
+        "2026",
+        "03",
+        "23",
+        "2025",
+        "...",
+        "服务",
+        "投标",
+        "广州市"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2025 年"
+      ],
+      "summary": [
+        "年公司 碳盘查 服务成交公告是广东招标网于 2026 年03月23日发布,广州市,关于 2025 年公司 碳盘查 服务成交公告",
+        "各有关单位请及时参与投标等相关工作"
+      ]
+    },
+    {
+      "rank": 31,
+      "id": "23d2416a6495",
+      "title": "2025 年度 ESG 报告 咨询 与编制 服务 候选人公示 - 中标 结果 - - 88查",
+      "url": "https://www.1688.com/bidding/01a97489dc371c193b335599cffa5f52.html",
+      "date": null,
+      "source": "www.1688.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2025",
+        "ESG",
+        "88",
+        "公示",
+        "候选人",
+        "中标",
+        "编制",
+        "咨询",
+        "年度",
+        "服务",
+        "报告",
+        "结果"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "2025 年度 ESG 报告 咨询 与编制 服务 候选人公示 - 中标 结果 - - 88查"
+      ]
+    },
+    {
+      "rank": 32,
+      "id": "896cda9822b1",
+      "title": "2025 年度 ESG 报告 咨询 与编制 服务中标 候选人公示_招标网",
+      "url": "http://www.bidchance.com/info-zhongbiao-b0ecdde26f639353105be2e4939276ee.html",
+      "date": null,
+      "source": "www.bidchance.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 99,
+      "keywords": [
+        "标段",
+        "ESG",
+        "YG",
+        "ZG",
+        "编制",
+        "咨询",
+        "年度",
+        "项目编号",
+        "...",
+        "项目名称",
+        "服务",
+        "信息"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "项目信息 项目名称 ****年度ESG报告 咨询 与编制 服务 项目编号 YG**ZG* 标段信息 标段名称 ****年度ESG报告 咨询 与编制服务 标段编号 YG**ZG*-** 中标 内..."
+      ]
+    },
+    {
+      "rank": 33,
+      "id": "5d0a2c417b15",
+      "title": "2025 年度 ESG咨询服务 项目直接采购公示_北京 中标 -知了标讯",
+      "url": "https://www.zhiliaobiaoxun.com/detail/497366958b26949c1acd.html",
+      "date": "2026-01-15",
+      "source": "www.zhiliaobiaoxun.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 103,
+      "keywords": [
+        "ESG",
+        "2025",
+        "...",
+        "咨询",
+        "采购",
+        "年度",
+        "中通服",
+        "2026",
+        "01",
+        "15",
+        "见下文",
+        "咨询服务"
+      ],
+      "key_numbers": [
+        "2025 年",
+        "2025 年"
+      ],
+      "summary": [
+        "中通服供应链股份有限公司于2026-01-15发布 中标 公告- 2025 年度 ESG咨询服务 项目直接采购公示,采购 ESG咨询 全流程 服务 等,,详情见下文... 2025 年度 ESG咨询 ..."
+      ]
+    },
+    {
+      "rank": 34,
+      "id": "253987f55543",
+      "title": "2025 年度重点排放单位 碳 排放核查项目 中标 结果公告-采招网",
+      "url": "https://www.bidcenter.com.cn/newscontent-420763007-4.html",
+      "date": "2026-05-23",
+      "source": "www.bidcenter.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 93,
+      "keywords": [
+        "排放",
+        "傲搏",
+        "采招",
+        "网于",
+        "2026",
+        "23",
+        "2025",
+        "...",
+        "项目",
+        "简介",
+        "核查",
+        "生态环境"
+      ],
+      "key_numbers": [
+        "2025 年"
+      ],
+      "summary": [
+        "傲搏智 碳 (北京)能源咨询有限公司.受业主委托,中国采招网于 2026 /5/23 发布 2025 年度重点排放单位 碳 排放核查项目 中标 结果公告",
+        "项目简介: 山东省生态环境..."
+      ]
+    },
+    {
+      "rank": 35,
+      "id": "d78b13defe09",
+      "title": "2026 年 ESG 综合咨询服务项目 中标 候选人公示-销邦招标平台",
+      "url": "https://www.ixbang.com/bid/detail/46EF93BB9A87658D7C9B7826AD4B9859.html",
+      "date": "2026-08-27",
+      "source": "www.ixbang.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 99,
+      "keywords": [
+        "2026",
+        "ESG",
+        "咨询服务",
+        "公示",
+        "候选人",
+        "中标",
+        "项目",
+        "销邦",
+        "08",
+        "27",
+        "...",
+        "综合"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2026 年",
+        "2026 年"
+      ],
+      "summary": [
+        "销邦招标平台于 2026 年08月27日发布 2026 年 ESG 综合咨询服务项目 中标 候选人公示",
+        "项目简介:山东高速股份有限公司 2026 年 ESG 综合咨询服务项目 中标 候选人公示..."
+      ]
+    },
+    {
+      "rank": 36,
+      "id": "2f5cb2e74dcc",
+      "title": "2026 年度徐汇区推进 建筑 领域 绿色低碳 发展项目 中标 结果公示_上海 中标 -知了标讯",
+      "url": "https://www.zhiliaobiaoxun.com/detail/502616814b2af0b7622d.html",
+      "date": "2026-04-10",
+      "source": "www.zhiliaobiaoxun.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 72,
+      "keywords": [
+        "2026",
+        "徐汇区",
+        "中标",
+        "04",
+        "10",
+        "低碳",
+        "公示",
+        "绿色",
+        "上海市",
+        "年度",
+        "建筑",
+        "推进"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "上海市徐汇区建设和管理委员会于 2026 -04-10发布 中标 公告- 2026 年度徐汇区推进 建筑 领域 绿色 低碳 发展项目中标结果公示"
+      ]
+    },
+    {
+      "rank": 37,
+      "id": "babfb368cb3f",
+      "title": "2026 年度碳排放与 碳资产 管理委托服务项目 中标 结果公示-销邦招标平台",
+      "url": "https://www.ixbang.com/bid/detail/3FB862C5EF960A96AF9705DA0CA65FAB.html",
+      "date": null,
+      "source": "www.ixbang.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 99,
+      "keywords": [
+        "2026",
+        "服务项目",
+        "中标",
+        "委托",
+        "排放",
+        "年度",
+        "001",
+        "34",
+        ".#",
+        "...",
+        "标段",
+        "资产"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2026 年"
+      ],
+      "summary": [
+        "标段(包) 001 (略) 2026 年度碳排放与 碳 资产管理委托服务项目:. 中标 人:国 (略) (略) 中标 价格:34.#元.(略) 2026 年度 碳 排放与碳资产管理委托服务项目..."
+      ]
+    },
+    {
+      "rank": 38,
+      "id": "c3b6d3542dab",
+      "title": "2026 年度社会责任( ESG )有关工作 中标 结果 公告 -千里马招标网",
+      "url": "https://www.qianlima.com/bid-576137474.html",
+      "date": null,
+      "source": "www.qianlima.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 106,
+      "keywords": [
+        "2026",
+        "ESG",
+        "0105MA001B8545",
+        "397000",
+        "...",
+        "竞争性",
+        "总价",
+        "磋商",
+        "工作",
+        "评审",
+        "委托",
+        "如下"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "****受****委托,就 2026 年度社会责任(ESG)有关工作进行竞争性磋商采购,评审工作已经结束, 公告 如下:.1 ****0105MA001B8545 **** 总价 人民币397000元 中 ..."
+      ]
+    },
+    {
+      "rank": 39,
+      "id": "995e0a6a34fd",
+      "title": "2026 年数博会 可持续发展 咨询服务项目 成交公告 -今日招标",
+      "url": "https://www.jrzb.cn/bidDetail/19BBF6C423D440179FCFAA99C8674D9A.html",
+      "date": null,
+      "source": "www.jrzb.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 56,
+      "keywords": [
+        "...",
+        "年数",
+        "项目名称",
+        "博会",
+        "咨询服务",
+        "询问",
+        "本次",
+        "联系",
+        "公告",
+        "以下",
+        "内容",
+        "持续"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "项目名称:****年数博会 可持续 发展咨询服务项目.五、凡对本次 公告 内容提出询问,请按以下方式联系:..."
+      ]
+    },
+    {
+      "rank": 40,
+      "id": "c981a6b01e09",
+      "title": "2026 年第二批中央财政森林 可持续 经营项目 成交 结果 公告",
+      "url": "https://www.jianyu360.cn/nologin/content/SEEY1cFZC44BSMvAnd1cAcdIyQCQBFgV3dgKCgwNi4wZFVwGBlUCEw.html",
+      "date": "2026-09-30",
+      "source": "www.jianyu360.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 87,
+      "keywords": [
+        "项目",
+        "宁远县",
+        "湖南永州",
+        "经营项目",
+        "洋塘",
+        "2026",
+        "09",
+        "30",
+        "...",
+        "林场",
+        "中央财政",
+        "第二批"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "年第二批中央财政森林 可持续 经营项目 成交 结果 公告 ,项目所属地区是湖南永州市,项目采购单位是宁远县洋塘国有林场,项目发布时间是 2026 年09月30日,查看该..."
+      ]
+    },
+    {
+      "rank": 41,
+      "id": "3256486e3014",
+      "title": "ESG 管理平台采购 2026 -2027任务结果公示_广东 中标 -知了标讯",
+      "url": "https://www.zhiliaobiaoxun.com/detail/501830866b201178bb0d.html",
+      "date": "2026-03-31",
+      "source": "www.zhiliaobiaoxun.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 73,
+      "keywords": [
+        "2026",
+        "ESG",
+        "采购",
+        "平台",
+        "03",
+        "31",
+        "2027",
+        "桑达",
+        "管理",
+        "公示",
+        "中标",
+        "深圳市"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "深圳市桑达实业股份有限公司于 2026 -03-31发布 中标公告 -ESG管理平台采购2026-2027任务结果公示,采购 ESG 管理平台等,"
+      ]
+    },
+    {
+      "rank": 42,
+      "id": "4ccc780c6ba2",
+      "title": "ESG咨询服务 ( 2025 -2027)项目 中标 公示_招标资源网",
+      "url": "https://www.zhaobiaoziyuan.com/detail/67669df4044491747f180ecf.html",
+      "date": null,
+      "source": "www.zhaobiaoziyuan.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 62,
+      "keywords": [
+        "招标",
+        "中标",
+        "资源网",
+        "查招",
+        "采查",
+        "...",
+        "公告",
+        "原文",
+        "热门",
+        "预告",
+        "导航",
+        "查看"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "查看原文欢迎来到招标资源网查招采查企业查人员查 中标 查项目快速导航.招标预告招标公告公告变更 中标 信息热门招标行业..."
+      ]
+    },
+    {
+      "rank": 43,
+      "id": "029088f66e68",
+      "title": "【天津中远海运 绿色低碳 发展有限公司 2026 年第一期电动重卡框架 采购 项目招标】 中标 结果公告- 中标 结果公示丨光速招标海量免费标讯",
+      "url": "https://www.guangsuzb.com/succeed_v_2043993931021996036.html",
+      "date": null,
+      "source": "www.guangsuzb.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 98,
+      "keywords": [
+        "招标",
+        "中标",
+        "采购",
+        "低碳",
+        "2026",
+        "重卡",
+        "...",
+        "结果",
+        "项目",
+        "中远",
+        "第一期",
+        "公示"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "【天津中远海运 绿色低碳 发展有限公司 2026 年第一期电动重卡框架 采购 项目招标】 中标 结果公告- 中标 结果公示招标 采购 信息免费查看,该招标项目相关工程招标、货物招标、服务招标..."
+      ]
+    },
+    {
+      "rank": 44,
+      "id": "e1fecef6904e",
+      "title": "中国华电集团 碳资产 运营有限公司2025- 2026 年 碳资产 管理技术服务 中标 公示 - 标找找",
+      "url": "https://www.biaozhaozhao.com/detail/aab6742c07e2094c01d484b45d777009",
+      "date": null,
+      "source": "www.biaozhaozhao.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 74,
+      "keywords": [
+        "一站式",
+        "标找",
+        "标讯",
+        "...",
+        "服务平台",
+        "查查",
+        "商机",
+        "投标",
+        "企业",
+        "订阅",
+        "实时",
+        "招标"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "标找找是企查查旗下一站式标讯服务平台",
+        "可实时更新全国全行业政府企业招标采购信息,提供搜索、订阅、分析、监控一站式服务,帮助投标企业快速获取商机..."
+      ]
+    },
+    {
+      "rank": 45,
+      "id": "044863f480fa",
+      "title": "华林开发区智慧能 碳管理平台 (一期) 中标 公告-比比招标采购网",
+      "url": "https://www.bibenet.com/zbgs117819551.html",
+      "date": "2026-05-20",
+      "source": "www.bibenet.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 52,
+      "keywords": [
+        "2026",
+        "05",
+        "20",
+        "...",
+        "项目名称",
+        "华林",
+        "开发区",
+        "招标",
+        "智慧",
+        "更新",
+        "平台",
+        "单位"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "*、项目名称:华林开发区智慧能 碳 管理平台(*期).更新时间 2026 -05-20 招标单位 ..."
+      ]
+    },
+    {
+      "rank": 46,
+      "id": "278af0b2b68c",
+      "title": "天津渤化碳资产 管理 有限公司能 碳管理平台 系统建设项目 中标 结果公示-今日招标",
+      "url": "https://www.jrzb.cn/bidDetail/845E998A6CD549A7A948DA496EB8F845.html",
+      "date": "2026-05-20",
+      "source": "www.jrzb.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 90,
+      "keywords": [
+        "化碳",
+        "天津",
+        "金融区",
+        "宝正",
+        "渤化",
+        "于家堡",
+        "2026",
+        "05",
+        "20",
+        "...",
+        "金昌",
+        "有限公司"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "天津渤化 碳 资产管理有限公司地 址:天津市滨海新区于家堡金融区金昌道***号宝正大厦**楼-**A.天津渤化碳资产 管理 有限公司 2026 -05-20发布了天津渤化碳资..."
+      ]
+    },
+    {
+      "rank": 47,
+      "id": "97f10d4ddcb7",
+      "title": "广德经开区零碳园区能 碳管理平台 建设运营服务一期项目(二次) 中标 结果公告丨光速招标海量免费标讯",
+      "url": "https://www.guangsuzb.com/succeed_v_2090656423743508488.html",
+      "date": "2026-08-21",
+      "source": "www.guangsuzb.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 71,
+      "keywords": [
+        "中标",
+        "经开区",
+        "..",
+        "2026",
+        "08",
+        "21",
+        "微信",
+        "...",
+        "公告",
+        "广德",
+        "园区",
+        "安徽省"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "广德经开区零 碳 园区能 碳 管理平台建设运营服务一期项目(二次) 中标 结果公告.. 中标 公告安徽省 2026 -08-21微信查看..."
+      ]
+    },
+    {
+      "rank": 48,
+      "id": "806dd8fcf846",
+      "title": "永兴经济开发区绿色智慧能 碳管理平台 建设项目 中标 公示-比比招标采购网",
+      "url": "https://www.bibenet.com/zbgg116164492.html",
+      "date": null,
+      "source": "www.bibenet.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 88,
+      "keywords": [
+        "永兴",
+        "开发区",
+        "2026",
+        "...",
+        "公开招标",
+        "管理",
+        "现将",
+        "建设项目",
+        "中标",
+        "智慧",
+        "经济",
+        "绿色"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "永兴经济开发区 管理 委员会的永兴经济开发区绿色智慧能 碳 管理平台建设项目公开招标采购项目于****年*月*日结束,现将 中标 结果公告如下:.更新时间 2026 -0..."
+      ]
+    },
+    {
+      "rank": 49,
+      "id": "c4b00edc34d5",
+      "title": "汉源县人民 医院 综合 能源托管 项目 中标 (成交)结果 公告",
+      "url": "https://www.okcis.cn/20260721-n3-20260721155546839677.html",
+      "date": "2026-07-21",
+      "source": "www.okcis.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 90,
+      "keywords": [
+        "汉源县",
+        "托管",
+        "导航网",
+        "能源",
+        "2026",
+        "07",
+        "21",
+        "日为",
+        "内容简介",
+        "...",
+        "医院",
+        "公开招标"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "招标采购导航网 中标 结果公示栏目,于 2026 年07月21日为您发布汉源县人民 医院 综合 能源托管 ,内容简介:汉源县人民 医院 综合 能源托管 项目采用公开招标方式采..."
+      ]
+    },
+    {
+      "rank": 50,
+      "id": "dc48361bbdb2",
+      "title": "碳盘查 (编制温室气体排放清单)【碳交易网——全球领先的碳市场中文门户网站】",
+      "url": "http://www.tanjiaoyi.com/tanpancha/",
+      "date": "2026-08-04",
+      "source": "www.tanjiaoyi.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 81,
+      "keywords": [
+        "农业发展银行",
+        "盘查",
+        "公示",
+        "候选人",
+        "中标",
+        "中信",
+        "招标",
+        "...",
+        "有限公司",
+        "发布",
+        "项目",
+        "国际"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中信国际招标有限公司发布中国农业发展银行 碳 盘查项目 中标 候选人公示8月4日,中信国际招标有限公司发布了中国农业发展银行 碳 盘查项目中标候选人公示,第..."
+      ]
+    },
+    {
+      "rank": 51,
+      "id": "d7ba98dcea94",
+      "title": "能 碳管理平台 搭建技术服务询价 中标 结果公告-千里马招标网",
+      "url": "https://www.qianlima.com/bid-588655341.html",
+      "date": "2026-04-11",
+      "source": "www.qianlima.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 98,
+      "keywords": [
+        "询价",
+        "标段",
+        "平台",
+        "2026",
+        "04",
+        "11",
+        "15",
+        "38",
+        "06",
+        "...",
+        "管理",
+        "公示"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "标段/包名称:能 碳 管理平台搭建技术服务询价 标段/包编号:**** 项目类型:询价 采购方式:询价 公示开始时间: 2026 -04-11 15:38:06 中标 结果信息. 管理 平台..."
+      ]
+    },
+    {
+      "rank": 52,
+      "id": "066df965edff",
+      "title": "2025 年第12届世界运动会碳核查与 碳中和评价服务 项目结果公告-四川招投标网-官网-四川省招投标公共服务平台-四川招标采购信息发布平台",
+      "url": "https://www.scbid.com/index.php/bx/detail/4263027608_4059022.html",
+      "date": null,
+      "source": "www.scbid.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 73,
+      "keywords": [
+        "项目管理",
+        "四川",
+        "有限责任",
+        "博达",
+        "凡易",
+        "中承",
+        "防腐工程",
+        "资升",
+        "...",
+        "有限公司",
+        "热烈欢迎",
+        "长发"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "热烈欢迎成都凡易物流有限责任公司、四川中承工程项目管理有限公司、四川省长发防腐工程有限公司、四川资升建设项目管理有限责任公司、四川博达融合供..."
+      ]
+    },
+    {
+      "rank": 53,
+      "id": "b43360c92e6b",
+      "title": "2026 -2028年天津联通能 碳管理 云 平台 服务项目(第二次)询比采购中选候选人公示-千里马招标网",
+      "url": "https://www.qianlima.com/bid-632921471.html",
+      "date": null,
+      "source": "www.qianlima.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 97,
+      "keywords": [
+        "采购",
+        "询比",
+        "2026",
+        "2028",
+        "项目编号",
+        "...",
+        "服务项目",
+        "联通",
+        "委托",
+        "第二次",
+        "程序",
+        "平台"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "****受****的委托就 2026 -2028****联通能 碳管理 云 平台 服务项目(第二次)(采购项目编号:****) 采用询比采购方式进行采购,按照询比采购文件规定的程序于 2 ..."
+      ]
+    },
+    {
+      "rank": 54,
+      "id": "3dba9d318f23",
+      "title": "2026 中国物流 园区绿色建筑 认证标准与节能改造方案报告.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/523271911.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "docx",
+        "文库",
+        "园区",
+        "认证",
+        "物流",
+        "人人",
+        "绿色",
+        "节能",
+        "改造",
+        "方案",
+        "建筑"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "2026 中国物流 园区绿色建筑 认证标准与节能改造方案报告.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 55,
+      "id": "f24aa79edec9",
+      "title": "2026 中国物流 园区绿色建筑评价 标准研究报告.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/536300940.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "建筑评价",
+        "docx",
+        "文库",
+        "园区",
+        "物流",
+        "人人",
+        "绿色",
+        "标准",
+        "报告",
+        "研究",
+        "中国"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "2026 中国物流 园区绿色建筑评价 标准研究报告.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 56,
+      "id": "90c38db2075c",
+      "title": "2026 物流 园区绿色建筑评价 标准与节能技术应用分析.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/535942266.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "建筑评价",
+        "docx",
+        "文库",
+        "园区",
+        "物流",
+        "人人",
+        "绿色",
+        "节能",
+        "应用",
+        "标准",
+        "分析"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "2026 物流 园区绿色建筑评价 标准与节能技术应用分析.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 57,
+      "id": "ae079cebb672",
+      "title": "湖北省生态环境厅 2026 年中国 碳 市场大会项目 中标 结果公布",
+      "url": "https://ai.so.com/search/so8a1ee8dd544cde9cc49643167f77ea61?search=%E6%B9%96%E5%8C%97%E7%9C%81%E7%94%9F%E6%80%81%E7%8E%AF%E5%A2%83%E5%8E%852026%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%A2%B3%E5%B8%82%E5%9C%BA%E5%A4%A7%E4%BC%9A%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%A0%87%E7%BB%93%E6%9E%9C%E5%85%AC%E5%B8%83&src=so_result_natural_news&srcg=so_result_natural_news",
+      "date": null,
+      "source": "ai.so.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 96,
+      "keywords": [
+        "中标",
+        "大会",
+        "2026",
+        "259.5",
+        "...",
+        "项目",
+        "生态环境",
+        "涵盖",
+        "湖北省",
+        "有限责任",
+        "登记",
+        "结算"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "259.5万元"
+      ],
+      "summary": [
+        "2026 年中国 碳 市场大会项目 中标 结果已公布",
+        "中标 单位为碳排放权登记结算(武汉)有限责任公司, 中标 金额为259.5万元",
+        "该项目由湖北省生态环境厅采购,服务内容涵盖大会综合..."
+      ]
+    }
+  ]
+}

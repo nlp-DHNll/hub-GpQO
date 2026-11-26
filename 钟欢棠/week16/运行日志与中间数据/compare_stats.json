@@ -1,0 +1,490 @@
+{
+  "generated_at": "2026-11-25T21:49:13",
+  "input_file": "d:\\AI学习\\第16周：Agent应用部署、Skills和OpenClaw\\作业成果\\运行日志与中间数据\\compare_search.json",
+  "reference_date": "2026-11-25",
+  "record_count": 34,
+  "disclosed_count": 0,
+  "disclosed_amount_wan": 0,
+  "method": "regex extraction + rule-based theme/amount normalization; no LLM",
+  "statistics": {
+    "by_theme": {
+      "其他相关": {
+        "count": 19,
+        "sum_wan": 0.0,
+        "披露数": 0
+      },
+      "ESG评价与咨询": {
+        "count": 14,
+        "sum_wan": 0.0,
+        "披露数": 0
+      },
+      "双碳与碳管理": {
+        "count": 1,
+        "sum_wan": 0.0,
+        "披露数": 0
+      }
+    },
+    "by_month": {
+      "2022-04": 1,
+      "2024-05": 1,
+      "2025-02": 1,
+      "2025-05": 2,
+      "2025-06": 1,
+      "2025-07": 1,
+      "2025-08": 1,
+      "2025-09": 1,
+      "2026-01": 2,
+      "2026-07": 1,
+      "2026-09": 1,
+      "2026-10": 1,
+      "2026-11": 1,
+      "未知": 19
+    },
+    "by_amount_bin": {
+      "未披露": 34
+    },
+    "top_suppliers": {}
+  },
+  "top_records": [],
+  "records": [
+    {
+      "project": "中国 政府网_中央人民政府门户网站",
+      "project_no": "",
+      "date": "2022-04-26",
+      "source": "www.gov.cn",
+      "url": "https://www.gov.cn/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "国情_ 中国 政府网",
+      "project_no": "",
+      "date": "2026-07-07",
+      "source": "www.gov.cn",
+      "url": "https://www.gov.cn/guoqing/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "ESG 是什麼？定義、三支柱、2026 完整指南｜芮恆 CoReverie",
+      "project_no": "",
+      "date": "2026-11-05",
+      "source": "coreverie.com",
+      "url": "https://coreverie.com/guide/what-is-esg",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "2026 - Wikipedia",
+      "project_no": "",
+      "date": "",
+      "source": "en.wikipedia.org",
+      "url": "https://en.wikipedia.org/wiki/2026",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "2026 年_百度百科",
+      "project_no": "",
+      "date": "2026-01-01",
+      "source": "baike.baidu.com",
+      "url": "https://baike.baidu.com/item/2026%E5%B9%B4",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "2026 年及2027年FII 可持续发展 报告及 ESG 评级提升咨询项目 中标 公示-千里马 招标网",
+      "project_no": "",
+      "date": "2026-09-28",
+      "source": "www.qianlima.com",
+      "url": "https://www.qianlima.com/bid-635108447.html",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "2026 年的法定假日 - 勞工處",
+      "project_no": "",
+      "date": "",
+      "source": "www.labour.gov.hk",
+      "url": "https://www.labour.gov.hk/tc/news/latest_holidays2026.htm",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "2026 年香港公眾假期表 · 請假攻略 | 通勝 · 香港",
+      "project_no": "",
+      "date": "",
+      "source": "tungshing.hk",
+      "url": "https://tungshing.hk/holidays/2026",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "China - Wikipedia",
+      "project_no": "",
+      "date": "",
+      "source": "en.wikipedia.org",
+      "url": "https://en.wikipedia.org/wiki/China",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "China Daily Website - Connecting China Connecting the World",
+      "project_no": "",
+      "date": "",
+      "source": "www.chinadaily.com.cn",
+      "url": "https://www.chinadaily.com.cn/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "ESG | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "project_no": "",
+      "date": "",
+      "source": "wealth.hket.com",
+      "url": "https://wealth.hket.com/sraw020/ESG",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "ESG 懶人包》什麼是 ESG ？全面解析 ESG 核心定義、案例、檢測工具，一次讀懂 ESG …",
+      "project_no": "",
+      "date": "2025-02-01",
+      "source": "csr.cw.com.tw",
+      "url": "https://csr.cw.com.tw/article/43025",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "ESG 投資 | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "project_no": "",
+      "date": "",
+      "source": "wealth.hket.com",
+      "url": "https://wealth.hket.com/sraw020-2/ESG%E6%8A%95%E8%B3%87",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "ESG 是什麼？一次了解 ESG 意思，香港企業的實行與展望",
+      "project_no": "",
+      "date": "",
+      "source": "www.greenpeace.org",
+      "url": "https://www.greenpeace.org/hongkong/issues/climate/update/36671/esg-%e6%98%af%e4%bb%80%e9%ba%bc%ef%bc%9f%e5%b0%8d%e7%92%b0%e5%a2%83%e5%be%88%e9%87%8d%e8%a6%81%ef%bc%9f%e9%a6%99%e6%b8%af%e3%80%81%e4%bc%81%e6%a5%ad%e5%a6%82%e4%bd%95%e5%af%a6%e8%a1%8c%ef%bc%9f/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "ESG 是什麼？何謂 ESG ？企業永續關鍵字 CSR、 ESG 、SDGs 一次 …",
+      "project_no": "",
+      "date": "2025-07-03",
+      "source": "www.managertoday.com.tw",
+      "url": "https://www.managertoday.com.tw/articles/view/62727",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "GovHK 香港政府一站通： 2026 年公眾假期",
+      "project_no": "",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "url": "https://www.gov.hk/tc/about/abouthk/holiday/2026.htm",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "GovHK: General holidays for 2026",
+      "project_no": "",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "url": "https://www.gov.hk/en/about/abouthk/holiday/2026.htm",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "Year 2026 Calendar – Hong Kong - timeanddate.com",
+      "project_no": "",
+      "date": "",
+      "source": "www.timeanddate.com",
+      "url": "https://www.timeanddate.com/calendar/?year=2026&country=42",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "【 2026 行事曆】人事行政局115年行事曆出爐！｜休假攻略、補班行事 …",
+      "project_no": "",
+      "date": "",
+      "source": "wisdom-life.in",
+      "url": "https://wisdom-life.in/calendar/holiday/2026",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "【 ESG 入門】 ESG 是什麼？四大 ESG 永續發展策略｜ ESG 中文解釋",
+      "project_no": "",
+      "date": "2024-05-13",
+      "source": "projectmanager.com.tw",
+      "url": "https://projectmanager.com.tw/%e5%b0%88%e6%a1%88%e7%ae%a1%e7%90%86/esg/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "【 中标 】 ESG 服务 I 南方电网互联网服务有限公司2025- 2026 年 可持续发展 ( ESG )报告综合服务项目 中标公告 - 天眼查",
+      "project_no": "",
+      "date": "",
+      "source": "news.tianyancha.com",
+      "url": "https://news.tianyancha.com/ll_tvxlh34vzl.html",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "【2026最新】 ESG是什麼 ? 企業 ESG 怎麼做？3大指標帶你了解！",
+      "project_no": "",
+      "date": "",
+      "source": "www.dnb.com.tw",
+      "url": "https://www.dnb.com.tw/Thoughts/What-is-esg/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "中华人民共和国_百度百科",
+      "project_no": "",
+      "date": "2026-10-01",
+      "source": "baike.baidu.com",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD/106554",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "中国 - BBC News 中文",
+      "project_no": "",
+      "date": "",
+      "source": "www.bbc.com",
+      "url": "https://www.bbc.com/zhongwen/topics/ckr7mn6r003t/simp",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "中国 网--网上 中国",
+      "project_no": "",
+      "date": "2025-06-16",
+      "source": "www.china.com.cn",
+      "url": "https://www.china.com.cn/",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "中国 （世界四大文明古国之一）_百度百科",
+      "project_no": "",
+      "date": "",
+      "source": "baike.baidu.com",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD/1122445",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "中國 - 維基百科，自由嘅百科全書",
+      "project_no": "",
+      "date": "",
+      "source": "zh-yue.wikipedia.org",
+      "url": "https://zh-yue.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "主页 - BBC News 中文",
+      "project_no": "",
+      "date": "2025-09-26",
+      "source": "www.bbc.com",
+      "url": "https://www.bbc.com/zhongwen/simp",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "从零认识 ESG ：终于有人把 ESG 彻底讲明白了！ - 知乎",
+      "project_no": "",
+      "date": "2025-08-06",
+      "source": "zhuanlan.zhihu.com",
+      "url": "https://zhuanlan.zhihu.com/p/1936484257448042793",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示",
+      "project_no": "",
+      "date": "",
+      "source": "www.jianyu360.cn",
+      "url": "https://www.jianyu360.cn/nologin/content/SEEY1cFYDI_OyM4I2BoZGIoDSQ4DjRgAWtkKTgrKyEeVlNzVhlUCK8.html",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示-千里马 招标网",
+      "project_no": "",
+      "date": "",
+      "source": "www.qianlima.com",
+      "url": "https://www.qianlima.com/bid-646902786.html",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "ESG评价与咨询",
+      "tags": [
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "环境、社会和公司治理 - 百度百科",
+      "project_no": "",
+      "date": "",
+      "source": "baike.baidu.com",
+      "url": "https://baike.baidu.com/item/%E7%8E%AF%E5%A2%83%E3%80%81%E7%A4%BE%E4%BC%9A%E5%92%8C%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86/50983355",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "双碳与碳管理",
+      "tags": [
+        "双碳与碳管理",
+        "ESG评价与咨询"
+      ]
+    },
+    {
+      "project": "香港 2026 年年曆 - 月曆网",
+      "project_no": "",
+      "date": "2026-01-01",
+      "source": "www.calendar411.com",
+      "url": "https://www.calendar411.com/hk/calendar/2026/0",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    },
+    {
+      "project": "香港特別行政區經濟和社會發展第一個五年規劃（ 2026 —2030年）",
+      "project_no": "",
+      "date": "",
+      "source": "www.hk5yplan.gov.hk",
+      "url": "https://www.hk5yplan.gov.hk/2026-2030/tc/index.html",
+      "supplier": "",
+      "amount_wan": null,
+      "amount_bin": "未披露",
+      "theme": "其他相关",
+      "tags": []
+    }
+  ]
+}

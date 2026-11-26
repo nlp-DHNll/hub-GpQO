@@ -1,0 +1,1343 @@
+{
+  "generated_at": "2026-11-25T21:43:58",
+  "input_file": "d:/AI学习/第16周：Agent应用部署、Skills和OpenClaw/作业成果/运行日志与中间数据/case1_search.json",
+  "items_processed": 40,
+  "pages_fetched_ok": 14,
+  "method": "jieba TF-IDF sentence scoring + position prior (extractive, no LLM)",
+  "items": [
+    {
+      "rank": 1,
+      "id": "4f4a7fb2ab3a",
+      "title": "中煤能源 秩鼎 ESG评级 维持AAA,位居A股同行业51家公司排名第1名,与中国石油等同级、高于中国神华等_新浪财经_新浪网",
+      "url": "https://finance.sina.com.cn/stock/aiassist/esgpj/2026-08-08/doc-inimqimv9860619.shtml",
+      "date": null,
+      "source": "finance.sina.com.cn",
+      "search_score": 11.0,
+      "fetch_status": "ok",
+      "characters": 2618,
+      "keywords": [
+        "位居",
+        "得分",
+        "ESG",
+        "AAA",
+        "评级",
+        "秩鼎",
+        "能源",
+        "倒数",
+        "A股",
+        "特朗普",
+        "中国",
+        "评分"
+      ],
+      "key_numbers": [
+        "51家",
+        "51家",
+        "51家",
+        "2022年",
+        "2023年",
+        "2024年",
+        "2025年",
+        "2026年",
+        "2026年",
+        "51家"
+      ],
+      "summary": [
+        "中国石化得分96.11分位居第一，山煤国际得分93.01分位居第二，陕西煤业得分86.76分位居第三，大有能源得分27.09分位居倒数第一，新潮能源（维权）得分27.29分位居倒数第二，和顺石油得分28.09分位居倒数第三",
+        "中国神华得分74.19分位居第一，中国海油得分73.76分位居第二，中国石油得分72.09分位居第三，鹏飞绿能得分33.88分位居倒数第一，辽宁能源得分40.88分位居倒数第二，和顺石油得分42.15分位居倒数第三",
+        "中国石化得分95.17分位居第一，新天绿能得分91.44分位居第二，中国神华得分91.32分位居第三，ST洲际得分65.13分位居倒数第一，茂化实华得分65.81分位居倒数第二，升达林业得分67.22分位居倒数第三"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "25ce3fadd5be",
+      "title": "中国神华 拟派发 2026 年中期股息每股人民币0.98元 共计约212.56亿元",
+      "url": "https://news.10jqka.com.cn/20260903/c679574537.shtml",
+      "date": "2026-11-14",
+      "source": "news.10jqka.com.cn",
+      "search_score": 9.83,
+      "fetch_status": "ok",
+      "characters": 543,
+      "keywords": [
+        "2026",
+        "同花顺",
+        "10",
+        "举报",
+        "股东会",
+        "不良信息",
+        "23",
+        "30",
+        "含税",
+        "16",
+        "H股",
+        "中期"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "212.56亿元",
+        "2026年",
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "9月3日，中国神华（HK1088）（01088.HK）发布临时股东会通告，定于2026年9月23日下午2:30在北京召开2026年第三次临时股东会，审议截至2026年6月30日止六个月之中期利润分配议案",
+        "凡于2026年10月16日登记于公司股东名册内的H股股东有权享有该中期股息，公司将于2026年10月10日至10月16日（包括首尾两日）暂停办理H股股份过户登记手续",
+        "不良信息举报与个人信息保护咨询专线：10100571违法和不良信息涉企侵权举报涉算法推荐举报专区涉青少年不良信息举报专区"
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "e5931c4553fe",
+      "title": "中煤能源 伦交所 ESG评级 较上年上升至B,位居同行业23家公司第6名,与中国石油等同级、高于潞安环能等、低于新天绿能等_新浪财经_新浪网",
+      "url": "https://finance.sina.com.cn/stock/aiassist/esgpj/2026-06-15/doc-inicmsva6876831.shtml?cref=cj",
+      "date": null,
+      "source": "finance.sina.com.cn",
+      "search_score": 9.5,
+      "fetch_status": "ok",
+      "characters": 2432,
+      "keywords": [
+        "位居",
+        "ESG",
+        "得分",
+        "评级",
+        "能源",
+        "伦交所",
+        "倒数",
+        "四分",
+        "位数",
+        "兖矿",
+        "评分",
+        "第三"
+      ],
+      "key_numbers": [
+        "23家",
+        "23家",
+        "23家",
+        "2023年",
+        "2024年",
+        "2025年",
+        "2026年",
+        "2026年",
+        "23家",
+        "450.74亿元"
+      ],
+      "summary": [
+        "兖矿能源得分89.70分位居第一，中国神华得分87.90分位居第二，中国石化得分85.20分位居第三，中国海油得分0.00分位居倒数第一，盘江股份得分13.10分位居倒数第二，*ST新潮（维权）得分13.80分位居倒数第三",
+        "中国神华得分79.30分位居第一，中国石油得分73.90分位居第二，兖矿能源得分73.50分位居第三，中国海油得分0.00分位居倒数第一，盘江股份得分2.90分位居倒数第二，山煤国际得分7.00分位居倒数第三",
+        "美锦能源得分87.70分位居第一，兖矿能源得分74.30分位居第二，中国神华得分70.40分位居第三，中国海油得分0.00分位居倒数第一，淮北矿业得分5.20分位居倒数第二，陕西煤业得分17.80分位居倒数第三"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "f4c5e8464eb6",
+      "title": "中国神华 ( 601088 )2025年度 ESG 报告解读|矿山| esg |兖矿能源| 中国神华 能源_网易订阅",
+      "url": "https://www.163.com/dy/article/KSSM0G93051984TV.html",
+      "date": null,
+      "source": "www.163.com",
+      "search_score": 8.5,
+      "fetch_status": "ok",
+      "characters": 4537,
+      "keywords": [
+        "ESG",
+        "黄仁勋",
+        "2025",
+        "AI",
+        "伟达",
+        "报告",
+        "神华",
+        "网易",
+        "2026",
+        "公司",
+        "特朗普",
+        "董事会"
+      ],
+      "key_numbers": [
+        "2025年",
+        "2026年",
+        "2025年",
+        "2,949.16亿元",
+        "528.49亿元",
+        "2025年",
+        "105项",
+        "13.17%",
+        "2025年",
+        "8项"
+      ],
+      "summary": [
+        "中国神华(601088)2025年度ESG报告解读|矿山|esg|兖矿能源|中国神华能源_网易订阅",
+        "中国神华于2026年3月31日发布2025年度ESG报告，全面披露其在环境、社会及治理（ESG）方面的实践与绩效",
+        "公司制定《供应商ESG管理办法》，将ESG表现纳入供应商管理"
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "0ce99eacd89f",
+      "title": "中国神华能源 股份有限公司 2026 年6月份主要运营数据公告|上海证券报",
+      "url": "https://paper.cnstock.com/html/2026-07/20/content_2246239.htm",
+      "date": null,
+      "source": "paper.cnstock.com",
+      "search_score": 8.5,
+      "fetch_status": "error:SSLError",
+      "characters": 84,
+      "keywords": [
+        "神华",
+        "能源",
+        "2026",
+        "...",
+        "公告",
+        "有限公司",
+        "股份",
+        "误导",
+        "虚假",
+        "全体",
+        "董事",
+        "运营"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "中国神华 能源 股份有限公司 2026 年6月份主要运营数据公告 中国神华 能源 股份有限公司( 本公司 )董事会及全体董事保证本公告内容不存在任何虚假记载、误导..."
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "b7dd5cb45da3",
+      "title": "专业守护信赖 | 国泰海通 中证ESG评级 达到行业最高AAA级|证券行业|中证指数|海通证券|债券|国泰海通中证esg_新浪新闻",
+      "url": "https://k.sina.com.cn/article_5952915720_162d2490806704vyuq.html",
+      "date": null,
+      "source": "k.sina.com.cn",
+      "search_score": 8.0,
+      "fetch_status": "ok",
+      "characters": 1020,
+      "keywords": [
+        "中证",
+        "ESG",
+        "海通",
+        "国泰",
+        "AAA",
+        "评级",
+        "行业",
+        "评价",
+        "守护",
+        "信赖",
+        "2026",
+        "新浪"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年",
+        "2020年",
+        "5000家",
+        "22年",
+        "47%",
+        "12.8%"
+      ],
+      "summary": [
+        "专业守护信赖 | 国泰海通中证ESG评级达到行业最高AAA级|证券行业|中证指数|海通证券|债券|国泰海通中证esg_新浪新闻",
+        "专业守护信赖 | 国泰海通中证ESG评级达到行业最高AAA级",
+        "中证指数有限公司于2026年9月15日发布新版中证ESG评价方法（V4.0），并于2026年9月21日发布最新一期中证ESG评价结果"
+      ]
+    },
+    {
+      "rank": 7,
+      "id": "178f4438fd9f",
+      "title": "从香江到草原,共赴十年之约! 2026中国神华能源 之旅来了_澎湃号·政务_澎湃新闻-The Paper",
+      "url": "https://m.thepaper.cn/newsDetail_forward_33657962",
+      "date": null,
+      "source": "m.thepaper.cn",
+      "search_score": 7.5,
+      "fetch_status": "ok",
+      "characters": 4467,
+      "keywords": [
+        "能源",
+        "教师",
+        "香港",
+        "老师",
+        "神华",
+        "风机",
+        "澎湃",
+        "矿区",
+        "海拉尔",
+        "现场",
+        "草原",
+        "集团"
+      ],
+      "key_numbers": [
+        "2016年",
+        "13.72亿吨",
+        "5010万吨",
+        "2026年"
+      ],
+      "summary": [
+        "“中国神华能源之旅”启动于2016年，组织香港中小学教师深入国家能源集团所属企业、优秀传统文化教育实践基地及红色教育基地考察学习",
+        "”香港励进教育中心理事会首任主席范徐丽泰这样评价“中国神华能源之旅”的意义，“这个活动对香港教师来说难能可贵，他们在这几天所得到的资料、拍的照片，回到香港课堂上就可以跟学生分享",
+        "十年很长，300多位香港教师通过“神华能源之旅”了解中国能源发展，而通过他们触达的香港学子，早已不计其数"
+      ]
+    },
+    {
+      "rank": 8,
+      "id": "abedb4feec49",
+      "title": "《上市公司 可持续发展报告 电子化规范》等3项金融行业标准正式发布_动态新闻_ 资本市场标准网",
+      "url": "https://www.csisc.cn/zbscbzw/c100091/202611/5b2bddf487094973b940d09f8f087b3a.shtml",
+      "date": "2026-11-06",
+      "source": "www.csisc.cn",
+      "search_score": 7.17,
+      "fetch_status": "ok",
+      "characters": 834,
+      "keywords": [
+        "电子化",
+        "行业标准",
+        "规范",
+        "上市公司",
+        "持续",
+        "期货业",
+        "选型",
+        "数据",
+        "报告",
+        "金融",
+        "JR",
+        "2026"
+      ],
+      "key_numbers": [
+        "3项",
+        "3项",
+        "3项"
+      ],
+      "summary": [
+        "《上市公司可持续发展报告电子化规范》等3项金融行业标准正式发布_动态新闻_",
+        "近日，证标委组织制定的《上市公司可持续发展报告电子化规范》（JR/T 0356—2026）、《证券期货业基础大模型选型评估指引》（JR/T 0357—2026）、《证券期货业业务域数据元规范 第3部分：期货公司》（JR/T 0331.3—2026）3项金融行业标准经证监会批准发布并实施",
+        "《上市公司可持续发展报告电子化规范》金融行业标准，以沪深北证券交易所发布的《上市公司可持续发展报告指引》《上市公司可持续发展报告编制指南》为制度基础，统一规范上市公司可持续发展报告电子化的分类编码规则、分类标准及电子化过程"
+      ]
+    },
+    {
+      "rank": 9,
+      "id": "aba297820a95",
+      "title": "中证 指数首发300家 ESG评级结果 ,本土 ESG 评级再添新关注点 | ESG 特辑|上市公司|成份股| esg |msci_网易订阅",
+      "url": "https://www.163.com/dy/article/H3OI7CIP0538BPYH.html",
+      "date": null,
+      "source": "www.163.com",
+      "search_score": 7.0,
+      "fetch_status": "ok",
+      "characters": 6246,
+      "keywords": [
+        "ESG",
+        "评级",
+        "中证",
+        "企业",
+        "黄仁勋",
+        "信息",
+        "结果",
+        "MSCI",
+        "议题",
+        "管理",
+        "本土",
+        "上市公司"
+      ],
+      "key_numbers": [
+        "300家",
+        "300家",
+        "2年",
+        "2020年",
+        "2022年",
+        "2年",
+        "10家",
+        "4年",
+        "7家",
+        "5%"
+      ],
+      "summary": [
+        "中证指数首发300家ESG评级结果，本土ESG评级再添新关注点 | ESG特辑|上市公司|成份股|esg|msci_网易订阅",
+        "中证指数首发300家ESG评级结果，本土ESG评级再添新关注点 | ESG特辑",
+        "透明化是ESG评级的一大特征，国际ESG评级机构通常会将自己的评级方法适当公布，例如恒生可持续发展指数与CDP公布了详细的评级方法，MSCI给出详细的ESG评级报告供企业和投资者检视自身，标普道琼斯发放调查问卷收集信息，部分评级机构还在官网设置反馈网页以便企业根据评级报告内容更新准确信息，或就评级方法论的变动开展公开培训等"
+      ]
+    },
+    {
+      "rank": 10,
+      "id": "b7efeee31d61",
+      "title": "中国 81家企业入选标普全球《 可持续发展 年鉴 2026 》(附名单)_新浪财经_新浪网",
+      "url": "https://finance.sina.com.cn/esg/2026-02-24/doc-inhnwvwu3159914.shtml?tj=cxvertical_pc_pager_spt&tr=164",
+      "date": null,
+      "source": "finance.sina.com.cn",
+      "search_score": 6.5,
+      "fetch_status": "ok",
+      "characters": 2828,
+      "keywords": [
+        "ESG",
+        "标普",
+        "有限公司",
+        "CSA",
+        "全球",
+        "评分",
+        "2026",
+        "年鉴",
+        "股份",
+        "入选",
+        "新浪",
+        "中国"
+      ],
+      "key_numbers": [
+        "81家",
+        "81家",
+        "81家",
+        "14项",
+        "848家",
+        "57家",
+        "24家",
+        "1%",
+        "1%",
+        "5%"
+      ],
+      "summary": [
+        "新浪财经ESG评级中心提供包括资讯、报告、培训、咨询等在内的14项ESG服务，助力上市公司传播ESG理念，提升ESG可持续发展表现",
+        "新浪财经ESG评级中心是业内首个中文ESG专业资讯和评级聚合平台，致力于宣传和推广可持续发展，责任投资，与ESG（环境、社会和公司治理）价值理念，传播ESG的企业实践行动和榜样力量，推动中国ESG事业的发展，促进中国ESG评估标准的建立和企业评级的提升",
+        "同时，新浪财经成立中国ESG领导者组织论坛，携手中国ESG领导企业和合作伙伴，通过环境、社会和公司治理理念，推动建立适合中国时代特征的ESG评价标准体系，促进中国资产管理行业ESG投资发展"
+      ]
+    },
+    {
+      "rank": 11,
+      "id": "7170e3e51c64",
+      "title": "2026年 玩具行业 ESG评级 提升与儿童安全 标准 .docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/541405361.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 4.5,
+      "fetch_status": "ok",
+      "characters": 2068,
+      "keywords": [
+        "ESG",
+        "2026",
+        "玩具",
+        "评级",
+        "行业",
+        "提升",
+        "供应链",
+        "文档",
+        "本站",
+        "答案",
+        "消费者",
+        "上传"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年",
+        "2026年",
+        "2026年",
+        "5. 人",
+        "2026年",
+        "2024年",
+        "2026年",
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "2026年玩具行业ESG评级提升与儿童安全标准.docx - 人人文库",
+        "2026年玩具行业ESG评级提升与儿童安全标准",
+        "2026年玩具行业ESG评级提升与儿童安全标准一、2026年玩具行业ESG评级提升与儿童安全标准"
+      ]
+    },
+    {
+      "rank": 12,
+      "id": "2b46af5a6b1c",
+      "title": "【 ESG 动态】 中煤能源 ( 601898 .SH)获华证指数 ESG 最新 评级 BB,行业排名第22",
+      "url": "https://www.360kuai.com/pc/93f61fcf71da2c85a?cota=3&kuai_so=1&sign=360_57c3bbd1&refer_scene=so_1",
+      "date": null,
+      "source": "www.360kuai.com",
+      "search_score": 4.5,
+      "fetch_status": "ok",
+      "characters": 50,
+      "keywords": [
+        "ESG",
+        "601898",
+        "SH",
+        "获华证",
+        "BB",
+        "22",
+        "排名第",
+        "动态",
+        "资讯",
+        "评级",
+        "最新",
+        "能源"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "【ESG动态】中煤能源（601898.SH）获华证指数ESG最新评级BB，行业排名第22_【快资讯】"
+      ]
+    },
+    {
+      "rank": 13,
+      "id": "278d63a29ef6",
+      "title": "兖矿能源 : ESG 评级跃升行业最高级 公司治理连获殊荣 _ 东方财富网",
+      "url": "https://finance.eastmoney.com/a/202410163207721329.html",
+      "date": null,
+      "source": "finance.eastmoney.com",
+      "search_score": 4.5,
+      "fetch_status": "ok",
+      "characters": 167,
+      "keywords": [
+        "伟达",
+        "特朗普",
+        "老铺",
+        "潮补",
+        "累跌近",
+        "56%",
+        "Q3",
+        "大超",
+        "AI",
+        "营收",
+        "291%",
+        "11"
+      ],
+      "key_numbers": [
+        "56%",
+        "291%"
+      ],
+      "summary": [
+        "特朗普：不排除美国政府入股英伟达",
+        "老铺黄金年内累跌近56%",
+        "戴尔Q3业绩大超预期：AI服务器营收同比暴涨291%"
+      ]
+    },
+    {
+      "rank": 14,
+      "id": "561f7f0b5bc0",
+      "title": "三大 交易所 就 可持续发展报告编制指南 公开征求意见|上市公司_网易订阅",
+      "url": "https://www.163.com/dy/article/JGBHNFRA05129QAF.html",
+      "date": null,
+      "source": "www.163.com",
+      "search_score": 4.0,
+      "fetch_status": "ok",
+      "characters": 3728,
+      "keywords": [
+        "黄仁勋",
+        "指南",
+        "持续",
+        "披露",
+        "上市公司",
+        "11",
+        "伟达",
+        "指引",
+        "媒体",
+        "发展",
+        "重要性",
+        "框架"
+      ],
+      "key_numbers": [
+        "7家",
+        "5%",
+        "1914.51亿元",
+        "4%",
+        "3人",
+        "31%",
+        "43年"
+      ],
+      "summary": [
+        "三大交易所就可持续发展报告编制指南公开征求意见|上市公司_网易订阅",
+        "《指南》针对市场关注的开展双重重要性评估分析、四要素披露框架等给予了必要的细化指导，为上市公司编制可持续发展报告提供参考，进一步规范上市公司可持续发展信息披露，夯实上市公司可持续发展信息披露基础，支持上市公司践行可持续发展理念",
+        "遵循上述起草思路，《指南》目前共形成两章，第一章“总体要求与披露框架”详细解释可持续发展报告的原则性规定以及识别、分析重要性议题的方法，明确“治理——战略——影响、风险和机遇管理——指标与目标”四要素的披露要求和示例，并提供可持续发展报告披露的总体框架"
+      ]
+    },
+    {
+      "rank": 15,
+      "id": "c992f0f2811a",
+      "title": "2026 年下半年中国 中煤能源ESG 绩效报告:能源行业的可持续发展与NGO评价.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/537680307.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 3.0,
+      "fetch_status": "ok",
+      "characters": 1546,
+      "keywords": [
+        "2026",
+        "含答案",
+        "题库",
+        "答案",
+        "试题",
+        "考试",
+        "详解",
+        "文档",
+        "本站",
+        "模拟",
+        "上传",
+        "图纸"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年",
+        "5. 人",
+        "2026年",
+        "2026年",
+        "2025年",
+        "1人",
+        "1人",
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "2026年新电梯安全员考试试题及答案",
+        "2026年安b考试题库(含答案)",
+        "2026年食品抽样考试题库(含答案)"
+      ]
+    },
+    {
+      "rank": 16,
+      "id": "8e9d96944784",
+      "title": "2026年 新版 ESG 报告 评级 相关服务介绍",
+      "url": "https://blog.11467.com/b19570963.htm",
+      "date": null,
+      "source": "blog.11467.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 96,
+      "keywords": [
+        "ESG",
+        "评级",
+        "2025",
+        "42.3",
+        "28.6%",
+        "20",
+        "...",
+        "服务",
+        "中商",
+        "报告",
+        "规模化",
+        "落地"
+      ],
+      "key_numbers": [
+        "2025年",
+        "42.3亿元",
+        "28.6%"
+      ],
+      "summary": [
+        "当前市场格局: ESG 报告 评级 服务进入规模化落地阶段 据中商产业研究院测算,2025年中国企业 ESG 报告 评级 相关服务市场规模达42.3亿元,同比增长28.6%,预计 20 ..."
+      ]
+    },
+    {
+      "rank": 17,
+      "id": "5a7d76d3c1a5",
+      "title": "2026年ESG 报告编制要点与 国际 标准解读.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/530357916.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "ESG",
+        "docx",
+        "文库",
+        "要点",
+        "解读",
+        "人人",
+        "编制",
+        "标准",
+        "报告",
+        "国际"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "2026年ESG 报告编制要点与 国际 标准解读.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 18,
+      "id": "359bed417e25",
+      "title": "【官方新规深度解析】Bol.com 2026 环保标签认证与搜索加权SOP - ESG 跨境",
+      "url": "https://www.eservicesgroup.com.cn/news/180519.html",
+      "date": null,
+      "source": "www.eservicesgroup.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 90,
+      "keywords": [
+        "Bol",
+        "com",
+        "认证",
+        "2026",
+        "三大",
+        "...",
+        "闭环",
+        "深耕",
+        "徽章",
+        "西北欧",
+        "工贸",
+        "拆解"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "认证 标准 拆解: 2026 Bol.com 绿色徽章准入的三大国际权威度量衡.深度掌握 Bol.com 环保标签认证体系并建立可持续供应链闭环,是 中国 工贸龙头深耕西北欧..."
+      ]
+    },
+    {
+      "rank": 19,
+      "id": "1aa16ac6a79a",
+      "title": "中国神华 荣获财联社 2026ESG 致远奖--中国能源新闻网",
+      "url": "https://www.cpnn.com.cn/qiye/rongyu/202611/t20261112_1925918.html",
+      "date": null,
+      "source": "www.cpnn.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 79,
+      "keywords": [
+        "能源",
+        "行业新闻",
+        "...",
+        "国务院新闻办公室",
+        "电力行业",
+        "新闻网",
+        "第一家",
+        "传媒",
+        "主办",
+        "一一",
+        "主管",
+        "网站"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中国 能源新闻网是由国家能源局主管, 中国 能源传媒集团有限公司主办,国务院新闻办公室批准成立的第一家行业新闻网站,是我国电力行业唯 一一 家获得新闻刊..."
+      ]
+    },
+    {
+      "rank": 20,
+      "id": "669b77e619c9",
+      "title": "兖矿能源 上榜 2026 福布斯中国 ESG 50强 - 煤炭企业 - CCTD中国煤炭市场网",
+      "url": "https://www.cctd.com.cn/show-22-257238-1.html",
+      "date": null,
+      "source": "www.cctd.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 90,
+      "keywords": [
+        "ESG",
+        "兖矿",
+        "2026",
+        "50",
+        "...",
+        "福布斯",
+        "煤炭行业",
+        "榜单",
+        "入选",
+        "凭借",
+        "治理",
+        "规范"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "近日, 2026 福布斯中国 ESG 50榜单正式发布",
+        "兖矿能源 凭借规范完善的ESG体系建设,良好的 ESG 数据治理能力,专业的信息披露水平成功入选,成为中国煤炭行业唯..."
+      ]
+    },
+    {
+      "rank": 21,
+      "id": "f1a576032028",
+      "title": "如何评价 ESG ? 中国 在 COP31 发布99项指标的行业 标准 -要闻_华商网新闻",
+      "url": "https://news.hsw.cn/system/2026/1119/1975406.shtml",
+      "date": null,
+      "source": "news.hsw.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 84,
+      "keywords": [
+        "14",
+        "商业道德",
+        "指标",
+        "99",
+        "37",
+        "34",
+        "...",
+        "另设",
+        "供应链",
+        "连锁",
+        "员工",
+        "权益"
+      ],
+      "key_numbers": [
+        "99项",
+        "37项",
+        "34项",
+        "14项",
+        "14项"
+      ],
+      "summary": [
+        "该 标准 共设置99项指标,其中环境37项、社会34项、治理14项,另设14项提升指标,涉及绿色运营、商品与服务、供应链、员工权益、商业道德等方面. 中国 连锁经..."
+      ]
+    },
+    {
+      "rank": 22,
+      "id": "d38f5f675430",
+      "title": "某上市公司 2026 年ESG 可持续发展 报告及 评级 分析.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/530610921.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "ESG",
+        "docx",
+        "文库",
+        "人人",
+        "评级",
+        "上市公司",
+        "报告",
+        "持续",
+        "分析",
+        "发展"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "某上市公司 2026 年ESG 可持续发展 报告及 评级 分析.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 23,
+      "id": "241d64b7a5b7",
+      "title": "稳健集团 中证ESG评级 再获突破 跃升至AAA级",
+      "url": "http://stock.10jqka.com.cn/20261106/c681571796.shtml",
+      "date": null,
+      "source": "stock.10jqka.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 92,
+      "keywords": [
+        "ESG",
+        "实践",
+        "中证",
+        "2026",
+        "Wind",
+        "AA",
+        "...",
+        "指数",
+        "入选",
+        "深圳市",
+        "合资",
+        "深化"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "中证 指数有限公司为沪深交易所合资设立的权威指数与ESG 评价 机构.凭借持续深化的治理实践, 2026 年,公司Wind ESG 评级 提升至AA级,入选深圳市ESG实践先锋企..."
+      ]
+    },
+    {
+      "rank": 24,
+      "id": "7bbbc4433554",
+      "title": "评级 拉满!紫金矿业 中证ESG评级 升至AAA最高等级",
+      "url": "http://stock.10jqka.com.cn/20261012/c680584157.shtml",
+      "date": null,
+      "source": "stock.10jqka.com.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 92,
+      "keywords": [
+        "中证",
+        "ESG",
+        "评级",
+        "2026",
+        "月期",
+        "...",
+        "客户端",
+        "获评",
+        "权威",
+        "查看",
+        "下载",
+        "评价"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "查看股票机会下载客户端近日, 中证 指数有限公司发布 2026 年9月期上市公司ESG 评价 结果,.本次获评 中证 ESG最高 评级 ,体现了权威 评级 机构对公司可持续发展实..."
+      ]
+    },
+    {
+      "rank": 25,
+      "id": "4fe69ffe6a3b",
+      "title": "金融+企业 双轮驱动 财联社 2026ESG 可持续发展价值生态论坛成功举办",
+      "url": "https://www.cls.cn/detail/2522737",
+      "date": null,
+      "source": "www.cls.cn",
+      "search_score": 3.0,
+      "fetch_status": "snippet-only",
+      "characters": 78,
+      "keywords": [
+        "生态环境",
+        "董战峰",
+        "ESG",
+        "...",
+        "规划院",
+        "顶层",
+        "参差",
+        "积极探索",
+        "所长",
+        "研究员",
+        "研究所",
+        "披露"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "生态环境部环境规划院生态环境管理与 政策 研究所所长董战峰研究员指出,当前我国ESG正处于快速发展与积极探索阶段,但面临顶层设计不足、披露质量参差(存..."
+      ]
+    },
+    {
+      "rank": 26,
+      "id": "492122eb07ed",
+      "title": "2026 年 中国神华 千亿级 能源 并购全面落地__上海有色网",
+      "url": "https://news.smm.cn/news/103850769",
+      "date": null,
+      "source": "news.smm.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 91,
+      "keywords": [
+        "微信",
+        "微博",
+        "QQ",
+        "2026",
+        "601088",
+        "SH",
+        "01088",
+        "HK",
+        "...",
+        "支付现金",
+        "股份",
+        "神华"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "微信微博QQ空间 2026 年 4 月, 中国神华 能源股份有限公司(601088.SH/01088.HK)发布《发行股份及支付现金购买资产并募集配套资金暨关联交易实施情况暨新..."
+      ]
+    },
+    {
+      "rank": 27,
+      "id": "8a2f5ff360f8",
+      "title": "2026 年 新能源 汽车产业链 碳减排 策略报告.docx - 人人文库",
+      "url": "https://www.renrendoc.com/paper/539739438.html",
+      "date": null,
+      "source": "www.renrendoc.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "docx",
+        "文库",
+        "产业链",
+        "人人",
+        "减排",
+        "新能源",
+        "策略",
+        "报告",
+        "汽车"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "2026 年 新能源 汽车产业链 碳减排 策略报告.docx - 人人文库"
+      ]
+    },
+    {
+      "rank": 28,
+      "id": "1f8efd5b9d41",
+      "title": "Vol.117 2026年 8月 ESG 热门资讯 国际 篇 - 可持续进行时 - Apple 播客",
+      "url": "https://podcasts.apple.com/cn/podcast/vol-117-2026%E5%B9%B48%E6%9C%88esg%E7%83%AD%E9%97%A8%E8%B5%84%E8%AE%AF-%E5%9B%BD%E9%99%85%E7%AF%87/id1817105176?i=1000791833063",
+      "date": null,
+      "source": "podcasts.apple.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "Vol.117",
+        "2026",
+        "ESG",
+        "Apple",
+        "播客",
+        "热门",
+        "资讯",
+        "持续",
+        "国际",
+        "进行"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "Vol.117 2026年 8月 ESG 热门资讯 国际 篇 - 可持续进行时 - Apple 播客"
+      ]
+    },
+    {
+      "rank": 29,
+      "id": "60b34d927243",
+      "title": "《 2026 中国 能源 上市公司可持续发展( ESG )评价报告》发布, 能源ESG 指数投资前景广阔_ 能源 _华夏时报网",
+      "url": "https://www.chinatimes.net.cn/article/155542.html",
+      "date": null,
+      "source": "www.chinatimes.net.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 81,
+      "keywords": [
+        "能源",
+        "研究会",
+        "论坛",
+        "2026",
+        "ESG",
+        "...",
+        "协办",
+        "分会",
+        "万家",
+        "主办",
+        "自然资源",
+        "绿色"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "报告在 2026 国际能源可持续发展(ESG)论坛 上发布,该论坛由中国能源研究会主办,自然资源保护协会协办,中国能源研究会能源金融与法律分会、北京万家绿色..."
+      ]
+    },
+    {
+      "rank": 30,
+      "id": "f60f4d986134",
+      "title": "【专项研究】 ESG 评估体系核心指标数据分析——以头部煤炭企业为例_财富号_东方财富网",
+      "url": "https://caifuhao.eastmoney.com/news/20220328175927669024280",
+      "date": null,
+      "source": "caifuhao.eastmoney.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "ESG",
+        "为例",
+        "财富网",
+        "数据分析",
+        "煤炭企业",
+        "专项",
+        "头部",
+        "评估",
+        "财富",
+        "指标",
+        "东方",
+        "核心"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "【专项研究】 ESG 评估体系核心指标数据分析——以头部煤炭企业为例_财富号_东方财富网"
+      ]
+    },
+    {
+      "rank": 31,
+      "id": "588783733eb0",
+      "title": "兖矿能源 部署 2026 年工作 锚定 十五五 开局高质量发展-煤炭(煤矿)资讯网",
+      "url": "http://www.cwestc.com/newshtml/2026-1-2/886016.shtml",
+      "date": null,
+      "source": "www.cwestc.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "兖矿",
+        "2026",
+        "锚定",
+        "资讯网",
+        "开局",
+        "高质量",
+        "十五",
+        "煤矿",
+        "部署",
+        "煤炭",
+        "能源",
+        "工作"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "兖矿能源 部署 2026 年工作 锚定 十五五 开局高质量发展-煤炭(煤矿)资讯网"
+      ]
+    },
+    {
+      "rank": 32,
+      "id": "c519101061af",
+      "title": "安永:中国上市公司 可持续发展 从合规披露迈向价值创造 _ 东方财富网",
+      "url": "https://finance.eastmoney.com/a/202611203936244084.html",
+      "date": null,
+      "source": "finance.eastmoney.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 88,
+      "keywords": [
+        "2026",
+        "A股",
+        "首考",
+        "深北",
+        "ESG",
+        "选答",
+        "...",
+        "披露",
+        "报告",
+        "持续",
+        "指南",
+        "强制"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "2026年 ,A股可持续 发展 报告强制披露迎来 首考 ,沪深北 交易所 修订发布《上市公司 可持续 发展报告编制指南》,ESG(环境、社会和公司治理)信息披露正从 选答..."
+      ]
+    },
+    {
+      "rank": 33,
+      "id": "6381f467f25f",
+      "title": "招标|总规模20000Nm3/h!国家 能源 集团可再生氢 碳减排 示范区 项目 招标-制氢--国际氢能网",
+      "url": "https://h2.in-en.com/html/h2-2411034.shtml",
+      "date": null,
+      "source": "h2.in-en.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "招标",
+        "制氢",
+        "20000Nm3",
+        "--",
+        "可再生",
+        "氢能",
+        "示范区",
+        "减排",
+        "能源",
+        "集团",
+        "规模",
+        "项目"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "招标|总规模20000Nm3/h",
+        "国家 能源 集团可再生氢 碳减排 示范区 项目 招标-制氢--国际氢能网"
+      ]
+    },
+    {
+      "rank": 34,
+      "id": "80f82148d4c5",
+      "title": "绿色 智能成为 入场券 —— 2026 中国国际矿业大会观察_节能、环保与新 能源 _中国石油石化工程信息网",
+      "url": "https://www.cppei.org.cn/jnhbxny/d255852.html",
+      "date": null,
+      "source": "www.cppei.org.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 84,
+      "keywords": [
+        "矿山",
+        "绿色",
+        "116",
+        "16",
+        "15",
+        "低碳",
+        "...",
+        "是从",
+        "逆流而上",
+        "石油",
+        "宁德",
+        "斩获"
+      ],
+      "key_numbers": [
+        "16家",
+        "15年"
+      ],
+      "summary": [
+        "中国石油现拥有116座国家级 绿色 矿山、16家 绿色 工厂,连续15年斩获低碳发展多项荣誉",
+        ".如果说宁德时代是从电池制造向上游 矿山 逆流而上 ,中国石油则是从..."
+      ]
+    },
+    {
+      "rank": 35,
+      "id": "2af3357f7372",
+      "title": "荣续 ESG 智库: 2026煤炭行业ESG 白皮书-在线下载-三个皮匠报告",
+      "url": "https://www.sgpjbg.com/bgdown/1147427.html?dtype=0",
+      "date": null,
+      "source": "www.sgpjbg.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 104,
+      "keywords": [
+        "ESG",
+        "上传",
+        "荣续",
+        "2026",
+        "57",
+        "pdf",
+        "strive",
+        "...",
+        "存储空间",
+        "上载",
+        "白皮书",
+        "皮匠"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "本文(荣续 ESG 智库: 2026煤炭行业ESG 白皮书(57页).pdf)为本站 (strive) 主动上传,三个皮匠报告文库仅提供信息存储空间,仅对用户上传内容的表现方式做保护处理,对上载内容本身..."
+      ]
+    },
+    {
+      "rank": 36,
+      "id": "1826e728c0cf",
+      "title": "融通中证诚通央企ESGETF(560810) 2026年11月 10日申赎清单调整:宝钢股份增持居前,其余成份股数量未现明显减持_新浪财经_新浪网",
+      "url": "https://finance.sina.com.cn/money/fund/aiassistant/etfssqd/2026-11-10/doc-iniyfeci2739353.shtml",
+      "date": "2026-11-10",
+      "source": "finance.sina.com.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "中证诚",
+        "通央企",
+        "ESGETF",
+        "560810",
+        "2026",
+        "11",
+        "10",
+        "日申",
+        "增持",
+        "居前",
+        "未现",
+        "新浪网"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "融通中证诚通央企ESGETF(560810) 2026年11月 10日申赎清单调整:宝钢股份增持居前,其余成份股数量未现明显减持_新浪财经_新浪网"
+      ]
+    },
+    {
+      "rank": 37,
+      "id": "64c52617dd86",
+      "title": "观察者网 · 2026 年度 可持续发展 典范企业评选",
+      "url": "https://www.guancha.cn/HTML/ESG2026/index.html",
+      "date": null,
+      "source": "www.guancha.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2026",
+        "观察者",
+        "典范",
+        "评选",
+        "年度",
+        "持续",
+        "企业",
+        "发展"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "观察者网 · 2026 年度 可持续发展 典范企业评选"
+      ]
+    },
+    {
+      "rank": 38,
+      "id": "e9bc50c753ff",
+      "title": "踟蹰与乐观 ESG 的 中国 机遇 —— 2026 华夏 ESG 管理体系大会在京召开_公益_华夏时报网",
+      "url": "https://www.chinatimes.net.cn/article/155929.html",
+      "date": null,
+      "source": "www.chinatimes.net.cn",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 82,
+      "keywords": [
+        "ESG",
+        "贾康",
+        "2026",
+        "A股",
+        "...",
+        "题为",
+        "演讲",
+        "强制",
+        "所长",
+        "财务",
+        "财政部",
+        "经济学家"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "著名经济学家、财政部财政科学研究所原所长贾康在题为《ESG的财务表现》的演讲中分析,从 2026年 开始,A股部分上市公司进入强制披露阶段,ESG信息已经成为..."
+      ]
+    },
+    {
+      "rank": 39,
+      "id": "8c89bbfa51f0",
+      "title": "陕西煤业 2025年2季度 ESG 活跃度指标 在A股煤炭行业排名第1",
+      "url": "https://www.360kuai.com/pc/981b1c74250ca2e01?cota=3&kuai_so=1&sign=360_57c3bbd1&refer_scene=so_1",
+      "date": null,
+      "source": "www.360kuai.com",
+      "search_score": 1.5,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "2025",
+        "ESG",
+        "A股",
+        "煤业",
+        "煤炭行业",
+        "排名第",
+        "活跃度",
+        "季度",
+        "陕西",
+        "指标"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "陕西煤业 2025年2季度 ESG 活跃度指标 在A股煤炭行业排名第1"
+      ]
+    },
+    {
+      "rank": 40,
+      "id": "a0c9f50aaf33",
+      "title": "国联安 ESG 300ETF(159653) 2026年11月 5日申赎清单调整: 中国神华 减持居前,其余成份股数量未现明显增持_新浪财经_新浪网",
+      "url": "https://finance.sina.com.cn/money/fund/aiassistant/etfssqd/2026-11-05/doc-inixrytw8873333.shtml",
+      "date": "2026-11-05",
+      "source": "finance.sina.com.cn",
+      "search_score": 1.33,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "ESG",
+        "300ETF",
+        "159653",
+        "2026",
+        "11",
+        "日申",
+        "居前",
+        "未现",
+        "增持",
+        "新浪网",
+        "国联安",
+        "神华"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "国联安 ESG 300ETF(159653) 2026年11月 5日申赎清单调整: 中国神华 减持居前,其余成份股数量未现明显增持_新浪财经_新浪网"
+      ]
+    }
+  ]
+}
