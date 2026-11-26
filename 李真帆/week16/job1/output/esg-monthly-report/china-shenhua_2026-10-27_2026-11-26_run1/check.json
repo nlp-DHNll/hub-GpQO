@@ -1,0 +1,436 @@
+{
+  "report": "job1/output/esg-monthly-report/china-shenhua_2026-10-27_2026-11-26/report.md",
+  "sources": {
+    "total": 30,
+    "unique_url": 30,
+    "duplicate_url": [],
+    "duplicate_title": [],
+    "missing_date": 0,
+    "in_window": 30,
+    "out_of_window": 0,
+    "unverified_flag": 23
+  },
+  "citations": {
+    "total": 68,
+    "distinct": 30,
+    "dangling": [],
+    "unused": [],
+    "units": 52,
+    "units_cited": 41,
+    "coverage": 78.8
+  },
+  "verification": {
+    "verified": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S9",
+      "S10",
+      "S12",
+      "S14",
+      "S16",
+      "S18",
+      "S19",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S29",
+      "S30"
+    ],
+    "date_mismatch": [
+      "S8",
+      "S17"
+    ],
+    "partial": [
+      "S15",
+      "S20"
+    ],
+    "unreadable": [
+      "S11",
+      "S13",
+      "S28"
+    ],
+    "unconfirmed": [],
+    "unreachable": [],
+    "verified_rate": 76.7,
+    "content_verified_rate": 83.3,
+    "detail": [
+      {
+        "id": "S1",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-10"
+        ],
+        "page_title": "国家矿山安全监察局综合司关于印发矿山重大灾害治理关键环节和风险防控重点的通知 - 国家煤矿安全监察局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S2",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-05"
+        ],
+        "page_title": "国家机关事务管理局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S3",
+        "status": 200,
+        "title_ratio": 0.97,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "中国神华(01088)：张长岩获选举为董事长及法定代表人",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S4",
+        "status": 200,
+        "title_ratio": 0.93,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "建设项目生态环境影响评价分类管理名录（2027年版）",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S5",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "中央企业和地方国资国企社会责任蓝皮书发布会在京举办－国务院国有资产监督管理委员会",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S6",
+        "status": 200,
+        "title_ratio": 0.97,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "煤炭央企ESG评级升级 绿色转型与保供能力成估值新锚点- CFi.CN 中财网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S7",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-17"
+        ],
+        "page_title": "全国碳市场管控边界进一步清晰_碳排放交易网——全球领先的碳市场门户中文网站",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S8",
+        "status": 200,
+        "title_ratio": 0.88,
+        "date_match": false,
+        "page_dates": [
+          "2026-11-14"
+        ],
+        "page_title": "296家！新一批国家级绿色矿山名单公布",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S9",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-09"
+        ],
+        "page_title": "关于发布《温室气体自愿减排项目方法学 乔木林经营碳汇（CCER—13—001—V01）》等2项方法学的通知",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S10",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-04"
+        ],
+        "page_title": "关于做好地方生态环境标准工作的意见",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S11",
+        "status": 200,
+        "title_ratio": 0.04,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S12",
+        "status": 200,
+        "title_ratio": 0.97,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华获香港会计师公会2026年度最佳企业管治及ESG奖",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S13",
+        "status": 200,
+        "title_ratio": 0.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S14",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "生态环境部公布2026年10月全国环境空气质量状况_中华人民共和国生态环境部",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S15",
+        "status": 200,
+        "title_ratio": 0.54,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-23"
+        ],
+        "page_title": "CCTD：一周政策解读与分析（20261120） - 一周政策解读与分析 - CCTD中国煤炭市场网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S16",
+        "status": 200,
+        "title_ratio": 0.96,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-17"
+        ],
+        "page_title": "我国输送距离最长二氧化碳长输管道建成投运--经济·科技--人民网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S17",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": false,
+        "page_dates": [
+          "2026-11-18"
+        ],
+        "page_title": "关于降低煤矿一级安全生产标准化等级的公告 - 政策法规 - 中国煤炭工业协会",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S18",
+        "status": 200,
+        "title_ratio": 0.89,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "短剧里的碳配额缺口照进现实：钢铁企业如何算清“碳账本”",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S19",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-03"
+        ],
+        "page_title": "三季度煤电发电量同比下降 能源低碳转型取得新进展 - 21财经",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S20",
+        "status": 200,
+        "title_ratio": 0.59,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-13"
+        ],
+        "page_title": "关于山东能源集团内蒙古矿业（集团）有限责任公司内蒙古准格尔中部矿区刘三圪旦矿井及选煤厂项目（1000万吨/年）生态环境影响报告书的批复",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S21",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "济二煤矿：让废料“重生”  向精益要效益",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S22",
+        "status": 200,
+        "title_ratio": 0.83,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华：董事会批准根据一般性授权发行H股方案",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S23",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华(601088)_公司公告_中国神华：关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告新浪财经_新浪网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S24",
+        "status": 200,
+        "title_ratio": 0.79,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-13"
+        ],
+        "page_title": "财闻网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S25",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-12"
+        ],
+        "page_title": "中国神华荣获财联社2026ESG致远奖 - 煤炭企业 - CCTD中国煤炭市场网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S26",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-23"
+        ],
+        "page_title": "国家能源集团多项履责案例入选2026央企社会责任系列蓝皮书",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S27",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "中煤能源：A+H 双重监管下，形成“强制性+自愿性”信息披露制度体系和工作机制",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S28",
+        "status": 200,
+        "title_ratio": 0.1,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-31"
+        ],
+        "page_title": "",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S29",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-16"
+        ],
+        "page_title": "兖矿能源：守牢安全底线 蓄势跨越发展",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S30",
+        "status": 200,
+        "title_ratio": 0.97,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "2026年度山西省属企业社会责任报告集中发布-晋城市人民政府门户网站",
+        "unreadable": false,
+        "error": ""
+      }
+    ]
+  },
+  "structure": {
+    "chars": 4392,
+    "headings": [
+      "中国神华 ESG 月度动态报告",
+      "一、本期要点",
+      "二、ESG 政策、评级与标准动态",
+      "2.1 政策与监管",
+      "2.2 评级与标准",
+      "三、行业动态与最佳实践",
+      "3.1 行业动态",
+      "3.2 最佳实践",
+      "四、公司动态的 ESG 影响与建议",
+      "五、对标企业关键行动",
+      "六、下月关注与行动建议",
+      "6.1 日历",
+      "6.2 行动建议"
+    ],
+    "tables": 7,
+    "missing_sections": []
+  }
+}

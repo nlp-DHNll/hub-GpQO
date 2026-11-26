@@ -1,0 +1,722 @@
+{
+  "report": "job2/output/esg-bidding-radar/review_2024-11-27_2026-11-26/report.md",
+  "sources": {
+    "total": 53,
+    "unique_url": 51,
+    "duplicate_url": [
+      "S24",
+      "S29"
+    ],
+    "duplicate_title": [
+      "S27",
+      "S39",
+      "S41",
+      "S44",
+      "S45",
+      "S48"
+    ],
+    "missing_date": 6,
+    "in_window": 47,
+    "out_of_window": 0,
+    "unverified_flag": 11
+  },
+  "citations": {
+    "total": 298,
+    "distinct": 53,
+    "dangling": [],
+    "unused": [],
+    "units": 86,
+    "units_cited": 84,
+    "coverage": 97.7
+  },
+  "verification": {
+    "verified": [
+      "S1",
+      "S3",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S10",
+      "S13",
+      "S14",
+      "S16",
+      "S17",
+      "S19",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S27",
+      "S28",
+      "S29",
+      "S30",
+      "S32",
+      "S33",
+      "S35",
+      "S36",
+      "S37",
+      "S38",
+      "S39",
+      "S40",
+      "S42",
+      "S43",
+      "S45",
+      "S46",
+      "S47",
+      "S48",
+      "S49",
+      "S50",
+      "S53"
+    ],
+    "date_mismatch": [
+      "S2",
+      "S11"
+    ],
+    "partial": [],
+    "unreadable": [
+      "S20",
+      "S41",
+      "S51"
+    ],
+    "unconfirmed": [
+      "S31",
+      "S34"
+    ],
+    "unreachable": [
+      "S4",
+      "S9",
+      "S12",
+      "S15",
+      "S18",
+      "S26",
+      "S44",
+      "S52"
+    ],
+    "verified_rate": 71.7,
+    "content_verified_rate": 75.5,
+    "detail": [
+      {
+        "id": "S1",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "[业务公告/中标公示] 中国光大银行2024-2026年全行碳盘查服务采购项目 中标候选人公示 - 诚E招电子采购交易平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S2",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": false,
+        "page_dates": [
+          "2026-11-02"
+        ],
+        "page_title": "浙江省创新投资集团有限公司-公示公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S3",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-06"
+        ],
+        "page_title": "四川省绿色工厂动态管理项目咨询服务结果公告-际华集团电子化采购平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S4",
+        "status": null,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "SSLError"
+      },
+      {
+        "id": "S5",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-30"
+        ],
+        "page_title": "《深圳市碳排放统计核算与监测分析技术服务项目》中标公告_政策法规【碳交易网——全球领先的碳市场中文门户网站】",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S6",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-14"
+        ],
+        "page_title": "【中标】ESG服务 I 招商港口2026年ESG咨询服务采购项目成交候选人公示",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S7",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-14"
+        ],
+        "page_title": "2026年社会责任暨ESG（或可持续发展）报告编制采购项目成交结果公示 - 广东省机电设备招标中心有限公司(信息发布系统)",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S8",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-09-01"
+        ],
+        "page_title": "芜湖市碳足迹核算技术服务项目中标公示_芜湖市生态环境局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S9",
+        "status": 521,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 521"
+      },
+      {
+        "id": "S10",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中标公告-2025年全集团碳排放盘查项目-候选人公示-RCC瑞达恒",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S11",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": false,
+        "page_dates": [
+          "2026-07-20"
+        ],
+        "page_title": "交易信息详情",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S12",
+        "status": null,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "SSLError"
+      },
+      {
+        "id": "S13",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-07-21"
+        ],
+        "page_title": "￥168万元 中标：中国神华ESG治理体系优化及报告编制咨询服务",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S14",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-07-14"
+        ],
+        "page_title": "全国公共资源交易平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S15",
+        "status": 429,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 429"
+      },
+      {
+        "id": "S16",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-06-05"
+        ],
+        "page_title": "南京市高淳生态环境局中标通知书（高淳区2026年强制性清洁生产审核与重金属环境安全隐患风险评估项目）",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S17",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-05-19"
+        ],
+        "page_title": "吉林省生态环境厅",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S18",
+        "status": 412,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 412"
+      },
+      {
+        "id": "S19",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国质量认证中心南京分中心",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S20",
+        "status": 200,
+        "title_ratio": 0.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中招国际招标有限公司",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S21",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-10-27"
+        ],
+        "page_title": "2025年能源审计报告评估服务中选公告_通知公告_北京经济技术开发区",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S22",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "色达县林业和草原局CCER造林碳汇项目开发(二次)中标（成交）结果公告_碳排放交易网——全球领先的碳市场门户中文网站",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S23",
+        "status": 200,
+        "title_ratio": 0.94,
+        "date_match": true,
+        "page_dates": [
+          "2025-09-22"
+        ],
+        "page_title": "杭州信成-电子招标交易平台-结果公示",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S24",
+        "status": 200,
+        "title_ratio": 0.94,
+        "date_match": true,
+        "page_dates": [
+          "2025-09-22"
+        ],
+        "page_title": "杭州信成-电子招标交易平台-结果公示",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S25",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-09-01"
+        ],
+        "page_title": "粤港澳大湾区碳足迹核算平台和模型开发项目（三期）A包：核算模型和数据集开发建设中标公告中标公告-深圳市东海国际招标有限公司",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S26",
+        "status": null,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "SSLError"
+      },
+      {
+        "id": "S27",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-07-02"
+        ],
+        "page_title": "擎工互联成功中标合肥市2025年重点领域产品碳足迹核算服务项目 - 擎工互联",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S28",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-05-09"
+        ],
+        "page_title": "湖北省政府采购网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S29",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-05-09"
+        ],
+        "page_title": "湖北省政府采购网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S30",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-04-18"
+        ],
+        "page_title": "深圳市环境水务集团有限公司 2024年ESG报告与年度报告编制项目结果公告-深圳环水集团-招标采购数字管理平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S31",
+        "status": 200,
+        "title_ratio": 0.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S32",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "河北农贸集团ESG咨询服务招标结果公告_结果公告__中国招标与采购网-招标采购信息平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S33",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [
+          "2025-12-02"
+        ],
+        "page_title": "【院内采购结果公告】福州大学附属省立医院碳盘查、碳资产管理和评估工作成交公告-福州大学附属省立医院（福建省立医院）",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S34",
+        "status": 200,
+        "title_ratio": 0.1,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S35",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "2026年度ESG中英双版报告编制和版面设计服务",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S36",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "冀中能源集团电子招标投标交易平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S37",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-18"
+        ],
+        "page_title": "250 万！深圳南山区双碳评估技术服务项目启动招标，允许联合体投标_碳管理_碳排放管理师",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S38",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-19"
+        ],
+        "page_title": "【招标】ESG服务 I 华夏理财2026年ESG可持续投资外部数据引入项目供应商征集公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S39",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-04"
+        ],
+        "page_title": "浙江省创新投资集团有限公司-公示公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S40",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-23"
+        ],
+        "page_title": "中国南方航空采购招标网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S41",
+        "status": 200,
+        "title_ratio": 0.22,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S42",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-10"
+        ],
+        "page_title": "开展动力电池碳足迹管理支撑工作公开招标公告_政策法规【碳交易网——全球领先的碳市场中文门户网站】",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S43",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-08-19"
+        ],
+        "page_title": "武商集团股份有限公司2026年度ESG报告编制及上市公司合规管理数字化平台服务项目-武商集团股份有限公司-武商集团[000501]",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S44",
+        "status": 412,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 412"
+      },
+      {
+        "id": "S45",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-10-20"
+        ],
+        "page_title": "2025年能源审计报告评估服务比选公告_通知公告_北京经济技术开发区",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S46",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-09-25"
+        ],
+        "page_title": "中粮会展2025年度ESG报告编制项目采购公告 _中粮糖业电子采购平台_中粮糖业电子采购平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S47",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "哈药集团股份有限公司ESG报告编制 与管理服务-商业合作-哈药集团股份有限公司官方网站",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S48",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-04-15"
+        ],
+        "page_title": "湖北省生态环境厅2025年碳排放第三方核查项目公开招标公告-湖北省成套招标股份有限公司",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S49",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2025-03-25"
+        ],
+        "page_title": "2025年松江区公共机构能源审计项目竞争性磋商公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S50",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2024-12-31"
+        ],
+        "page_title": "重庆水务集团电子商务平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S51",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "关于东方特钢国家级绿色工厂申报咨询服务-招标公告-常州东方特钢有限公司",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S52",
+        "status": 502,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 502"
+      },
+      {
+        "id": "S53",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "深圳市机关事务管理局2025年度能源审计项目（重新竞价）竞价公告招标公告-深圳市东海国际招标有限公司",
+        "unreadable": false,
+        "error": ""
+      }
+    ]
+  },
+  "structure": {
+    "chars": 3496,
+    "headings": [
+      "ESG 相关招投标回顾报告",
+      "一、样本说明",
+      "二、总体情况",
+      "三、热点主题",
+      "四、中标金额分布",
+      "五、时间与地域",
+      "六、中标机构格局",
+      "七、进行中的招标机会",
+      "八、建议"
+    ],
+    "tables": 7,
+    "missing_sections": []
+  },
+  "numbers": {
+    "checked": 7,
+    "missing": []
+  }
+}

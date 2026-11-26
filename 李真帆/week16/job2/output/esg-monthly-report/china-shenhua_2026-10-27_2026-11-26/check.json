@@ -1,0 +1,523 @@
+{
+  "report": "D:/develop/workspace/python/bdai/hub-GpQO/李真帆/week16/job2/output/esg-monthly-report/china-shenhua_2026-10-27_2026-11-26/report.md",
+  "sources": {
+    "total": 37,
+    "unique_url": 37,
+    "duplicate_url": [],
+    "duplicate_title": [],
+    "missing_date": 0,
+    "in_window": 37,
+    "out_of_window": 0,
+    "unverified_flag": 0
+  },
+  "citations": {
+    "total": 107,
+    "distinct": 37,
+    "dangling": [],
+    "unused": [],
+    "units": 66,
+    "units_cited": 61,
+    "coverage": 92.4
+  },
+  "verification": {
+    "verified": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "S30",
+      "S31",
+      "S32",
+      "S33",
+      "S34",
+      "S35",
+      "S36",
+      "S37"
+    ],
+    "date_mismatch": [
+      "S25"
+    ],
+    "partial": [],
+    "unreadable": [],
+    "unconfirmed": [],
+    "unreachable": [],
+    "verified_rate": 97.3,
+    "content_verified_rate": 100.0,
+    "detail": [
+      {
+        "id": "S1",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-10-30"
+        ],
+        "page_title": "健全全域覆盖高效协同立体遥感监测体系 | 《生态环境监测“十五五”规划》系列解读③",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S2",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "关于印发《广东省能源领域节能降碳行动计划（2026—2028年）》的通知 - 碳中和网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S3",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-04"
+        ],
+        "page_title": "关于做好地方生态环境标准工作的意见",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S4",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-05"
+        ],
+        "page_title": "国家机关事务管理局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S5",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-09"
+        ],
+        "page_title": "国家矿山安全监察局关于强化信息化系统建设 严厉打击煤矿非法违法行为的通知 - 国家煤矿安全监察局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S6",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-10"
+        ],
+        "page_title": "国家矿山安全监察局综合司关于印发矿山重大灾害治理关键环节和风险防控重点的通知 - 国家煤矿安全监察局",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S7",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "自然资源部：对新增的296家国家级绿色矿山，严格实行动态管理，如出现不符合管理要求的，将被及时移出名录 - 绿色矿山 - 中关村绿色矿山产业联盟",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S8",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-14"
+        ],
+        "page_title": "296家！新一批国家级绿色矿山名单公布",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S9",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-17"
+        ],
+        "page_title": "全国碳市场管控边界进一步清晰_碳排放交易网——全球领先的碳市场门户中文网站",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S10",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-19"
+        ],
+        "page_title": "陕西省就2026年可再生能源消纳权重征求意见--中国能源新闻网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S11",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "建设项目生态环境影响评价分类管理名录（2027年版）",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S12",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-21"
+        ],
+        "page_title": "11月20日全国碳市场收盘价90.34元／吨 较前一日下跌0.87%-中国能源产业发展网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S13",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "中央企业和地方国资国企社会责任蓝皮书发布会在京举办－国务院国有资产监督管理委员会",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S14",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "Wind ESG洞察日报（2026年11月25日）",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S15",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "国务院国资委举办中央企业董事会工作专题研讨班 持续建强建优中央企业董事会 加快完善中国特色现代企业制度－国务院国有资产监督管理委员会",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S16",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-05"
+        ],
+        "page_title": "IFRS 发布首批 ISSB 准则采用概况｜出海ESG资讯网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S17",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-11"
+        ],
+        "page_title": "进博会发声：华证指数发布绿色低碳榜单与港股通ESG报告，ESG评分前50%组合三年年化11.7%",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S18",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-17"
+        ],
+        "page_title": "合规头条展示",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S19",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "【水滴研报】专业研报平台丨收录海量行业报告、券商研报丨免费分享行业研报",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S20",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "煤炭央企ESG评级升级 绿色转型与保供能力成估值新锚点- CFi.CN 中财网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S21",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "短剧里的碳配额缺口照进现实：钢铁企业如何算清“碳账本”",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S22",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-15"
+        ],
+        "page_title": "科技赋能无废矿山 守护矿山绿水青山 ——2026绿色矿山与无废矿山建设研讨会在西安举办",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S23",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "煤炭央企ESG评分超84分 绿色转型提速保供韧性增强- CFi.CN 中财网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S24",
+        "status": 200,
+        "title_ratio": 0.88,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-13"
+        ],
+        "page_title": "财闻网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S25",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": false,
+        "page_dates": [
+          "2026-01-10"
+        ],
+        "page_title": "证券日报网-中国神华能源股份有限公司 2026年10月份主要运营数据公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S26",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华荣获财联社2026ESG致远奖",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S27",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华获香港会计师公会2026年度最佳企业管治及ESG奖",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S28",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "中国神华(601088)_公司公告_中国神华：关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告新浪财经_新浪网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S29",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "中国神华(01088)公告及通告 - [更换行政总裁 / 更换董事或重要行政职能或职责的变更]选举董事长及变更法定代表人及总经理辞任",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S30",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "中国神华：董事会批准根据一般性授权发行H股方案",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S31",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "国家能源集团多项履责案例入选2026央企社会责任系列蓝皮书",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S32",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-05"
+        ],
+        "page_title": "兖矿能源正式发布“提质增效重回报”2.0方案 - 煤炭企业 - CCTD中国煤炭市场网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S33",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-14"
+        ],
+        "page_title": "陕煤集团新增7座国家级绿色矿山→",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S34",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-16"
+        ],
+        "page_title": "兖矿能源：守牢安全底线 蓄势跨越发展",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S35",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "济二煤矿：让废料“重生”  向精益要效益",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S36",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-24"
+        ],
+        "page_title": "2026年度山西省属企业社会责任报告集中发布-新华网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S37",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-25"
+        ],
+        "page_title": "中煤能源：A+H 双重监管下，形成“强制性+自愿性”信息披露制度体系和工作机制",
+        "unreadable": false,
+        "error": ""
+      }
+    ]
+  },
+  "structure": {
+    "chars": 5985,
+    "headings": [
+      "中国神华 ESG 月度动态报告",
+      "一、本期要点",
+      "二、ESG 政策、评级与标准动态",
+      "2.1 政策与监管",
+      "2.2 评级与标准",
+      "三、行业动态与最佳实践",
+      "3.1 行业动态",
+      "3.2 最佳实践",
+      "四、公司动态的 ESG 影响与建议",
+      "五、对标企业关键行动",
+      "六、下月关注与行动建议",
+      "6.1 日历",
+      "6.2 行动建议",
+      "七、检索与筛选说明",
+      "八、方法与局限"
+    ],
+    "tables": 7,
+    "missing_sections": []
+  }
+}

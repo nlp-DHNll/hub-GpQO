@@ -1,0 +1,254 @@
+{
+  "report": "job2/output/esg-bidding-radar/daily/2026-11-26.md",
+  "sources": {
+    "total": 16,
+    "unique_url": 16,
+    "duplicate_url": [],
+    "duplicate_title": [
+      "S10"
+    ],
+    "missing_date": 4,
+    "in_window": 11,
+    "out_of_window": 1,
+    "unverified_flag": 2
+  },
+  "citations": {
+    "total": 12,
+    "distinct": 12,
+    "dangling": [],
+    "unused": [
+      "S10",
+      "S2",
+      "S5",
+      "S8"
+    ],
+    "units": 15,
+    "units_cited": 12,
+    "coverage": 80.0
+  },
+  "verification": {
+    "verified": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S7",
+      "S8",
+      "S11",
+      "S12",
+      "S15"
+    ],
+    "date_mismatch": [
+      "S6"
+    ],
+    "partial": [],
+    "unreadable": [
+      "S10",
+      "S13",
+      "S16"
+    ],
+    "unconfirmed": [],
+    "unreachable": [
+      "S9",
+      "S14"
+    ],
+    "verified_rate": 62.5,
+    "content_verified_rate": 68.8,
+    "detail": [
+      {
+        "id": "S1",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-19"
+        ],
+        "page_title": "【招标】ESG服务 I 华夏理财2026年ESG可持续投资外部数据引入项目供应商征集公告",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S2",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "招投标领域食品行业ESG报告及社会责任服务平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S3",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-06-24"
+        ],
+        "page_title": "[业务公告/项目公告] 2027-2029年度ESG原料数据生产项目招标公告 - 诚E招电子采购交易平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S4",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "2026绿色飞行(ESG广告）谈判公告 - 广东省机电设备招标中心有限公司(信息发布系统)",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S5",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [
+          "2026-11-23"
+        ],
+        "page_title": "锚定标尺 共赴长青——2026中国企业ESG大会",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S6",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": false,
+        "page_dates": [
+          "2023-01-01"
+        ],
+        "page_title": "浙江海港电子招标采购平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S7",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "中闽能源股份有限公司2026年度至2028年度ESG报告编制咨询服务项目_ 招标信息_ 中闽能源股份有限公司",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S8",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "《地球大数据支撑可持续发展目标报告（2026）——全球发展倡议五周年特别报告》在京发布--可持续发展大数据国际研究中心",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S9",
+        "status": 429,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 429"
+      },
+      {
+        "id": "S10",
+        "status": 200,
+        "title_ratio": 0.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "寻标宝-招投标官网|招标公告|工程招标采购信息-百度旗下招标网",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S11",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-26"
+        ],
+        "page_title": "[业务公告/中标公示] 中国光大银行2024-2026年全行碳盘查服务采购项目 中标候选人公示 - 诚E招电子采购交易平台",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S12",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-23"
+        ],
+        "page_title": "【询比采购】2026年11月ISO14067产品碳足迹体系认证/7802-PS202611090887采购结果公示-昊华气体有限公司-乙方宝官网",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S13",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "南山区双碳评估技术服务项目招标公告",
+        "unreadable": true,
+        "error": ""
+      },
+      {
+        "id": "S14",
+        "status": 429,
+        "title_ratio": null,
+        "date_match": null,
+        "page_dates": [],
+        "page_title": "",
+        "unreadable": false,
+        "error": "HTTP 429"
+      },
+      {
+        "id": "S15",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": true,
+        "page_dates": [
+          "2026-11-20"
+        ],
+        "page_title": "宣城市公共资源交易有限公司",
+        "unreadable": false,
+        "error": ""
+      },
+      {
+        "id": "S16",
+        "status": 200,
+        "title_ratio": 1.0,
+        "date_match": null,
+        "page_dates": [
+          "2026-11-19"
+        ],
+        "page_title": "南平工业园区绿色零碳铝合金装备产业园规划环评服务采购项目竞争性磋商公告",
+        "unreadable": true,
+        "error": ""
+      }
+    ]
+  },
+  "structure": {
+    "chars": 614,
+    "headings": [
+      "ESG 招标日报 · 2026-11-26",
+      "新增招标机会",
+      "新增中标结果",
+      "提示"
+    ],
+    "tables": 2,
+    "missing_sections": []
+  }
+}
