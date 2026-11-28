@@ -1,0 +1,1104 @@
+{
+  "generated_at": "2026-11-25T21:49:13",
+  "input_file": "d:\\AI学习\\第16周：Agent应用部署、Skills和OpenClaw\\作业成果\\运行日志与中间数据\\compare_search.json",
+  "items_processed": 34,
+  "pages_fetched_ok": 7,
+  "method": "jieba TF-IDF sentence scoring + position prior (extractive, no LLM)",
+  "items": [
+    {
+      "rank": 1,
+      "id": "33707a8bd46c",
+      "title": "中国 政府网_中央人民政府门户网站",
+      "url": "https://www.gov.cn/",
+      "date": "2022-04-26",
+      "source": "www.gov.cn",
+      "search_score": 10.0,
+      "fetch_status": "ok",
+      "characters": 1418,
+      "keywords": [
+        "习近平",
+        "治党",
+        "中国政府",
+        "中澳",
+        "总理",
+        "国务院办公厅",
+        "10",
+        "李强",
+        "建设",
+        "运行",
+        "党内",
+        "真知灼见"
+      ],
+      "key_numbers": [
+        "2027年",
+        "2026年",
+        "2027年",
+        "2026年"
+      ],
+      "summary": [
+        "习近平对党内法规工作作出重要指示",
+        "习近平：坚持把依规治党当作管党治党基本方式 持续高质量推进党内法规制度建设",
+        "习近平：坚持把依规治党当作管党治党基本方式 持续高质量推进党内法规制度建设"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "51b6b40396b6",
+      "title": "国情_ 中国 政府网",
+      "url": "https://www.gov.cn/guoqing/",
+      "date": "2026-07-07",
+      "source": "www.gov.cn",
+      "search_score": 10.0,
+      "fetch_status": "ok",
+      "characters": 439,
+      "keywords": [
+        "中国政府",
+        "运行",
+        "版本",
+        "主办单位",
+        "下载",
+        "中国",
+        "国歌",
+        "版权所有",
+        "实践",
+        "域名",
+        "国务院办公厅",
+        "平方千米"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "主办单位：国务院办公厅 运行维护单位：中国政府网运行中心",
+        "版权所有：中国政府网 中文域名：中国政府网.政务",
+        "版权所有：中国政府网 中文域名：中国政府网.政务"
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "bf9dbe55424e",
+      "title": "ESG 是什麼？定義、三支柱、2026 完整指南｜芮恆 CoReverie",
+      "url": "https://coreverie.com/guide/what-is-esg",
+      "date": "2026-11-05",
+      "source": "coreverie.com",
+      "search_score": 5.33,
+      "fetch_status": "ok",
+      "characters": 12811,
+      "keywords": [
+        "ESG",
+        "企業",
+        "永續",
+        "報告",
+        "IFRS",
+        "2026",
+        "GRI",
+        "S1",
+        "什麼",
+        "揭露",
+        "S2",
+        "台灣"
+      ],
+      "key_numbers": [
+        "1,750 家",
+        "2025 年",
+        "1,750 家",
+        "1,750 家",
+        "2004 年",
+        "2006 年",
+        "2024 年",
+        "5,000 家",
+        "2026 年",
+        "1,750 家"
+      ],
+      "summary": [
+        "關係圖：永續是大傘 → CSR 和 ESG 都在傘下，但 CSR 是「我願意做什麼好事」，ESG 是「我必須揭露什麼數據」",
+        "ESG 揭露的全球四大標準：GRI、SASB、TCFD、IFRS S1/S2",
+        "2020 年後全球資本市場、台灣金管會、歐盟 CSRD 都統一改用 ESG 揭露語言，CSR 報告書幾乎全數改名為「永續報告書 / ESG 報告書」"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "4a032dbcb810",
+      "title": "2026 - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2026",
+      "date": null,
+      "source": "en.wikipedia.org",
+      "search_score": 0.0,
+      "fetch_status": "ok",
+      "characters": 129,
+      "keywords": [
+        "2026",
+        "一死一伤",
+        "乙巳",
+        "丙午",
+        "Chinese",
+        "calendar",
+        "Wood",
+        "Snake",
+        "Fire",
+        "Horse",
+        "中餐馆",
+        "暂勿"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "Chinese calendar乙巳年 (Wood Snake)",
+        "丙午年 (Fire Horse)",
+        "↑ \"阿富汗中餐馆爆炸酿7死 中国公民一死一伤 华使馆呼吁国民暂勿前往\". January 20, 2026. Retrieved May 16, 2026."
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "8a1d35841a64",
+      "title": "2026 年_百度百科",
+      "url": "https://baike.baidu.com/item/2026%E5%B9%B4",
+      "date": "2026-01-01",
+      "source": "baike.baidu.com",
+      "search_score": 0.0,
+      "fetch_status": "error:HTTPError",
+      "characters": 74,
+      "keywords": [
+        "2026",
+        "丙午",
+        "马年",
+        "365",
+        "354",
+        "闰月",
+        "本年",
+        "公历",
+        "农历",
+        "志愿者",
+        "决议",
+        "联合国"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "2026年，公历平年，共365天，农历丙午年（马年），无闰月，共354天",
+        "联合国决议本年为“可持续发展志愿者国际年”",
+        "2026年1月1 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "ef14df3cc64c",
+      "title": "2026 年及2027年FII 可持续发展 报告及 ESG 评级提升咨询项目 中标 公示-千里马 招标网",
+      "url": "https://www.qianlima.com/bid-635108447.html",
+      "date": "2026-09-28",
+      "source": "www.qianlima.com",
+      "search_score": 0.0,
+      "fetch_status": "ok",
+      "characters": 679,
+      "keywords": [
+        "公示",
+        "中标",
+        "2026",
+        "2027",
+        "FII",
+        "ESG",
+        "项目",
+        "咨询",
+        "分包",
+        "工程",
+        "评级",
+        "提升"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2027年",
+        "2026年",
+        "2027年",
+        "2026年",
+        "2027年",
+        "2026年",
+        "2027年",
+        "2026年",
+        "2027年"
+      ],
+      "summary": [
+        "2026年及2027年FII可持续发展报告及ESG评级提升咨询项目中标公示-千里马招标网",
+        "/2026年及2027年FII可持续发展报告及ESG评级提升咨询项目中标公示",
+        "2026年及2027年FII可持续发展报告及ESG评级提升咨询项目中标公示"
+      ]
+    },
+    {
+      "rank": 7,
+      "id": "6ccc6356f909",
+      "title": "2026 年的法定假日 - 勞工處",
+      "url": "https://www.labour.gov.hk/tc/news/latest_holidays2026.htm",
+      "date": null,
+      "source": "www.labour.gov.hk",
+      "search_score": 0.0,
+      "fetch_status": "ok",
+      "characters": 306,
+      "keywords": [
+        "假日",
+        "僱員",
+        "休息日",
+        "法定",
+        "補假",
+        "非法定",
+        "另定",
+        "2026",
+        "適逢",
+        "須並",
+        "10",
+        "這日"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2021年",
+        "2026年"
+      ],
+      "summary": [
+        "任何僱員，都可享有上述法定假日，如法定假日適逢僱員的休息日，應於休息日翌日補假",
+        "該補假須並非法定假日、另定假日、代替假日或休息日的日子",
+        "某僱員的休息日是星期日，由於重陽節（10月18日）這日的法定假日適逢星期日，僱主應於翌日補假（即10月19日），但這日須並非法定假日、另定假日、代替假日或休息日的日子"
+      ]
+    },
+    {
+      "rank": 8,
+      "id": "91fdcc8d2cb5",
+      "title": "2026 年香港公眾假期表 · 請假攻略 | 通勝 · 香港",
+      "url": "https://tungshing.hk/holidays/2026",
+      "date": null,
+      "source": "tungshing.hk",
+      "search_score": 0.0,
+      "fetch_status": "ok",
+      "characters": 6653,
+      "keywords": [
+        "翌日",
+        "2026",
+        "假期",
+        "公眾",
+        "日放",
+        "活節",
+        "10",
+        "難節",
+        "星期一",
+        "清明",
+        "25",
+        "12"
+      ],
+      "key_numbers": [
+        "2026 年",
+        "2026 年",
+        "2026 年",
+        "2026 年",
+        "2026 年",
+        "2026 年",
+        "2026 年",
+        "2025 年",
+        "2026 年",
+        "2026 年"
+      ],
+      "summary": [
+        "請 3 日10 日4 月 3 日（五）至 4 月 12 日（日）4 月 8、9、10 日耶穌受難節、耶穌受難節翌日、清明節翌日、復活節星期一翌日",
+        "耶穌受難節、耶穌受難節翌日、清明節翌日、復活節星期一翌日：請 3 日放 10 日",
+        "名目寫法變咗：清明節 改成 清明節翌日、復活節星期一 改成 復活節星期一翌日、佛誕 改成 佛誕翌日、重陽節 改成 重陽節翌日"
+      ]
+    },
+    {
+      "rank": 9,
+      "id": "c9a2613d8b9c",
+      "title": "China - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/China",
+      "date": null,
+      "source": "en.wikipedia.org",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 136,
+      "keywords": [
+        "shorter",
+        "form",
+        "name",
+        "Zh",
+        "nggu",
+        "zh",
+        "ng",
+        "central",
+        "gu",
+        "state",
+        "term",
+        "first"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "The shorter form of this name is 中国",
+        "Zhōngguó, from zhōng ('central') and guó ('state'), a term first used for the demesne of the … 阅读更多"
+      ]
+    },
+    {
+      "rank": 10,
+      "id": "bf2b260ea506",
+      "title": "China Daily Website - Connecting China Connecting the World",
+      "url": "https://www.chinadaily.com.cn/",
+      "date": null,
+      "source": "www.chinadaily.com.cn",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 139,
+      "keywords": [
+        "Chinadaily",
+        "com",
+        "cn",
+        "largest",
+        "English",
+        "portal",
+        "China",
+        "providing",
+        "news",
+        "business",
+        "information",
+        "BBS"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "Chinadaily.com.cn is the largest English portal in China, providing news, business information, BBS, learning materials. The Website … 阅读更多"
+      ]
+    },
+    {
+      "rank": 11,
+      "id": "964098b75bc4",
+      "title": "ESG | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "url": "https://wealth.hket.com/sraw020/ESG",
+      "date": null,
+      "source": "wealth.hket.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 73,
+      "keywords": [
+        "ESG",
+        "綠色",
+        "債券",
+        "管治",
+        "緊貼",
+        "環境",
+        "社會",
+        "企業",
+        "趨勢",
+        "準則",
+        "認可",
+        "基金"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "緊貼最新ESG (環境、社會和企業管治) 趨勢及政策、ESG準則及框架",
+        "提供認可ESG基金、綠色基金、ESG債券、綠色債券、ESG投 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 12,
+      "id": "42bf5cdab573",
+      "title": "ESG 懶人包》什麼是 ESG ？全面解析 ESG 核心定義、案例、檢測工具，一次讀懂 ESG …",
+      "url": "https://csr.cw.com.tw/article/43025",
+      "date": "2025-02-01",
+      "source": "csr.cw.com.tw",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 76,
+      "keywords": [
+        "ESG",
+        "2025",
+        "成為",
+        "2023",
+        "企業",
+        "基礎",
+        "愈來",
+        "關注",
+        "什麼",
+        "將會",
+        "定義原則",
+        "必修"
+      ],
+      "key_numbers": [
+        "2025年",
+        "2023年"
+      ],
+      "summary": [
+        "2025年2月1日 · ESG策略成為2023年企業基礎的必修課，近年愈來愈受到關注，究竟什麼是ESG",
+        "本文將會全面解析ESG的定義原則 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 13,
+      "id": "38d9ef086d5a",
+      "title": "ESG 投資 | HKET經濟日報 | ESG | 理財 | 理財頻道",
+      "url": "https://wealth.hket.com/sraw020-2/ESG%E6%8A%95%E8%B3%87",
+      "date": null,
+      "source": "wealth.hket.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 67,
+      "keywords": [
+        "投資",
+        "ESG",
+        "可持續",
+        "管治",
+        "甚麼",
+        "環境",
+        "社會",
+        "企業",
+        "實現",
+        "發展",
+        "投資者",
+        "回報"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "甚麼是環境、社會和企業管治（ESG）投資",
+        "如何實現可持續投資的理念，ESG投資對世界可持續發展及投資者的潛在投資回報有何 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 14,
+      "id": "d0a6e233e97e",
+      "title": "ESG 是什麼？一次了解 ESG 意思，香港企業的實行與展望",
+      "url": "https://www.greenpeace.org/hongkong/issues/climate/update/36671/esg-%e6%98%af%e4%bb%80%e9%ba%bc%ef%bc%9f%e5%b0%8d%e7%92%b0%e5%a2%83%e5%be%88%e9%87%8d%e8%a6%81%ef%bc%9f%e9%a6%99%e6%b8%af%e3%80%81%e4%bc%81%e6%a5%ad%e5%a6%82%e4%bd%95%e5%af%a6%e8%a1%8c%ef%bc%9f/",
+      "date": null,
+      "source": "www.greenpeace.org",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 77,
+      "keywords": [
+        "ESG",
+        "什麼",
+        "CSR",
+        "差異",
+        "為何",
+        "投資",
+        "企業",
+        "參與",
+        "改變",
+        "社會",
+        "想透",
+        "本文"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "ESG CSR 的差異為何",
+        "想透過 ESG 投資支持企業，參與改變社會的力量，需要先了解 ESG 意思及重要性"
+      ]
+    },
+    {
+      "rank": 15,
+      "id": "2e946b37d27c",
+      "title": "ESG 是什麼？何謂 ESG ？企業永續關鍵字 CSR、 ESG 、SDGs 一次 …",
+      "url": "https://www.managertoday.com.tw/articles/view/62727",
+      "date": "2025-07-03",
+      "source": "www.managertoday.com.tw",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 77,
+      "keywords": [
+        "2025",
+        "ESG",
+        "單字",
+        "分別",
+        "環境",
+        "保護",
+        "environment",
+        "社會責任",
+        "social",
+        "英文",
+        "阅读",
+        "公司"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "2025年7月3日 · ESG 是 3 個英文單字的縮寫，分別是環境保護（E，environment）、社會責任（S，social）和公司治 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 16,
+      "id": "98be6adbf3a5",
+      "title": "GovHK 香港政府一站通： 2026 年公眾假期",
+      "url": "https://www.gov.hk/tc/about/abouthk/holiday/2026.htm",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 74,
+      "keywords": [
+        "清明",
+        "2025",
+        "16",
+        "2026",
+        "公眾",
+        "發言人",
+        "節為",
+        "該天",
+        "將訂",
+        "補假",
+        "節翌",
+        "翌日"
+      ],
+      "key_numbers": [
+        "2025年",
+        "2026年"
+      ],
+      "summary": [
+        "2025年5月16日 · 2026年公眾假期 政府發言人說：「由於二 二六年的清明節為星期日，該天的翌日將訂為補假",
+        "就此，由於清明節翌 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 17,
+      "id": "92f25e5efcbc",
+      "title": "GovHK: General holidays for 2026",
+      "url": "https://www.gov.hk/en/about/abouthk/holiday/2026.htm",
+      "date": "2025-05-16",
+      "source": "www.gov.hk",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 126,
+      "keywords": [
+        "2025",
+        "16",
+        "Besides",
+        "Birthday",
+        "Buddha",
+        "Chung",
+        "Yeung",
+        "Festival",
+        "2026",
+        "both",
+        "fall",
+        "Sunday"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "2025年5月16日 · Besides, as the Birthday of the Buddha and the Chung Yeung Festival in 2026 both fall on a Sunday, the day … 阅读更多"
+      ]
+    },
+    {
+      "rank": 18,
+      "id": "2bfdd96dd2e2",
+      "title": "Year 2026 Calendar – Hong Kong - timeanddate.com",
+      "url": "https://www.timeanddate.com/calendar/?year=2026&country=42",
+      "date": null,
+      "source": "www.timeanddate.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 137,
+      "keywords": [
+        "2026",
+        "Hong",
+        "Kong",
+        "Calendar",
+        "holidays",
+        "Yearly",
+        "calendar",
+        "showing",
+        "months",
+        "year",
+        "Calendars",
+        "online"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "Hong Kong 2026 – Calendar with holidays. Yearly calendar showing months for the year 2026. Calendars – online and print friendly – … 阅读更多"
+      ]
+    },
+    {
+      "rank": 19,
+      "id": "22911aac10e7",
+      "title": "【 2026 行事曆】人事行政局115年行事曆出爐！｜休假攻略、補班行事 …",
+      "url": "https://wisdom-life.in/calendar/holiday/2026",
+      "date": null,
+      "source": "wisdom-life.in",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 76,
+      "keywords": [
+        "2026",
+        "行事",
+        "115",
+        "資料",
+        "連假",
+        "過年",
+        "春節",
+        "228",
+        "紀念",
+        "人事行政",
+        "取自",
+        "清明"
+      ],
+      "key_numbers": [
+        "115年",
+        "2026年"
+      ],
+      "summary": [
+        "2026行事曆、115年行事曆（資料取自人事行政局）2026年共有9個連假：2026元旦1天、過年春節9天、228紀念日3天、清明節4天、 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 20,
+      "id": "05553d507859",
+      "title": "【 ESG 入門】 ESG 是什麼？四大 ESG 永續發展策略｜ ESG 中文解釋",
+      "url": "https://projectmanager.com.tw/%e5%b0%88%e6%a1%88%e7%ae%a1%e7%90%86/esg/",
+      "date": "2024-05-13",
+      "source": "projectmanager.com.tw",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 77,
+      "keywords": [
+        "ESG",
+        "什麼",
+        "2024",
+        "13",
+        "入門",
+        "永續",
+        "發展",
+        "解釋",
+        "許多",
+        "企業",
+        "中文",
+        "四大"
+      ],
+      "key_numbers": [
+        "2024年"
+      ],
+      "summary": [
+        "2024年5月13日 · 【ESG入門】ESG是什麼",
+        "四大ESG永續發展策略｜ESG中文解釋 你知道什麼是ESG嗎",
+        "為什麼許多企業都在談 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 21,
+      "id": "13b43286efca",
+      "title": "【 中标 】 ESG 服务 I 南方电网互联网服务有限公司2025- 2026 年 可持续发展 ( ESG )报告综合服务项目 中标公告 - 天眼查",
+      "url": "https://news.tianyancha.com/ll_tvxlh34vzl.html",
+      "date": null,
+      "source": "news.tianyancha.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 0,
+      "keywords": [
+        "ESG",
+        "中标",
+        "2025",
+        "2026",
+        "互联网服务",
+        "天眼",
+        "南方电网",
+        "服务项目",
+        "公告",
+        "综合",
+        "服务",
+        "报告"
+      ],
+      "key_numbers": [
+        "2026 年"
+      ],
+      "summary": [
+        "【 中标 】 ESG 服务 I 南方电网互联网服务有限公司2025- 2026 年 可持续发展 ( ESG )报告综合服务项目 中标公告 - 天眼查"
+      ]
+    },
+    {
+      "rank": 22,
+      "id": "662cabb3b1ac",
+      "title": "【2026最新】 ESG是什麼 ? 企業 ESG 怎麼做？3大指標帶你了解！",
+      "url": "https://www.dnb.com.tw/Thoughts/What-is-esg/",
+      "date": null,
+      "source": "www.dnb.com.tw",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 74,
+      "keywords": [
+        "ESG",
+        "2026",
+        "法規",
+        "演進",
+        "企業",
+        "什麼",
+        "導入",
+        "身為",
+        "國際",
+        "數據",
+        "權威",
+        "將帶"
+      ],
+      "key_numbers": [
+        "2026年"
+      ],
+      "summary": [
+        "2026年ESG法規不停演進，促使企業思考ESG是什麼",
+        "D&B身為國際ESG數據權威，將帶領企業一起了解ESG指 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 23,
+      "id": "2ce5d03b669e",
+      "title": "中华人民共和国_百度百科",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD/106554",
+      "date": "2026-10-01",
+      "source": "baike.baidu.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 87,
+      "keywords": [
+        "People",
+        "Republic",
+        "China",
+        "1949",
+        "10",
+        "工人阶级",
+        "西岸",
+        "太平洋",
+        "中华人民共和国",
+        "东部",
+        "简称",
+        "亚洲"
+      ],
+      "key_numbers": [
+        "1949年"
+      ],
+      "summary": [
+        "中华人民共和国（the People's Republic of China），简称“中国”，成立于1949年10月1日，位于亚洲东部，太平洋西岸，是工人阶级领 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 24,
+      "id": "50d60142ce19",
+      "title": "中国 - BBC News 中文",
+      "url": "https://www.bbc.com/zhongwen/topics/ckr7mn6r003t/simp",
+      "date": null,
+      "source": "www.bbc.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 51,
+      "keywords": [
+        "BBC",
+        "深入分析",
+        "中文网",
+        "涵盖",
+        "多方面",
+        "评论",
+        "最新",
+        "新闻",
+        "之前",
+        "政治",
+        "内容",
+        "关于"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "3 天之前 · BBC中文网提供关于中国的最新新闻、深入分析和评论，涵盖政治、经济、社会等多方面内容"
+      ]
+    },
+    {
+      "rank": 25,
+      "id": "6ece46ae6f8f",
+      "title": "中国 网--网上 中国",
+      "url": "https://www.china.com.cn/",
+      "date": "2025-06-16",
+      "source": "www.china.com.cn",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 71,
+      "keywords": [
+        "发布权",
+        "2025",
+        "16",
+        "新闻",
+        "报道",
+        "重大新闻",
+        "信息库",
+        "采编",
+        "语种",
+        "国情",
+        "国家",
+        "十个"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "2025年6月16日 · 国家重点新闻网站，拥有十个语种独立新闻采编、报道和发布权",
+        "第一时间报道国家重大新闻事件",
+        "国情信息库服务 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 26,
+      "id": "8475fc76da0b",
+      "title": "中国 （世界四大文明古国之一）_百度百科",
+      "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD/1122445",
+      "date": null,
+      "source": "baike.baidu.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 66,
+      "keywords": [
+        "汉族",
+        "民族",
+        "光辉灿烂",
+        "各族人民",
+        "光荣",
+        "汉字",
+        "汉语",
+        "通用",
+        "主体",
+        "中国",
+        "阅读",
+        "创造"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中国各族人民共同创造了光辉灿烂的文化，具有光荣的革命传统",
+        "中国是以汉族为主体民族的多民族国家，通用汉语、汉字，汉族与 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 27,
+      "id": "270f758ae6e1",
+      "title": "中國 - 維基百科，自由嘅百科全書",
+      "url": "https://zh-yue.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B",
+      "date": null,
+      "source": "zh-yue.wikipedia.org",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 74,
+      "keywords": [
+        "中國",
+        "粵拼",
+        "zung1",
+        "gwok3",
+        "簡化",
+        "一詞",
+        "主義",
+        "本位",
+        "中心",
+        "比作",
+        "思想家",
+        "出自"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中國 （粵拼：zung1 gwok3",
+        "簡化字：中国），一詞出自 本位主義 思想家，將自己住嘅地方比作「天下中心」（世界 中心），又稱 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 28,
+      "id": "68d8b598dc06",
+      "title": "主页 - BBC News 中文",
+      "url": "https://www.bbc.com/zhongwen/simp",
+      "date": "2025-09-26",
+      "source": "www.bbc.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 73,
+      "keywords": [
+        "普京",
+        "会晤",
+        "特朗普",
+        "2025",
+        "26",
+        "APEC",
+        "重大胜利",
+        "习近平",
+        "历史性",
+        "周四",
+        "领导人",
+        "俄罗斯"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "2025年9月26日 · APEC上与习近平、特朗普历史性会晤，对普京是一场重大胜利 周四美国、中国和俄罗斯领导人的会晤将为普京（普 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 29,
+      "id": "2fe13fc5f9b7",
+      "title": "从零认识 ESG ：终于有人把 ESG 彻底讲明白了！ - 知乎",
+      "url": "https://zhuanlan.zhihu.com/p/1936484257448042793",
+      "date": "2025-08-06",
+      "source": "zhuanlan.zhihu.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 73,
+      "keywords": [
+        "2025",
+        "ESG",
+        "专业术语",
+        "投资决策",
+        "浪潮",
+        "视野",
+        "发展",
+        "乃至",
+        "公众",
+        "走进",
+        "制定",
+        "阅读"
+      ],
+      "key_numbers": [
+        "2025年"
+      ],
+      "summary": [
+        "2025年8月6日 · 在全球可持续发展浪潮中， “ESG”已从一个专业术语逐渐走进公众视野，成为企业发展、投资决策乃至政策制定的重 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 30,
+      "id": "d4d40173523a",
+      "title": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示",
+      "url": "https://www.jianyu360.cn/nologin/content/SEEY1cFYDI_OyM4I2BoZGIoDSQ4DjRgAWtkKTgrKyEeVlNzVhlUCK8.html",
+      "date": null,
+      "source": "www.jianyu360.cn",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 86,
+      "keywords": [
+        "2026",
+        "2027",
+        "ESG",
+        "卓盈",
+        "亿华",
+        "...",
+        "公示",
+        "债权",
+        "中标",
+        "评估",
+        "采购",
+        "符合"
+      ],
+      "key_numbers": [
+        "2027 年",
+        "2026 年"
+      ],
+      "summary": [
+        "发布 2026 及 2027 年两年符合上市公司标准的 可持续 发展(ESG)报告中标公示. 2026 年广州卓盈房地产开发有限公司对亿华债权评估项目采购结果 公告 ..."
+      ]
+    },
+    {
+      "rank": 31,
+      "id": "1098ccd137b3",
+      "title": "发布 2026 及2027年两年符合上市公司标准的 可持续发展 ( ESG )报告 中标 公示-千里马 招标网",
+      "url": "https://www.qianlima.com/bid-646902786.html",
+      "date": null,
+      "source": "www.qianlima.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 78,
+      "keywords": [
+        "公示",
+        "中标",
+        "招标",
+        "2026",
+        "2027",
+        "ESG",
+        "标书",
+        "...",
+        "代写",
+        "持续",
+        "详情",
+        "进度"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "发布 2026 及 2027 ****公司标准的 可持续 发展(ESG)报告 中标 公示标书代写招标进度跟踪.上市公司持续 发展 中标公示 招标 详情..."
+      ]
+    },
+    {
+      "rank": 32,
+      "id": "ecedcc9a85d7",
+      "title": "环境、社会和公司治理 - 百度百科",
+      "url": "https://baike.baidu.com/item/%E7%8E%AF%E5%A2%83%E3%80%81%E7%A4%BE%E4%BC%9A%E5%92%8C%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86/50983355",
+      "date": null,
+      "source": "baike.baidu.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 67,
+      "keywords": [
+        "ESG",
+        "碳中",
+        "碳达峰",
+        "充分考虑",
+        "中国",
+        "议题",
+        "立足",
+        "宏伟",
+        "大局",
+        "经济社会",
+        "乡村",
+        "振兴"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "中国ESG评价体系建设需要立足中国经济社会发展大局，充分考虑碳中和碳达峰的战略要求、乡村振兴的宏伟布局等中国议题，同时接 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 33,
+      "id": "9c0c019a0122",
+      "title": "香港 2026 年年曆 - 月曆网",
+      "url": "https://www.calendar411.com/hk/calendar/2026/0",
+      "date": "2026-01-01",
+      "source": "www.calendar411.com",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 79,
+      "keywords": [
+        "2026",
+        "香港",
+        "乙巳",
+        "公眾",
+        "及紀念",
+        "26",
+        "日臘八節",
+        "新年",
+        "元旦",
+        "假期",
+        "公元",
+        "阅读"
+      ],
+      "key_numbers": [
+        "2026年",
+        "2026年"
+      ],
+      "summary": [
+        "香港月曆 - 公元2026年1月，農曆乙巳年，蛇年",
+        "香港2026年1月的公眾假期及紀念日有1月1日元旦/新年，1月26日臘八節",
+        "香港2026 … 阅读更多"
+      ]
+    },
+    {
+      "rank": 34,
+      "id": "4d16bf9561c6",
+      "title": "香港特別行政區經濟和社會發展第一個五年規劃（ 2026 —2030年）",
+      "url": "https://www.hk5yplan.gov.hk/2026-2030/tc/index.html",
+      "date": null,
+      "source": "www.hk5yplan.gov.hk",
+      "search_score": 0.0,
+      "fetch_status": "snippet-only",
+      "characters": 68,
+      "keywords": [
+        "規劃",
+        "五年",
+        "經濟",
+        "社會",
+        "發展",
+        "開創",
+        "新局",
+        "打開",
+        "國家",
+        "開局",
+        "特別",
+        "主動"
+      ],
+      "key_numbers": [],
+      "summary": [
+        "經濟和社會發展第一個五年規劃 開創新局 打開新篇章 在國家「十五五」規劃開局之年，香港特別行政區首次制定五年規劃，主動對接 … 阅读更多"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "report": "d:/AI学习/第16周：Agent应用部署、Skills和OpenClaw/作业成果/案例一_中国神华ESG月报_20261025-20261125.md",
+  "type": "monthly",
+  "validated_at": "2026-11-25T21:47:23",
+  "score": 100,
+  "passed": true,
+  "checks": {
+    "non_empty": true,
+    "section_政策": true,
+    "section_评级": true,
+    "section_标准": true,
+    "section_行业": true,
+    "section_建议": true,
+    "section_来源": true,
+    "source_count": true,
+    "dates_in_window": true,
+    "no_placeholders": true,
+    "numeric_evidence": true
+  },
+  "issues": [],
+  "stats": {
+    "characters": 9729,
+    "urls": 28,
+    "dates": 57,
+    "numeric_claims": 24
+  }
+}
