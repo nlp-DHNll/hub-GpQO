@@ -1,0 +1,15 @@
+# 权威栏目页：按时间倒序列出标题和日期，用来找时间窗内的新政策和新动态
+- name: 国家发展改革委 新闻发布
+  url: https://www.ndrc.gov.cn/xwdt/xwfb/
+- name: 生态环境部 政策文件
+  url: https://www.mee.gov.cn/zcwj/
+- name: 生态环境部 部文件
+  url: https://www.mee.gov.cn/zcwj/bwj/
+- name: 生态环境部 新闻发布
+  url: https://www.mee.gov.cn/ywdt/xwfb/
+- name: 财政部 政策发布
+  url: https://www.mof.gov.cn/zhengwuxinxi/zhengcefabu/
+- name: 国务院国资委 中央企业动态
+  url: http://www.sasac.gov.cn/n2588025/n2643314/index.html
+- name: 中国人民银行 新闻发布
+  url: http://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html
