@@ -1,0 +1,33 @@
+{
+  "judges": [
+    {
+      "judge": "j1",
+      "arm": "A",
+      "mapped_from": "judge_B(with-scripts)",
+      "scores": {
+        "事实可追溯": 5,
+        "事实/分析分层": 5,
+        "覆盖与取舍": 5,
+        "日期与数字口径": 5,
+        "管理建议/行动计划": 5,
+        "结构与可读性": 5,
+        "跨月一致性": 3
+      }
+    },
+    {
+      "judge": "j1",
+      "arm": "B",
+      "mapped_from": "judge_A(no-scripts)",
+      "scores": {
+        "事实可追溯": 5,
+        "事实/分析分层": 5,
+        "覆盖与取舍": 5,
+        "日期与数字口径": 5,
+        "管理建议/行动计划": 4,
+        "结构与可读性": 5,
+        "跨月一致性": 3
+      }
+    }
+  ],
+  "note": "盲评文件 A=no-scripts、B=with-scripts；此处已按 compare 的 --arm-a=with-scripts / --arm-b=no-scripts 交换。"
+}

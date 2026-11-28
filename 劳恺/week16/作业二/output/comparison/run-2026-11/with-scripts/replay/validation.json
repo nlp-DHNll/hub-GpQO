@@ -1,0 +1,77 @@
+{
+  "summary": {
+    "records": 8,
+    "errors": 0,
+    "warnings": 3,
+    "passed": 8
+  },
+  "items": [
+    {
+      "item_id": "ESG-S-001",
+      "title": "珠海港高栏港区国能散货码头工程通过竣工验收",
+      "issues": [
+        {
+          "severity": "warning",
+          "field": "verification_status",
+          "issue": "该记录尚未完全核实，引用时应保留提示"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-002",
+      "title": "中国神华披露2026年10月份主要运营数据：商品煤产量同比增10.2%，1—10月累计产量仍同比下降1.1%",
+      "issues": [
+        {
+          "severity": "warning",
+          "field": "verification_status",
+          "issue": "该记录尚未完全核实，引用时应保留提示"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-003",
+      "title": "中国神华2026年三季报：前三季度营收2,960.31亿元、归母净利444.03亿元，煤化工分部利润总额31.01亿元扭亏为盈",
+      "issues": [],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-004",
+      "title": "关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告",
+      "issues": [],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-005",
+      "title": "中煤能源披露2026年10月主要生产经营数据：商品煤产量同比降4.8%，自产商品煤销量同比降12.4%",
+      "issues": [],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-006",
+      "title": "中煤能源投资者关系活动记录单（2026年11月17日）：前三季度商品煤综合单位成本近299元/吨，大海则煤矿需整改验收后复产",
+      "issues": [],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-007",
+      "title": "生态环境部明确全国碳市场扩围安排：2027年将覆盖石化、化工等行业，逐步扩大有偿分配比例",
+      "issues": [
+        {
+          "severity": "warning",
+          "field": "verification_status",
+          "issue": "该记录尚未完全核实，引用时应保留提示"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "item_id": "ESG-S-008",
+      "title": "国务院安委办对7省区11个市级政府主要负责人开展安全生产约谈，紧盯较大以上事故反弹",
+      "issues": [],
+      "passed": true
+    }
+  ],
+  "disclaimer": "仅检查字段完整性和格式；未访问 URL，未判断来源真实性或内容是否支持事实。"
+}

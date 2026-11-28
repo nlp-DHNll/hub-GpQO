@@ -1,0 +1,10 @@
+{
+  "arm": "A 或 B",
+  "model": "claude-...",
+  "runs": 1,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "total_tokens": 0,
+  "source": "harness",
+  "notes": "从 /cost 或 API usage 抄录；两臂必须同口径。复制为 <arm>/token_usage.json 后填写。"
+}

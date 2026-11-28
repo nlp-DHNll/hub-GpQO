@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "report_month": "2026-11",
+  "actions": [
+    {
+      "action_id": "A-001",
+      "action": "建立2027年碳市场扩围对煤化工板块的碳成本测算、配额履约责任清单与投料前决策口径",
+      "priority": "high",
+      "owner": "安环与ESG工作委员会牵头，煤化工事业部与财务部门协同",
+      "start_date": "2026-12-01",
+      "due_date": "2027-03-31",
+      "horizon": "medium",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-007",
+        "E-002"
+      ],
+      "notes": "交付物：碳成本测算与配额责任清单；触发：碳市场2027年扩围"
+    },
+    {
+      "action_id": "A-002",
+      "action": "对新疆煤制气全资收购后的碳排放核算边界、配额履约主体与在建项目碳成本开展专项评估",
+      "priority": "high",
+      "owner": "战略投资部门牵头，安环与财务部门协同",
+      "start_date": "2026-12-01",
+      "due_date": "2027-02-28",
+      "horizon": "medium",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-004",
+        "E-007"
+      ],
+      "notes": "交付物：核算边界与履约主体评估；触发：股权收购完成"
+    },
+    {
+      "action_id": "A-003",
+      "action": "在供暖季与年底前完成各矿区重大隐患整改验收、安全许可复核，并建立较大事故阈值预警",
+      "priority": "high",
+      "owner": "安环与ESG工作委员会牵头，各矿区安全管理部门执行",
+      "start_date": "2026-12-01",
+      "due_date": "2026-12-31",
+      "horizon": "short",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-008"
+      ],
+      "notes": "交付物：整改验收清单与阈值预警；触发：安委办约谈"
+    },
+    {
+      "action_id": "A-004",
+      "action": "统一10月运营数据（并表口径）与三季报（原主体口径）的对外解释口径与常见问答",
+      "priority": "medium",
+      "owner": "董事会秘书办公室牵头，财务部门协同",
+      "start_date": "2026-12-01",
+      "due_date": "2026-12-31",
+      "horizon": "short",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-002",
+        "E-003"
+      ],
+      "notes": "交付物：口径说明与问答；触发：同比误读风险"
+    },
+    {
+      "action_id": "A-005",
+      "action": "建立与中煤能源等同行的口径还原对标表，按季度更新产量、成本、煤化工与安全指标",
+      "priority": "medium",
+      "owner": "ESG工作办公室牵头，运营与财务部门协同",
+      "start_date": "2026-12-01",
+      "due_date": "2027-01-31",
+      "horizon": "short",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-005",
+        "E-006"
+      ],
+      "notes": "交付物：季度对标表；触发：同行数据披露"
+    },
+    {
+      "action_id": "A-006",
+      "action": "跟踪珠海港务码头投运后的岸电接驳率与集疏运清洁化数据，评估物流碳边际影响",
+      "priority": "low",
+      "owner": "运输管理部门牵头，安环部门协同",
+      "start_date": "2026-12-01",
+      "due_date": "2027-03-31",
+      "horizon": "medium",
+      "status": "not_started",
+      "related_evidence_ids": [
+        "E-001"
+      ],
+      "notes": "交付物：物流碳评估；触发：码头竣工验收"
+    }
+  ]
+}

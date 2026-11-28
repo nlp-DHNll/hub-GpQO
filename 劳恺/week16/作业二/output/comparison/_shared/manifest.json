@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-11-27",
+  "target_total": 8,
+  "selected_total": 8,
+  "companies": [
+    "中国神华",
+    "中煤能源"
+  ],
+  "company_counts": {
+    "中国神华": 4,
+    "中煤能源": 2
+  },
+  "categories": {
+    "企业动态": 4,
+    "同行实践": 2,
+    "政策法规": 2
+  },
+  "relevance": {
+    "low": 1,
+    "high": 5,
+    "medium": 2
+  },
+  "sources": [
+    {
+      "path": "output\\comparison\\with-scripts\\esg_intelligence.json",
+      "sha256": "992f20c5c51120bb8defec4cdd165932475f976af36076964074ad5952028652",
+      "items": 35
+    },
+    {
+      "path": "output\\comparison\\no-scripts\\esg_intelligence.json",
+      "sha256": "fedb96092ae0f908ac76789a6fcad8b57bf605394b9d5b47fc925ee91e2b7d79",
+      "items": 40
+    }
+  ],
+  "selected": [
+    {
+      "shared_id": "ESG-S-001",
+      "original_item_id": "ESG-011",
+      "company": "中国神华能源股份有限公司（所属珠海港务）",
+      "category": "企业动态",
+      "relevance": "low",
+      "title": "珠海港高栏港区国能散货码头工程通过竣工验收",
+      "source_url": "http://www.shenhuachina.cn/zgshww/gsxw/newslist.shtml"
+    },
+    {
+      "shared_id": "ESG-S-002",
+      "original_item_id": "ESG-001",
+      "company": "中国神华能源股份有限公司",
+      "category": "企业动态",
+      "relevance": "high",
+      "title": "中国神华披露2026年10月份主要运营数据：商品煤产量同比增10.2%，1—10月累计产量仍同比下降1.1%",
+      "source_url": "https://epaper.cs.com.cn/zgzqb/wap/html/2026-11/14/nw.D110000zgzqb_20261114_10-B009.htm"
+    },
+    {
+      "shared_id": "ESG-S-003",
+      "original_item_id": "ESG-033",
+      "company": "中国神华能源股份有限公司",
+      "category": "企业动态",
+      "relevance": "high",
+      "title": "中国神华2026年三季报：前三季度营收2,960.31亿元、归母净利444.03亿元，煤化工分部利润总额31.01亿元扭亏为盈",
+      "source_url": "https://paper.cnstock.com/html/2026-10/24/content_2280574.htm"
+    },
+    {
+      "shared_id": "ESG-S-004",
+      "original_item_id": "ESG-003",
+      "company": "中国神华能源股份有限公司",
+      "category": "企业动态",
+      "relevance": "high",
+      "title": "关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告",
+      "source_url": "https://epaper.cs.com.cn/zgzqb/html/2026-11/17/nw.D110000zgzqb_20261117_8-A10.htm"
+    },
+    {
+      "shared_id": "ESG-S-005",
+      "original_item_id": "ESG-029",
+      "company": "中国中煤能源股份有限公司",
+      "category": "同行实践",
+      "relevance": "medium",
+      "title": "中煤能源披露2026年10月主要生产经营数据：商品煤产量同比降4.8%，自产商品煤销量同比降12.4%",
+      "source_url": "https://www.chinacoalenergy.com/col/col159/2026n/art/2026/art_5047e95e8d284273892a1a32d4d45a65.html"
+    },
+    {
+      "shared_id": "ESG-S-006",
+      "original_item_id": "ESG-030",
+      "company": "中国中煤能源股份有限公司",
+      "category": "同行实践",
+      "relevance": "medium",
+      "title": "中煤能源投资者关系活动记录单（2026年11月17日）：前三季度商品煤综合单位成本近299元/吨，大海则煤矿需整改验收后复产",
+      "source_url": "https://www.cnfin.com/announ/detail/index.html?dannoun=lcdetail&id=848427792553"
+    },
+    {
+      "shared_id": "ESG-S-007",
+      "original_item_id": "ESG-024",
+      "company": "生态环境部",
+      "category": "政策法规",
+      "relevance": "high",
+      "title": "生态环境部明确全国碳市场扩围安排：2027年将覆盖石化、化工等行业，逐步扩大有偿分配比例",
+      "source_url": "https://sthj.xianyang.gov.cn/xwzx/ztzl/rdzt/tdfhtzh/202611/t20261110_2137770.html"
+    },
+    {
+      "shared_id": "ESG-S-008",
+      "original_item_id": "ESG-019",
+      "company": "国务院安全生产委员会办公室",
+      "category": "政策法规",
+      "relevance": "high",
+      "title": "国务院安委办对7省区11个市级政府主要负责人开展安全生产约谈，紧盯较大以上事故反弹",
+      "source_url": "https://society.people.com.cn/n1/2026/1114/c1008-40833659.html"
+    }
+  ],
+  "warnings": [
+    "按标题相似度去重 8 条"
+  ]
+}

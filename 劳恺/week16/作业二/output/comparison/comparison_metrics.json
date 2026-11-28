@@ -1,0 +1,280 @@
+{
+  "experiment": {
+    "month": "2026-11",
+    "as_of": "2026-11-30",
+    "scored_artifact": "monthly_report.md（正文 + 附录 A/B 表）",
+    "not_scored": [
+      "normalized.json",
+      "validation.json",
+      "metrics.json",
+      "report_check.json",
+      "action_tracking.json"
+    ]
+  },
+  "input_equivalence": {
+    "identical": true,
+    "sha256_a": "bab7365294bdaac059ff1a582be9f224dc60ad1b0576b8b5240cec0282846dac",
+    "sha256_b": "bab7365294bdaac059ff1a582be9f224dc60ad1b0576b8b5240cec0282846dac",
+    "items_a": 8,
+    "items_b": 8
+  },
+  "arms": {
+    "a": {
+      "arm": "A",
+      "dir": "output\\comparison\\run-2026-11\\with-scripts",
+      "files": {
+        "monthly_report.md": true,
+        "esg_intelligence.json": true,
+        "token_usage.json": false,
+        "briefing.md": false
+      },
+      "corpus": {
+        "present": true,
+        "sha256": "bab7365294bdaac059ff1a582be9f224dc60ad1b0576b8b5240cec0282846dac",
+        "items": 8,
+        "companies": [
+          "中国中煤能源股份有限公司",
+          "中国神华能源股份有限公司",
+          "中国神华能源股份有限公司（所属珠海港务）",
+          "国务院安全生产委员会办公室",
+          "生态环境部"
+        ],
+        "high_relevance": 5
+      },
+      "report": {
+        "present": true,
+        "chars": 6752,
+        "token_estimate": 2714,
+        "evidence_rows": 8,
+        "evidence_ids_in_body": 8,
+        "citation_coverage": 1.0,
+        "evidence_missing_fields": {
+          "claim": 0,
+          "section": 0,
+          "source_url": 0,
+          "source_title": 0
+        },
+        "urls_in_evidence": 8,
+        "specific_url_ratio": 1.0,
+        "invalid_evidence_urls": 0,
+        "invalid_dates": 0,
+        "event_after_publish": 0,
+        "date_problems": 0,
+        "hallucinated_evidence_urls": 0,
+        "hallucinated_body_urls": 0,
+        "hallucinated_url_detail": [],
+        "high_relevance_total": 5,
+        "high_relevance_covered": 5,
+        "high_relevance_coverage": 1.0,
+        "sections": {
+          "月度摘要": true,
+          "政策与监管": true,
+          "评级与披露": true,
+          "行业与议题": true,
+          "客户企业动态": true,
+          "同行实践": true,
+          "管理建议": true,
+          "参考资料": true
+        },
+        "section_count": 8,
+        "repeated_paragraphs": 0,
+        "repeated_sentences": 1,
+        "has_pending_marker": false,
+        "has_limitations_section": true,
+        "action_rows": 6,
+        "invalid_due_date": 0,
+        "deadline_before_start": 0,
+        "invalid_action_status": 0,
+        "owner_looks_like_person_name": 0,
+        "owner_looks_like_person_name_ids": [],
+        "completed_without_notes": 0,
+        "unknown_related_evidence": 0,
+        "unknown_related_evidence_detail": []
+      },
+      "tokens": {
+        "reported": null,
+        "artifact_chars": 19332,
+        "artifact_token_estimate": 7988,
+        "source": "estimate",
+        "total_tokens": 7988,
+        "runs": null,
+        "filled": false
+      }
+    },
+    "b": {
+      "arm": "B",
+      "dir": "output\\comparison\\run-2026-11\\no-scripts",
+      "files": {
+        "monthly_report.md": true,
+        "esg_intelligence.json": true,
+        "token_usage.json": false,
+        "briefing.md": false
+      },
+      "corpus": {
+        "present": true,
+        "sha256": "bab7365294bdaac059ff1a582be9f224dc60ad1b0576b8b5240cec0282846dac",
+        "items": 8,
+        "companies": [
+          "中国中煤能源股份有限公司",
+          "中国神华能源股份有限公司",
+          "中国神华能源股份有限公司（所属珠海港务）",
+          "国务院安全生产委员会办公室",
+          "生态环境部"
+        ],
+        "high_relevance": 5
+      },
+      "report": {
+        "present": true,
+        "chars": 6362,
+        "token_estimate": 2555,
+        "evidence_rows": 8,
+        "evidence_ids_in_body": 8,
+        "citation_coverage": 1.0,
+        "evidence_missing_fields": {
+          "claim": 0,
+          "section": 0,
+          "source_url": 0,
+          "source_title": 0
+        },
+        "urls_in_evidence": 8,
+        "specific_url_ratio": 1.0,
+        "invalid_evidence_urls": 0,
+        "invalid_dates": 0,
+        "event_after_publish": 0,
+        "date_problems": 0,
+        "hallucinated_evidence_urls": 0,
+        "hallucinated_body_urls": 0,
+        "hallucinated_url_detail": [],
+        "high_relevance_total": 5,
+        "high_relevance_covered": 5,
+        "high_relevance_coverage": 1.0,
+        "sections": {
+          "月度摘要": true,
+          "政策与监管": true,
+          "评级与披露": true,
+          "行业与议题": true,
+          "客户企业动态": true,
+          "同行实践": true,
+          "管理建议": true,
+          "参考资料": true
+        },
+        "section_count": 8,
+        "repeated_paragraphs": 0,
+        "repeated_sentences": 1,
+        "has_pending_marker": false,
+        "has_limitations_section": true,
+        "action_rows": 6,
+        "invalid_due_date": 0,
+        "deadline_before_start": 0,
+        "invalid_action_status": 0,
+        "owner_looks_like_person_name": 0,
+        "owner_looks_like_person_name_ids": [],
+        "completed_without_notes": 0,
+        "unknown_related_evidence": 0,
+        "unknown_related_evidence_detail": []
+      },
+      "tokens": {
+        "reported": null,
+        "artifact_chars": 18942,
+        "artifact_token_estimate": 7829,
+        "source": "estimate",
+        "total_tokens": 7829,
+        "runs": null,
+        "filled": false
+      }
+    }
+  },
+  "deltas": {
+    "report_chars": {
+      "a": 6752,
+      "b": 6362,
+      "delta": 390,
+      "ratio": 1.061
+    },
+    "evidence_rows": {
+      "a": 8,
+      "b": 8,
+      "delta": 0,
+      "ratio": 1.0
+    },
+    "citation_coverage": {
+      "a": 1.0,
+      "b": 1.0,
+      "delta": 0.0,
+      "ratio": 1.0
+    },
+    "specific_url_ratio": {
+      "a": 1.0,
+      "b": 1.0,
+      "delta": 0.0,
+      "ratio": 1.0
+    },
+    "high_relevance_coverage": {
+      "a": 1.0,
+      "b": 1.0,
+      "delta": 0.0,
+      "ratio": 1.0
+    },
+    "date_problems": {
+      "a": 0,
+      "b": 0,
+      "delta": 0,
+      "ratio": null
+    },
+    "repeated_sentences": {
+      "a": 1,
+      "b": 1,
+      "delta": 0,
+      "ratio": 1.0
+    },
+    "hallucinated_urls_evidence": {
+      "a": 0,
+      "b": 0,
+      "delta": 0,
+      "ratio": null
+    },
+    "unknown_related_evidence": {
+      "a": 0,
+      "b": 0,
+      "delta": 0,
+      "ratio": null
+    },
+    "total_tokens": {
+      "a": 7988,
+      "b": 7829,
+      "delta": 159,
+      "ratio": 1.02
+    }
+  },
+  "judgments": {
+    "present": true,
+    "judges": 1,
+    "mean_scores": {
+      "A": {
+        "事实可追溯": 5.0,
+        "事实/分析分层": 5.0,
+        "覆盖与取舍": 5.0,
+        "日期与数字口径": 5.0,
+        "管理建议/行动计划": 5.0,
+        "结构与可读性": 5.0,
+        "跨月一致性": 3.0
+      },
+      "B": {
+        "事实可追溯": 5.0,
+        "事实/分析分层": 5.0,
+        "覆盖与取舍": 5.0,
+        "日期与数字口径": 5.0,
+        "管理建议/行动计划": 4.0,
+        "结构与可读性": 5.0,
+        "跨月一致性": 3.0
+      }
+    }
+  },
+  "notes": [
+    "主评月报正文与附录表；派生 JSON 不计入主分。",
+    "token_usage.json 由运行环境记录；缺失或 total_tokens=0 时只给出字符估计，不能当作真实 token。",
+    "citation_coverage 只检查正文是否出现证据编号，不判断来源是否支持陈述。",
+    "high_relevance_coverage 以来源 URL、item_id 或标题前 20 字是否出现为准，属启发式。",
+    "input_equivalence.identical=false 时，两臂差异不能归因于写作阶段。"
+  ]
+}

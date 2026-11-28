@@ -1,0 +1,54 @@
+{
+  "report_month": "2026-11",
+  "total_input_records": 8,
+  "records_in_month": 7,
+  "category_distribution": {
+    "企业动态": 3,
+    "同行实践": 2,
+    "政策法规": 2
+  },
+  "relevance_distribution": {
+    "low": 1,
+    "high": 4,
+    "medium": 2
+  },
+  "verification_distribution": {
+    "partially_verified": 3,
+    "verified": 4
+  },
+  "source_type_distribution": {
+    "primary": 5,
+    "secondary": 2
+  },
+  "high_relevance_items": [
+    {
+      "item_id": "ESG-S-002",
+      "company": "中国神华能源股份有限公司",
+      "title": "中国神华披露2026年10月份主要运营数据：商品煤产量同比增10.2%，1—10月累计产量仍同比下降1.1%",
+      "category": "企业动态",
+      "publish_date": "2026-11-14"
+    },
+    {
+      "item_id": "ESG-S-004",
+      "company": "中国神华能源股份有限公司",
+      "title": "关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告",
+      "category": "企业动态",
+      "publish_date": "2026-11-17"
+    },
+    {
+      "item_id": "ESG-S-007",
+      "company": "生态环境部",
+      "title": "生态环境部明确全国碳市场扩围安排：2027年将覆盖石化、化工等行业，逐步扩大有偿分配比例",
+      "category": "政策法规",
+      "publish_date": "2026-11-10"
+    },
+    {
+      "item_id": "ESG-S-008",
+      "company": "国务院安全生产委员会办公室",
+      "title": "国务院安委办对7省区11个市级政府主要负责人开展安全生产约谈，紧盯较大以上事故反弹",
+      "category": "政策法规",
+      "publish_date": "2026-11-13"
+    }
+  ],
+  "method_note": "按 publish_date 优先、event_date 兜底筛选月份；仅为数量统计，不代表重要性或趋势结论。"
+}

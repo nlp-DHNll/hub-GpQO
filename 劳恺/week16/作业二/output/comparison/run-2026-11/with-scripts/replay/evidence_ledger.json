@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "report_month": "2026-11",
+  "items": [
+    {
+      "evidence_id": "E-001",
+      "claim": "珠海港高栏港区国能散货码头通过竣工验收",
+      "section": "5.4",
+      "event_date": "2026-11-09",
+      "publish_date": "2026-11-16",
+      "source_name": "中国神华官网（公司新闻）",
+      "source_title": "珠海港高栏港区国能散货码头工程通过竣工验收",
+      "source_url": "http://www.shenhuachina.cn/zgshww/gsxw/newslist.shtml",
+      "verification_status": "partially_verified",
+      "support_note": "官网栏目入口；未定位具体文章页"
+    },
+    {
+      "evidence_id": "E-002",
+      "claim": "2026年10月商品煤产量45.3百万吨、同比+10.2%，累计-1.1%",
+      "section": "5.1",
+      "event_date": "2026-10-31",
+      "publish_date": "2026-11-14",
+      "source_name": "中国证券报·中国证券网",
+      "source_title": "2026年10月份主要运营数据公告（临2026-071）",
+      "source_url": "https://epaper.cs.com.cn/zgzqb/wap/html/2026-11/14/nw.D110000zgzqb_20261114_10-B009.htm",
+      "verification_status": "partially_verified",
+      "support_note": "公告电子版检索呈现；未打开PDF核对"
+    },
+    {
+      "evidence_id": "E-003",
+      "claim": "前三季度营收2960.31亿元、归母净利444.03亿元，煤化工利润31.01亿元扭亏",
+      "section": "5.2",
+      "event_date": "2026-10-23",
+      "publish_date": "2026-10-23",
+      "source_name": "上海证券报·中国证券网",
+      "source_title": "中国神华2026年第三季度报告",
+      "source_url": "https://paper.cnstock.com/html/2026-10/24/content_2280574.htm",
+      "verification_status": "verified",
+      "support_note": "多来源一致；10月发布，仅作基准"
+    },
+    {
+      "evidence_id": "E-004",
+      "claim": "收购国能新疆煤制气50%股权，对价约61767.40万元，持股升至100%",
+      "section": "5.3",
+      "event_date": "2026-11-16",
+      "publish_date": "2026-11-17",
+      "source_name": "中国证券报",
+      "source_title": "关于收购国能新疆煤制气有限公司50%股权暨关联交易进展的公告",
+      "source_url": "https://epaper.cs.com.cn/zgzqb/html/2026-11/17/nw.D110000zgzqb_20261117_8-A10.htm",
+      "verification_status": "verified",
+      "support_note": "公告全文；构成关联交易"
+    },
+    {
+      "evidence_id": "E-005",
+      "claim": "中煤10月商品煤产量1089万吨、同比-4.8%，自产商品煤销量同比-12.4%",
+      "section": "6.1",
+      "event_date": "2026-10-31",
+      "publish_date": "2026-11-16",
+      "source_name": "中煤能源官网",
+      "source_title": "2026年10月份主要生产经营数据公告（2026-044）",
+      "source_url": "https://www.chinacoalenergy.com/col/col159/2026n/art/2026/art_5047e95e8d284273892a1a32d4d45a65.html",
+      "verification_status": "verified",
+      "support_note": "官网与公告页一致"
+    },
+    {
+      "evidence_id": "E-006",
+      "claim": "中煤前三季度商品煤综合单位成本近299元/吨，大海则煤矿整改验收后复产",
+      "section": "6.2",
+      "event_date": "2026-11-17",
+      "publish_date": "2026-11-19",
+      "source_name": "新华财经",
+      "source_title": "中煤能源投资者关系活动记录单（2026-11-17）",
+      "source_url": "https://www.cnfin.com/announ/detail/index.html?dannoun=lcdetail&id=848427792553",
+      "verification_status": "verified",
+      "support_note": "多来源一致；成本对比为分析推断"
+    },
+    {
+      "evidence_id": "E-007",
+      "claim": "全国碳市场2027年扩围至石化、化工，逐步扩大有偿分配比例",
+      "section": "2.1",
+      "event_date": "2026-10-21",
+      "publish_date": "2026-11-10",
+      "source_name": "咸阳市生态环境局（转载）",
+      "source_title": "生态环境部明确全国碳市场扩围安排",
+      "source_url": "https://sthj.xianyang.gov.cn/xwzx/ztzl/rdzt/tdfhtzh/202611/t20261110_2137770.html",
+      "verification_status": "partially_verified",
+      "support_note": "二手转载；原始文件待核对"
+    },
+    {
+      "evidence_id": "E-008",
+      "claim": "国务院安委办约谈7省区11个市级政府主要负责人",
+      "section": "2.2",
+      "event_date": "2026-11-13",
+      "publish_date": "2026-11-13",
+      "source_name": "人民网（转应急管理部）",
+      "source_title": "国务院安委办对11个市级政府开展安全生产约谈",
+      "source_url": "https://society.people.com.cn/n1/2026/1114/c1008-40833659.html",
+      "verification_status": "verified",
+      "support_note": "多来源一致"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ESG Monthly Report Evidence Ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "report_month",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "report_month": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "claim"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "section": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "company": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "event_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "publish_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "source_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_type": {
+            "enum": [
+              "primary",
+              "secondary",
+              "aggregator",
+              "user_provided",
+              "unknown",
+              null
+            ]
+          },
+          "verification_status": {
+            "enum": [
+              "verified",
+              "partially_verified",
+              "unverified",
+              "pending",
+              "not_applicable",
+              null
+            ]
+          },
+          "support_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limitations": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

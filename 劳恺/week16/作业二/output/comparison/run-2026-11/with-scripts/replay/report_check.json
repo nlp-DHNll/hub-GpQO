@@ -1,0 +1,90 @@
+{
+  "summary": {
+    "errors": 0,
+    "warnings": 4,
+    "info": 6
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "type": "repeated_sentence",
+      "detail": {
+        "sentence": "|---|---|---|---|---|---|---|---|---|---|",
+        "count": 2
+      }
+    },
+    {
+      "severity": "warning",
+      "type": "unverified_evidence",
+      "detail": {
+        "evidence_id": "E-001",
+        "status": "partially_verified"
+      }
+    },
+    {
+      "severity": "warning",
+      "type": "unverified_evidence",
+      "detail": {
+        "evidence_id": "E-002",
+        "status": "partially_verified"
+      }
+    },
+    {
+      "severity": "warning",
+      "type": "unverified_evidence",
+      "detail": {
+        "evidence_id": "E-007",
+        "status": "partially_verified"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-001",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-002",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-003",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-004",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-005",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    },
+    {
+      "severity": "info",
+      "type": "check_horizon_definition",
+      "detail": {
+        "action_id": "A-006",
+        "message": "请对照报告中自行定义的短中长期时间范围核对截止日期"
+      }
+    }
+  ],
+  "limitations": "规则检查不能证明事实真实性、来源支持关系或复杂时间分类是否合理；需结合报告定义和原始来源复核。"
+}
