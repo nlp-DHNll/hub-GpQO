@@ -1,0 +1,5 @@
+beautifulsoup4>=4.12,<5
+ddgs==9.16.1
+httpx>=0.28,<1
+openai>=2,<3
+python-dotenv>=1,<2
